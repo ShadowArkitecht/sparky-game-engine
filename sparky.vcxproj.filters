@@ -82,10 +82,16 @@
     <ClInclude Include="include\sparky\utils\threadpool.hpp">
       <Filter>utils\header</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\utils\debug.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
       <Filter>math\header</Filter>
+    </None>
+    <None Include="include\sparky\utils\debug.inl">
+      <Filter>utils\header</Filter>
     </None>
   </ItemGroup>
 </Project>
