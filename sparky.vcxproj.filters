@@ -50,6 +50,9 @@
     <ClCompile Include="src\core\pool.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils\string.cpp">
+      <Filter>utils\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -69,6 +72,9 @@
     </ClInclude>
     <ClInclude Include="include\sparky\core\pool.hpp">
       <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\utils\string.hpp">
+      <Filter>utils\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

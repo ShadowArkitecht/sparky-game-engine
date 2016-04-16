@@ -28,15 +28,10 @@
 
 /*
 ====================
-CPP Includes
-====================
-*/
-#include <string>					// Access to string objects. Used to store name of Window.
-/*
-====================
 Class Includes
 ====================
 */
+#include <sparky\utils\string.hpp>  // Used to store the name of Window.
 #include <sparky\math\vector2.hpp>	// Vector2 functionality. Used for position and size of Window.
 #include <sparky\utils\context.hpp> // Additional context information for the Window and OpenGL flags.
 /*
@@ -59,7 +54,7 @@ namespace sparky
 		static Window* m_pMain;		// Static Reference to the Camera.
 		SDL_Window*	   m_pWindow;	// The SDL Window context.
 		SDL_GLContext  m_GLcontext;	// The context between SDL and OpenGL.
-		std::string	   m_title;		// The title of the Window.
+		String   	   m_title;		// The title of the Window.
 		Vector2i       m_position;	// The position of the Window on the screen.
 		Vector2i       m_size;		// The size/dimensions of the Window.
 		bool		   m_running;	// Whether the Window is currently running.
@@ -95,7 +90,7 @@ namespace sparky
 		/// \param context	The context that will be applied to the OpenGL functionality of the Window.
 		///
 		////////////////////////////////////////////////////////////
-		explicit Window(const std::string& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
+		explicit Window(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
 
 		////////////////////////////////////////////////////////////
 		/// \brief Destruction of a Window object instance.
@@ -134,7 +129,7 @@ namespace sparky
 		/// \retval title	Gets the current title of the Window object.
 		///
 		////////////////////////////////////////////////////////////
-		const std::string& getTitle(void) const;
+		const String& getTitle(void) const;
 
 		////////////////////////////////////////////////////////////
 		/// \brief Set the title of the Window object.
@@ -146,7 +141,7 @@ namespace sparky
 		/// \param title	The new title of the Window object.
 		///
 		////////////////////////////////////////////////////////////
-		void setTitle(const std::string& title);
+		void setTitle(const String& title);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Gets the position of the Window object.
@@ -244,7 +239,7 @@ namespace sparky
 		/// \retval bool	Returns true if the Window object initialise successfully.
 		///
 		////////////////////////////////////////////////////////////
-		bool create(const std::string& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
+		bool create(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
 
 		////////////////////////////////////////////////////////////
 		/// \brief Clears the current Window object.

@@ -62,7 +62,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	Window::Window(const std::string& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context)
+	Window::Window(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context)
 		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_running(false)
 	{
 		if (!this->create(title, position, size, context))
@@ -98,15 +98,15 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	const std::string& Window::getTitle(void) const
+	const String& Window::getTitle(void) const
 	{
 		return m_title;
 	}
 
 	////////////////////////////////////////////////////////////
-	void Window::setTitle(const std::string& title)
+	void Window::setTitle(const String& title)
 	{
-		SDL_SetWindowTitle(m_pWindow, title.c_str());
+		SDL_SetWindowTitle(m_pWindow, title.getCString());
 		m_title = title;
 	}
 
@@ -154,14 +154,14 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	bool Window::create(const std::string& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context)
+	bool Window::create(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context)
 	{
 		m_title = title;
 		m_position = position;
 		m_size = size;
 
 		// Initialise the Window.
-		m_pWindow = SDL_CreateWindow(title.c_str(), position.x, position.y, size.x, size.y, SDL_WINDOW_OPENGL);
+		m_pWindow = SDL_CreateWindow(title.getCString(), position.x, position.y, size.x, size.y, SDL_WINDOW_OPENGL);
 
 		// Error check the Window.
 		if (!m_pWindow)
