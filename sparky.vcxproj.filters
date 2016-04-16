@@ -53,6 +53,9 @@
     <ClCompile Include="src\utils\string.cpp">
       <Filter>utils\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils\threadpool.cpp">
+      <Filter>utils\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -74,6 +77,9 @@
       <Filter>core\header</Filter>
     </ClInclude>
     <ClInclude Include="include\sparky\utils\string.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\utils\threadpool.hpp">
       <Filter>utils\header</Filter>
     </ClInclude>
   </ItemGroup>
