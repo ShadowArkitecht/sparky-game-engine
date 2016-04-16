@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{aef48d98-11e9-4273-b299-14ad4149f3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\header">
+      <UniqueIdentifier>{9b79a038-faf2-49f8-8283-6b84eb5f0ff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\source">
+      <UniqueIdentifier>{f654c00d-c645-4ec4-be7b-3734fcaff65f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{16d22a20-fe07-4173-b026-0009903760ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math\header">
+      <UniqueIdentifier>{0abf761e-344e-4152-8e83-1f32a9e9a92b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math\source">
+      <UniqueIdentifier>{13daf58b-8653-47ac-9474-0095a806d457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{0768a5b1-9eb2-4354-8ee0-130091af5f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\header">
+      <UniqueIdentifier>{006cb68a-48ea-4fc4-bf1d-821be3e8c764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\source">
+      <UniqueIdentifier>{617b439d-64c9-4783-8efb-745a87782ed1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\window.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\object.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\pool.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\sparky\core\window.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\math\vector2.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\utils\context.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\object.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\utils\singleton.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\pool.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\sparky\math\vector2.inl">
+      <Filter>math\header</Filter>
+    </None>
+  </ItemGroup>
+</Project>
