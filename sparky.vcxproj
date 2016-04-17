@@ -86,6 +86,7 @@
     <ClCompile Include="src\core\object.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\window.cpp" />
+    <ClCompile Include="src\utils\config.cpp" />
     <ClCompile Include="src\utils\string.cpp" />
     <ClCompile Include="src\utils\threadpool.cpp" />
   </ItemGroup>
@@ -94,6 +95,7 @@
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
     <ClInclude Include="include\sparky\math\vector2.hpp" />
+    <ClInclude Include="include\sparky\utils\config.hpp" />
     <ClInclude Include="include\sparky\utils\context.hpp" />
     <ClInclude Include="include\sparky\utils\debug.hpp" />
     <ClInclude Include="include\sparky\utils\singleton.hpp" />

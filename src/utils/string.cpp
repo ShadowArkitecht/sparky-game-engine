@@ -274,15 +274,17 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void String::toLower(void)
+	String String::toLower(void)
 	{
 		std::transform(m_data.begin(), m_data.end(), m_data.begin(), std::tolower);
+		return *this;
 	}
 
 	////////////////////////////////////////////////////////////
-	void String::toUpper(void)
+	String String::toUpper(void)
 	{
 		std::transform(m_data.begin(), m_data.end(), m_data.begin(), std::toupper);
+		return *this;
 	}
 
 	////////////////////////////////////////////////////////////

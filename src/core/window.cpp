@@ -34,6 +34,7 @@ Class Includes
 ====================
 */
 #include <sparky\core\window.hpp>	// Class definition.
+#include <sparky\utils\config.hpp>  // The configuration of the Window.
 /*
 ====================
 Additional Includes
@@ -66,6 +67,16 @@ namespace sparky
 		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_running(false)
 	{
 		if (!this->create(title, position, size, context))
+		{
+			return;
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	Window::Window(const ConfigFile& config)
+		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_running(false)
+	{
+		if (!this->create(config))
 		{
 			return;
 		}
@@ -189,6 +200,20 @@ namespace sparky
 		}
 
 		return true;
+	}
+
+	////////////////////////////////////////////////////////////
+	bool Window::create(const ConfigFile& config)
+	{
+		String title  = config.getString("Window.title");
+		Vector2i pos  = Vector2i(config.getInt("Window.position_x"), config.getInt("Window.position_y"));
+		Vector2i size = Vector2i(config.getInt("Window.size_x"), config.getInt("Window.size_y"));
+
+		ContextSettings settings;
+		settings.majorVersion = config.getInt("Context.major_version");
+		settings.minorVersion = config.getInt("Context.minor_version");
+
+		return this->create(title, pos, size,settings);
 	}
 
 	////////////////////////////////////////////////////////////

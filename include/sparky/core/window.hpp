@@ -43,6 +43,13 @@ Additional Includes
 
 namespace sparky
 {
+	/*
+	====================
+	Sparky Forward Declarations
+	====================
+	*/
+	class ConfigFile;
+
 	class Window final
 	{
 	private:
@@ -91,6 +98,18 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		explicit Window(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
+
+		////////////////////////////////////////////////////////////
+		///	\brief Constructs a Window object instance. 
+		///
+		///	This constructor subsequently calls the create method and
+		/// creates a window with the specified parameters, which are
+		/// retrieved from the configuration file.
+		/// 
+		///	\param config	The configuration file the settings are read from.
+		///
+		////////////////////////////////////////////////////////////
+		explicit Window(const ConfigFile& config);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Destruction of a Window object instance.
@@ -224,7 +243,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Creates a Window object.
 		///
-		/// If a Window is constructed with the default constructor, this
+		/// If a Window is constructed with the variable constructor, this
 		/// subsequent method must be called in order to create a Window.
 		/// This method provides additional error checking to make sure all
 		/// elements of the window initialise correctly. If any of the steps
@@ -240,6 +259,23 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		bool create(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context = ContextSettings());
+
+		////////////////////////////////////////////////////////////
+		/// \brief Creates a Window object.
+		///
+		/// If a Window is constructed with the config constructor, this
+		/// subsequent method must be called in order to create a Window.
+		/// This method provides additional error checking to make sure all
+		/// elements of the window initialise correctly. If any of the steps
+		/// fail, the method will return false and an error message will be
+		/// presented to the console window.
+		///
+		/// \param config	The configuration file which contains the window settings.
+		///
+		/// \retval bool	Returns true if the Window object initialise successfully.
+		///
+		////////////////////////////////////////////////////////////
+		bool create(const ConfigFile& config);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Clears the current Window object.

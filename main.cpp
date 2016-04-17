@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sparky\core\window.hpp>
 #include <sparky\core\pool.hpp>
+#include <sparky\utils\config.hpp>
 #include <GLEW\glew.h>
 
 int main(int argc, char** argv)
@@ -11,8 +12,11 @@ int main(int argc, char** argv)
 		return -1;
 	}
 
+	sparky::ConfigFile file;
+	file.open("data/config.scfg");
+
 	sparky::Window window;
-	window.create("Sparky!", sparky::Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED), sparky::Vector2i(640, 480));
+	window.create(file);
 
 	glewExperimental = GL_TRUE;
 	GLenum error = glewInit();

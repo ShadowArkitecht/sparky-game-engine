@@ -388,14 +388,18 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Forces all characters in the String object to become lower-case.
 		///
+		///	\retval String	Returns a copy of this object.
+		///
 		////////////////////////////////////////////////////////////
-		void toLower(void);
+		String toLower(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Forces all characters in the String instance to become upper-case.
 		/// 
+		///	\retval String	Returns a copy of this object.
+		///
 		////////////////////////////////////////////////////////////
-		void toUpper(void);
+		String toUpper(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Removes all trailing characters from the String object.
