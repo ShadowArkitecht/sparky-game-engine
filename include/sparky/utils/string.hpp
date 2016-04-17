@@ -121,6 +121,16 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
+		/// \brief Performs an assignment operator from a "c-style" string.
+		/// 
+		/// \param pStr		The "c-style" string to convert.
+		///
+		/// \retval String&	A reference to this String object.
+		///
+		////////////////////////////////////////////////////////////
+		String& operator=(const char* pStr);
+
+		////////////////////////////////////////////////////////////
 		/// \brief Performs a member-wise concatenation of two Strings.
 		/// 
 		/// When the user adds two String objects together, the result
@@ -467,6 +477,33 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void swap(String& string);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Concatenating a single string onto another.
+		///
+		/// Concatenation is similar to appending, the String is added
+		/// onto the assigned object, the differences is that infinite
+		/// amounts of string can be concatenated onto the returned object.
+		///
+		/// \param first	The first object to concatenated.
+		///
+		////////////////////////////////////////////////////////////
+		template <typename T>
+		static String concat(T first);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Concatenating variadic amount of strings onto another.
+		///
+		/// Concatenation is similar to appending, the String is added
+		/// onto the assigned object, the differences is that infinite
+		/// amounts of string can be concatenated onto the returned object.
+		///
+		/// \param first	The first object to concatenated.
+		/// \param args		The variadic objects to concatenate.
+		///
+		////////////////////////////////////////////////////////////
+		template <typename T, typename... Args>
+		static String concat(T first, Args... args);
 	};
 
 	////////////////////////////////////////////////////////////
@@ -484,6 +521,39 @@ namespace sparky
 	inline std::ostream& operator<<(std::ostream& os, const String& string)
 	{
 		return os << string.getCString();
+	}
+
+	////////////////////////////////////////////////////////////
+	/// \brief Concatenating a single string onto another.
+	///
+	/// Concatenation is similar to appending, the String is added
+	/// onto the assigned object, the differences is that infinite
+	/// amounts of string can be concatenated onto the returned object.
+	///
+	/// \param first	The first object to concatenated.
+	///
+	////////////////////////////////////////////////////////////
+	template <typename T>
+	String String::concat(T first)
+	{
+		return String(first);
+	}
+
+	////////////////////////////////////////////////////////////
+	/// \brief Concatenating variadic amount of strings onto another.
+	///
+	/// Concatenation is similar to appending, the String is added
+	/// onto the assigned object, the differences is that infinite
+	/// amounts of string can be concatenated onto the returned object.
+	///
+	/// \param first	The first object to concatenated.
+	/// \param args		The variadic objects to concatenate.
+	///
+	////////////////////////////////////////////////////////////
+	template <typename T, typename... Args>
+	String String::concat(T first, Args... args)
+	{
+		return String(first) + concat(String(args...));
 	}
 
 }//namespace sparky

@@ -70,6 +70,16 @@ namespace sparky
 	Operators
 	====================
 	*/
+	String& String::operator=(const char* pStr)
+	{
+		m_data.clear();
+		m_data.assign(pStr, pStr + strlen(pStr));
+		// Insert terminator.
+		nullTerminator();
+
+		return *this;
+	}
+
 	////////////////////////////////////////////////////////////
 	String String::operator+(const String& string) const
 	{

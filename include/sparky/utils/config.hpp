@@ -207,3 +207,27 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_CONFIG_FILE_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class spark::ConfigFile
+/// \ingroup utils
+///
+/// sparky::Configfile is a configuration file parsing class
+/// for loading and storing the variables of custom sparky
+/// configuration files (.SCFG). These configuration files
+/// can be used for the loading of Window and Camera variables.
+///
+/// The configuration files are useful for quickly changing 
+/// values without re-compilation. Below is a small code example:
+///
+/// \code
+/// // Create and load the configuration file.
+/// sparky::ConfigFile file;
+/// file.open("data/config.scfg");
+///
+/// // Print the values of the Window.
+/// std::cout << file.getInt("Window.position_x") << std::endl;
+/// std::cout << file.getBool(Window.full_screen") << std::endl;
+/// std::cout << file.getString("Window.title") << std::endl;
+///
+////////////////////////////////////////////////////////////
