@@ -11,7 +11,7 @@ ResourceHolder<T>::~ResourceHolder(void)
 {
 	for (auto& r : m_resources)
 	{
-		Ref::release(r->second);
+		//Ref::release(r->second);
 	}
 
 	m_resources.clear();
