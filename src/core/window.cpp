@@ -35,6 +35,7 @@ Class Includes
 */
 #include <sparky\core\window.hpp>	// Class definition.
 #include <sparky\utils\config.hpp>  // The configuration of the Window.
+#include <sparky\utils\debug.hpp>	// Provides error printing for any errors in Window creation.
 /*
 ====================
 Additional Includes
@@ -49,6 +50,7 @@ namespace sparky
 	Static Fields
 	====================
 	*/
+	////////////////////////////////////////////////////////////
 	Window* Window::m_pMain = nullptr;
 
 	/*
@@ -58,13 +60,13 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Window::Window(void)
-		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_running(false)
+		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_settings(), m_running(false)
 	{
 	}
 
 	////////////////////////////////////////////////////////////
 	Window::Window(const String& title, const Vector2i& position, const Vector2i& size, const ContextSettings& context)
-		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_running(false)
+		: m_pWindow(nullptr), m_GLcontext(), m_title(), m_position(), m_size(), m_settings(), m_running(false)
 	{
 		if (!this->create(title, position, size, context))
 		{
@@ -148,6 +150,12 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
+	const ContextSettings& Window::getContextSettings(void) const
+	{
+		return m_settings;
+	}
+
+	////////////////////////////////////////////////////////////
 	bool Window::isRunning(void) const
 	{
 		return m_running;
@@ -170,6 +178,7 @@ namespace sparky
 		m_title = title;
 		m_position = position;
 		m_size = size;
+		m_settings = context;
 
 		// Initialise the Window.
 		m_pWindow = SDL_CreateWindow(title.getCString(), position.x, position.y, size.x, size.y, SDL_WINDOW_OPENGL);
@@ -177,7 +186,7 @@ namespace sparky
 		// Error check the Window.
 		if (!m_pWindow)
 		{
-			std::cout << "SDL_Window has failed to initialise:" << SDL_GetError() << std::endl;
+			DebugLog::warning("SDL_Window has failed to initialize.", SDL_GetError());
 			return false;
 		}
 
@@ -186,8 +195,8 @@ namespace sparky
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, context.majorVersion);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, context.minorVersion);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, m_settings.majorVersion);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, m_settings.minorVersion);
 
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 

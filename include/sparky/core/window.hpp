@@ -22,7 +22,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #ifndef __SPARKY_WINDOW_HPP__
 #define __SPARKY_WINDOW_HPP__
 
@@ -39,7 +38,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <SDL\SDL.h>				// Provides access to SDL library.
+#include <SDL2\SDL.h>				// Provides access to SDL library.
 
 namespace sparky
 {
@@ -58,13 +57,14 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static Window* m_pMain;		// Static Reference to the Camera.
-		SDL_Window*	   m_pWindow;	// The SDL Window context.
-		SDL_GLContext  m_GLcontext;	// The context between SDL and OpenGL.
-		String   	   m_title;		// The title of the Window.
-		Vector2i       m_position;	// The position of the Window on the screen.
-		Vector2i       m_size;		// The size/dimensions of the Window.
-		bool		   m_running;	// Whether the Window is currently running.
+		static Window*  m_pMain;	// Static Reference to the Camera.
+		SDL_Window*	    m_pWindow;	// The SDL Window context.
+		SDL_GLContext   m_GLcontext;// The context between SDL and OpenGL.
+		String   	    m_title;	// The title of the Window.
+		Vector2i        m_position;	// The position of the Window on the screen.
+		Vector2i        m_size;		// The size/dimensions of the Window.
+		ContextSettings m_settings;	// OpenGL settings of the Window.
+		bool		    m_running;	// Whether the Window is currently running.
 
 	public:
 		/*
@@ -210,6 +210,17 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void setSize(const Vector2i& size);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Get the context settings of the Window object.
+		///
+		/// The context settings refers to the global settings of the
+		/// OpenGL context which is created when the Window is created.
+		/// By default the settings for OpenGL are for version 3.3.
+		///
+		/// \retval ContextSettings		The OpenGL settings of the Window.
+		///
+		const ContextSettings& getContextSettings(void) const;
 
 		////////////////////////////////////////////////////////////
 		/// \brief Checks to see if the Window object is currently running.

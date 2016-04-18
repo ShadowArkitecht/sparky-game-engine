@@ -10,7 +10,7 @@ Class Includes
 ====================
 */
 #include <sparky\core\pool.hpp>		// Class definition.
-#include <sparky\core\object.hpp>	// Objects need to be released upon flushing the current pool.
+#include <sparky\core\ref.hpp>	// Objects need to be released upon flushing the current pool.
 
 namespace sparky
 {
@@ -37,13 +37,13 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	void PoolManager::addObject(Object* pObject)
+	void PoolManager::addObject(Ref* pObject)
 	{
 		m_objects.push_back(pObject);
 	}
 
 	////////////////////////////////////////////////////////////
-	bool PoolManager::contains(Object* pObject) const
+	bool PoolManager::contains(Ref* pObject) const
 	{
 		return std::find(m_objects.begin(), m_objects.end(), pObject) != m_objects.end();
 	}
@@ -53,12 +53,12 @@ namespace sparky
 	{
 		if (!m_objects.empty())
 		{
-			std::vector<Object*> releases;
+			std::vector<Ref*> releases;
 			releases.swap(m_objects);
 
 			for (auto& r : releases)
 			{
-				Object::release(r);
+				Ref::release(r);
 			}
 
 			releases.clear();

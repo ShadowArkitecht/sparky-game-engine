@@ -44,9 +44,6 @@
     <ClCompile Include="src\core\window.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\object.cpp">
-      <Filter>core\source</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\pool.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
@@ -62,6 +59,9 @@
     <ClCompile Include="src\utils\directory.cpp">
       <Filter>utils\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\ref.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -72,9 +72,6 @@
     </ClInclude>
     <ClInclude Include="include\sparky\utils\context.hpp">
       <Filter>utils\header</Filter>
-    </ClInclude>
-    <ClInclude Include="include\sparky\core\object.hpp">
-      <Filter>core\header</Filter>
     </ClInclude>
     <ClInclude Include="include\sparky\utils\singleton.hpp">
       <Filter>utils\header</Filter>
@@ -97,6 +94,12 @@
     <ClInclude Include="include\sparky\utils\directory.hpp">
       <Filter>utils\header</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\core\resourceholder.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\ref.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
@@ -104,6 +107,9 @@
     </None>
     <None Include="include\sparky\utils\debug.inl">
       <Filter>utils\header</Filter>
+    </None>
+    <None Include="include\sparky\core\resourceholder.inl">
+      <Filter>core\header</Filter>
     </None>
   </ItemGroup>
 </Project>

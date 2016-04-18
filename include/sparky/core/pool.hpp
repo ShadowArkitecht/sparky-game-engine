@@ -45,7 +45,7 @@ namespace sparky
 	Sparky Forward Declarations
 	====================
 	*/
-	class Object;
+	class Ref;
 
 	class PoolManager : public Singleton<PoolManager>
 	{
@@ -57,7 +57,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<Object*> m_objects;		// Currently retained dynamic objects.
+		std::vector<Ref*> m_objects;		// Currently retained dynamic objects.
 
 	private:
 		/*
@@ -105,7 +105,7 @@ namespace sparky
 		/// \param pObject	The object to add to the pool.
 		///
 		////////////////////////////////////////////////////////////
-		void addObject(Object* pObject);
+		void addObject(Ref* pObject);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Checks to see if the passed in object is currently within the pool.
@@ -119,7 +119,7 @@ namespace sparky
 		/// \retval	bool	True if the object has been found, false if not.
 		///
 		////////////////////////////////////////////////////////////
-		bool contains(Object* pObject) const;
+		bool contains(Ref* pObject) const;
 
 		////////////////////////////////////////////////////////////
 		/// \brief Flushes the pool of all currently retained objects.
@@ -155,8 +155,8 @@ namespace sparky
 /// sparky::Window window;
 /// window.create("Sparky!", Vector2i(), Vector2i(640, 480));
 ///
-/// // Creating an Object.
-/// sparky::Object* pObject = new sparky::Object();
+/// // Creating an Ref.
+/// sparky::Ref* pObject = new sparky::Ref();
 ///
 /// // Basic game loop.
 /// while (window.isRunning())

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <sparky\utils\debug.hpp>
 #include <sparky\core\window.hpp>
 #include <sparky\core\pool.hpp>
 #include <sparky\utils\config.hpp>
@@ -8,8 +8,7 @@ int main(int argc, char** argv)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		std::cout << "Failed to initialise SDL" << SDL_GetError() << std::endl;
-		return -1;
+		sparky::DebugLog::error("SDL has failed to initialize.", SDL_GetError());
 	}
 
 	sparky::ConfigFile file;
@@ -23,8 +22,7 @@ int main(int argc, char** argv)
 	
 	if (error != GLEW_OK)
 	{
-		std::cout << "Failed to initalise GLEW." << glewGetErrorString(error) << std::endl;
-		return -1;
+		sparky::DebugLog::error("Failed to initalise GLEW.", glewGetErrorString(error));
 	}
 
 	while (window.isRunning())
@@ -35,8 +33,6 @@ int main(int argc, char** argv)
 
 		sparky::PoolManager::getInstance().flush();
 	}
-
-	getchar();
 
 	SDL_Quit();
 
