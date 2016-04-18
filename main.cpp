@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 
 	glewExperimental = GL_TRUE;
 	GLenum error = glewInit();
-
+	
 	if (error != GLEW_OK)
 	{
 		std::cout << "Failed to initalise GLEW." << glewGetErrorString(error) << std::endl;
