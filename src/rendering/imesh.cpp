@@ -102,6 +102,17 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
+	void IMeshComponent::addFace(const Rectf& face, const bool order)
+	{
+		Vertex_t v1(Vector3f(face.position.x,				face.position.y, 0.0f),				  Vector2f(0.0f, 0.0f));
+		Vertex_t v2(Vector3f(face.position.x + face.size.x, face.position.y, 0.0f),				  Vector2f(1.0f, 0.0f));
+		Vertex_t v3(Vector3f(face.position.x + face.size.x, face.position.y + face.size.y, 0.0f), Vector2f(1.0f, 1.0f));
+		Vertex_t v4(Vector3f(face.position.x,				face.position.y + face.size.y, 0.0f), Vector2f(0.0f, 1.0f));
+
+		this->addFace(v1, v2, v3, v4, order);
+	}
+
+	////////////////////////////////////////////////////////////
 	void IMeshComponent::clear(void)
 	{
 		m_vertices.clear();

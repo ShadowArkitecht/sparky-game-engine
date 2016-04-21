@@ -11,7 +11,7 @@ ResourceHolder<T>::~ResourceHolder(void)
 {
 	for (auto& r : m_resources)
 	{
-		//Ref::release(r->second);
+		Ref::release(r->second);
 	}
 
 	m_resources.clear();
@@ -45,26 +45,6 @@ void ResourceHolder<T>::add(const String& name, T* pResource)
 	}
 
 	pResource->addRef();
-	m_resources.insert(std::make_pair(name, pResource));
-}
-
-////////////////////////////////////////////////////////////
-template <typename T>
-template <typename... Args>
-void ResourceHolder<T>::add(const String& name, Args&&... args)
-{
-	auto itr = m_resources.find(name);
-
-	if (itr != m_resources.end())
-	{
-		DebugLog::warning(name, "is already a resource in this list.");
-		return;
-	}
-
-
-	T* pResource = new T(std::forward<Args>(args)...);
-	pResource->addRef();
-
 	m_resources.insert(std::make_pair(name, pResource));
 }
 

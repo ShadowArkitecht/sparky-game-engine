@@ -95,22 +95,6 @@ namespace sparky
 		void add(const String& name, T* pResource);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs a resource with variadic parameters with an 
-		///		   associated key.
-		///
-		/// When a resource is going to be added to the Resource Holder object,
-		/// it checks to make sure that no objects have the same key. If the
-		/// key is not found, a new resource is constructed with the variadic
-		/// parameters, retained an then added to the resource map.
-		///
-		/// \param name		The designated key of the resource.
-		/// \param args     The arguments to construct the resource with.
-		///
-		////////////////////////////////////////////////////////////
-		template <typename... Args>
-		void add(const String& name, Args&&... args);
-
-		////////////////////////////////////////////////////////////
 		/// \brief Removes a resource from the Resource Holder object.
 		///
 		/// When an object is removed, the map is searched to make sure

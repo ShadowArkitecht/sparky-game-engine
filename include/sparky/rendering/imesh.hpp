@@ -27,6 +27,7 @@
 
 #include <sparky\core\ref.hpp>				// IMeshComponent will be a dynamically allocated object.
 #include <sparky\rendering\buffers.hpp>		// OpenGL abstracted buffers.
+#include <sparky\math\rect.hpp>				// Rectangles can be used to make 2D faces.
 
 namespace sparky
 {
@@ -123,6 +124,20 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void addFace(const Vertex_t& v1, const Vertex_t& v2, const Vertex_t& v3, const Vertex_t& v4, const bool order);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds a face to the Mesh object.
+		///
+		/// Convenience method for adding a face to the object. This
+		/// method will take in one 2D rectangle and calculate the correct
+		/// indices accordingly. The order refers to whether the face
+		/// is forward-facing.
+		///
+		/// \param face		The 2D face to add.
+		///	\param order	The rendering order of the face.
+		///
+		////////////////////////////////////////////////////////////
+		void addFace(const Rectf& face, const bool order);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Clears the vertices and indices of the Mesh object.

@@ -100,6 +100,7 @@
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
+    <ClInclude Include="include\sparky\math\rect.hpp" />
     <ClInclude Include="include\sparky\math\vector2.hpp" />
     <ClInclude Include="include\sparky\math\vector3.hpp" />
     <ClInclude Include="include\sparky\rendering\buffers.hpp" />
@@ -116,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\core\resourceholder.inl" />
+    <None Include="include\sparky\math\rect.inl" />
     <None Include="include\sparky\math\vector2.inl" />
     <None Include="include\sparky\math\vector3.inl" />
     <None Include="include\sparky\utils\debug.inl" />

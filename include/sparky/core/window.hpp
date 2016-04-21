@@ -42,6 +42,8 @@ Additional Includes
 
 namespace sparky
 {
+	typedef SDL_Event Event;
+
 	/*
 	====================
 	Sparky Forward Declarations
@@ -307,6 +309,18 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void swap(void) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Poll the Window events.
+		///
+		/// An event is polled when the user either presses a key on the
+		/// keyboard or interacts with the window itself. The response to
+		/// input depends on the states within the event handler.
+		///
+		/// \param e	The current event of the Window object.
+		///
+		////////////////////////////////////////////////////////////
+		int onEvent(Event& e);
 	};
 
 }//namespace sparky

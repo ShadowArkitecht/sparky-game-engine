@@ -237,4 +237,10 @@ namespace sparky
 		SDL_GL_SwapWindow(m_pWindow);
 	}
 
+	////////////////////////////////////////////////////////////
+	int Window::onEvent(SDL_Event& e)
+	{
+		return SDL_PollEvent(&e);
+	}
+
 }//namespace sparky

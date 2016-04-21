@@ -30,13 +30,7 @@ int main(int argc, char** argv)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	MeshData* pMesh = new MeshData();
-
-	Vertex_t v1(Vector3f(-0.5f, -0.5f, 0.0f), Vector2f(0.0f, 0.0f));
-	Vertex_t v2(Vector3f( 0.5f, -0.5f, 0.0f), Vector2f(1.0f, 0.0f));
-	Vertex_t v3(Vector3f( 0.5f,  0.5f, 0.0f), Vector2f(1.0f, 1.0f));
-	Vertex_t v4(Vector3f(-0.5f,  0.5f, 0.0f), Vector2f(0.0f, 1.0f));
-
-	pMesh->addFace(v1, v2, v3, v4, 0);
+	pMesh->addFace(Rectf(-0.5f, -0.5f, 1.0f, 1.0f), 0);
 
 	pMesh->generate();
 
@@ -49,6 +43,15 @@ int main(int argc, char** argv)
 		pMesh->render();
 
 		window.swap();
+
+		sparky::Event e;
+		while (window.onEvent(e))
+		{
+			if (e.type == SDL_QUIT)
+			{
+				window.setRunning(false);
+			}
+		}
 
 		sparky::PoolManager::getInstance().flush();
 	}

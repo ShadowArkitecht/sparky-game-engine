@@ -130,6 +130,9 @@
     <ClInclude Include="include\sparky\rendering\meshdata.hpp">
       <Filter>rendering</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\math\rect.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
@@ -142,6 +145,9 @@
       <Filter>core\header</Filter>
     </None>
     <None Include="include\sparky\math\vector3.inl">
+      <Filter>math\header</Filter>
+    </None>
+    <None Include="include\sparky\math\rect.inl">
       <Filter>math\header</Filter>
     </None>
   </ItemGroup>
