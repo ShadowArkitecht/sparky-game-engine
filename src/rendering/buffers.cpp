@@ -88,16 +88,18 @@ namespace sparky
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
-		GLsizei stride = (VERTEX_ELEMENTS + TEXTURE_ELEMENTS) * sizeof(GLfloat);
+		GLsizei stride = (VERTEX_ELEMENTS + VERTEX_ELEMENTS + TEXTURE_ELEMENTS) * sizeof(GLfloat);
 
 		glVertexAttribPointer(ATTRIB_LOCATION_VERTEX, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, stride, (void*)0);
-		glVertexAttribPointer(ATTRIB_LOCATION_UV,     TEXTURE_ELEMENTS, GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(GLfloat)));
+		glVertexAttribPointer(ATTRIB_LOCATION_NORMAL, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(GLfloat)));
+		glVertexAttribPointer(ATTRIB_LOCATION_UV,     TEXTURE_ELEMENTS, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(GLfloat)));
 	}
 
 	////////////////////////////////////////////////////////////
 	void Buffer::enableAttributes(void)
 	{
 		glEnableVertexAttribArray(ATTRIB_LOCATION_VERTEX);
+		glEnableVertexAttribArray(ATTRIB_LOCATION_NORMAL);
 		glEnableVertexAttribArray(ATTRIB_LOCATION_UV);
 	}
 
@@ -105,6 +107,7 @@ namespace sparky
 	void Buffer::disableAttributes(void)
 	{
 		glDisableVertexAttribArray(ATTRIB_LOCATION_UV);
+		glEnableVertexAttribArray(ATTRIB_LOCATION_NORMAL);
 		glDisableVertexAttribArray(ATTRIB_LOCATION_VERTEX);
 	}
 

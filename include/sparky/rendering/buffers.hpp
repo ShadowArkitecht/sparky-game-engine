@@ -54,6 +54,7 @@ namespace sparky
 	enum eAttributeLocation
 	{
 		ATTRIB_LOCATION_VERTEX,
+		ATTRIB_LOCATION_NORMAL,
 		ATTRIB_LOCATION_UV
 	};
 

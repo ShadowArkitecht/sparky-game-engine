@@ -22,7 +22,13 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+====================
+Class Includes
+====================
+*/
 #include <sparky\rendering\imesh.hpp>	// Class definition.
+#include <sparky\utils\debug.hpp>		// Used if the indices are incorrect for vertex normal generation.
 
 namespace sparky
 {
@@ -40,7 +46,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	IMeshComponent::~IMeshComponent(void)
 	{
-		this->clear();
+		this->reset();
 	}
 
 	/*
@@ -52,6 +58,18 @@ namespace sparky
 	bool IMeshComponent::isGenerated(void) const
 	{
 		return m_generated;
+	}
+
+	////////////////////////////////////////////////////////////
+	GLuint IMeshComponent::getVertexCount(void) const
+	{
+		return m_vertices.size();
+	}
+
+	////////////////////////////////////////////////////////////
+	GLuint IMeshComponent::getIndexCount(void) const
+	{
+		return m_indices.size();
 	}
 
 	/*
@@ -74,7 +92,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void IMeshComponent::addFace(const Vertex_t& v1, const Vertex_t& v2, const Vertex_t& v3, const Vertex_t& v4, const bool order)
 	{
-		int index = m_vertices.size();
+		GLuint index = m_vertices.size();
 
 		this->addVertex(v1);
 		this->addVertex(v2);
@@ -113,6 +131,38 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
+	void IMeshComponent::calculateNormals(void)
+	{
+		if (m_indices.size() % 3 != 0)
+		{
+			DebugLog::warning("The indices of the Mesh are not divisable by 3. Normals not generated.");
+			return;
+		}
+
+		for (GLuint i = 0; i < m_indices.size(); i += 3)
+		{
+			// create a reference to the three vertices so the information can be altered
+			Vertex_t& v0 = m_vertices[m_indices[i + 0]];
+			Vertex_t& v1 = m_vertices[m_indices[i + 1]];
+			Vertex_t& v2 = m_vertices[m_indices[i + 2]];
+			// work out the delta of the three vertices
+			Vector3f u = Vector3f(v1.position.x - v0.position.x, v1.position.y - v0.position.y, v1.position.z - v0.position.z);
+			Vector3f v = Vector3f(v2.position.x - v1.position.x, v2.position.y - v1.position.y, v2.position.z - v1.position.z);
+			// generate the vector perpendicular to the two vectors, and normalise it
+			Vector3f cross = Vector3f::cross(u, v).normalised();
+			// add this value to the current normal value of the vertices
+			v0.normal += cross;
+			v1.normal += cross;
+			v2.normal += cross;
+		}
+
+		for (auto& vertex : m_vertices)
+		{
+			vertex.normal = vertex.normal.normalised();
+		}
+	}
+
+	////////////////////////////////////////////////////////////
 	void IMeshComponent::clear(void)
 	{
 		m_vertices.clear();
@@ -127,12 +177,17 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void IMeshComponent::generate(void)
+	void IMeshComponent::generate(const bool genNormals/*= false*/)
 	{
 		if (!m_generated)
 		{
 			if (!m_vertices.empty())
 			{
+				if (genNormals)
+				{
+					this->calculateNormals();
+				}
+
 				m_arrayBuffer.generate();
 				m_arrayBuffer.bind();
 

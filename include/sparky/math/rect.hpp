@@ -168,6 +168,15 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		bool contains(const T x, const T y) const;
 
+		////////////////////////////////////////////////////////////
+		/// \brief Basic AABB Collision between two Rectangles.
+		///
+		/// This method checks for collision between two different
+		/// Rectangle objects.
+		///
+		/// \param rect		The Rectangle to compare against.
+		///
+		////////////////////////////////////////////////////////////
 		bool intersect(const Rect<T>& rect) const;
 	};
 

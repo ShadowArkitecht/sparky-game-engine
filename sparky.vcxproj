@@ -86,6 +86,8 @@
     <ClCompile Include="src\core\ref.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\window.cpp" />
+    <ClCompile Include="src\generation\chunk.cpp" />
+    <ClCompile Include="src\generation\voxel.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
     <ClCompile Include="src\rendering\imesh.cpp" />
     <ClCompile Include="src\rendering\meshdata.cpp" />
@@ -100,6 +102,8 @@
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
+    <ClInclude Include="include\sparky\generation\chunk.hpp" />
+    <ClInclude Include="include\sparky\generation\voxel.hpp" />
     <ClInclude Include="include\sparky\math\rect.hpp" />
     <ClInclude Include="include\sparky\math\vector2.hpp" />
     <ClInclude Include="include\sparky\math\vector3.hpp" />

@@ -18,6 +18,9 @@ namespace sparky
 		*/
 		explicit Vector2(void);
 		explicit Vector2(const T x, const T y);
+		template <typename U>
+		explicit Vector2(const Vector2<U>& vector);
+		~Vector2(void) = default;
 	};
 
 	#include <sparky\math\vector2.inl>

@@ -1,13 +1,18 @@
+#define SDL_MAIN_HANDLED
+#include <SDL2\SDL.h>
+#include <GLEW\glew.h>
+
 #include <sparky\utils\debug.hpp>
 #include <sparky\core\window.hpp>
 #include <sparky\core\pool.hpp>
 #include <sparky\utils\config.hpp>
-#include <sparky\rendering\meshdata.hpp>
+#include <sparky\generation\chunk.hpp>
 
 using namespace sparky;
 
 int main(int argc, char** argv)
 {
+	SDL_SetMainReady();
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		DebugLog::error("SDL has failed to initialize.", SDL_GetError());
@@ -29,18 +34,16 @@ int main(int argc, char** argv)
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	MeshData* pMesh = new MeshData();
-	pMesh->addFace(Rectf(-0.5f, -0.5f, 1.0f, 1.0f), 0);
+	Chunk* pChunk = new Chunk();
+	pChunk->greedy();
 
-	pMesh->generate();
-
-	pMesh->addRef();
+	pChunk->addRef();
 
 	while (window.isRunning())
 	{
 		window.clear();
 
-		pMesh->render();
+		pChunk->render();
 
 		window.swap();
 

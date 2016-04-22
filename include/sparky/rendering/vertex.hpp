@@ -43,6 +43,7 @@ namespace sparky
 		====================
 		*/
 		Vector3f position;		// Position of the Vertex in 3D space.
+		Vector3f normal;		// The normal of the vertex.
 		Vector2f uv;			// The texture co-ordinate of the Vertex.
 
 		/*
@@ -70,6 +71,19 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		explicit Vertex_t(const Vector3f& position, const Vector2f& uv);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Constructs a Vertex object with a position, normal and uv.
+		///
+		/// Implicity sets the attributes of the Vertex object by
+		/// constructing a Vertex from the parameter values.
+		///
+		/// \param position		The positon of the Vertex in 3D space.
+		/// \param normal		The normals of the Vertex.
+		/// \param uv			The texture co-ordinates of the Vertex.
+		///
+		////////////////////////////////////////////////////////////
+		explicit Vertex_t(const Vector3f& position, const Vector3f& normal, const Vector2f& uv);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Default destruction of the Vertex object.

@@ -25,6 +25,11 @@
 #ifndef __SPARKY_IMESH_COMPONENT_HPP__
 #define __SPARKY_IMESH_COMPONENT_HPP__
 
+/*
+====================
+Class Includes
+====================
+*/
 #include <sparky\core\ref.hpp>				// IMeshComponent will be a dynamically allocated object.
 #include <sparky\rendering\buffers.hpp>		// OpenGL abstracted buffers.
 #include <sparky\math\rect.hpp>				// Rectangles can be used to make 2D faces.
@@ -87,6 +92,22 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		bool isGenerated(void) const;
 
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the amount of vertices attached to this Mesh.
+		///
+		/// \retval GLuint	The amount of vertices.
+		///
+		////////////////////////////////////////////////////////////
+		GLuint getVertexCount(void) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the amount of indices attached to this Mesh.
+		///
+		/// \retval GLuint	The amount of vertices.
+		///
+		////////////////////////////////////////////////////////////
+		GLuint getIndexCount(void) const;
+
 		/*
 		====================
 		Methods
@@ -140,6 +161,17 @@ namespace sparky
 		void addFace(const Rectf& face, const bool order);
 
 		////////////////////////////////////////////////////////////
+		/// \brief Calculate the normals for each Vertex of the Mesh.
+		///
+		/// If the object does not have, this method can be used to 
+		/// generate normals for each Vertex attached to the mesh. This
+		/// method can be called manually or within the mesh generate
+		/// method.
+		///
+		////////////////////////////////////////////////////////////
+		void calculateNormals(void);
+
+		////////////////////////////////////////////////////////////
 		/// \brief Clears the vertices and indices of the Mesh object.
 		////////////////////////////////////////////////////////////
 		void clear(void);
@@ -158,8 +190,11 @@ namespace sparky
 		/// index information. This allows for communication between the
 		/// Mesh and OpenGL.
 		///
+		/// \param genNormals	If true, the mesh will be generated with
+		///						normals.
+		///
 		////////////////////////////////////////////////////////////
-		void generate(void);
+		void generate(const bool genNormals = false);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Abstract rendering method for rendering the Mesh.

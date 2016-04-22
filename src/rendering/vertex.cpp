@@ -28,13 +28,19 @@ namespace sparky
 {
 	////////////////////////////////////////////////////////////
 	Vertex_t::Vertex_t(void)
-		: position(), uv()
+		: position(), normal(), uv()
 	{
 	}
 
 	////////////////////////////////////////////////////////////
 	Vertex_t::Vertex_t(const Vector3f& position, const Vector2f& uv)
-		: position(position), uv(uv)
+		: position(position), normal(), uv(uv)
+	{
+	}
+
+	////////////////////////////////////////////////////////////
+	Vertex_t::Vertex_t(const Vector3f& position, const Vector3f& normal, const Vector2f& uv)
+		: position(position), normal(normal), uv(uv)
 	{
 	}
 }

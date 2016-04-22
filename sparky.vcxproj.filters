@@ -77,6 +77,12 @@
     <ClCompile Include="src\rendering\meshdata.cpp">
       <Filter>rendering</Filter>
     </ClCompile>
+    <ClCompile Include="src\generation\chunk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\generation\voxel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -133,6 +139,8 @@
     <ClInclude Include="include\sparky\math\rect.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\generation\chunk.hpp" />
+    <ClInclude Include="include\sparky\generation\voxel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
