@@ -106,6 +106,20 @@ namespace sparky
 		Matrix4 operator*(const Matrix4& matrix) const;
 
 		////////////////////////////////////////////////////////////
+		/// \brief Performs a member-wise multiplication of two matrices.
+		///
+		/// Multiplication is applied between two different matrices with
+		/// the result being assigned to this Matrix4. It is important
+		/// to remember that matrices are non-communative.
+		///
+		/// \param matrix		The matrix to be multiplied by.
+		///
+		/// \retval Matrix4		A reference to this.
+		///
+		////////////////////////////////////////////////////////////
+		const Matrix4& operator*=(const Matrix4& matrix);
+
+		////////////////////////////////////////////////////////////
 		/// \brief Assignment operator. Sets one matrix to another.
 		///
 		/// \param matrix	The matrix to set the object to.

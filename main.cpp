@@ -11,7 +11,7 @@
 #include <sparky\rendering\program.hpp>
 #include <sparky\rendering\uniform.hpp>
 
-using namespace sparky;
+using namespace sparky;	
 
 int main(int argc, char** argv)
 {
@@ -48,14 +48,14 @@ int main(int argc, char** argv)
 
 	Matrix4f s = Matrix4f::scale(Vector3f(1.0f, 1.0f, 1.0f));
 	Matrix4f r = Matrix4f::rotation(Vector3f(0.0f, 0.0f, 0.0f));
-	Matrix4f t = Matrix4f::translation(Vector3f(0.0f, 0.0f, 0.0f));
+	Matrix4f t = Matrix4f::translation(Vector3f(0.0f, 0.0f, 10.0f));
 
 	Matrix4f view = Matrix4f::translation(Vector3f(0.0f, 0.0f, 10.0f)) * Matrix4f::perspective(Vector3f::forward(), Vector3f::up());
 	Matrix4f proj = Matrix4f::projection(45.0f, 640.0f / 480.0f, 1.0f, 1000.0f);
 
 	Chunk* pChunk = new Chunk();
 
-	pChunk->getVoxel(0, 0, 0).setActive(false);
+	pChunk->getVoxel(8, 8, 0).setActive(false);
 
 	pChunk->greedy();
 
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
 
 	while (window.isRunning())
 	{
-		r = r * Matrix4f::pitchRotation(3.0f * 0.0016f);
+		r *= Matrix4f::pitchRotation(3.0f * 0.0016f);
 
 		Matrix4f mvp = (s * r * t) * view * proj;
 

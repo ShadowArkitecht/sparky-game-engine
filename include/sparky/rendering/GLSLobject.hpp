@@ -55,6 +55,20 @@ namespace sparky
 		Private Methods
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Parses the shader text file.
+		///
+		/// When the shader is parsed, it is error checked for the correct 
+		/// file location and presents an error if the shader cannot be found. 
+		/// The parser will store the shader within a source string, additional 
+		/// support for  include statements has been provided, which will be 
+		/// recursively parsed and added to the source string.
+		/// 
+		/// \param filename		The filename.
+		///
+		/// \retval bool	True if the shader and its include have been parsed.
+		///
+		////////////////////////////////////////////////////////////
 		bool parse(const String& filename);
 
 	public:
@@ -63,7 +77,27 @@ namespace sparky
 		Ctor and Dtor
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Constructs a Shader object with a filename and type.
+		///
+		/// Constructs a new Shader object by loading the shader from the
+		/// specified filename and setting its type. Construction will fail
+		/// if the filename is not a valid shader or does not end in the
+		/// extension .glsl.
+		///
+		/// \param filename		The file directory of the shader.
+		/// \param type			The type of shader being parsed.
+		///
+		////////////////////////////////////////////////////////////
 		explicit GLSLObject(const String& filename, const eShaderType type);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Destructor for the GLSLObject object.
+		///
+		/// When the destructor is called, the shader text is cleared
+		/// and the Shaders ID is deleted.
+		///
+		////////////////////////////////////////////////////////////
 		~GLSLObject(void);
 
 		/*
@@ -71,7 +105,20 @@ namespace sparky
 		Getters and Setters
 		====================
 		*/
-		unsigned int getID(void) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the ID of the Shader object.
+		///
+		/// \retval GLuint	The Shader ID.
+		///
+		////////////////////////////////////////////////////////////
+		GLuint getID(void) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the compilation state of the Shader object.
+		///
+		/// \retval bool	True if the Shader has been compiled.
+		///
+		////////////////////////////////////////////////////////////
 		bool isCompiled(void) const;
 
 		/*
@@ -79,9 +126,37 @@ namespace sparky
 		Methods
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Compiles the Shader object for use.
+		/// 
+		/// When the Shader is compiled, it checks to see if it has
+		/// been compiled already. If it has not, the Shader will 
+		/// compile and provide error checking. If there were no errors
+		/// the Shader is successfully compiled for use.
+		///
+		////////////////////////////////////////////////////////////
 		void compile(void);
 	};
 
 }//namespace sparky
 
 #endif//__SPARKY_GLSL_OBJECT_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::GLSLObject
+/// \ingroup rendering
+///
+/// sparky::GLSLObject is a OpenGL Shader wrapper class for
+/// easily loading, parsing and compiling GLSL shaders. It provides
+/// additional error checking and helper methods for making
+/// compilation as simple as possible.
+///
+/// sparky::GLSLObject is often used in conjunction with 
+/// sparky::Program, which provides additional functionality
+/// for Shader objects.
+///
+/// Due to the generic nature of the class, it can be used for 
+/// compilation of any shader that the user provides it with.
+/// For a code example please refer to sparky::Program.
+///
+////////////////////////////////////////////////////////////

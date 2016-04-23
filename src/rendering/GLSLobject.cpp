@@ -19,6 +19,7 @@ namespace sparky
 	Ctor and Dtor
 	====================
 	*/
+	////////////////////////////////////////////////////////////
 	GLSLObject::GLSLObject(const String& filename, const eShaderType type)
 		: Ref(), m_ID(0), m_filename(filename), m_source(), m_type(), m_compiled(false), m_includes()
 	{
@@ -44,6 +45,7 @@ namespace sparky
 		}
 	}
 
+	////////////////////////////////////////////////////////////
 	GLSLObject::~GLSLObject(void)
 	{
 		m_includes.clear();
@@ -60,11 +62,13 @@ namespace sparky
 	Getters and Setters
 	====================
 	*/
+	////////////////////////////////////////////////////////////
 	GLuint GLSLObject::getID(void) const
 	{
 		return m_ID;
 	}
 
+	////////////////////////////////////////////////////////////
 	bool GLSLObject::isCompiled(void) const
 	{
 		return m_compiled;
@@ -75,6 +79,7 @@ namespace sparky
 	Private Methods
 	====================
 	*/
+	////////////////////////////////////////////////////////////
 	bool GLSLObject::parse(const String& filename)
 	{
 		const String include = "#include";
@@ -149,6 +154,7 @@ namespace sparky
 	Methods
 	====================
 	*/
+	////////////////////////////////////////////////////////////
 	void GLSLObject::compile(void)
 	{
 		if (!m_compiled)
@@ -194,4 +200,4 @@ namespace sparky
 		}
 	}
 
-}//namespace hydra
+}//namespace sparky

@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="core">
       <UniqueIdentifier>{aef48d98-11e9-4273-b299-14ad4149f3a1}</UniqueIdentifier>
     </Filter>
@@ -35,6 +31,21 @@
     <Filter Include="rendering">
       <UniqueIdentifier>{3fec7d6d-3b13-4ca7-90f8-34c133876efb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="generation">
+      <UniqueIdentifier>{6d24b39c-eb28-4891-b9d6-e367372b0aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generation\source">
+      <UniqueIdentifier>{92677966-a890-4fd3-af96-583b9066e3dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generation\header">
+      <UniqueIdentifier>{519876e1-b219-477b-829e-2404d62a935b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rendering\header">
+      <UniqueIdentifier>{b7179560-235f-46a4-bcf2-6eeceb4c385e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rendering\source">
+      <UniqueIdentifier>{2b0df845-b082-43dc-8282-20bd3361c4d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\window.cpp">
@@ -58,29 +69,33 @@
     <ClCompile Include="src\core\ref.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\vertex.cpp">
-      <Filter>rendering</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\generation\chunk.cpp">
+      <Filter>generation\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\generation\voxel.cpp">
+      <Filter>generation\source</Filter>
     </ClCompile>
     <ClCompile Include="src\rendering\buffers.cpp">
-      <Filter>rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rendering\imesh.cpp">
-      <Filter>rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rendering\meshdata.cpp">
-      <Filter>rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\generation\voxel.cpp" />
-    <ClCompile Include="src\generation\chunk.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\rendering\uniform.cpp">
-      <Filter>rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rendering\program.cpp">
-      <Filter>rendering</Filter>
+      <Filter>rendering\source</Filter>
     </ClCompile>
     <ClCompile Include="src\rendering\GLSLobject.cpp">
-      <Filter>rendering</Filter>
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\imesh.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\meshdata.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\program.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\uniform.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\vertex.cpp">
+      <Filter>rendering\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,23 +138,9 @@
     <ClInclude Include="include\sparky\math\vector3.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\imesh.hpp">
-      <Filter>rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="include\sparky\rendering\vertex.hpp">
-      <Filter>rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="include\sparky\rendering\buffers.hpp">
-      <Filter>rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="include\sparky\rendering\meshdata.hpp">
-      <Filter>rendering</Filter>
-    </ClInclude>
     <ClInclude Include="include\sparky\math\rect.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\generation\chunk.hpp" />
-    <ClInclude Include="include\sparky\generation\voxel.hpp" />
     <ClInclude Include="include\sparky\math\vector4.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
@@ -149,14 +150,32 @@
     <ClInclude Include="include\sparky\math\mathutils.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\uniform.hpp">
-      <Filter>rendering</Filter>
+    <ClInclude Include="include\sparky\generation\chunk.hpp">
+      <Filter>generation\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\program.hpp">
-      <Filter>rendering</Filter>
+    <ClInclude Include="include\sparky\generation\voxel.hpp">
+      <Filter>generation\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\buffers.hpp">
+      <Filter>rendering\header</Filter>
     </ClInclude>
     <ClInclude Include="include\sparky\rendering\GLSLobject.hpp">
-      <Filter>rendering</Filter>
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\imesh.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\meshdata.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\program.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\uniform.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\vertex.hpp">
+      <Filter>rendering\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
