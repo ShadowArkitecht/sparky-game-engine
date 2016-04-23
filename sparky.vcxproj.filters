@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -41,9 +37,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\window.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
@@ -77,11 +70,17 @@
     <ClCompile Include="src\rendering\meshdata.cpp">
       <Filter>rendering</Filter>
     </ClCompile>
-    <ClCompile Include="src\generation\chunk.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\generation\voxel.cpp" />
+    <ClCompile Include="src\generation\chunk.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\rendering\uniform.cpp">
+      <Filter>rendering</Filter>
     </ClCompile>
-    <ClCompile Include="src\generation\voxel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\rendering\program.cpp">
+      <Filter>rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\GLSLobject.cpp">
+      <Filter>rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +140,24 @@
     </ClInclude>
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
     <ClInclude Include="include\sparky\generation\voxel.hpp" />
+    <ClInclude Include="include\sparky\math\vector4.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\math\matrix4.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\math\mathutils.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\uniform.hpp">
+      <Filter>rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\program.hpp">
+      <Filter>rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\GLSLobject.hpp">
+      <Filter>rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
@@ -156,6 +173,12 @@
       <Filter>math\header</Filter>
     </None>
     <None Include="include\sparky\math\rect.inl">
+      <Filter>math\header</Filter>
+    </None>
+    <None Include="include\sparky\math\vector4.inl">
+      <Filter>math\header</Filter>
+    </None>
+    <None Include="include\sparky\math\matrix4.inl">
       <Filter>math\header</Filter>
     </None>
   </ItemGroup>

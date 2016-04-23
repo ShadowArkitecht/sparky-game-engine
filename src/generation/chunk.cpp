@@ -15,7 +15,7 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	const int CHUNK_SIZE = 3;
+	const int CHUNK_SIZE = 16;
 
 	/*
 	====================
@@ -87,8 +87,8 @@ namespace sparky
 				{
 					for (x[u] = 0; x[u] < dims[u]; ++x[u], ++counter)
 					{
-						const bool a = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : 0;
-						const bool b = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : 0;
+						const bool a = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
+						const bool b = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
 
 						if (a == b)
 						{
@@ -117,8 +117,11 @@ namespace sparky
 						int c = mask[counter];
 						if (c)
 						{
+							// Calculates the width of the new face. Increments width while less than the dimensions and
+							// c equals the mask at the position.
 							for (width = 1; c == mask[counter + width] && i + width < dims[u]; ++width) { }
 
+							// Calculates the height of the new face
 							bool done = false;
 							for (height = 1; j + height < dims[v]; ++height)
 							{
@@ -144,13 +147,13 @@ namespace sparky
 
 							if (c > 0)
 							{
-								flip = false;
+								flip = true;
 								dv[v] = height;
 								du[u] = width;
 							}
 							else
 							{
-								flip = true;
+								flip = false;
 								c = -c;
 								du[v] = height;
 								dv[u] = width;

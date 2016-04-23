@@ -89,8 +89,11 @@
     <ClCompile Include="src\generation\chunk.cpp" />
     <ClCompile Include="src\generation\voxel.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
+    <ClCompile Include="src\rendering\GLSLobject.cpp" />
     <ClCompile Include="src\rendering\imesh.cpp" />
     <ClCompile Include="src\rendering\meshdata.cpp" />
+    <ClCompile Include="src\rendering\program.cpp" />
+    <ClCompile Include="src\rendering\uniform.cpp" />
     <ClCompile Include="src\rendering\vertex.cpp" />
     <ClCompile Include="src\utils\config.cpp" />
     <ClCompile Include="src\utils\directory.cpp" />
@@ -104,12 +107,18 @@
     <ClInclude Include="include\sparky\core\window.hpp" />
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
     <ClInclude Include="include\sparky\generation\voxel.hpp" />
+    <ClInclude Include="include\sparky\math\mathutils.hpp" />
+    <ClInclude Include="include\sparky\math\matrix4.hpp" />
     <ClInclude Include="include\sparky\math\rect.hpp" />
     <ClInclude Include="include\sparky\math\vector2.hpp" />
     <ClInclude Include="include\sparky\math\vector3.hpp" />
+    <ClInclude Include="include\sparky\math\vector4.hpp" />
     <ClInclude Include="include\sparky\rendering\buffers.hpp" />
+    <ClInclude Include="include\sparky\rendering\GLSLobject.hpp" />
     <ClInclude Include="include\sparky\rendering\imesh.hpp" />
     <ClInclude Include="include\sparky\rendering\meshdata.hpp" />
+    <ClInclude Include="include\sparky\rendering\program.hpp" />
+    <ClInclude Include="include\sparky\rendering\uniform.hpp" />
     <ClInclude Include="include\sparky\rendering\vertex.hpp" />
     <ClInclude Include="include\sparky\utils\config.hpp" />
     <ClInclude Include="include\sparky\utils\context.hpp" />
@@ -121,9 +130,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\core\resourceholder.inl" />
+    <None Include="include\sparky\math\matrix4.inl" />
     <None Include="include\sparky\math\rect.inl" />
     <None Include="include\sparky\math\vector2.inl" />
     <None Include="include\sparky\math\vector3.inl" />
+    <None Include="include\sparky\math\vector4.inl" />
     <None Include="include\sparky\utils\debug.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
