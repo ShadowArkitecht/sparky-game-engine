@@ -3,14 +3,24 @@
 
 namespace sparky
 {
+	enum class eVoxelType
+	{
+		DIRT,
+		STONE
+	};
+
 	class Voxel
 	{
 	private:
-		bool m_active;
+		eVoxelType m_type;
+		bool	   m_active;
 
 	public:
 		explicit Voxel(void);
 		~Voxel(void) = default;
+
+		eVoxelType getType(void) const;
+		void setType(const eVoxelType type);
 
 		bool isActive(void) const;
 		void setActive(const bool active);

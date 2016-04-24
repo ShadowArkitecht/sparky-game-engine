@@ -1,3 +1,27 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+// Sparky Engine
+// 2016 - Benjamin Carter (benjamin.mark.carter@hotmail.com)
+// 
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+// 
+// Permission is granted to anyone to use this software for any purpose,
+// including commercial applications, and to alter it and redistribute it freely,
+// subject to the following restrictions:
+// 
+// 1. The origin of this software must not be misrepresented;
+//    you must not claim that you wrote the original software.
+//    If you use this software in a product, an acknowledgement
+//    in the product documentation would be appreciated but is not required.
+// 
+// 2. Altered source versions must be plainly marked as such,
+//    and must not be misrepresented as being the original software.
+// 
+// 3. This notice may not be removed or altered from any source distribution.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef __SPARKY_CHUNK_HPP__
 #define __SPARKY_CHUNK_HPP__
 
@@ -34,8 +58,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::array<Voxel, 16 * 16 * 16>	  m_voxels;	// The individual voxels of the chunk.
-		MeshData*				          m_pMesh;	// The mesh that renders the voxels.
+		std::array<Voxel, 16 * 16 * 16> m_voxels;		// The individual voxels of the chunk.
+		MeshData*				        m_pMesh;	    // The mesh that renders the voxels.
+		bool					        m_shouldLoad;
 
 	public:
 		/*
@@ -71,18 +96,30 @@ namespace sparky
 		/// 
 		/// \param pos		The position of the voxel.
 		///
+		/// \retval Voxel	The voxel at the specified position.
+		///
 		////////////////////////////////////////////////////////////
 		Voxel& getVoxel(const Vector3i& pos);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the voxel at the position.
 		/// 
-		/// \param x	The x position of the voxel.
-		/// \param y	The y position of the voxel.
-		/// \param z	The z position of the voxel.
+		/// \param x		The x position of the voxel.
+		/// \param y		The y position of the voxel.
+		/// \param z		The z position of the voxel.
+		///
+		/// \retval Voxel	The voxel at the specified position.
 		///
 		////////////////////////////////////////////////////////////
 		Voxel& getVoxel(const int x, const int y, const int z);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the underlying mesh data of the Chunk.
+		/// 
+		/// \retval MeshData	The mesh of the Chunk.
+		///
+		////////////////////////////////////////////////////////////
+		MeshData* getMesh(void) const;
 
 		/*
 		====================

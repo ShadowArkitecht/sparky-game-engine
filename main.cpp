@@ -8,10 +8,12 @@
 #include <sparky\utils\config.hpp>
 #include <sparky\generation\chunk.hpp>
 
-#include <sparky\rendering\program.hpp>
-#include <sparky\rendering\uniform.hpp>
+#include <sparky\rendering\basicshader.hpp>
+#include <sparky\utils\threadpool.hpp>
+#include <sparky\math\transform.hpp>
+#include <sparky\core\resourcemanager.hpp>
 
-using namespace sparky;	
+using namespace sparky;
 
 int main(int argc, char** argv)
 {
@@ -29,53 +31,41 @@ int main(int argc, char** argv)
 
 	glewExperimental = GL_TRUE;
 	GLenum error = glewInit();
-	
+
 	if (error != GLEW_OK)
 	{
 		DebugLog::error("Failed to initalise GLEW.", glewGetErrorString(error));
 	}
 
+	ThreadPool pool;
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	Program p;
+	ResourceManager::getInstance().addShader("basic", new BasicShader());
 
-	p.attachShader(new GLSLObject("shaders/basic_vertex.glsl", eShaderType::VERTEX_SHADER));
-	p.attachShader(new GLSLObject("shaders/basic_fragment.glsl", eShaderType::FRAGMENT_SHADER));
-
-	p.link();
-
-	Uniform u(&p);
-
-	Matrix4f s = Matrix4f::scale(Vector3f(1.0f, 1.0f, 1.0f));
-	Matrix4f r = Matrix4f::rotation(Vector3f(0.0f, 0.0f, 0.0f));
-	Matrix4f t = Matrix4f::translation(Vector3f(0.0f, 0.0f, 10.0f));
-
-	Matrix4f view = Matrix4f::translation(Vector3f(0.0f, 0.0f, 10.0f)) * Matrix4f::perspective(Vector3f::forward(), Vector3f::up());
-	Matrix4f proj = Matrix4f::projection(45.0f, 640.0f / 480.0f, 1.0f, 1000.0f);
+	BasicShader* pShader = static_cast<BasicShader*>(ResourceManager::getInstance().getShader("basic"));
 
 	Chunk* pChunk = new Chunk();
 
-	pChunk->getVoxel(8, 8, 0).setActive(false);
-
-	pChunk->greedy();
+	pool.addTask(std::bind(&Chunk::greedy, pChunk));
 
 	pChunk->addRef();
 
+	Transform t;
+	t.setPosition(Vector3f(0.0f, 0.0f, 0.0f));
+
 	while (window.isRunning())
 	{
-		r *= Matrix4f::pitchRotation(3.0f * 0.0016f);
-
-		Matrix4f mvp = (s * r * t) * view * proj;
+		t.setRotation(t.getRotation() * Quaternionf::angleAxis(Vector3f::up(), 5.0f * 0.0016f));
 
 		window.clear();
 
-		p.bind();
-
-		u.setParameter("u_mvp", mvp);
+		pShader->bind();
+		pShader->update(t);
 
 		pChunk->render();
 
-		p.unbind();
+		pShader->unbind();
 
 		window.swap();
 

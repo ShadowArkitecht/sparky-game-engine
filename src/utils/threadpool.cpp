@@ -63,7 +63,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void ThreadPool::run(void)
 	{
-		std::packaged_task<bool()> task;
+		std::function<void()> task;
 
 		while (true)
 		{
@@ -93,19 +93,15 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	std::future<bool> ThreadPool::addTask(const std::function<bool()>& function)
+	void ThreadPool::addTask(const std::function<void()>& function)
 	{
-		std::packaged_task<bool()> task(function);
-
 		// Scope-based locking.
 		{
 			std::unique_lock<std::mutex> guard(m_mutex);
-			m_tasks.push(std::move(task));
+			m_tasks.push(std::move(function));
 		}
 
 		m_condition.notify_one();
-
-		return task.get_future();
 	}
 
 	////////////////////////////////////////////////////////////

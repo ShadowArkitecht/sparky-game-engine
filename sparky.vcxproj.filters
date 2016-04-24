@@ -97,6 +97,18 @@
     <ClCompile Include="src\rendering\vertex.cpp">
       <Filter>rendering\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\math\transform.cpp">
+      <Filter>math\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\ishader.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\basicshader.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\resourcemanager.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -177,6 +189,21 @@
     <ClInclude Include="include\sparky\rendering\vertex.hpp">
       <Filter>rendering\header</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\math\transform.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\ishader.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\basicshader.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\math\quaternion.hpp">
+      <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\resourcemanager.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">
@@ -198,6 +225,9 @@
       <Filter>math\header</Filter>
     </None>
     <None Include="include\sparky\math\matrix4.inl">
+      <Filter>math\header</Filter>
+    </None>
+    <None Include="include\sparky\math\quaternion.inl">
       <Filter>math\header</Filter>
     </None>
   </ItemGroup>

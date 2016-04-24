@@ -36,9 +36,6 @@ CPP Includes
 #include <condition_variable>	// The amount of threads to use, depending on specific conditions.
 #include <queue>				// STL container for all of the tasks that the threads have to process.
 #include <functional>
-#include <future>			    // Packaged tasks. Similar to std::function but can be quickly moved to different threads. Can also
-								// retrieve future variables from them, which can be used for getting a return type from a package
-								// within a different thread.
 
 namespace sparky
 {
@@ -50,13 +47,13 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<std::thread>	           m_workers;	// The amount of threads that this Pool will utilise.
-		std::queue<std::packaged_task<bool()>> m_tasks;		// The tasks to be processed by the individual threads.
+		std::vector<std::thread>	      m_workers;	// The amount of threads that this Pool will utilise.
+		std::queue<std::function<void()>> m_tasks;		// The tasks to be processed by the individual threads.
 
-		std::mutex						       m_mutex;		// Stops Data race and memory being changed at the same time.
-		std::condition_variable			       m_condition;	// Controls the flow of threads to be utilised by the Pool, depending on parameters.
+		std::mutex						  m_mutex;		// Stops Data race and memory being changed at the same time.
+		std::condition_variable			  m_condition;	// Controls the flow of threads to be utilised by the Pool, depending on parameters.
 
-		bool							       m_stopped;	// Stops after all the threads have joined and finished.
+		bool							  m_stopped;	// Stops after all the threads have joined and finished.
 
 	private:
 		/*
@@ -121,7 +118,7 @@ namespace sparky
 		/// \retval future		The future result of the added task.
 		///
 		////////////////////////////////////////////////////////////
-		std::future<bool> addTask(const std::function<bool()>& function);
+		void addTask(const std::function<void()>& function);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Joins each thread back to the main thread.

@@ -7,7 +7,6 @@ CPP Includes
 ====================
 */
 #include <map>						// Storage type for resources.
-#include <utility>					// Using for std::forward parameters.
 /*
 ====================
 Class Includes
@@ -15,6 +14,7 @@ Class Includes
 */
 #include <sparky\utils\string.hpp>	// Key values for resources.
 #include <sparky\core\ref.hpp>		// All objects in the template should inherit from ref.
+#include <sparky\rendering\ishader.hpp>
 #include <sparky\utils\debug.hpp>	// For printing messages if the resources is already stored.
 
 namespace sparky

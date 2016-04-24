@@ -1,3 +1,27 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+// Sparky Engine
+// 2016 - Benjamin Carter (benjamin.mark.carter@hotmail.com)
+// 
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+// 
+// Permission is granted to anyone to use this software for any purpose,
+// including commercial applications, and to alter it and redistribute it freely,
+// subject to the following restrictions:
+// 
+// 1. The origin of this software must not be misrepresented;
+//    you must not claim that you wrote the original software.
+//    If you use this software in a product, an acknowledgement
+//    in the product documentation would be appreciated but is not required.
+// 
+// 2. Altered source versions must be plainly marked as such,
+//    and must not be misrepresented as being the original software.
+// 
+// 3. This notice may not be removed or altered from any source distribution.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 /*
 ====================
@@ -24,7 +48,7 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Chunk::Chunk(void)
-		: Ref(), m_voxels(), m_pMesh(nullptr)
+		: Ref(), m_voxels(), m_pMesh(nullptr), m_shouldLoad(false)
 	{
 		m_pMesh = new MeshData();
 		m_pMesh->addRef();
@@ -51,6 +75,12 @@ namespace sparky
 	Voxel& Chunk::getVoxel(const int x, const int y, const int z)
 	{
 		return m_voxels.at(((x * CHUNK_SIZE * CHUNK_SIZE) + y * CHUNK_SIZE) + z);
+	}
+
+	////////////////////////////////////////////////////////////
+	MeshData* Chunk::getMesh(void) const
+	{
+		return m_pMesh;
 	}
 
 	/*
@@ -87,21 +117,39 @@ namespace sparky
 				{
 					for (x[u] = 0; x[u] < dims[u]; ++x[u], ++counter)
 					{
-						const bool a = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
-						const bool b = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
+						bool a1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
+						bool a2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
 
-						if (a == b)
+						eVoxelType v1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).getType() : eVoxelType::DIRT;
+						eVoxelType v2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).getType() : eVoxelType::DIRT;
+
+						if (a1 == a2 && v1 == v2)
 						{
 							mask[counter] = 0;
 						}
-						else if (a)
+						else if (a1)
 						{
-							mask[counter] = static_cast<int>(a);
+							mask[counter] = static_cast<int>(a1);
 						}
 						else
 						{
 							mask[counter] = -1;
 						}
+						//const bool a = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
+						//const bool b = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
+						//
+						//if (a == b)
+						//{
+						//	mask[counter] = 0;
+						//}
+						//else if (a)
+						//{
+						//	mask[counter] = static_cast<int>(a);
+						//}
+						//else
+						//{
+						//	mask[counter] = -1;
+						//}
 					}
 				}
 
@@ -188,7 +236,7 @@ namespace sparky
 			delete mask;
 		}
 
-		m_pMesh->generate(true);
+		m_shouldLoad = true;
 	}
 
 	////////////////////////////////////////////////////////////
@@ -200,7 +248,12 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void Chunk::render(void)
 	{
-		std::cout << m_pMesh->getVertexCount() << std::endl;
+		if (m_shouldLoad)
+		{
+			m_pMesh->generate(true);
+			m_shouldLoad = false;
+		}
+
 		m_pMesh->render();
 	}
 

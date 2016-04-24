@@ -3,8 +3,18 @@
 namespace sparky
 {
 	Voxel::Voxel(void)
-		: m_active(true)
+		: m_active(true), m_type(eVoxelType::DIRT)
 	{
+	}
+
+	eVoxelType Voxel::getType(void) const
+	{
+		return m_type;
+	}
+
+	void Voxel::setType(const eVoxelType type)
+	{
+		m_type = type;
 	}
 
 	bool Voxel::isActive(void) const
