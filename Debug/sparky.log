@@ -1,20 +1,10 @@
-﻿Build started 26/04/2016 20:25:25.
+﻿Build started 26/04/2016 21:10:14.
      1>Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp src\core\resourcemanager.cpp src\rendering\GLSLobject.cpp src\rendering\basicshader.cpp src\rendering\ishader.cpp src\rendering\program.cpp src\rendering\texture.cpp src\rendering\uniform.cpp
-         texture.cpp
-         ishader.cpp
-         GLSLobject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-         Generating Code...
-         Compiling...
-         uniform.cpp
-         program.cpp
-         basicshader.cpp
-         resourcemanager.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\main.obj
          Debug\ref.obj
          Debug\pool.obj
          Debug\resourcemanager.obj
@@ -28,6 +18,7 @@
          Debug\imesh.obj
          Debug\ishader.obj
          Debug\meshdata.obj
+         Debug\model.obj
          Debug\program.obj
          Debug\texture.obj
          Debug\uniform.obj
@@ -41,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.14
+Time Elapsed 00:00:03.67

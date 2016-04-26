@@ -46,14 +46,13 @@ int main(int argc, char** argv)
 
 	ThreadPool pool;
 
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	ResourceManager::getInstance().addShader("basic", new BasicShader());
 
 	BasicShader* pShader = static_cast<BasicShader*>(ResourceManager::getInstance().getShader("basic"));
 
 	Chunk* pChunk = new Chunk();
-
 	pool.addTask(std::bind(&Chunk::greedy, pChunk));
 
 	pChunk->addRef();
