@@ -10,10 +10,10 @@
 
 #include <sparky\rendering\basicshader.hpp>
 #include <sparky\utils\threadpool.hpp>
-#include <sparky\math\transform.hpp>
 #include <sparky\core\resourcemanager.hpp>
 #include <sparky\utils\defines.hpp>
 #include <sparky\rendering\texture.hpp>
+#include <sparky\generation\world.hpp>
 
 #include <SDL_image\SDL_image.h>
 
@@ -46,16 +46,11 @@ int main(int argc, char** argv)
 
 	ThreadPool pool;
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	ResourceManager::getInstance().addShader("basic", new BasicShader());
 
 	BasicShader* pShader = static_cast<BasicShader*>(ResourceManager::getInstance().getShader("basic"));
-
-	Chunk* pChunk = new Chunk();
-	pool.addTask(std::bind(&Chunk::greedy, pChunk));
-
-	pChunk->addRef();
 
 	SPARKY_TEXTURE_DESC desc;
 	desc.internalFormat = GL_RGB;
@@ -64,21 +59,25 @@ int main(int argc, char** argv)
 	Texture* pTexture = new Texture("assets/tilesheet.png", desc);
 	pTexture->addRef();
 
-	Transform t;
-	t.setPosition(Vector3f(0.0f, 0.0f, 0.0f));
+	World* pWorld = new World();
+	pWorld->addRef();
+
+	for (int x = 0; x < 16; x++)
+	{
+		for (int z = 0; z < 16; z++)
+		{
+			pWorld->addChunk(Vector3i(x * 16, 0, z * 16));
+		}
+	}
 
 	while (window.isRunning())
 	{
-		t.setRotation(t.getRotation() * Quaternionf::angleAxis(Vector3f::up(), 5.0f * 0.0016f));
-
 		window.clear();
 
 		pShader->bind();
 		pTexture->bind();
 
-		pShader->update(t);
-
-		pChunk->render();
+		pWorld->render(pShader);
 
 		pTexture->unbind();
 		pShader->unbind();

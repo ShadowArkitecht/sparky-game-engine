@@ -30,6 +30,7 @@ Class Includes
 */
 #include <sparky\generation\chunk.hpp>		// Class Definition.
 #include <sparky\rendering\meshdata.hpp>	// For adding vertices and faces.
+#include <sparky\rendering\ishader.hpp>		// The shader needs to be updated with the transform.
 
 namespace sparky
 {
@@ -48,7 +49,7 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Chunk::Chunk(void)
-		: Ref(), m_voxels(), m_pMesh(nullptr), m_shouldLoad(false)
+		: Ref(), m_transform(), m_voxels(), m_pMesh(nullptr), m_shouldLoad(false)
 	{
 		m_pMesh = new MeshData();
 		m_pMesh->addRef();
@@ -69,6 +70,12 @@ namespace sparky
 	int Chunk::getSize(void)
 	{
 		return SIZE;
+	}
+
+	////////////////////////////////////////////////////////////
+	Transform& Chunk::getTransform(void)
+	{
+		return m_transform;
 	}
 
 	////////////////////////////////////////////////////////////
@@ -242,6 +249,7 @@ namespace sparky
 			delete mask;
 		}
 
+		std::cout << "Generated" << std::endl;
 		m_shouldLoad = true;
 	}
 
@@ -252,7 +260,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void Chunk::render(void)
+	void Chunk::render(IShaderComponent* pShader)
 	{
 		if (m_shouldLoad)
 		{
@@ -260,6 +268,7 @@ namespace sparky
 			m_shouldLoad = false;
 		}
 
+		pShader->update(m_transform);
 		m_pMesh->render();
 	}
 

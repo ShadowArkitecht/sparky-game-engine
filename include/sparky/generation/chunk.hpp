@@ -39,7 +39,7 @@ Class Includes
 */
 #include <sparky\core\ref.hpp>			// Chunk is a dynamically allocated object.
 #include <sparky\generation\voxel.hpp>	// Voxels make up the Chunk itself.
-#include <sparky\math\vector3.hpp>		// 3 dimensional array accessor.
+#include <sparky\math\transform.hpp>	// The position, scale and rotation of the Chunk object.
 
 namespace sparky
 {
@@ -49,6 +49,7 @@ namespace sparky
 	====================
 	*/
 	class MeshData;
+	class IShaderComponent;
 
 	class Chunk : public Ref
 	{
@@ -58,7 +59,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static const int		SIZE;
+		static const int		SIZE;			// The standard size of all Chunks.
+		Transform				m_transform;	// The transform of the Chunk.
 		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the chunk.
 		MeshData*				m_pMesh;	    // The mesh that renders the voxels.
 		bool					m_shouldLoad;
@@ -93,6 +95,14 @@ namespace sparky
 		====================
 		*/
 		static int getSize(void);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the Transform of the Chunk object.
+		///
+		/// \retval Transform	The transform of the Chunk object.
+		///
+		////////////////////////////////////////////////////////////
+		Transform& getTransform(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the voxel at the position.
@@ -148,7 +158,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Renders the Chunk object to the buffer.
 		////////////////////////////////////////////////////////////
-		void render(void);
+		void render(IShaderComponent* pShader);
 	};
 
 }//namespace sparky

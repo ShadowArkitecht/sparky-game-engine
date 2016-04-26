@@ -89,6 +89,7 @@
     <ClCompile Include="src\core\window.cpp" />
     <ClCompile Include="src\generation\chunk.cpp" />
     <ClCompile Include="src\generation\voxel.cpp" />
+    <ClCompile Include="src\generation\world.cpp" />
     <ClCompile Include="src\math\transform.cpp" />
     <ClCompile Include="src\rendering\basicshader.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="src\utils\config.cpp" />
     <ClCompile Include="src\utils\directory.cpp" />
     <ClCompile Include="src\utils\string.cpp" />
+    <ClCompile Include="src\utils\threadmanager.cpp" />
     <ClCompile Include="src\utils\threadpool.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +116,7 @@
     <ClInclude Include="include\sparky\core\window.hpp" />
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
     <ClInclude Include="include\sparky\generation\voxel.hpp" />
+    <ClInclude Include="include\sparky\generation\world.hpp" />
     <ClInclude Include="include\sparky\math\mathutils.hpp" />
     <ClInclude Include="include\sparky\math\matrix4.hpp" />
     <ClInclude Include="include\sparky\math\quaternion.hpp" />
@@ -140,6 +143,7 @@
     <ClInclude Include="include\sparky\utils\directory.hpp" />
     <ClInclude Include="include\sparky\utils\singleton.hpp" />
     <ClInclude Include="include\sparky\utils\string.hpp" />
+    <ClInclude Include="include\sparky\utils\threadmanager.hpp" />
     <ClInclude Include="include\sparky\utils\threadpool.hpp" />
   </ItemGroup>
   <ItemGroup>
