@@ -30,8 +30,8 @@ namespace sparky
 	*/
 	enum class eShaderType
 	{
-		VERTEX_SHADER,
-		FRAGMENT_SHADER
+		VERTEX,
+		FRAGMENT
 	};
 
 	class GLSLObject final : public Ref

@@ -35,11 +35,11 @@ namespace sparky
 
 		switch (type)
 		{
-		case eShaderType::VERTEX_SHADER:
+		case eShaderType::VERTEX:
 			m_type = GL_VERTEX_SHADER;
 			break;
 
-		case eShaderType::FRAGMENT_SHADER:
+		case eShaderType::FRAGMENT:
 			m_type = GL_FRAGMENT_SHADER;
 			break;
 		}

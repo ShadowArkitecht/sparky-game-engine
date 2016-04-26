@@ -57,6 +57,7 @@ namespace sparky
 		Matrix4f mvp = transform.getTransformation() * view * proj;
 
 		m_uniform.setParameter("u_mvp", mvp);
+		m_uniform.setParameter("u_texture", 0);
 	}
 
 }//namespace sparky

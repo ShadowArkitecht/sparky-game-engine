@@ -109,6 +109,9 @@
     <ClCompile Include="src\core\resourcemanager.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\rendering\texture.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -203,6 +206,12 @@
     </ClInclude>
     <ClInclude Include="include\sparky\core\resourcemanager.hpp">
       <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\utils\defines.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\texture.hpp">
+      <Filter>rendering\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

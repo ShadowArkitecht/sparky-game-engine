@@ -47,8 +47,8 @@ namespace sparky
 	IShaderComponent::IShaderComponent(const String& vertexShader, const String& fragmentShader)
 		: Ref(), m_program(), m_uniform(&m_program)
 	{
-		m_program.attachShader(new GLSLObject(vertexShader, eShaderType::VERTEX_SHADER));
-		m_program.attachShader(new GLSLObject(fragmentShader, eShaderType::FRAGMENT_SHADER));
+		m_program.attachShader(new GLSLObject(vertexShader, eShaderType::VERTEX));
+		m_program.attachShader(new GLSLObject(fragmentShader, eShaderType::FRAGMENT));
 
 		m_program.link();
 	}

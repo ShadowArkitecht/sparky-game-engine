@@ -58,9 +58,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::array<Voxel, 16 * 16 * 16> m_voxels;		// The individual voxels of the chunk.
-		MeshData*				        m_pMesh;	    // The mesh that renders the voxels.
-		bool					        m_shouldLoad;
+		static const int		SIZE;
+		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the chunk.
+		MeshData*				m_pMesh;	    // The mesh that renders the voxels.
+		bool					m_shouldLoad;
 
 	public:
 		/*
@@ -91,6 +92,8 @@ namespace sparky
 		Getters and Setters
 		====================
 		*/
+		static int getSize(void);
+
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the voxel at the position.
 		/// 

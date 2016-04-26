@@ -12,6 +12,10 @@
 #include <sparky\utils\threadpool.hpp>
 #include <sparky\math\transform.hpp>
 #include <sparky\core\resourcemanager.hpp>
+#include <sparky\utils\defines.hpp>
+#include <sparky\rendering\texture.hpp>
+
+#include <SDL_image\SDL_image.h>
 
 using namespace sparky;
 
@@ -37,9 +41,12 @@ int main(int argc, char** argv)
 		DebugLog::error("Failed to initalise GLEW.", glewGetErrorString(error));
 	}
 
+	glDisable(GL_LIGHTING);
+	glEnable(GL_DEPTH_TEST);
+
 	ThreadPool pool;
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	ResourceManager::getInstance().addShader("basic", new BasicShader());
 
@@ -51,6 +58,13 @@ int main(int argc, char** argv)
 
 	pChunk->addRef();
 
+	SPARKY_TEXTURE_DESC desc;
+	desc.internalFormat = GL_RGB;
+	desc.mode = eTextureWrapMode::REPEAT;
+
+	Texture* pTexture = new Texture("assets/tilesheet.png", desc);
+	pTexture->addRef();
+
 	Transform t;
 	t.setPosition(Vector3f(0.0f, 0.0f, 0.0f));
 
@@ -61,10 +75,13 @@ int main(int argc, char** argv)
 		window.clear();
 
 		pShader->bind();
+		pTexture->bind();
+
 		pShader->update(t);
 
 		pChunk->render();
 
+		pTexture->unbind();
 		pShader->unbind();
 
 		window.swap();

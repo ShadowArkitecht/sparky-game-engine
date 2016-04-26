@@ -39,7 +39,7 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	const int CHUNK_SIZE = 16;
+	const int Chunk::SIZE = 16;
 
 	/*
 	====================
@@ -66,6 +66,12 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
+	int Chunk::getSize(void)
+	{
+		return SIZE;
+	}
+
+	////////////////////////////////////////////////////////////
 	Voxel& Chunk::getVoxel(const Vector3i& pos)
 	{
 		return this->getVoxel(pos.x, pos.y, pos.z);
@@ -74,7 +80,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	Voxel& Chunk::getVoxel(const int x, const int y, const int z)
 	{
-		return m_voxels.at(((x * CHUNK_SIZE * CHUNK_SIZE) + y * CHUNK_SIZE) + z);
+		return m_voxels.at(((x * SIZE * SIZE) + y * SIZE) + z);
 	}
 
 	////////////////////////////////////////////////////////////
@@ -91,7 +97,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void Chunk::greedy(void)
 	{
-		const int dims[3] = { CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE };
+		const int dims[3] = { SIZE, SIZE, SIZE };
 
 		for (int axis = 0; axis < 3; ++axis)
 		{
@@ -212,7 +218,7 @@ namespace sparky
 							Vertex_t v3(Vector3f(Vector3i(x[0] + du[0] + dv[0], x[1] + du[1] + dv[1], x[2] + du[2] + dv[2])), Vector2f(1.0f, 1.0f));
 							Vertex_t v4(Vector3f(Vector3i(x[0] + dv[0],         x[1] + dv[1],         x[2] + dv[2])),		  Vector2f(0.0f, 1.0f));
 
-							m_pMesh->addFace(v1, v2, v3, v4, flip);
+							m_pMesh->addFace(v1, v2, v3, v4, false);
 
 							for (int b = 0; b < width; ++b)
 							{

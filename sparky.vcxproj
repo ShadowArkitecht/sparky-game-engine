@@ -58,7 +58,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -78,7 +78,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>.\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLEW\glew.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -97,6 +97,7 @@
     <ClCompile Include="src\rendering\ishader.cpp" />
     <ClCompile Include="src\rendering\meshdata.cpp" />
     <ClCompile Include="src\rendering\program.cpp" />
+    <ClCompile Include="src\rendering\texture.cpp" />
     <ClCompile Include="src\rendering\uniform.cpp" />
     <ClCompile Include="src\rendering\vertex.cpp" />
     <ClCompile Include="src\utils\config.cpp" />
@@ -127,11 +128,13 @@
     <ClInclude Include="include\sparky\rendering\ishader.hpp" />
     <ClInclude Include="include\sparky\rendering\meshdata.hpp" />
     <ClInclude Include="include\sparky\rendering\program.hpp" />
+    <ClInclude Include="include\sparky\rendering\texture.hpp" />
     <ClInclude Include="include\sparky\rendering\uniform.hpp" />
     <ClInclude Include="include\sparky\rendering\vertex.hpp" />
     <ClInclude Include="include\sparky\utils\config.hpp" />
     <ClInclude Include="include\sparky\utils\context.hpp" />
     <ClInclude Include="include\sparky\utils\debug.hpp" />
+    <ClInclude Include="include\sparky\utils\defines.hpp" />
     <ClInclude Include="include\sparky\utils\directory.hpp" />
     <ClInclude Include="include\sparky\utils\singleton.hpp" />
     <ClInclude Include="include\sparky\utils\string.hpp" />
