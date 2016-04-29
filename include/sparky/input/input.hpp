@@ -79,6 +79,8 @@ namespace sparky
 		/// Get Key will return true whilst the specified key is held
 		/// down.
 		///
+		/// \param key		The key to check for.
+		///
 		/// \retval bool	True if the key is being held down.
 		///
 		////////////////////////////////////////////////////////////
@@ -91,6 +93,8 @@ namespace sparky
 		/// the beginning of the frame, and will return true whilst the
 		/// key is still held down.
 		///
+		/// \param key		The key to check for.
+		///
 		/// \retval bool	True if the key has been pressed.
 		///
 		////////////////////////////////////////////////////////////
@@ -101,6 +105,8 @@ namespace sparky
 		///
 		/// Get key up will return once a key currently being held down
 		/// is released.
+		///
+		/// \param key		The key to check for.
 		///
 		/// \retval bool	True if the key has been released.
 		///

@@ -82,11 +82,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\core\camera.cpp" />
+    <ClCompile Include="src\core\gamemanager.cpp" />
     <ClCompile Include="src\core\ref.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\resourcemanager.cpp" />
+    <ClCompile Include="src\core\scene.cpp" />
     <ClCompile Include="src\core\window.cpp" />
     <ClCompile Include="src\generation\chunk.cpp" />
     <ClCompile Include="src\generation\voxel.cpp" />
@@ -95,6 +98,7 @@
     <ClCompile Include="src\input\ievent.cpp" />
     <ClCompile Include="src\input\input.cpp" />
     <ClCompile Include="src\input\mouse.cpp" />
+    <ClCompile Include="src\math\frustum.cpp" />
     <ClCompile Include="src\math\transform.cpp" />
     <ClCompile Include="src\rendering\basicshader.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
@@ -115,11 +119,14 @@
     <ClCompile Include="src\utils\threadpool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="game.hpp" />
     <ClInclude Include="include\sparky\core\camera.hpp" />
+    <ClInclude Include="include\sparky\core\gamemanager.hpp" />
     <ClInclude Include="include\sparky\core\ref.hpp" />
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
     <ClInclude Include="include\sparky\core\resourcemanager.hpp" />
+    <ClInclude Include="include\sparky\core\scene.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
     <ClInclude Include="include\sparky\ext\dirent.h" />
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
@@ -129,6 +136,7 @@
     <ClInclude Include="include\sparky\input\ievent.hpp" />
     <ClInclude Include="include\sparky\input\input.hpp" />
     <ClInclude Include="include\sparky\input\mouse.hpp" />
+    <ClInclude Include="include\sparky\math\frustum.hpp" />
     <ClInclude Include="include\sparky\math\mathutils.hpp" />
     <ClInclude Include="include\sparky\math\matrix4.hpp" />
     <ClInclude Include="include\sparky\math\quaternion.hpp" />

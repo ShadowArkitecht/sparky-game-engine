@@ -31,12 +31,33 @@ namespace sparky
 	class MathUtils final
 	{
 	public:
+		/*
+		====================
+		Methods
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Converts a radian value into degrees.
+		///
+		/// \param radians	The radian value to convert.
+		///
+		/// \retval T		The radian value in degrees.
+		///
+		////////////////////////////////////////////////////////////
 		static T toDegrees(const T radians)
 		{
 			const T PI = static_cast<T>(3.14f);
 			return radians * (static_cast<T>(180.0f) / PI);
 		}
 
+		////////////////////////////////////////////////////////////
+		/// \brief Converts a degrees value into radians.
+		///
+		/// \param radians	The degrees value to convert.
+		///
+		/// \retval T		The degrees value in radians.
+		///
+		////////////////////////////////////////////////////////////
 		static T toRadians(const T degrees)
 		{
 			const float PI = static_cast<T>(3.14f);

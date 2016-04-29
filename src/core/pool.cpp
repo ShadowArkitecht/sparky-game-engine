@@ -10,7 +10,7 @@ Class Includes
 ====================
 */
 #include <sparky\core\pool.hpp>		// Class definition.
-#include <sparky\core\ref.hpp>	// Objects need to be released upon flushing the current pool.
+#include <sparky\core\ref.hpp>		// Objects need to be released upon flushing the current pool.
 
 namespace sparky
 {

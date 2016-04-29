@@ -35,6 +35,11 @@ Class Includes
 
 namespace sparky
 {
+	/*
+	====================
+	Sparky Forward Declarations
+	====================
+	*/
 	class ConfigFile;
 	class Window;
 

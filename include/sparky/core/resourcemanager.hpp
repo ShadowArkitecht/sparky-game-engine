@@ -154,7 +154,7 @@ namespace sparky
 /// sparky::ResourceManager::getInstance().addShader("basic", new sparky::BasicShader());
 ///
 /// // Get a local reference of the shader for use.
-/// sparky::BasicShader* pShader = static_cast<sparky::BasicShader*>(sparky::ResourceManager::getInstance().getShader("basic"));
+/// sparky::BasicShader* pShader = sparky::ResourceManager::getInstance().getShader<BasicShader>("basic");
 ///
 /// // Bind the shader for use.
 /// pShader->bind();

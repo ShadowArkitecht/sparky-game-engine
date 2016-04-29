@@ -63,7 +63,7 @@ namespace sparky
 		Transform				m_transform;	// The transform of the Chunk.
 		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the chunk.
 		MeshData*				m_pMesh;	    // The mesh that renders the voxels.
-		bool					m_shouldLoad;
+		bool					m_shouldLoad;	// Whether the current chunk object needs to generate.
 
 	public:
 		/*

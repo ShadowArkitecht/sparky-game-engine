@@ -28,7 +28,7 @@ Class Includes
 ====================
 */
 #include <sparky\core\ref.hpp>	// Class definition.
-#include <sparky\core\pool.hpp>		// Adding objects to the pool for automatic de-allocation.
+#include <sparky\core\pool.hpp>	// Adding objects to the pool for automatic de-allocation.
 
 namespace sparky
 {

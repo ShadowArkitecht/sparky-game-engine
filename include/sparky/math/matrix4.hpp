@@ -373,3 +373,29 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_MATRIX4_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::Matrix4<T>
+/// \ingroup math
+///
+/// sparky::Matrix4 is the underlying rotational matrices that
+/// the sparky engine utilises. The matrices are used to rotate
+/// objects within GLSL shaders and for communication with OpenGL.
+/// 
+/// The matrices are never directed accessed by the user, instead
+/// all rotation within the application utilises Quaternions, which
+/// are converted into matrices before application. Below is a code 
+/// example of using the Matrices.
+///
+/// \code
+/// // Create a matrix object.
+/// sparky::Matrix4f matrix;
+///
+/// // Set the matrix to equal a random translation, rotation and scale.
+/// matrix *= Matrix4f::scale(Vector3f::one());
+/// // Rotates the matrix 50 degrees on the y axis.
+/// matrix *= Matrix4f::rotation(Vector3f(0.0f, 50.0f, 0.0f));
+///
+/// matrix *= Matrix4f::translation(Vector3f(0.0f, 0.0f, 7.0f);
+///
+////////////////////////////////////////////////////////////

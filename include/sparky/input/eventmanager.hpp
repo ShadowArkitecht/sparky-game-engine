@@ -127,3 +127,18 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_EVENT_MANAGER_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::EventManager
+/// \ingroup input
+///
+/// sparky::EventManager is a singleton class responsible for the
+/// polling and event handling of all event-driven classes within
+/// the sparky application.
+///
+/// sparky::EventManager never needs to be called directly by
+/// the user, instead the polling will continuously run in the back
+/// ground and execute all events. When an event object is created,
+/// it is automatically added to sparky::EventManager for polling.
+///
+////////////////////////////////////////////////////////////

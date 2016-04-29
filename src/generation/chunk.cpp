@@ -31,6 +31,7 @@ Class Includes
 #include <sparky\generation\chunk.hpp>		// Class Definition.
 #include <sparky\rendering\meshdata.hpp>	// For adding vertices and faces.
 #include <sparky\rendering\ishader.hpp>		// The shader needs to be updated with the transform.
+#include <sparky\math\frustum.hpp>			// Will only render when inside the viewport.
 
 namespace sparky
 {
@@ -253,8 +254,11 @@ namespace sparky
 			m_shouldLoad = false;
 		}
 
-		pShader->update(m_transform);
-		m_pMesh->render();
+		if (Frustum::checkCube(m_transform.getPosition(), Chunk::SIZE))
+		{
+			pShader->update(m_transform);
+			m_pMesh->render();
+		}
 	}
 
 }//namespace sparky

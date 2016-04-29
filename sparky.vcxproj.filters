@@ -148,6 +148,16 @@
     <ClCompile Include="src\input\mouse.cpp">
       <Filter>input\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\scene.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="src\core\gamemanager.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\frustum.cpp">
+      <Filter>math\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -276,6 +286,16 @@
     </ClInclude>
     <ClInclude Include="include\sparky\input\mouse.hpp">
       <Filter>input\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\scene.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="game.hpp" />
+    <ClInclude Include="include\sparky\core\gamemanager.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\math\frustum.hpp">
+      <Filter>math\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,14 +1,18 @@
-﻿Build started 29/04/2016 16:33:05.
-     1>Project "E:\sparky-master\sparky-master\sparky.vcxproj" on node 2 (Build target(s)).
+﻿Build started 29/04/2016 22:32:56.
+     1>Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\generation\chunk.cpp
+         chunk.cpp
+     1>c:\users\ben\documents\repos\sparky\src\generation\chunk.cpp(257): warning C4244: 'argument' : conversion from 'const int' to 'const float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\sparky-master\sparky-master\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\sparky-master\sparky-master\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\sparky-master\sparky-master\Debug\sparky.lib" /MACHINE:X86 Debug\main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\game.obj
+         Debug\main.obj
          Debug\camera.obj
+         Debug\gamemanager.obj
          Debug\ref.obj
          Debug\pool.obj
          Debug\resourcemanager.obj
+         Debug\scene.obj
          Debug\window.obj
          Debug\chunk.obj
          Debug\voxel.obj
@@ -17,6 +21,7 @@
          Debug\ievent.obj
          Debug\input.obj
          Debug\mouse.obj
+         Debug\frustum.obj
          Debug\transform.obj
          Debug\basicshader.obj
          Debug\buffers.obj
@@ -35,9 +40,9 @@
          Debug\string.obj
          Debug\threadmanager.obj
          Debug\threadpool.obj
-         sparky.vcxproj -> E:\sparky-master\sparky-master\Debug\sparky.exe
-     1>Done Building Project "E:\sparky-master\sparky-master\sparky.vcxproj" (Build target(s)).
+         sparky.vcxproj -> C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe
+     1>Done Building Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.58
+Time Elapsed 00:00:01.82

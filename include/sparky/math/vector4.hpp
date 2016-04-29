@@ -500,5 +500,4 @@ namespace sparky
 /// and algorithms associated with Vectors, such as the dot 
 /// product and normalisation.
 ///
-///
 ////////////////////////////////////////////////////////////
