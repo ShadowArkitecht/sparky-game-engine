@@ -46,6 +46,15 @@
     <Filter Include="rendering\source">
       <UniqueIdentifier>{2b0df845-b082-43dc-8282-20bd3361c4d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{1c9eaf04-efe9-4fd4-a181-90d8f4de9035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input\header">
+      <UniqueIdentifier>{da9f83e5-3067-4114-bc2a-e9d8245c73db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input\source">
+      <UniqueIdentifier>{24bb6105-108f-4f99-8549-b3daed3bebf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\window.cpp">
@@ -120,6 +129,24 @@
     </ClCompile>
     <ClCompile Include="src\utils\threadmanager.cpp">
       <Filter>utils\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\gldevice.cpp">
+      <Filter>utils\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\camera.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\eventmanager.cpp">
+      <Filter>input\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\ievent.cpp">
+      <Filter>input\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\input.cpp">
+      <Filter>input\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\mouse.cpp">
+      <Filter>input\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +257,25 @@
     </ClInclude>
     <ClInclude Include="include\sparky\utils\threadmanager.hpp">
       <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\ext\dirent.h" />
+    <ClInclude Include="include\sparky\utils\gldevice.hpp">
+      <Filter>utils\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\camera.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\input\eventmanager.hpp">
+      <Filter>input\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\input\ievent.hpp">
+      <Filter>input\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\input\input.hpp">
+      <Filter>input\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\input\mouse.hpp">
+      <Filter>input\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -286,14 +286,14 @@ T Vector2<T>::distance(const Vector2<T>& from, const Vector2<T>& to)
 template <typename T>
 Vector2<T> Vector2<T>::minimum(const Vector2<T>& u, const Vector2<T>& v)
 {
-	return Vector2<T>(std::min(u.x, v.x), std::min(u.y, v.y));
+	return Vector2<T>(std::min<T>(u.x, v.x), std::min<T>(u.y, v.y));
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector2<T> Vector2<T>::maximum(const Vector2<T>& u, const Vector2<T>& v)
 {
-	return Vector2<T>(std::max(u.x, v.x), std::max(u.y, v.y));
+	return Vector2<T>(std::max<T>(u.x, v.x), std::max<T>(u.y, v.y));
 }
 
 ////////////////////////////////////////////////////////////
@@ -329,19 +329,19 @@ Vector2<T> Vector2<T>::zero(void)
 template <typename T>
 Vector2<T> Vector2<T>::one(void)
 {
-	return Vector2<T>(static_cast<T>(1), static_cast<T>(1));
+	return Vector2<T>(1, 1);
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector2<T> Vector2<T>::right(void)
 {
-	return Vector2<T>(static_cast<T>(1), static_cast<T>(0));
+	return Vector2<T>(1, 0);
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector2<T> Vector2<T>::up(void)
 {
-	return Vector2<T>(static_cast<T>(0), static_cast<T>(1));
+	return Vector2<T>(0, 1);
 }

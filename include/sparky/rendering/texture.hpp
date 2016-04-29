@@ -70,11 +70,30 @@ namespace sparky
 
 	struct SPARKY_TEXTURE_DESC
 	{
-		GLenum           target;
-		GLint            internalFormat;
-		eTextureFilter   filter;
-		eTextureWrapMode mode;
+		/*
+		====================
+		Member Variables
+		====================
+		*/
+		GLenum           target;			// The target of the Texture (i.e GL_TEXTURE_2D).
+		GLint            internalFormat;	// The internal bit format.
+		eTextureFilter   filter;			// The rendering filter.
+		eTextureWrapMode mode;				// The mode the texture will apply to meshes.
 
+		/*
+		====================
+		Ctor and Dtor
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Default constructor for the Texture description.
+		///
+		/// The constructor will set the member variables to commonly
+		/// use values. The values can easily be changed by the user
+		/// for alternate behaviour.
+		/// 
+		///
+		////////////////////////////////////////////////////////////
 		explicit SPARKY_TEXTURE_DESC(void)
 			: target(GL_TEXTURE_2D), internalFormat(GL_RGBA), filter(eTextureFilter::LINEAR), mode(eTextureWrapMode::CLAMP)
 		{

@@ -44,17 +44,6 @@ namespace sparky
 
 	/*
 	====================
-	Getters and Setters
-	====================
-	*/
-	////////////////////////////////////////////////////////////
-	IShaderComponent* ResourceManager::getShader(const String& name) const
-	{
-		return m_shaders.get(name);
-	}
-
-	/*
-	====================
 	Methods
 	====================
 	*/

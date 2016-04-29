@@ -22,6 +22,17 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+====================
+CPP Includes
+====================
+*/
+#include <cstddef>							// Used to calculate memory offsets in the Vertex struct.
+/*
+====================
+Class Includes
+====================
+*/
 #include <sparky\rendering\buffers.hpp>		// Class definitions.
 
 namespace sparky
@@ -88,11 +99,9 @@ namespace sparky
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
-		GLsizei stride = (VERTEX_ELEMENTS + VERTEX_ELEMENTS + TEXTURE_ELEMENTS) * sizeof(GLfloat);
-
-		glVertexAttribPointer(ATTRIB_LOCATION_VERTEX, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, stride, (void*)0);
-		glVertexAttribPointer(ATTRIB_LOCATION_NORMAL, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(GLfloat)));
-		glVertexAttribPointer(ATTRIB_LOCATION_UV,     TEXTURE_ELEMENTS, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(GLfloat)));
+		glVertexAttribPointer(ATTRIB_LOCATION_VERTEX, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, sizeof(Vertex_t), reinterpret_cast<const GLvoid*>(offsetof(Vertex_t, position)));
+		glVertexAttribPointer(ATTRIB_LOCATION_NORMAL, VERTEX_ELEMENTS,  GL_FLOAT, GL_FALSE, sizeof(Vertex_t), reinterpret_cast<const GLvoid*>(offsetof(Vertex_t, normal)));
+		glVertexAttribPointer(ATTRIB_LOCATION_UV,     TEXTURE_ELEMENTS, GL_FLOAT, GL_FALSE, sizeof(Vertex_t), reinterpret_cast<const GLvoid*>(offsetof(Vertex_t, uv)));
 	}
 
 	////////////////////////////////////////////////////////////

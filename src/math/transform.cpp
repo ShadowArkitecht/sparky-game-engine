@@ -93,4 +93,38 @@ namespace sparky
 		return (s * r * t);
 	}
 
+	/*
+	====================
+	Methods
+	====================
+	*/
+	void Transform::translate(const Vector3f& translation)
+	{
+		m_position += translation;
+	}
+
+	////////////////////////////////////////////////////////////
+	void Transform::rotate(const Quaternionf& rotation)
+	{
+		m_rotation *= rotation;
+	}
+
+	////////////////////////////////////////////////////////////
+	Vector3f Transform::right(void) const
+	{
+		return m_rotation.right();
+	}
+
+	////////////////////////////////////////////////////////////
+	Vector3f Transform::up(void) const
+	{
+		return m_rotation.up();
+	}
+
+	////////////////////////////////////////////////////////////
+	Vector3f Transform::forward(void) const
+	{
+		return m_rotation.forward();
+	}
+
 }//namespace sparky

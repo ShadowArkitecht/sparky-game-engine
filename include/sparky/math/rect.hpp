@@ -177,7 +177,7 @@ namespace sparky
 		/// \param rect		The Rectangle to compare against.
 		///
 		////////////////////////////////////////////////////////////
-		bool intersect(const Rect<T>& rect) const;
+		bool collides(const Rect<T>& rect) const;
 	};
 
 	#include <sparky\math\rect.inl>

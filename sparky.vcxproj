@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\core\camera.cpp" />
     <ClCompile Include="src\core\ref.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\resourcemanager.cpp" />
@@ -90,6 +91,10 @@
     <ClCompile Include="src\generation\chunk.cpp" />
     <ClCompile Include="src\generation\voxel.cpp" />
     <ClCompile Include="src\generation\world.cpp" />
+    <ClCompile Include="src\input\eventmanager.cpp" />
+    <ClCompile Include="src\input\ievent.cpp" />
+    <ClCompile Include="src\input\input.cpp" />
+    <ClCompile Include="src\input\mouse.cpp" />
     <ClCompile Include="src\math\transform.cpp" />
     <ClCompile Include="src\rendering\basicshader.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
@@ -104,19 +109,26 @@
     <ClCompile Include="src\rendering\vertex.cpp" />
     <ClCompile Include="src\utils\config.cpp" />
     <ClCompile Include="src\utils\directory.cpp" />
+    <ClCompile Include="src\utils\gldevice.cpp" />
     <ClCompile Include="src\utils\string.cpp" />
     <ClCompile Include="src\utils\threadmanager.cpp" />
     <ClCompile Include="src\utils\threadpool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\sparky\core\camera.hpp" />
     <ClInclude Include="include\sparky\core\ref.hpp" />
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
     <ClInclude Include="include\sparky\core\resourcemanager.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
+    <ClInclude Include="include\sparky\ext\dirent.h" />
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
     <ClInclude Include="include\sparky\generation\voxel.hpp" />
     <ClInclude Include="include\sparky\generation\world.hpp" />
+    <ClInclude Include="include\sparky\input\eventmanager.hpp" />
+    <ClInclude Include="include\sparky\input\ievent.hpp" />
+    <ClInclude Include="include\sparky\input\input.hpp" />
+    <ClInclude Include="include\sparky\input\mouse.hpp" />
     <ClInclude Include="include\sparky\math\mathutils.hpp" />
     <ClInclude Include="include\sparky\math\matrix4.hpp" />
     <ClInclude Include="include\sparky\math\quaternion.hpp" />
@@ -141,6 +153,7 @@
     <ClInclude Include="include\sparky\utils\debug.hpp" />
     <ClInclude Include="include\sparky\utils\defines.hpp" />
     <ClInclude Include="include\sparky\utils\directory.hpp" />
+    <ClInclude Include="include\sparky\utils\gldevice.hpp" />
     <ClInclude Include="include\sparky\utils\singleton.hpp" />
     <ClInclude Include="include\sparky\utils\string.hpp" />
     <ClInclude Include="include\sparky\utils\threadmanager.hpp" />

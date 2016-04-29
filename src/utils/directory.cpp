@@ -27,7 +27,11 @@
 CPP Includes
 ====================
 */
+#if _WIN32
+#include <sparky\ext\dirent.h>
+#else
 #include <dirent.h>						// *nix for loading directories.
+#endif
 /*
 ====================
 Class Includes

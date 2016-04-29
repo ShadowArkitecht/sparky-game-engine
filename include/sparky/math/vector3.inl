@@ -301,14 +301,18 @@ T Vector3<T>::distance(const Vector3<T>& from, const Vector3<T>& to)
 template <typename T>
 Vector3<T> Vector3<T>::minimum(const Vector3<T>& u, const Vector3<T>& v)
 {
-	return Vector3<T>(std::min(u.x, v.x), std::min(u.y, v.y), std::min(u.z, v.z));
+	return Vector3<T>(std::min<T>(u.x, v.x), 
+					  std::min<T>(u.y, v.y), 
+					  std::min<T>(u.z, v.z));
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector3<T> Vector3<T>::maximum(const Vector3<T>& u, const Vector3<T>& v)
 {
-	return Vector3<T>(std::max(u.x, v.x), std::max(u.y, v.y), std::max(u.z, v.z));
+	return Vector3<T>(std::max<T>(u.x, v.x), 
+					  std::max<T>(u.y, v.y), 
+					  std::max<T>(u.z, v.z));
 }
 
 ////////////////////////////////////////////////////////////
@@ -344,26 +348,26 @@ Vector3<T> Vector3<T>::zero(void)
 template <typename T>
 Vector3<T> Vector3<T>::one(void)
 {
-	return Vector3<T>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+	return Vector3<T>(1, 1, 1);
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector3<T> Vector3<T>::right(void)
 {
-	return Vector3<T>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+	return Vector3<T>(1, 0, 0);
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector3<T> Vector3<T>::up(void)
 {
-	return Vector3<T>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+	return Vector3<T>(0, 1, 0);
 }
 
 ////////////////////////////////////////////////////////////
 template <typename T>
 Vector3<T> Vector3<T>::forward(void)
 {
-	return Vector3<T>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+	return Vector3<T>(0, 0, 1);
 }

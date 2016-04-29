@@ -45,9 +45,12 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void MeshData::render(void)
 	{
-		m_arrayBuffer.bind();
-		glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, nullptr);
-		m_arrayBuffer.unbind();
+		if (m_generated)
+		{
+			m_arrayBuffer.bind();
+			glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, nullptr);
+			m_arrayBuffer.unbind();
+		}
 	}
 
 }//namespace sparky

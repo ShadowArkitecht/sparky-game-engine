@@ -29,6 +29,7 @@ Class Includes
 */
 #include <sparky\rendering\basicshader.hpp>	// Class definition.
 #include <sparky\math\transform.hpp>		// Setting uniform variables.
+#include <sparky\core\camera.hpp>			// Needed for view and projection matrices.
 
 namespace sparky
 {
@@ -51,12 +52,11 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void BasicShader::update(const Transform& transform) const
 	{
-		Matrix4f view = Matrix4f::translation(Vector3f(0.0f, 0.0f, 70.0f)) * Matrix4f::perspective(Vector3f::forward(), Vector3f::up());
-		Matrix4f proj = Matrix4f::projection(45.0f, 640.0f / 480.0f, 1.0f, 1000.0f);
+		Matrix4f mvp = transform.getTransformation() * Camera::getMain().getViewProjection();
 
-		Matrix4f mvp = transform.getTransformation() * view * proj;
-
+		// Vertex uniforms.
 		m_uniform.setParameter("u_mvp", mvp);
+		// Fragment uniforms.
 		m_uniform.setParameter("u_texture", 0);
 	}
 

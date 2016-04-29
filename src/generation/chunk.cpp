@@ -148,21 +148,6 @@ namespace sparky
 						{
 							mask[counter] = -1;
 						}
-						//const bool a = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
-						//const bool b = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
-						//
-						//if (a == b)
-						//{
-						//	mask[counter] = 0;
-						//}
-						//else if (a)
-						//{
-						//	mask[counter] = static_cast<int>(a);
-						//}
-						//else
-						//{
-						//	mask[counter] = -1;
-						//}
 					}
 				}
 

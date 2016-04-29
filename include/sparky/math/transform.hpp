@@ -70,6 +70,13 @@ namespace sparky
 		void setRotation(const Quaternionf& rotation);
 
 		Matrix4f getTransformation(void) const;
+
+		void translate(const Vector3f& translation);
+		void rotate(const Quaternionf& rotation);
+
+		Vector3f right(void) const;
+		Vector3f up(void) const;
+		Vector3f forward(void) const;
 	};
 
 }//namespace sparky

@@ -13,8 +13,6 @@ ResourceHolder<T>::~ResourceHolder(void)
 	{
 		Ref::release(r.second);
 	}
-
-	m_resources.clear();
 }
 
 ////////////////////////////////////////////////////////////

@@ -52,7 +52,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		ResourceHolder<IShaderComponent> m_shaders;
+		ResourceHolder<IShaderComponent> m_shaders;		// The storage of all shaders.
 
 	private:
 		/*
@@ -91,7 +91,8 @@ namespace sparky
 		/// \param name		The name of the shader to retrieve.
 		///
 		////////////////////////////////////////////////////////////
-		IShaderComponent* getShader(const String& name) const;
+		template <typename T = IShaderComponent>
+		T* getShader(const String& name) const;
 
 		/*
 		====================
@@ -121,6 +122,13 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		void removeShader(const String& name);
 	};
+
+	////////////////////////////////////////////////////////////
+	template <typename T>
+	T* ResourceManager::getShader(const String& name) const
+	{
+		return dynamic_cast<T*>(m_shaders.get(name));
+	}
 
 }//namespace sparky
 

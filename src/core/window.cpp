@@ -161,12 +161,6 @@ namespace sparky
 		return m_running;
 	}
 
-	////////////////////////////////////////////////////////////
-	void Window::setRunning(const bool running)
-	{
-		m_running = running;
-	}
-
 	/*
 	====================
 	Methods
@@ -238,9 +232,15 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	int Window::onEvent(SDL_Event& e)
+	void Window::close(void)
 	{
-		return SDL_PollEvent(&e);
+		m_running = false;
+	}
+
+	////////////////////////////////////////////////////////////
+	void Window::setMousePosition(const Vector2i& position) const
+	{
+		SDL_WarpMouseInWindow(m_pWindow, position.x, position.y);
 	}
 
 }//namespace sparky

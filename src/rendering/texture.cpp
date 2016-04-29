@@ -59,7 +59,7 @@ namespace sparky
 		m_dimensions.x = pSurface->w;
 		m_dimensions.y = pSurface->h;
 
-		m_pTexels = static_cast<GLuint*>(pSurface->pixels);
+		m_pTexels = pSurface->pixels;
 
 		glGenTextures(1, &m_ID);
 		glBindTexture(desc.target, m_ID);

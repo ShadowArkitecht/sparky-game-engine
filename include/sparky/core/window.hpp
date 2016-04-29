@@ -42,8 +42,6 @@ Additional Includes
 
 namespace sparky
 {
-	typedef SDL_Event Event;
-
 	/*
 	====================
 	Sparky Forward Declarations
@@ -236,18 +234,6 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		bool isRunning(void) const;
 
-		////////////////////////////////////////////////////////////
-		/// \brief Sets the running state of the Window object.
-		/// 
-		/// When the Window object is running, it will continue to run, if the
-		/// running state is set to false, the application will stop and the 
-		/// window will be deleted.
-		///
-		/// \param running	The new state of the Window object.
-		///
-		////////////////////////////////////////////////////////////
-		void setRunning(const bool running);
-
 		/*
 		====================
 		Methods
@@ -311,16 +297,21 @@ namespace sparky
 		void swap(void) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Poll the Window events.
+		/// \brief Stops the current Window object from running.
 		///
-		/// An event is polled when the user either presses a key on the
-		/// keyboard or interacts with the window itself. The response to
-		/// input depends on the states within the event handler.
-		///
-		/// \param e	The current event of the Window object.
+		/// Closes the current Window object. When the window is closed
+		/// the application will stop running and will exit.
 		///
 		////////////////////////////////////////////////////////////
-		int onEvent(Event& e);
+		void close(void);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Sets the position of the mouse to a position within the window.
+		///
+		/// \param position		The position to set the mouse to.
+		///
+		////////////////////////////////////////////////////////////
+		void setMousePosition(const Vector2i& position) const;
 	};
 
 }//namespace sparky
