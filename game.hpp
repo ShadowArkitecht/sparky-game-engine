@@ -7,18 +7,18 @@ Class Includes
 ====================
 */
 #include <sparky\core\scene.hpp>			// Game is a scene in the application.
-#include <sparky\generation\chunk.hpp>
+#include <sparky\generation\world.hpp>
 #include <sparky\rendering\texture.hpp>
 #include <sparky\input\input.hpp>
-#include <sparky\rendering\basicshader.hpp>
+#include <sparky\rendering\deferredshader.hpp>
 
 class Game : public sparky::Scene
 {
 private:
-	sparky::Chunk*	     m_pChunk;
-	sparky::Texture*     m_pTexture;
-	sparky::Input*		 m_pInput;
-	sparky::BasicShader* m_pShader;
+	sparky::World*	        m_pWorld;
+	sparky::Texture*        m_pTexture;
+	sparky::Input*		    m_pInput;
+	sparky::DeferredShader* m_pShader;
 
 public:
 	/*

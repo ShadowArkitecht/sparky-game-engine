@@ -73,3 +73,14 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_GLDEVICE_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::GLDevice
+/// \ingroup utils
+///
+/// sparky::GLDevice is a static wrapper class for common OpenGL calls
+/// within the application, such as enabling and disabling
+/// different flags of OpenGL. It also contains utility methods
+/// for rendering the scene using a wireframe.
+///
+////////////////////////////////////////////////////////////

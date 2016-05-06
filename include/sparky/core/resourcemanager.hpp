@@ -151,10 +151,10 @@ namespace sparky
 ///
 /// \code
 /// // Add a Basic shader to the Resource Manager.
-/// sparky::ResourceManager::getInstance().addShader("basic", new sparky::BasicShader());
+/// sparky::ResourceManager::getInstance().addShader("basic", new sparky::FinalShader());
 ///
 /// // Get a local reference of the shader for use.
-/// sparky::BasicShader* pShader = sparky::ResourceManager::getInstance().getShader<BasicShader>("basic");
+/// sparky::FinalShader* pShader = sparky::ResourceManager::getInstance().getShader<FinalShader>("basic");
 ///
 /// // Bind the shader for use.
 /// pShader->bind();

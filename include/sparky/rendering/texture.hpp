@@ -213,10 +213,15 @@ namespace sparky
 /// Below is a code example.
 ///
 /// \code
-/// // Create a Texture description
+/// // Create a Texture description and "zero it out".
 /// sparky::TEXTURE_DESC desc;
-/// // Make the texture repeat over a surface.
-/// desc.mode = sparky::eTextureWrapMode::REPEAT;
+/// memset(&desc, 0, sizeof(sparky::TEXTURE_DESC));
+///
+/// // Set the variables of this texture.
+///	desc.target			= GL_TEXTURE_2D;
+/// desc.internalFormat	= GL_RGB;
+/// desc.filter			= eTextureFilter::NEAREST;
+/// desc.mode			= eTextureWrapMode::REPEAT;
 ///
 /// // Load a texture with the description.
 /// sparky* pTexture = new Texture("assets/image.tga", desc);

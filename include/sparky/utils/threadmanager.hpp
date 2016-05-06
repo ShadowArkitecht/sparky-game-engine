@@ -35,16 +35,89 @@ namespace sparky
 		friend class Singleton<ThreadManager>;
 
 	private:
+		/*
+		====================
+		Member Variables
+		====================
+		*/
 		ThreadPool m_pool;
 
 	private:
+		/*
+		====================
+		Private Ctor
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Default private construction of the ThreadManager 
+		///		   class.
+		///
+		/// This constructor will call the behaviour of it's parent
+		/// constructor and initialise the thread pool with the
+		/// maximum amount of available threads.
+		///
+		////////////////////////////////////////////////////////////
 		explicit ThreadManager(void);
 
 	public:
+		/*
+		====================
+		Dtor
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Destruction of the ThreadManager object.
+		///
+		/// The destructor will join all of the currently active threads
+		/// back to the main thread before de-allocation.
+		///
+		////////////////////////////////////////////////////////////
 		~ThreadManager(void);
+
+		/*
+		====================
+		Methods
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Adds a task to the thread pool for execution.
+		///
+		/// A task can be any function or method pointer in which
+		/// void is specified as its return type. The function pointer
+		/// allows for completely modular behaviour and tasks to be
+		/// added to the task queue.
+		///
+		/// \param function		The function to execute on the threads.
+		///
+		////////////////////////////////////////////////////////////
 		void addTask(const std::function<void()>& function);
 	};
 
 }//namespace sparky
 
 #endif//__SPARKY_THREAD_MANAGER_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::ThreadManager
+/// \ingroup utils
+/// 
+/// sparky::ThreadManager is a singleton class which allows
+/// for global access to the applications thread pool. This
+/// global access allows for any function or method within the
+/// application to be multi-threaded and executed on a seperate
+/// thread.
+///
+/// sparky::ThreadManager is a global wrapper class for the thread
+/// pool. Below is a code example of using the Thread Manager.
+///
+/// \code 
+/// // Create a void function which just prints a statement.
+/// void printSentence(void)
+/// {
+///		std::cout << "Multi-threaded function!" << std::endl;
+/// }
+///
+/// Adds the function to the thread manager.
+/// sparky::ThreadManager::getInstance().addTask(printSentence);
+///
+////////////////////////////////////////////////////////////

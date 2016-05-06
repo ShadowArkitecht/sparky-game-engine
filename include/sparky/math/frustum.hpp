@@ -38,10 +38,24 @@ namespace sparky
 	struct FrustumPlane_t
 	{
 	public:
-		Vector3f position;
-		float    distance;
+		/*
+		====================
+		Member Variables
+		====================
+		*/
+		Vector3f position;	// The position of the Plane.
+		float    distance;	// The distance of the Plane from the origin.
 
 	public:
+		/*
+		====================
+		Methods
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Normalizes the position and distance of the Frustum
+		///		   planes.
+		////////////////////////////////////////////////////////////
 		void normalize(void)
 		{
 			float normal = position.magnitude();

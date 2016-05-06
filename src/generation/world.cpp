@@ -22,18 +22,30 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <sparky\generation\world.hpp>
-#include <sparky\generation\chunk.hpp>
-#include <sparky\rendering\ishader.hpp>
-#include <sparky\utils\threadmanager.hpp>
+/*
+====================
+Class Includes
+====================
+*/
+#include <sparky\generation\world.hpp>		// Class definition.
+#include <sparky\generation\chunk.hpp>		// World is made of chunks.
+#include <sparky\rendering\ishader.hpp>		// All of the chunks within the World is rendered with one shader.
+#include <sparky\utils\threadmanager.hpp>	// The chunk generation is multi-threaded for quicker execution.
 
 namespace sparky
 {
+	/*
+	====================
+	Ctor and Dtor
+	====================
+	*/
+	////////////////////////////////////////////////////////////
 	World::World(void)
 		: m_chunks()
 	{
 	}
 
+	////////////////////////////////////////////////////////////
 	World::~World(void)
 	{
 		for (auto& chunk : m_chunks)
@@ -44,11 +56,18 @@ namespace sparky
 		m_chunks.clear();
 	}
 
+	/*
+	====================
+	Getters and Setters
+	====================
+	*/
+	////////////////////////////////////////////////////////////
 	Chunk* World::getChunk(const Vector3i& pos) const
 	{
 		return this->getChunk(pos.x, pos.y, pos.z);
 	}
 
+	////////////////////////////////////////////////////////////
 	Chunk* World::getChunk(const int x, const int y, const int z) const
 	{
 		Vector3i size(Chunk::getSize(), Chunk::getSize(), Chunk::getSize());
@@ -68,6 +87,12 @@ namespace sparky
 		return nullptr;
 	}
 
+	/*
+	====================
+	Methods
+	====================
+	*/
+	////////////////////////////////////////////////////////////
 	void World::addChunk(const Vector3i& pos)
 	{
 		auto itr = m_chunks.find(pos);
@@ -85,6 +110,7 @@ namespace sparky
 		}
 	}
 
+	////////////////////////////////////////////////////////////
 	void World::render(IShaderComponent* pShader)
 	{
 		for (const auto& chunk : m_chunks)

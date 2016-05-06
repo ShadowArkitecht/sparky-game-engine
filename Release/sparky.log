@@ -1,0 +1,84 @@
+﻿Build started 04/05/2016 10:52:23.
+     1>Project "E:\sparky\sparky.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp src\core\camera.cpp src\core\gamemanager.cpp src\core\ref.cpp src\core\pool.cpp src\core\resourcemanager.cpp src\core\scene.cpp src\core\window.cpp src\generation\chunk.cpp src\generation\voxel.cpp src\generation\world.cpp src\input\eventmanager.cpp src\input\ievent.cpp src\input\input.cpp src\input\mouse.cpp src\math\frustum.cpp src\math\transform.cpp src\rendering\basicshader.cpp src\rendering\buffers.cpp src\rendering\GLSLobject.cpp src\rendering\imesh.cpp src\rendering\ishader.cpp src\rendering\meshdata.cpp src\rendering\model.cpp src\rendering\program.cpp src\rendering\texture.cpp src\rendering\uniform.cpp src\rendering\vertex.cpp src\utils\config.cpp src\utils\directory.cpp src\utils\gldevice.cpp src\utils\string.cpp src\utils\threadmanager.cpp src\utils\threadpool.cpp
+         game.cpp
+         main.cpp
+         camera.cpp
+         gamemanager.cpp
+         ref.cpp
+         pool.cpp
+         resourcemanager.cpp
+         scene.cpp
+         window.cpp
+         chunk.cpp
+         voxel.cpp
+         world.cpp
+         eventmanager.cpp
+         ievent.cpp
+         input.cpp
+         mouse.cpp
+         frustum.cpp
+         transform.cpp
+         basicshader.cpp
+         buffers.cpp
+         Compiling...
+         GLSLobject.cpp
+         imesh.cpp
+         ishader.cpp
+         meshdata.cpp
+         model.cpp
+         program.cpp
+         texture.cpp
+         uniform.cpp
+         vertex.cpp
+         config.cpp
+         directory.cpp
+         gldevice.cpp
+         string.cpp
+         threadmanager.cpp
+         threadpool.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\sparky\Release\sparky.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\sparky\Release\sparky.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\sparky\Release\sparky.lib" /MACHINE:X86 /SAFESEH Release\game.obj
+         Release\main.obj
+         Release\camera.obj
+         Release\gamemanager.obj
+         Release\ref.obj
+         Release\pool.obj
+         Release\resourcemanager.obj
+         Release\scene.obj
+         Release\window.obj
+         Release\chunk.obj
+         Release\voxel.obj
+         Release\world.obj
+         Release\eventmanager.obj
+         Release\ievent.obj
+         Release\input.obj
+         Release\mouse.obj
+         Release\frustum.obj
+         Release\transform.obj
+         Release\basicshader.obj
+         Release\buffers.obj
+         Release\GLSLobject.obj
+         Release\imesh.obj
+         Release\ishader.obj
+         Release\meshdata.obj
+         Release\model.obj
+         Release\program.obj
+         Release\texture.obj
+         Release\uniform.obj
+         Release\vertex.obj
+         Release\config.obj
+         Release\directory.obj
+         Release\gldevice.obj
+         Release\string.obj
+         Release\threadmanager.obj
+         Release\threadpool.obj
+         Generating code
+         Finished generating code
+         sparky.vcxproj -> E:\sparky\Release\sparky.exe
+     1>Done Building Project "E:\sparky\sparky.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:13.98

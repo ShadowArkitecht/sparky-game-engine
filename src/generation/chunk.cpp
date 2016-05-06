@@ -32,6 +32,7 @@ Class Includes
 #include <sparky\rendering\meshdata.hpp>	// For adding vertices and faces.
 #include <sparky\rendering\ishader.hpp>		// The shader needs to be updated with the transform.
 #include <sparky\math\frustum.hpp>			// Will only render when inside the viewport.
+#include <sparky\utils\GLdevice.hpp>
 
 namespace sparky
 {
@@ -211,7 +212,7 @@ namespace sparky
 							Vertex_t v3(Vector3f(Vector3i(x[0] + du[0] + dv[0], x[1] + du[1] + dv[1], x[2] + du[2] + dv[2])), Vector2f(1.0f, 1.0f));
 							Vertex_t v4(Vector3f(Vector3i(x[0] + dv[0],         x[1] + dv[1],         x[2] + dv[2])),		  Vector2f(0.0f, 1.0f));
 
-							m_pMesh->addFace(v1, v2, v3, v4, false);
+							m_pMesh->addFace(v1, v2, v3, v4, flip);
 
 							for (int b = 0; b < width; ++b)
 							{
@@ -254,10 +255,12 @@ namespace sparky
 			m_shouldLoad = false;
 		}
 
-		if (Frustum::checkCube(m_transform.getPosition(), Chunk::SIZE))
+		if (Frustum::checkCube(m_transform.getPosition(), static_cast<float>(Chunk::SIZE)))
 		{
 			pShader->update(m_transform);
+			GLDevice::disable(GL_CULL_FACE);
 			m_pMesh->render();
+			GLDevice::enable(GL_CULL_FACE);
 		}
 	}
 

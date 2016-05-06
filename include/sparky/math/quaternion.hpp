@@ -405,3 +405,32 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_QUATERNION_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::Quaternion<T>
+/// \ingroup math
+///
+/// sparky::Quaternion is a wrapper class for Quaternion 
+/// mathematics. A Quaternion is used to represent rotations
+/// with complex and imaginery numbers. They are the front-end
+/// rotation used by the user, which is converted into matrices
+/// for use with OpenGL.
+///
+/// Quaternions supply easier ways to rotate vectors and perform
+/// linear interpolation. They also prevent common rotational problems
+/// such as gimble lock. Below is a code example.
+///
+/// \code
+/// // Set some common variables for use.
+/// sparky::Vector3f up = sparky::Vector3f::up();
+/// float speed = 5.0f * Time::getDeltaTime();
+///
+/// // Create a quaternion and rotate it around an axis.
+/// sparky::Quaternionf rotation = sparky::Quaternionf::angleAxis(up, speed);
+///
+/// // Apply the rotation to a Transform.
+/// sparky::Transform transform;
+///
+/// transform.setRotation(rotation);
+///
+////////////////////////////////////////////////////////////

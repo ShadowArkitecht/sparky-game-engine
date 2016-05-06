@@ -4,7 +4,7 @@
 #include <sparky\core\window.hpp>
 #include <sparky\utils\gldevice.hpp>
 #include <sparky\utils\config.hpp>
-#include <sparky\rendering\basicshader.hpp>
+#include <sparky\rendering\deferredshader.hpp>
 #include <sparky\core\camera.hpp>
 #include <sparky\core\resourcemanager.hpp>
 #include <sparky\core\gamemanager.hpp>
@@ -25,10 +25,9 @@ int main(int argc, char** argv)
 	window.create(file);
 	window.setMousePosition(Vector2i::zero());
 
-	GLDevice::init();
-	GLDevice::enable(GL_DEPTH_TEST);
+	GameManager::getInstance().init();
 
-	ResourceManager::getInstance().addShader("basic", new BasicShader());
+	ResourceManager::getInstance().addShader("deferred", new DeferredShader());
 
 
 	Camera camera;

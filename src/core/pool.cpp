@@ -45,7 +45,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool PoolManager::contains(Ref* pObject) const
 	{
-		return std::find(m_objects.begin(), m_objects.end(), pObject) != m_objects.end();
+		return std::find(std::begin(m_objects), std::end(m_objects), pObject) != std::end(m_objects);
 	}
 
 	////////////////////////////////////////////////////////////

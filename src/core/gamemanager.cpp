@@ -29,10 +29,14 @@ Class Includes
 */
 #include <sparky\core\gamemanager.hpp>		// Class definition.
 #include <sparky\core\scene.hpp>			// The scenes to render and update.
+#include <sparky\rendering\finalshader.hpp> // The final shader that renders the scene.
+#include <sparky\rendering\meshdata.hpp>	// The mesh that the scene rendering is rendered onto.
 #include <sparky\math\frustum.hpp>			// The frustum needs to be constructed before rendering.
 #include <sparky\core\window.hpp>			// Window needs to be cleared and swapped.
 #include <sparky\input\eventmanager.hpp>	// Events need to be polled and handled.
 #include <sparky\core\pool.hpp>				// Releases un-referenced dynamic objects.
+#include <sparky\utils\gldevice.hpp>		// Glew initialisation.
+#include <sparky\math\transform.hpp>
 
 namespace sparky
 {
@@ -43,13 +47,16 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	GameManager::GameManager(void)
-		: Singleton<GameManager>(), m_scenes()
+		: Singleton<GameManager>(), m_scenes(), m_pShader(nullptr), m_pQuad(nullptr), m_buffer()
 	{
 	}
 
 	////////////////////////////////////////////////////////////
 	GameManager::~GameManager(void)
 	{
+		Ref::release(m_pQuad);
+		Ref::release(m_pShader);
+
 		for (auto& scene : m_scenes)
 		{
 			Ref::release(scene);
@@ -61,6 +68,26 @@ namespace sparky
 	Methods
 	====================
 	*/
+	////////////////////////////////////////////////////////////
+	void GameManager::init(void)
+	{
+		GLDevice::init();
+
+		m_pShader = new FinalShader();
+		m_pShader->addRef();
+
+		m_pQuad = new MeshData();
+		m_pQuad->addRef();
+
+		m_pQuad->addFace(Rectf(-1.0f, -1.0f, 2.0f, 2.0f), false);
+		m_pQuad->generate();
+
+		m_buffer.generate();
+
+		GLDevice::enable(GL_DEPTH_TEST);
+		GLDevice::enable(GL_BLEND);
+	}
+
 	////////////////////////////////////////////////////////////
 	void GameManager::pushScene(Scene* pScene)
 	{
@@ -88,9 +115,24 @@ namespace sparky
 
 			Scene* pScene = m_scenes.back();
 
+			m_buffer.bind();
 			Window::getMain().clear();
 
 			pScene->render();
+
+			m_buffer.unbind();
+
+			Window::getMain().clear();
+
+			m_pShader->bind();
+			m_buffer.bindTextures();
+
+			m_pShader->update(Transform());
+
+			m_pQuad->render();
+
+			m_buffer.unbindTextures();
+			m_pShader->unbind();
 
 			Window::getMain().swap();
 

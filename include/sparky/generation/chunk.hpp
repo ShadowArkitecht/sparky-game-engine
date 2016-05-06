@@ -164,3 +164,30 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_CHUNK_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::Chunk
+/// \ingroup generation
+///
+/// sparky::Chunk is a collection of 16 * 16 * 16 voxels which 
+/// are grouped together into a single draw call. Chunking the
+/// voxels together significantly improves the frame-rate of 
+/// the application.
+///
+/// The voxels of the chunk can be updated by directly accessing
+/// the individual elements of the chunk. Below is a code example.
+///
+/// \code
+/// // Create a chunk object.
+/// sparky::Chunk* pChunk = new sparky::Chunk();
+///
+/// // Change a voxel within the chunk.
+/// pChunk->getVoxel(0, 0, 0).setActive(false);
+///
+/// // Add the chunk greedy meshing to a seperate thread.
+/// sparky::ThreadManager::getInstance().addTask(std::bind(&sparky::Chunk::greedy, pChunk));
+///
+/// // Render the chunk.
+/// pChunk->render(sparky::ResourceManager::getInstance().getShader("basic"));
+///
+////////////////////////////////////////////////////////////

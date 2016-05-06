@@ -24,21 +24,21 @@
 
 # DO NOT DELETE THESE VALUES
 [Window]
-title : string   = "Sparky!"	# The name of the Window.
-position_x : int = 200			# The x position of the Window.
-position_y : int = 200			# The y position of the Window.
-size_x : int     = 640			# The width of the Window.	
-size_y : int     = 480			# The height of the Window.
+title : string = "Sparky!" # The name of the Window.
+position_x : int = 200	   # The x position of the Window.
+position_y : int = 200	   # The y position of the Window.
+size_x : int = 640		   # The width of the Window.	
+size_y : int = 480		   # The height of the Window.
 
 # DO NOT DELETE THESE VALUES
 [Context]
-major_version : int = 3			# The major version of OpenGL.
-minor_version : int = 3			# The minor version of OpenGL.
+major_version : int = 3	# The major version of OpenGL.
+minor_version : int = 3	# The minor version of OpenGL.
 
 # DO NOT DELETE THESE VALUES
 [Camera]
-dimension_x : float = 640.0			# The width of the rendering Camera.
-dimension_y : float = 480.0 		# The height of the rendering Camera.
-field_of_view : float = 45.0		# The field of view.
+dimension_x : float = 640.0	 		# The width of the rendering Camera.
+dimension_y : float = 480.0  		# The height of the rendering Camera.
+field_of_view : float = 45.0	 	# The field of view.
 near_clipping_plane : float = 1.0	# The distance close to the camera that objects will stop rendering.
-far_clipping_plane : float = 100.0	# The distance far from the camera that objects will stop rendering.
+far_clipping_plane : float = 1000.0 # The distance far from the camera that objects will stop rendering.

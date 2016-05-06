@@ -117,5 +117,6 @@ namespace sparky
 /// for all shaders used within the Sparky Engine. It provides
 /// basic functionality for binding and unbinding shaders and
 /// an abstract method for updating the uniforms of a shader.
+/// For a code example refer to any child object of this shader.
 ///
 ////////////////////////////////////////////////////////////

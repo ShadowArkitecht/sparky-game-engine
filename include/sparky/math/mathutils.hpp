@@ -68,3 +68,14 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_MATH_UTILS_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::MathUtils
+/// \ingroup math
+///
+/// sparky::MathUtils is a collection of useful Math methods
+/// that are commonly used throughout the mathematics section
+/// of the engine. It is used for conversion between degrees and
+/// radian values.
+///
+////////////////////////////////////////////////////////////

@@ -112,9 +112,6 @@
     <ClCompile Include="src\rendering\ishader.cpp">
       <Filter>rendering\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\basicshader.cpp">
-      <Filter>rendering\source</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\resourcemanager.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
@@ -157,6 +154,15 @@
     </ClCompile>
     <ClCompile Include="src\math\frustum.cpp">
       <Filter>math\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\gbuffer.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\deferredshader.cpp">
+      <Filter>rendering\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\finalshader.cpp">
+      <Filter>rendering\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,9 +250,6 @@
     <ClInclude Include="include\sparky\rendering\ishader.hpp">
       <Filter>rendering\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\basicshader.hpp">
-      <Filter>rendering\header</Filter>
-    </ClInclude>
     <ClInclude Include="include\sparky\math\quaternion.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
@@ -296,6 +299,15 @@
     </ClInclude>
     <ClInclude Include="include\sparky\math\frustum.hpp">
       <Filter>math\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\gbuffer.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\deferredshader.hpp">
+      <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\finalshader.hpp">
+      <Filter>rendering\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

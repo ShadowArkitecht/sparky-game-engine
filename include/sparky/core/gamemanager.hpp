@@ -37,6 +37,7 @@ Member Variables
 ====================
 */
 #include <sparky\utils\singleton.hpp>	// Game Manager is a singleton object.
+#include <sparky\rendering\gbuffer.hpp> // The deferred rendering pipeline GBuffer
 
 namespace sparky
 {
@@ -46,6 +47,8 @@ namespace sparky
 	====================
 	*/
 	class Scene;
+	class FinalShader;
+	class MeshData;
 
 	class GameManager final : public Singleton<GameManager>
 	{
@@ -58,6 +61,9 @@ namespace sparky
 		====================
 		*/
 		std::vector<Scene*> m_scenes;	// The scenes within the application.
+		FinalShader*	    m_pShader;	// The shader that actually renders the scene.
+		MeshData*			m_pQuad;	// The complete scene is render onto this quad.
+		GBuffer				m_buffer;	// The deferred rendering pipeline uses this GBuffer.
 
 	private:
 		/*
@@ -94,6 +100,12 @@ namespace sparky
 		Methods
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Initialises all of the libraries (bar SDL) that
+		///        will be used within the application.
+		////////////////////////////////////////////////////////////
+		void init(void);
+
 		////////////////////////////////////////////////////////////
 		/// \brief Pushes a scene to the top of the stack.
 		///

@@ -1,19 +1,28 @@
 #include "game.hpp"
-#include <sparky\utils\threadmanager.hpp>
 #include <sparky\utils\string.hpp>
 #include <sparky\core\camera.hpp>
 #include <sparky\core\resourcemanager.hpp>
 #include <sparky\utils\gldevice.hpp>
+#include <sparky\generation\chunk.hpp>
+#include <sparky\utils\threadmanager.hpp>
 
 using namespace sparky;
 
 Game::Game(void)
-	: m_pChunk(nullptr), m_pTexture(nullptr), m_pInput(nullptr)
+	: m_pWorld(nullptr), m_pTexture(nullptr), m_pInput(nullptr)
 {
-	m_pChunk = new Chunk();
-	m_pChunk->addRef();
+	m_pWorld = new World();
+	m_pWorld->addRef();
 
-	ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, m_pChunk));
+	for (int x = 0; x < 16; x++)
+	{
+		for (int y = 0; y < 16; y++)
+		{
+			m_pWorld->addChunk(Vector3i(x * 16, 0, y * 16));
+		}
+	}
+
+	m_pWorld->getChunk(Vector3i(0, 0, 0))->getVoxel(0, 0, 0).setActive(false);
 
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));
@@ -28,13 +37,13 @@ Game::Game(void)
 
 	m_pInput = new Input();
 
-	m_pShader = ResourceManager::getInstance().getShader<BasicShader>("basic");
+	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
 }
 
 Game::~Game(void)
 {
 	Ref::release(m_pTexture);
-	Ref::release(m_pChunk);
+	Ref::release(m_pWorld);
 }
 
 void Game::update(void)
@@ -83,7 +92,7 @@ void Game::render(void)
 	m_pShader->bind();
 	m_pTexture->bind();
 
-	m_pChunk->render(m_pShader);
+	m_pWorld->render(m_pShader);
 
 	m_pTexture->unbind();
 	m_pShader->unbind();
