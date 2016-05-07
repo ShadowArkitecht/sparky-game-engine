@@ -110,14 +110,11 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void GBuffer::bindTextures(void) const
 	{
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, m_textures[eGBufferTexture::POSITION]);
-
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, m_textures[eGBufferTexture::NORMAL]);
-
-		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_2D, m_textures[eGBufferTexture::DIFFUSE]);
+		for (unsigned int i = 0; i < MAX_AMOUNT; i++)
+		{
+			glActiveTexture(GL_TEXTURE0 + i);
+			glBindTexture(GL_TEXTURE_2D, m_textures.at(i));
+		}
 	}
 
 	////////////////////////////////////////////////////////////

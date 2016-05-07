@@ -129,6 +129,35 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		Matrix4& operator=(const Matrix4& matrix);
 
+		////////////////////////////////////////////////////////////
+		/// \brief Overload the output stream operator to print a matrix
+		///        to the console window.
+		///
+		/// This method can be used for debugging processes to print a
+		/// matrix to the console window. The matrix will be printed in the
+		/// following format:
+		///
+		/// [ 0, 0, 0, 0 ]
+		/// [ 0, 0, 0, 0 ]
+		/// [ 0, 0, 0, 0 ]
+		/// [ 0, 0, 0, 0 ]
+		///
+		/// \param os		The output stream to stream into.
+		/// \param matrix	The matrix to print to the console window.
+		///
+		/// \retval ostream	The stream of the object.
+		///
+		////////////////////////////////////////////////////////////
+		friend std::ostream& operator<<(std::ostream& os, const Matrix4& matrix)
+		{
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				os << matrix.getRow(i) << std::endl;
+			}
+
+			return os;
+		}
+
 		/*
 		====================
 		Getters and Setters
@@ -329,6 +358,18 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 perspective(const Vector3<T>& forward, const Vector3<T>& up);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Creates a matrix that is the transpose of the parameter.
+		///
+		/// A transposed matrix is a matrix that has the columns switched
+		/// with the rows. This new matrix is returned as the result to this 
+		/// function.
+		///
+		/// \retval Matrix4		The transposed Matrix.
+		///
+		////////////////////////////////////////////////////////////
+		static Matrix4 transpose(const Matrix4& matrix);
 
 		/*
 		====================

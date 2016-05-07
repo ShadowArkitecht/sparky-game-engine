@@ -329,6 +329,27 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		Vector4 operator-(void) const;
 
+		////////////////////////////////////////////////////////////
+		/// \brief Overload the output stream operator to print a Vector4
+		///        to the console window.
+		///
+		/// This method can be used for debugging processes to print a
+		/// vector to the console window. The matrix will be printed in the
+		/// following format:
+		///
+		/// [ x, y, z, w ]
+		///
+		/// \param os		The output stream to stream into.
+		/// \param matrix	The matrix to print to the console window.
+		///
+		/// \retval ostream	The stream of the object.
+		///
+		////////////////////////////////////////////////////////////
+		friend std::ostream& operator<<(std::ostream& os, const Vector4& vector)
+		{
+			return os << "[ " << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << " ]";
+		}
+
 		/*
 		====================
 		Methods

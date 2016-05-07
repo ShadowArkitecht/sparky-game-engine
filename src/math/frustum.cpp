@@ -114,9 +114,23 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Frustum::checkPoint(const Vector3f& position)
 	{
-		for (unsigned int i = 0; i < 6; i++)
+		for (const auto& plane : m_planes)
 		{
-			if (Vector3f::dot(position, m_planes.at(i).position) + m_planes.at(i).distance < 0.0f)
+			if (Vector3f::dot(position, plane.position) + plane.distance < 0.0f)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	////////////////////////////////////////////////////////////
+	bool Frustum::checkSphere(const Vector3f& position, const float radius)
+	{
+		for (const auto& plane : m_planes)
+		{
+			if (Vector3f::dot(position, plane.position) + plane.distance + radius < 0.0f)
 			{
 				return false;
 			}
@@ -128,51 +142,51 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Frustum::checkCube(const Vector3f& position, const float size)
 	{
-		for (unsigned int i = 0; i < 6; i++)
+		for (const auto& plane : m_planes)
 		{
-			if (Vector3f::dot(position, m_planes.at(i).position) + m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(position, plane.position) + plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size, position.y, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size, position.y, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y + size, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y + size, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size, position.y + size, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size, position.y + size, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y, position.z + size), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y, position.z + size), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size, position.y, position.z + size), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size, position.y, position.z + size), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y + size, position.z + size), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y + size, position.z + size), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(position + size, m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(position + size, plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
@@ -186,51 +200,51 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Frustum::checkRectangle(const Vector3f& position, const Vector3f& size)
 	{
-		for (unsigned int i = 0; i < 6; i++)
+		for (const auto& plane : m_planes)
 		{
-			if (Vector3f::dot(position, m_planes.at(i).position) + m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(position, plane.position) + plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size.x, position.y, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size.x, position.y, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y + size.y, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y + size.y, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size.x, position.y + size.y, position.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size.x, position.y + size.y, position.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y, position.z + size.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y, position.z + size.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x + size.x, position.y, position.z + size.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x + size.x, position.y, position.z + size.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(Vector3f(position.x, position.y + size.y, position.z + size.z), m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(Vector3f(position.x, position.y + size.y, position.z + size.z), plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}
 
-			if (Vector3f::dot(position + size, m_planes.at(i).position)
-				+ m_planes.at(i).distance >= 0)
+			if (Vector3f::dot(position + size, plane.position)
+				+ plane.distance >= 0)
 			{
 				continue;
 			}

@@ -1,14 +1,25 @@
-﻿Build started 06/05/2016 18:59:38.
-     1>Project "C:\Users\Ben\Desktop\sparky\sparky.vcxproj" on node 2 (Build target(s)).
+﻿Build started 07/05/2016 01:34:19.
+     1>Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp
-         game.cpp
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp src\core\camera.cpp src\core\gamemanager.cpp src\core\resourcemanager.cpp src\generation\chunk.cpp src\generation\world.cpp src\math\frustum.cpp src\math\transform.cpp src\rendering\deferredshader.cpp src\rendering\finalshader.cpp src\rendering\ishader.cpp src\rendering\uniform.cpp
          main.cpp
          Generating Code...
+         Compiling...
+         uniform.cpp
+         ishader.cpp
+         finalshader.cpp
+         deferredshader.cpp
+         transform.cpp
+         frustum.cpp
+         world.cpp
+         chunk.cpp
+         resourcemanager.cpp
+         gamemanager.cpp
+         camera.cpp
+         game.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Desktop\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Desktop\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Desktop\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\game.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\game.obj
          Debug\main.obj
          Debug\camera.obj
          Debug\gamemanager.obj
@@ -45,9 +56,9 @@
          Debug\string.obj
          Debug\threadmanager.obj
          Debug\threadpool.obj
-         sparky.vcxproj -> C:\Users\Ben\Desktop\sparky\Debug\sparky.exe
-     1>Done Building Project "C:\Users\Ben\Desktop\sparky\sparky.vcxproj" (Build target(s)).
+         sparky.vcxproj -> C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe
+     1>Done Building Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.90
+Time Elapsed 00:00:23.75

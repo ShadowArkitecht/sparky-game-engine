@@ -103,6 +103,18 @@ namespace sparky
 		static bool checkPoint(const Vector3f& point);
 
 		////////////////////////////////////////////////////////////
+		/// \brief Checks to see whether the specified point and its radius
+		///        is within the viewport of the frustum.
+		///
+		/// \param position		The position to check.
+		/// \param radius		The radius of the sphere.
+		///
+		/// \retval bool		True if the point parameter is inside the frustum.
+		///
+		////////////////////////////////////////////////////////////
+		static bool checkSphere(const Vector3f& position, const float radius);
+
+		////////////////////////////////////////////////////////////
 		/// \brief Checks to see if the cube is within the Frustum object.
 		///
 		/// This method Checks to see if a cube shape is within the viewport of the

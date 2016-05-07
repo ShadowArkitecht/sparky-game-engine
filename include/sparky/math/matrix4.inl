@@ -290,6 +290,20 @@ Matrix4<T> Matrix4<T>::perspective(const Vector3<T>& forward, const Vector3<T>& 
 	return matrix;
 }
 
+////////////////////////////////////////////////////////////
+template <typename T>
+Matrix4<T> Matrix4<T>::transpose(const Matrix4<T>& matrix)
+{
+	Matrix4<T> result;
+
+	for (unsigned int i = 0; i < 4; i++)
+	{
+		result.setColumn(i, matrix.getRow(i));
+	}
+
+	return result;
+}
+
 /*
 ====================
 Properties

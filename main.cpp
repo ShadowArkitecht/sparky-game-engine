@@ -25,10 +25,15 @@ int main(int argc, char** argv)
 	window.create(file);
 	window.setMousePosition(Vector2i::zero());
 
+	Matrix4f test;
+	test.setRow(0, Vector4f(5.0, 7.0f, 9.0f, 1.0f));
+
+	std::cout << test << std::endl;
+	std::cout << Matrix4f::transpose(test) << std::endl;
+
 	GameManager::getInstance().init();
 
 	ResourceManager::getInstance().addShader("deferred", new DeferredShader());
-
 
 	Camera camera;
 	camera.create(file);
