@@ -489,7 +489,7 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		template <typename T>
-		static String concat(T first);
+		static String concat(const T& first);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Concatenating variadic amount of strings onto another.
@@ -503,7 +503,7 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		template <typename T, typename... Args>
-		static String concat(T first, Args... args);
+		static String concat(const T& first, const Args&... args);
 	};
 
 	////////////////////////////////////////////////////////////
@@ -534,7 +534,7 @@ namespace sparky
 	///
 	////////////////////////////////////////////////////////////
 	template <typename T>
-	String String::concat(T first)
+	static String String::concat(const T& first)
 	{
 		return String(first);
 	}
@@ -551,9 +551,9 @@ namespace sparky
 	///
 	////////////////////////////////////////////////////////////
 	template <typename T, typename... Args>
-	String String::concat(T first, Args... args)
+	static String String::concat(const T& first, const Args&... args)
 	{
-		return String(first) + concat(String(args...));
+		return String(first) + concat(args...);
 	}
 
 }//namespace sparky

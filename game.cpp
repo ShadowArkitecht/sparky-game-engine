@@ -14,15 +14,7 @@ Game::Game(void)
 	m_pWorld = new World();
 	m_pWorld->addRef();
 
-	for (int x = 0; x < 16; x++)
-	{
-		for (int y = 0; y < 16; y++)
-		{
-			m_pWorld->addChunk(Vector3i(x * 16, 0, y * 16));
-		}
-	}
-
-	m_pWorld->getChunk(Vector3i(0, 0, 0))->getVoxel(0, 0, 0).setActive(false);
+	m_pWorld->addChunk(Vector3i());
 
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));
@@ -38,6 +30,9 @@ Game::Game(void)
 	m_pInput = new Input();
 
 	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
+
+	m_pModel = new Model("assets/chr_knight.obj");
+	m_pModel->addRef();
 }
 
 Game::~Game(void)
@@ -93,6 +88,8 @@ void Game::render(void)
 	m_pTexture->bind();
 
 	m_pWorld->render(m_pShader);
+	//m_pShader->update(Transform());
+	//m_pModel->render();
 
 	m_pTexture->unbind();
 	m_pShader->unbind();

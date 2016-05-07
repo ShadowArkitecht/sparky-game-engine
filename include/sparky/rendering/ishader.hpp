@@ -102,7 +102,7 @@ namespace sparky
 		/// \param transform	The transform of the object being rendered.
 		///
 		////////////////////////////////////////////////////////////
-		virtual void update(const Transform& transform) const = 0;
+		virtual void update(const Transform& transform) = 0;
 	};
 
 }//namespace sparky

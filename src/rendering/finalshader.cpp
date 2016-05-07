@@ -28,6 +28,7 @@ Class Includes
 ====================
 */
 #include <sparky\rendering\finalshader.hpp>	// Class definition.
+#include <sparky\lighting\directionallight.hpp> // Directional Light Test.
 #include <sparky\math\transform.hpp>		// Setting uniform variables.
 #include <sparky\core\camera.hpp>			// Needed for view and projection matrices.
 
@@ -42,6 +43,18 @@ namespace sparky
 	FinalShader::FinalShader(void)
 		: IShaderComponent("shaders/basic_vertex.glsl", "shaders/basic_fragment.glsl")
 	{
+		SPARKY_DIRECTIONAL_LIGHT_DESC desc;
+		memset(&desc, 0, sizeof(SPARKY_DIRECTIONAL_LIGHT_DESC));
+
+		desc.base.name = String("u_light");
+		desc.base.position = Vector3f::one();
+		desc.base.colour = Vector3f::one();
+		desc.base.intensity = 0.5f;
+
+		desc.direction = Vector3f(1.0f, 0.0f, 0.0f);
+
+		m_pLight = new DirectionalLight(desc);
+		m_pLight->addRef();
 	}
 
 	/*
@@ -50,12 +63,14 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	void FinalShader::update(const Transform& transform) const
+	void FinalShader::update(const Transform& transform)
 	{
 		// Fragment uniforms.
 		m_uniform.setParameter("u_position", 0);
 		m_uniform.setParameter("u_normal",   1);
 		m_uniform.setParameter("u_diffuse",  2);
+
+		m_pLight->setUniforms(m_uniform);
 	}
 
 }//namespace sparky

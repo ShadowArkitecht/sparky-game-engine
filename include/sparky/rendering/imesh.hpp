@@ -168,8 +168,10 @@ namespace sparky
 		/// method can be called manually or within the mesh generate
 		/// method.
 		///
+		/// \param invertNormals	Invert the normals if required.
+		///
 		////////////////////////////////////////////////////////////
-		void calculateNormals(void);
+		void calculateNormals(const bool invertNormals = false);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Clears the vertices and indices of the Mesh object.
@@ -190,11 +192,9 @@ namespace sparky
 		/// index information. This allows for communication between the
 		/// Mesh and OpenGL.
 		///
-		/// \param genNormals	If true, the mesh will be generated with
-		///						normals.
 		///
 		////////////////////////////////////////////////////////////
-		void generate(const bool genNormals = false);
+		void generate(const bool genNormals = false, const bool invertNormals = false);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Abstract rendering method for rendering the Mesh.

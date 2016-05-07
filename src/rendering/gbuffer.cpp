@@ -11,6 +11,7 @@ Class Includes
 */
 #include <sparky\rendering\gbuffer.hpp>		// Class definition.
 #include <sparky\core\window.hpp>			// Generating the buffer to the size of the Window.
+#include <sparky\utils\debug.hpp>			// Print debug messages if gbuffer failed to create.
 
 namespace sparky
 {
@@ -43,7 +44,7 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	bool GBuffer::generate(void)
+	void GBuffer::generate(void)
 	{
 		glGenFramebuffers(1, &m_fbo);
 		glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
@@ -84,15 +85,13 @@ namespace sparky
 		// Checks to see if the frame buffer initialised correctly without errors
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			return false;
+			DebugLog::warning("GBuffer frame buffer has failed to generate.");
 		}
 		// Unbinds the frame buffer by default so it doesn't effect any renderable objects
 		this->unbindTextures();
 		this->unbind();
 
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-		return true;
 	}
 
 	////////////////////////////////////////////////////////////

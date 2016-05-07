@@ -34,8 +34,13 @@ Class Includes
 
 namespace sparky
 {
+	class DirectionalLight;
+
 	class FinalShader final : public IShaderComponent
 	{
+	private:
+		DirectionalLight* m_pLight;
+
 	public:
 		/*
 		====================
@@ -73,7 +78,7 @@ namespace sparky
 		/// \param transform	The transform of the current object being rendered.
 		///
 		////////////////////////////////////////////////////////////
-		void update(const Transform& transform) const override;
+		void update(const Transform& transform) override;
 	};
 
 }//namespace sparky

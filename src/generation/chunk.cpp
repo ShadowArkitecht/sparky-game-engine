@@ -251,16 +251,14 @@ namespace sparky
 	{
 		if (m_shouldLoad)
 		{
-			m_pMesh->generate(true);
+			m_pMesh->generate(true, true);
 			m_shouldLoad = false;
 		}
 
 		if (Frustum::checkCube(m_transform.getPosition(), static_cast<float>(Chunk::SIZE)))
 		{
 			pShader->update(m_transform);
-			GLDevice::disable(GL_CULL_FACE);
 			m_pMesh->render();
-			GLDevice::enable(GL_CULL_FACE);
 		}
 	}
 

@@ -164,6 +164,8 @@
     <ClCompile Include="src\rendering\finalshader.cpp">
       <Filter>rendering\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\lighting\light.cpp" />
+    <ClCompile Include="src\lighting\directionallight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -309,6 +311,8 @@
     <ClInclude Include="include\sparky\rendering\finalshader.hpp">
       <Filter>rendering\header</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\lighting\light.hpp" />
+    <ClInclude Include="include\sparky\lighting\directionallight.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">

@@ -85,7 +85,7 @@ namespace sparky
 		m_buffer.generate();
 
 		GLDevice::enable(GL_DEPTH_TEST);
-		GLDevice::enable(GL_BLEND);
+		GLDevice::disable(GL_BLEND);
 	}
 
 	////////////////////////////////////////////////////////////

@@ -131,7 +131,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void IMeshComponent::calculateNormals(void)
+	void IMeshComponent::calculateNormals(const bool invertNormals /*= false*/)
 	{
 		if (m_indices.size() % 3 != 0)
 		{
@@ -158,7 +158,14 @@ namespace sparky
 
 		for (auto& vertex : m_vertices)
 		{
-			vertex.normal = vertex.normal.normalised();
+			if (invertNormals)
+			{
+				vertex.normal = -vertex.normal.normalised();
+			}
+			else
+			{
+				vertex.normal = vertex.normal.normalised();
+			}
 		}
 	}
 
@@ -177,7 +184,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void IMeshComponent::generate(const bool genNormals/*= false*/)
+	void IMeshComponent::generate(const bool genNormals/*= false*/, const bool invertNormals/*=false*/)
 	{
 		if (!m_generated)
 		{
@@ -185,7 +192,7 @@ namespace sparky
 			{
 				if (genNormals)
 				{
-					this->calculateNormals();
+					this->calculateNormals(invertNormals);
 				}
 
 				m_arrayBuffer.generate();

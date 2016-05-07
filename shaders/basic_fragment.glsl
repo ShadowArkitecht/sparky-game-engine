@@ -24,14 +24,18 @@
 
 #version 400
 
+#include "core/lighting.glsl"
+
 /*
 ====================
 Uniform Variables
 ====================
 */
 uniform sampler2D u_position;
-uniform sampler2D u_diffuse;
 uniform sampler2D u_normal;
+uniform sampler2D u_diffuse;
+
+uniform DirectionalLight u_light;
 
 /*
 ====================
@@ -58,9 +62,12 @@ Functions
 */
 void main()
 {
-	vec3 frag_position  = texture(u_position, fs_in.uv_coords).rgb;
-	vec3 frag_diffuse   = texture(u_diffuse,  fs_in.uv_coords).rgb;
-	vec3 frag_normal    = texture(u_normal,   fs_in.uv_coords).rgb;
-
-	o_fragColour = vec4(frag_diffuse, 1.0);
+	vec3 g_position = texture(u_position, fs_in.uv_coords).rgb;
+	vec3 g_normals  = texture(u_normal,   fs_in.uv_coords).rgb;
+	vec3 g_diffuse  = texture(u_diffuse,  fs_in.uv_coords).rgb;
+	
+	vec3 lighting = g_diffuse * 0.6;
+	lighting += sparky_CalculateDirectionalLight(u_light, g_normals);
+	
+	o_fragColour = vec4(lighting, 1.0);
 }

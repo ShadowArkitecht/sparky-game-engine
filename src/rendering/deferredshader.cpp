@@ -9,7 +9,7 @@ namespace sparky
 	{
 	}
 	
-	void DeferredShader::update(const Transform& transform) const
+	void DeferredShader::update(const Transform& transform)
 	{
 		Matrix4f mvp = transform.getTransformation() * Camera::getMain().getViewProjection();
 

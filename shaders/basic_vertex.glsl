@@ -35,6 +35,12 @@ layout (location = 2) in vec2 uv_coords;
 
 /*
 ====================
+Uniform Variables
+====================
+*/
+
+/*
+====================
 Out Variables
 ====================
 */
@@ -52,5 +58,6 @@ Functions
 void main()
 {
 	vs_out.uv_coords = uv_coords;
+	
 	gl_Position = vec4(position, 1.0);
 }

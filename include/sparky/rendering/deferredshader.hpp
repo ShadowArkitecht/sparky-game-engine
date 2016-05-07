@@ -11,7 +11,7 @@ namespace sparky
 		explicit DeferredShader(void);
 		~DeferredShader(void) = default;
 
-		void update(const Transform& transform) const override;
+		void update(const Transform& transform) override;
 	};
 
 }//namespace sparky
