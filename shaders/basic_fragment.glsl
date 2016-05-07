@@ -36,7 +36,7 @@ uniform sampler2D u_normal;
 uniform sampler2D u_diffuse;
 
 uniform DirectionalLight u_light;
-
+uniform PointLight 		 u_point_light;
 /*
 ====================
 In Variables
@@ -67,7 +67,9 @@ void main()
 	vec3 g_diffuse  = texture(u_diffuse,  fs_in.uv_coords).rgb;
 	
 	vec3 lighting = g_diffuse * 0.6;
-	lighting += sparky_CalculateDirectionalLight(u_light, g_normals);
+	
+	//lighting += sparky_CalculateDirectionalLight(u_light, g_normals);
+	lighting += sparky_CalculatePointLight(u_point_light, g_position, g_normals);
 	
 	o_fragColour = vec4(lighting, 1.0);
 }

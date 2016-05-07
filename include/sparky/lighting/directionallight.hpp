@@ -124,3 +124,36 @@ namespace sparky
 }//namespace sparky
 
 #endif//__SPARKY_DIRECTIONAL_LIGHT_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::DirectionalLight
+/// \ingroup lighting
+///
+/// sparky::DirectionalLight is one of the main lighting classes
+/// within the application. It is used to represent light sources
+/// that shine infinitely in one direction, such as the sun or a
+/// a star. 
+/// 
+/// sparky::DirectionalLight can be combined with any other light
+/// source provided within the shader. Below is a code example.
+///
+/// \code
+/// // Create a description for the directional light and "zero" it out.
+/// sparky::SPARKY_DIRECTIONAL_LIGHT_DESC desc;
+/// memset(&desc, 0, sizeof(sparky::SPARKY_DIRECTIONAL_LIGHT_DESC));
+///
+/// // Fill the description with information about the light.
+/// desc.base.name      = "u_light";						
+/// desc.base.position  = sparky::Vector3f::zero();			
+/// desc.base.colour    = sparky::Vector3f(0.5f, 0.0f, 0.0f);	
+/// desc.base.intensity = 0.45f;					
+/// desc.direction      = sparky::Vector3f(1.0f, 0.0f, 0.0f);
+///
+/// // Create a new directional light with the description and retain.
+/// sparky::DirectionalLight* pLight = new sparky::DirectionalLight(desc);
+/// pLight->addRef();
+///
+/// // Within a shader update the lights uniform variables.
+/// pLight->setUniforms(m_uniform);
+///
+////////////////////////////////////////////////////////////

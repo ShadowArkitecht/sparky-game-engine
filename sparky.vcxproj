@@ -100,6 +100,7 @@
     <ClCompile Include="src\input\mouse.cpp" />
     <ClCompile Include="src\lighting\directionallight.cpp" />
     <ClCompile Include="src\lighting\light.cpp" />
+    <ClCompile Include="src\lighting\pointlight.cpp" />
     <ClCompile Include="src\math\frustum.cpp" />
     <ClCompile Include="src\math\transform.cpp" />
     <ClCompile Include="src\rendering\deferredshader.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="include\sparky\input\mouse.hpp" />
     <ClInclude Include="include\sparky\lighting\directionallight.hpp" />
     <ClInclude Include="include\sparky\lighting\light.hpp" />
+    <ClInclude Include="include\sparky\lighting\pointlight.hpp" />
     <ClInclude Include="include\sparky\math\frustum.hpp" />
     <ClInclude Include="include\sparky\math\mathutils.hpp" />
     <ClInclude Include="include\sparky\math\matrix4.hpp" />

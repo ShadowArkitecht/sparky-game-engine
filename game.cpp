@@ -14,7 +14,8 @@ Game::Game(void)
 	m_pWorld = new World();
 	m_pWorld->addRef();
 
-	m_pWorld->addChunk(Vector3i());
+	m_pWorld->addChunk(Vector3i(0, 0, 0));
+	m_pWorld->addChunk(Vector3i(0, 0, -16));
 
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));

@@ -27,10 +27,11 @@
 Class Includes
 ====================
 */
-#include <sparky\rendering\finalshader.hpp>	// Class definition.
+#include <sparky\rendering\finalshader.hpp>	    // Class definition.
 #include <sparky\lighting\directionallight.hpp> // Directional Light Test.
-#include <sparky\math\transform.hpp>		// Setting uniform variables.
-#include <sparky\core\camera.hpp>			// Needed for view and projection matrices.
+#include <sparky\lighting\pointlight.hpp>		// Point Light Test.
+#include <sparky\math\transform.hpp>		    // Setting uniform variables.
+#include <sparky\core\camera.hpp>			    // Needed for view and projection matrices.
 
 namespace sparky
 {
@@ -55,6 +56,24 @@ namespace sparky
 
 		m_pLight = new DirectionalLight(desc);
 		m_pLight->addRef();
+
+
+		SPARKY_POINT_LIGHT_DESC p;
+		memset(&p, 0, sizeof(SPARKY_POINT_LIGHT_DESC));
+
+		p.base.name = String("u_point_light");
+		p.base.position = Vector3f(1.0f, 1.0f, 0.0f);
+		p.base.colour = Vector3f(0.5f, 0.0f, 0.0f);
+		p.base.intensity = 8.0f;
+
+		p.attenuation.constant = 1.0f;
+		p.attenuation.linear = 0.7f;
+		p.attenuation.exponent = 1.8f;
+
+		p.range = 25.0f;
+
+		m_pPoint = new PointLight(p);
+		m_pPoint->addRef();
 	}
 
 	/*
@@ -71,6 +90,7 @@ namespace sparky
 		m_uniform.setParameter("u_diffuse",  2);
 
 		m_pLight->setUniforms(m_uniform);
+		m_pPoint->setUniforms(m_uniform);
 	}
 
 }//namespace sparky
