@@ -105,7 +105,7 @@
     <ClCompile Include="src\math\transform.cpp" />
     <ClCompile Include="src\rendering\ambientshader.cpp" />
     <ClCompile Include="src\rendering\deferredshader.cpp" />
-    <ClCompile Include="src\rendering\finalshader.cpp" />
+    <ClCompile Include="src\rendering\directionalshader.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
     <ClCompile Include="src\rendering\gbuffer.cpp" />
     <ClCompile Include="src\rendering\GLSLobject.cpp" />
@@ -113,6 +113,7 @@
     <ClCompile Include="src\rendering\ishader.cpp" />
     <ClCompile Include="src\rendering\meshdata.cpp" />
     <ClCompile Include="src\rendering\model.cpp" />
+    <ClCompile Include="src\rendering\pointshader.cpp" />
     <ClCompile Include="src\rendering\program.cpp" />
     <ClCompile Include="src\rendering\texture.cpp" />
     <ClCompile Include="src\rendering\uniform.cpp" />
@@ -156,7 +157,7 @@
     <ClInclude Include="include\sparky\math\vector4.hpp" />
     <ClInclude Include="include\sparky\rendering\ambientshader.hpp" />
     <ClInclude Include="include\sparky\rendering\deferredshader.hpp" />
-    <ClInclude Include="include\sparky\rendering\finalshader.hpp" />
+    <ClInclude Include="include\sparky\rendering\directionalshader.hpp" />
     <ClInclude Include="include\sparky\rendering\buffers.hpp" />
     <ClInclude Include="include\sparky\rendering\gbuffer.hpp" />
     <ClInclude Include="include\sparky\rendering\GLSLobject.hpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="include\sparky\rendering\ishader.hpp" />
     <ClInclude Include="include\sparky\rendering\meshdata.hpp" />
     <ClInclude Include="include\sparky\rendering\model.hpp" />
+    <ClInclude Include="include\sparky\rendering\pointshader.hpp" />
     <ClInclude Include="include\sparky\rendering\program.hpp" />
     <ClInclude Include="include\sparky\rendering\texture.hpp" />
     <ClInclude Include="include\sparky\rendering\uniform.hpp" />

@@ -45,8 +45,22 @@ Game::Game(void)
 	dl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
 	dl.direction = Vector3f(-1.0f, 0.0f, 0.0f);
 
-	m_pLight2 = new DirectionalLight(dl);
-	m_pLight2->addRef();
+	SPARKY_POINT_LIGHT_DESC pl;
+	memset(&pl, 0, sizeof(SPARKY_POINT_LIGHT_DESC));
+
+	pl.base.name = String("u_light");
+	pl.base.position = Vector3f(1.0f, 1.0f, 0.0f);
+	pl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
+	pl.base.intensity = 20.0f;
+
+	pl.attenuation.constant = 1.0f;
+	pl.attenuation.linear = 0.7f;
+	pl.attenuation.exponent = 1.8f;
+
+	pl.range = 25.0f;
+
+	m_pPoint = new PointLight(pl);
+	m_pPoint->addRef();
 
 	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
 }
@@ -60,7 +74,7 @@ Game::~Game(void)
 void Game::update(void)
 {
 	m_pLight->addLight();
-	m_pLight2->addLight();
+	m_pPoint->addLight();
 
 	if (m_pInput->getKey(SDLK_w))
 	{

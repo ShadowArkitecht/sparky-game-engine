@@ -96,13 +96,13 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Adds a dynamic object to the pool.
+		/// \brief Adds a dynamic object Ref to the pool.
 		///
 		/// The object added is retained within the pool until the 
 		/// end of the current frame, where the objects reference
 		/// count is decremented and cleared from the pool.
 		///
-		/// \param pObject	The object to add to the pool.
+		/// \param pObject	The Ref to add to the pool.
 		///
 		////////////////////////////////////////////////////////////
 		void addObject(Ref* pObject);
@@ -114,18 +114,18 @@ namespace sparky
 		/// the current pool and return true if the object parameter
 		/// has been found.
 		///
-		/// \param pObject	The object to search the pool for.
+		/// \param pObject	The Ref to search the pool for.
 		///
-		/// \retval	bool	True if the object has been found, false if not.
+		/// \retval	bool	True if the Ref has been found, false if not.
 		///
 		////////////////////////////////////////////////////////////
 		bool contains(Ref* pObject) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Flushes the pool of all currently retained objects.
+		/// \brief Flushes the pool of all currently retained Ref's.
 		///
 		/// At the end of each frame, the pool is emptied of all 
-		/// retained objects, each objects reference counter is decremented
+		/// retained Ref's, each Ref's reference counter is decremented
 		/// before flushing.
 		///
 		////////////////////////////////////////////////////////////
@@ -135,21 +135,22 @@ namespace sparky
 }//namespace sparky
 
 ////////////////////////////////////////////////////////////
-///
 /// \class sparky::PoolManager
 /// \ingroup core
+///
 /// sparky::PoolManager is a singleton class that is responsible 
-/// for the basic garbage collection of Sparky. Dynamic objects
+/// for the basic garbage collection of Sparky. Dynamic Ref objects 
 /// are added to the list. At the end of the current frame, each 
 /// objects reference count is decremented and if the count is 0, 
 /// it is deleted. 
 
-/// After every object has been checked, the object pool is cleared. 
-/// The only objects left after the flushing are objects that are 
+/// After every Ref object has been checked, the object pool is cleared. 
+/// The only Ref objects left after the flushing are objects that are 
 /// referenced by other classes, and therefore their lifetime
 /// is tied to that subsequent instance. Below is a small example
 /// of the pool in use.
 ///
+/// Usage example:
 /// \code
 /// // Creating a Window.
 /// sparky::Window window;
@@ -168,6 +169,7 @@ namespace sparky
 ///		// As the object is not retained by any classes, it will be deleted by the pool.
 ///		PoolManager::getInstance().flush();
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////
 

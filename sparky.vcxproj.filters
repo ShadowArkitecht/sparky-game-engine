@@ -55,6 +55,24 @@
     <Filter Include="input\source">
       <UniqueIdentifier>{24bb6105-108f-4f99-8549-b3daed3bebf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lighting">
+      <UniqueIdentifier>{f9d9d583-5ab8-4066-abc4-67fe81068ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lighting\header">
+      <UniqueIdentifier>{01c91565-3ff4-4596-8125-2ad24d9423ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lighting\source">
+      <UniqueIdentifier>{cbeb0521-4d7e-48de-9366-0999e0e544ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{d3610d2e-0c6b-44b4-ad83-7df75a2f1fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\headers">
+      <UniqueIdentifier>{96340838-4685-417d-991b-18f2823def11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\source">
+      <UniqueIdentifier>{037a3731-477a-4ecb-85ab-55d62ca3cf85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\window.cpp">
@@ -109,9 +127,6 @@
     <ClCompile Include="src\math\transform.cpp">
       <Filter>math\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\ishader.cpp">
-      <Filter>rendering\source</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\resourcemanager.cpp">
       <Filter>core\source</Filter>
     </ClCompile>
@@ -158,17 +173,29 @@
     <ClCompile Include="src\rendering\gbuffer.cpp">
       <Filter>rendering\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\deferredshader.cpp">
-      <Filter>rendering\source</Filter>
+    <ClCompile Include="src\lighting\directionallight.cpp">
+      <Filter>lighting\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\finalshader.cpp">
-      <Filter>rendering\source</Filter>
+    <ClCompile Include="src\lighting\light.cpp">
+      <Filter>lighting\source</Filter>
     </ClCompile>
-    <ClCompile Include="src\lighting\light.cpp" />
-    <ClCompile Include="src\lighting\directionallight.cpp" />
-    <ClCompile Include="src\lighting\pointlight.cpp" />
+    <ClCompile Include="src\lighting\pointlight.cpp">
+      <Filter>lighting\source</Filter>
+    </ClCompile>
     <ClCompile Include="src\rendering\ambientshader.cpp">
-      <Filter>rendering\source</Filter>
+      <Filter>shaders\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\deferredshader.cpp">
+      <Filter>shaders\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\directionalshader.cpp">
+      <Filter>shaders\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\ishader.cpp">
+      <Filter>shaders\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\pointshader.cpp">
+      <Filter>shaders\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +280,6 @@
     <ClInclude Include="include\sparky\math\transform.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\ishader.hpp">
-      <Filter>rendering\header</Filter>
-    </ClInclude>
     <ClInclude Include="include\sparky\math\quaternion.hpp">
       <Filter>math\header</Filter>
     </ClInclude>
@@ -309,17 +333,29 @@
     <ClInclude Include="include\sparky\rendering\gbuffer.hpp">
       <Filter>rendering\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\deferredshader.hpp">
-      <Filter>rendering\header</Filter>
+    <ClInclude Include="include\sparky\lighting\directionallight.hpp">
+      <Filter>lighting\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\rendering\finalshader.hpp">
-      <Filter>rendering\header</Filter>
+    <ClInclude Include="include\sparky\lighting\light.hpp">
+      <Filter>lighting\header</Filter>
     </ClInclude>
-    <ClInclude Include="include\sparky\lighting\light.hpp" />
-    <ClInclude Include="include\sparky\lighting\directionallight.hpp" />
-    <ClInclude Include="include\sparky\lighting\pointlight.hpp" />
+    <ClInclude Include="include\sparky\lighting\pointlight.hpp">
+      <Filter>lighting\header</Filter>
+    </ClInclude>
     <ClInclude Include="include\sparky\rendering\ambientshader.hpp">
-      <Filter>rendering\header</Filter>
+      <Filter>shaders\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\deferredshader.hpp">
+      <Filter>shaders\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\directionalshader.hpp">
+      <Filter>shaders\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\ishader.hpp">
+      <Filter>shaders\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\rendering\pointshader.hpp">
+      <Filter>shaders\headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

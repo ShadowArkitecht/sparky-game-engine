@@ -75,7 +75,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		///	\brief Constructs a Window object instance. 
 		///
-		///	This constructor does not actually construct the window,
+		///	This constructor does not actually construct the Window,
 		/// it sets all of the Window member variables to default
 		/// values. To construct a Window using this constructor, the
 		/// create method must be subsequently called.
@@ -87,9 +87,9 @@ namespace sparky
 		///	\brief Constructs a Window object instance. 
 		///
 		///	This constructor subsequently calls the create method and
-		/// creates a window with the specified parameters, the window
+		/// creates a Window with the specified parameters, the Window
 		/// can be optionally constructed into full-screen mode. The context
-		/// for the window can be provided for additional OpenGL behaviour.
+		/// for the Window can be provided for additional OpenGL behaviour.
 		/// 
 		///	\param title	The title of the Window object (which appears in the Windows taskbar).
 		///	\param position	The position that the Window will appear on the Desktop.
@@ -103,7 +103,7 @@ namespace sparky
 		///	\brief Constructs a Window object instance. 
 		///
 		///	This constructor subsequently calls the create method and
-		/// creates a window with the specified parameters, which are
+		/// creates a Window with the specified parameters, which are
 		/// retrieved from the configuration file.
 		/// 
 		///	\param config	The configuration file the settings are read from.
@@ -128,13 +128,13 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Gets the main Window object of the current application.
 		/// 
-		///	When the Window is first created, if no window has been 
+		///	When the Window is first created, if no Window has been 
 		/// created before this instance, it is set to be the main Window
 		/// object. This method allows for global access to the Window,
 		/// which is useful for several elements such as positioning HUD
 		/// in screen-space.
 		///
-		/// \retval main	The main Window object of the current application.
+		/// \retval Window&	The main Window object of the current application.
 		///
 		////////////////////////////////////////////////////////////
 		static Window& getMain(void);
@@ -145,7 +145,7 @@ namespace sparky
 		/// The title refers to the name of the Window itself, the name
 		/// of the Window is first set when the camera is constructed.
 		///
-		/// \retval title	Gets the current title of the Window object.
+		/// \retval String&	Gets the current title of the Window object.
 		///
 		////////////////////////////////////////////////////////////
 		const String& getTitle(void) const;
@@ -169,7 +169,7 @@ namespace sparky
 		/// the desktop. The position is first set when the object is 
 		/// constructed.
 		///
-		/// \retval position	The current position of the Window object.
+		/// \retval Vector2i&	The current position of the Window object.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector2i& getPosition(void) const;
@@ -190,10 +190,10 @@ namespace sparky
 		/// \brief Gets the size of the Window object. 
 		///
 		/// The size refers to the dimensions of the Window object. The size
-		/// is first defined when the Window is initially created. If the window
+		/// is first defined when the Window is initially created. If the Window
 		/// is currently full size, the size is superfluous.
 		///
-		/// \retval	size	The current dimensions of the Window object.
+		/// \retval	Vector2i&	The current dimensions of the Window object.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector2i& getSize(void) const;
@@ -202,7 +202,7 @@ namespace sparky
 		/// \brief Sets the size of the Window object.
 		///
 		/// The size refers to the dimensions of the Window object. The size
-		/// is first defined when the Window is initially created. If the window
+		/// is first defined when the Window is initially created. If the Window
 		/// is currently full size, the size is superfluous. If the Window is
 		/// not full size, this will change the dimensions of the Window.
 		///
@@ -218,18 +218,19 @@ namespace sparky
 		/// OpenGL context which is created when the Window is created.
 		/// By default the settings for OpenGL are for version 3.3.
 		///
-		/// \retval ContextSettings		The OpenGL settings of the Window.
+		/// \retval ContextSettings&		The OpenGL settings of the Window.
 		///
+		////////////////////////////////////////////////////////////
 		const ContextSettings& getContextSettings(void) const;
 
 		////////////////////////////////////////////////////////////
 		/// \brief Checks to see if the Window object is currently running.
 		///
 		/// When the Window object is created and initialised successfully, 
-		/// the Window is automatically set to running, when the window is 
+		/// the Window is automatically set to running, when the Window is 
 		/// closed, the running variable is set to false.
 		///
-		/// \retval	running		Whether the Window object is currently running.
+		/// \retval	bool		Whether the Window object is currently running.
 		///
 		////////////////////////////////////////////////////////////
 		bool isRunning(void) const;
@@ -245,9 +246,9 @@ namespace sparky
 		/// If a Window is constructed with the variable constructor, this
 		/// subsequent method must be called in order to create a Window.
 		/// This method provides additional error checking to make sure all
-		/// elements of the window initialise correctly. If any of the steps
+		/// elements of the Window initialise correctly. If any of the steps
 		/// fail, the method will return false and an error message will be
-		/// presented to the console window.
+		/// presented to the console Window.
 		///
 		/// \param title	The title of the Window object.
 		/// \param position The position of the Window object on the desktop.
@@ -265,11 +266,11 @@ namespace sparky
 		/// If a Window is constructed with the config constructor, this
 		/// subsequent method must be called in order to create a Window.
 		/// This method provides additional error checking to make sure all
-		/// elements of the window initialise correctly. If any of the steps
+		/// elements of the Window initialise correctly. If any of the steps
 		/// fail, the method will return false and an error message will be
-		/// presented to the console window.
+		/// presented to the console Window.
 		///
-		/// \param config	The configuration file which contains the window settings.
+		/// \param config	The configuration file which contains the Window settings.
 		///
 		/// \retval bool	Returns true if the Window object initialise successfully.
 		///
@@ -286,7 +287,7 @@ namespace sparky
 		void clear(void) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Swaps the window buffers.
+		/// \brief Swaps the Window buffers.
 		///
 		/// When a scene renders, it renders to the back-buffer. What the user
 		/// is currently seeing is the previously rendering scene, when this 
@@ -299,14 +300,14 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Stops the current Window object from running.
 		///
-		/// Closes the current Window object. When the window is closed
+		/// Closes the current Window object. When the Window is closed
 		/// the application will stop running and will exit.
 		///
 		////////////////////////////////////////////////////////////
 		void close(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the position of the mouse to a position within the window.
+		/// \brief Sets the position of the mouse to a position within the Window.
 		///
 		/// \param position		The position to set the mouse to.
 		///
@@ -323,7 +324,7 @@ namespace sparky
 ///	\ingroup core
 ///
 /// sparky::Window is one of the main important classes of the
-/// Sparky Engine. It defines an SDL window that can be painted
+/// Sparky Engine. It defines an SDL Window that can be painted
 /// and rendered upon by subsequent classes in the graphics
 /// module.
 ///
@@ -337,15 +338,16 @@ namespace sparky
 ///
 /// \code 
 /// // Create a new Window.
-/// sparky::Window window;
-/// window.create("Sparky!", Vector2i(), Vector2i(640, 480));
+/// sparky::Window Window;
+/// Window.create("Sparky!", Vector2i(), Vector2i(640, 480));
 ///
-/// // Basic Main window loop.
-/// while (window.isRunning())
+/// // Basic Main Window loop.
+/// while (Window.isRunning())
 /// {
-///		window.clear()
+///		Window.clear()
 ///		// Rendering of objects should go here.
-///		window.swap();
+///		Window.swap();
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

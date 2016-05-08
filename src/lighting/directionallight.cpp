@@ -77,7 +77,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void DirectionalLight::addLight(void)
 	{
-		GameManager::getInstance().addDirectionalLight(this);
+		GameManager::getInstance().addLight(this);
 	}
 
 }//namespace sparky

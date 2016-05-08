@@ -46,8 +46,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		eVoxelType m_type;		// The voxel type i.e Water, Dirt, Stone.
-		bool	   m_active;	// Whether the current voxel is active.
+		eVoxelType m_type;		// The Voxel type i.e Water, Dirt, Stone.
+		bool	   m_active;	// Whether the current Voxel is active.
 
 	public:
 		/*
@@ -58,7 +58,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Default construction of a Voxel object.
 		///
-		/// The default construction of a voxel will set its activity
+		/// The default construction of a Voxel will set its activity
 		/// to true and it's type to dirt.
 		///
 		////////////////////////////////////////////////////////////
@@ -77,10 +77,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the type of the Voxel object.
 		///
-		/// The type refers to the texture that the chunk will render
-		/// with and it's specific behaviours within the world.
+		/// The type refers to the Texture that the Chunk will render
+		/// with and it's specific behaviours within the World.
 		///
-		/// \retval eVoxelType	The type of voxel.
+		/// \retval eVoxelType	The type of Voxel.
 		///
 		////////////////////////////////////////////////////////////
 		eVoxelType getType(void) const;
@@ -88,8 +88,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Set the type of the Voxel object.
 		///
-		/// The type refers to the texture that the chunk will render
-		/// with and it's specific behaviours within the world.
+		/// The type refers to the Texture that the Chunk will render
+		/// with and it's specific behaviours within the World.
+		///
+		/// \param type		The Voxel type.
 		///
 		////////////////////////////////////////////////////////////
 		void setType(const eVoxelType type);
@@ -98,7 +100,7 @@ namespace sparky
 		/// \brief Retrieves the activity of the current Voxel object.
 		///
 		/// The activity of the Voxel specifies whether the current Voxel
-		/// will render within it's chunk.
+		/// will render within it's Chunk.
 		///
 		/// \retval bool	The activity of the Voxel object.
 		///
@@ -109,7 +111,9 @@ namespace sparky
 		/// \brief Sets the activity of the current Voxel object.
 		///
 		/// The activity of the Voxel specifies whether the current Voxel
-		/// will render within it's chunk.
+		/// will render within it's Chunk.
+		///
+		/// \param active	The new activity of the Voxel.
 		///
 		////////////////////////////////////////////////////////////
 		void setActive(const bool active);
@@ -126,7 +130,7 @@ namespace sparky
 /// sparky::Voxel is the lowest level element of the Voxel aspect
 /// of the engine. A Voxel is used to represent a 3D position in
 /// space, that is rendered as a cube. The memory footprint of the 
-/// voxel must be low therefore it only contains information about
+/// Voxel must be low therefore it only contains information about
 /// it's activity and the type.
 ///
 /// Voxels are never created by the user, they are allocated when
@@ -141,11 +145,12 @@ namespace sparky
 ///
 /// sparky::ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, pChunk));
 ///
-/// // Store the information of a voxel from within the chunk.
-/// sparky::Voxel voxel = pChunk->getVoxel(0, 0, 0);
+/// // Store the information of a Voxel from within the Chunk.
+/// sparky::Voxel Voxel = pChunk->getVoxel(0, 0, 0);
 ///
-/// // Print the information about the voxel.
-/// std::cout << voxel.getType() << std::endl;
-/// std::cout << voxel.isActive() << std::endl;
+/// // Print the information about the Voxel.
+/// std::cout << Voxel.getType() << std::endl;
+/// std::cout << Voxel.isActive() << std::endl;
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

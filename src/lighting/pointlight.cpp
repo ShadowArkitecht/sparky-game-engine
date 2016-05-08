@@ -96,7 +96,7 @@ namespace sparky
 	{
 		if (Frustum::checkSphere(getPosition(), m_range))
 		{
-			GameManager::getInstance().addPointLight(this);
+			GameManager::getInstance().addLight(this);
 		}
 	}
 

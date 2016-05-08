@@ -93,13 +93,15 @@ namespace sparky
 /// or removed.
 ///
 /// Below is a code example where a child class for Game has
-/// theoretically been created/
+/// theoretically been created.
 ///
+/// Usage example:
 /// \code
 /// // Create a new Game object.
 /// Game* pGame = new Game();
 ///
 /// // Add the game as the first level in the application.
 /// sparky::GameManager::getInstance().pushScene(pGame);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

@@ -62,22 +62,111 @@ namespace sparky
 	class World final : public Ref
 	{
 	private:
-		std::map<Vector3i, Chunk*, Comparer> m_chunks;
+		/*
+		====================
+		Member Variables
+		====================
+		*/
+		std::map<Vector3i, Chunk*, Comparer> m_chunks;	// All the chunks within the World.
 
 	public:
+		/*
+		====================
+		Ctor and Dtor
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Default constructor for the World object. Sets all
+		///        the member variables to default values.
+		////////////////////////////////////////////////////////////
 		explicit World(void);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Destructor of the World object.
+		/// 
+		/// When the World object is destroyed. All of the retained
+		/// Chunk objects are de-allocated and destroyed.
+		///
+		////////////////////////////////////////////////////////////
 		~World(void);
 
+		/*
+		====================
+		Getters and Setters
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves a Chunk object from the World at the specified position.
+		///
+		/// \param pos	The position of the Chunk to retrieve.
+		///
+		/// \retval Chunk*	A pointer to the Chunk at the specified position.
+		///
+		////////////////////////////////////////////////////////////
 		Chunk* getChunk(const Vector3i& pos) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves a Chunk object from the World at the specified position.
+		///
+		/// \param x	The x position of the Chunk to retrieve.
+		/// \param y	The y position of the Chunk to retrieve.
+		/// \param z	The z position of the Chunk to retrieve.
+		///
+		/// \retval Chunk*	A pointer to the Chunk at the specified position.
+		///
+		////////////////////////////////////////////////////////////
 		Chunk* getChunk(const int x, const int y, const int z) const;
 
 		//Voxel& getVoxel(const Vector3i& pos);
 		//Voxel& getVoxel(const int x, const int y, const int z) const;
 
+		////////////////////////////////////////////////////////////
+		/// \brief Add a Chunk to the World at the specified position.
+		///
+		/// When a Chunk needs to be added to the World, it will check if
+		/// a Chunk has already been created at this location. If there has not,
+		/// a new Chunk is created and added to the map.
+		///
+		/// \param pos	The position to place the new Chunk.
+		///
+		////////////////////////////////////////////////////////////
 		void addChunk(const Vector3i& pos);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Renders all of the Chunks within the World.
+		///
+		/// \param pShader	The shader to render the World with.
+		///
+		////////////////////////////////////////////////////////////
 		void render(IShaderComponent* pShader);
 	};
 
 }//namespace sparky
 
 #endif//__SPARKY_WORLD_HPP__
+
+////////////////////////////////////////////////////////////
+/// \class sparky::World
+/// \ingroup generation
+///
+/// sparky::World is the culmination of all the Chunk's and Voxels
+/// within the application in one class. The World controls the
+/// rendering and initialisation of Chunk objects.
+///
+/// Chunks can be added and removed from the World and edited through
+/// various convenience methods. Below is a code example of using the World.
+///
+/// Usage example:
+/// \code
+/// // Create a new World and retain!
+/// sparky::World* pWorld = new sparky::World();
+/// pWorld->addRef();
+///
+/// // Add a Chunk to the World.
+/// pWorld->addChunk(sparky::Vector3i::zero());
+///
+/// // Render the World!
+/// pWorld->render(sparky::ResourceManager::getInstance().getShader("deferred"));
+/// \endcode
+///
+////////////////////////////////////////////////////////////

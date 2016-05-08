@@ -107,6 +107,7 @@ namespace sparky
 	void Chunk::greedy(void)
 	{
 		const int dims[3] = { SIZE, SIZE, SIZE };
+		int index = 0;
 
 		for (int axis = 0; axis < 3; ++axis)
 		{
@@ -119,7 +120,6 @@ namespace sparky
 			std::array<int, 3> q;
 			q.fill(0);
 
-			int index = 0;
 			// The mask of the current side of the voxel chunk to be working on.
 			int* mask = new int[dims[u] * dims[v]];
 

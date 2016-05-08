@@ -1,8 +1,42 @@
-﻿Build started 08/05/2016 13:35:42.
+﻿Build started 08/05/2016 21:33:05.
      1>Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp src\core\gamemanager.cpp src\core\pool.cpp src\core\ref.cpp src\core\resourcemanager.cpp src\core\scene.cpp src\generation\chunk.cpp src\generation\voxel.cpp src\generation\world.cpp src\input\eventmanager.cpp src\input\ievent.cpp src\input\input.cpp src\input\mouse.cpp src\lighting\directionallight.cpp src\lighting\light.cpp src\lighting\pointlight.cpp src\rendering\GLSLobject.cpp src\rendering\ambientshader.cpp src\rendering\deferredshader.cpp src\rendering\directionalshader.cpp src\rendering\imesh.cpp src\rendering\ishader.cpp src\rendering\meshdata.cpp src\rendering\model.cpp src\rendering\pointshader.cpp src\rendering\program.cpp src\rendering\texture.cpp src\rendering\uniform.cpp
+         voxel.cpp
+         Generating Code...
+         Compiling...
+         world.cpp
+         chunk.cpp
          game.cpp
+         Generating Code...
+         Compiling...
+         main.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         uniform.cpp
+         texture.cpp
+         program.cpp
+         pointshader.cpp
+         model.cpp
+         meshdata.cpp
+         ishader.cpp
+         imesh.cpp
+         directionalshader.cpp
+         deferredshader.cpp
+         ambientshader.cpp
+         GLSLobject.cpp
+         pointlight.cpp
+         light.cpp
+         directionallight.cpp
+         mouse.cpp
+         input.cpp
+         ievent.cpp
+         eventmanager.cpp
+         scene.cpp
+         resourcemanager.cpp
+         ref.cpp
+         pool.cpp
+         gamemanager.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Debug\sparky.lib" /MACHINE:X86 Debug\game.obj
          Debug\main.obj
@@ -27,7 +61,7 @@
          Debug\transform.obj
          Debug\ambientshader.obj
          Debug\deferredshader.obj
-         Debug\finalshader.obj
+         Debug\directionalshader.obj
          Debug\buffers.obj
          Debug\gbuffer.obj
          Debug\GLSLobject.obj
@@ -35,6 +69,7 @@
          Debug\ishader.obj
          Debug\meshdata.obj
          Debug\model.obj
+         Debug\pointshader.obj
          Debug\program.obj
          Debug\texture.obj
          Debug\uniform.obj
@@ -50,4 +85,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.04
+Time Elapsed 00:00:11.25

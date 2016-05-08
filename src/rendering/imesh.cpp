@@ -168,9 +168,9 @@ namespace sparky
 		for (GLuint i = start; i < start + 6; i += 3)
 		{
 			// create a reference to the three vertices so the information can be altered
-			Vertex_t& v0 = m_vertices[m_indices[i + 0]];
-			Vertex_t& v1 = m_vertices[m_indices[i + 1]];
-			Vertex_t& v2 = m_vertices[m_indices[i + 2]];
+			Vertex_t& v0 = m_vertices.at(m_indices.at(i + 0));
+			Vertex_t& v1 = m_vertices.at(m_indices.at(i + 1));
+			Vertex_t& v2 = m_vertices.at(m_indices.at(i + 2));
 			// work out the delta of the three vertices
 			Vector3f vect1 = Vector3f(v0.position.x - v1.position.x, v0.position.y - v1.position.y, v0.position.z - v1.position.z);
 			Vector3f vect2 = Vector3f(v1.position.x - v2.position.x, v1.position.y - v2.position.y, v1.position.z - v2.position.z);

@@ -82,7 +82,7 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves a shader from the resources lists.
+		/// \brief Retrieves a shader from the ResourceHolder lists.
 		///
 		/// Searches the ResourceHolder of shaders for the shader with
 		/// the specified name. If the shader is not found, an error 
@@ -100,24 +100,26 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Adds a shader to the resource lists.
+		/// \brief Adds a shader to the ResourceHolder lists.
 		///
-		/// Adds a shader to the resource lists. If a shader has already
+		/// Adds a shader to the ResourceHolder lists. If a shader has already
 		/// been added that has an identical name, then the shader is not
 		/// added to the list and a warning message is produced.
 		///
 		/// \param name		The keyword name associated with this shader.
-		/// \param pShader	The shader to add to the resource list.
+		/// \param pShader	The shader to add to the ResourceHolder.
 		///
 		////////////////////////////////////////////////////////////
 		void addShader(const String& name, IShaderComponent* pShader);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Removes a shader from the resource lists.
+		/// \brief Removes a shader from the ResourceHolder lists.
 		///
-		/// Removes a shader by name from the resource lists. If the shader
+		/// Removes a shader by name from the ResourceHolder lists. If the shader
 		/// is not found, a warning message is printed and the lists are 
 		/// left untouched.
+		///
+		/// \param name		The name of the shader object to remove.
 		///
 		////////////////////////////////////////////////////////////
 		void removeShader(const String& name);
@@ -149,14 +151,16 @@ namespace sparky
 /// the use of additional functionality or parameters. Below is
 /// a code example.
 ///
+/// Usage example:
 /// \code
 /// // Add a Basic shader to the Resource Manager.
-/// sparky::ResourceManager::getInstance().addShader("basic", new sparky::FinalShader());
+/// sparky::ResourceManager::getInstance().addShader("basic", new sparky::DirectionalShader());
 ///
 /// // Get a local reference of the shader for use.
-/// sparky::FinalShader* pShader = sparky::ResourceManager::getInstance().getShader<FinalShader>("basic");
+/// sparky::DirectionalShader* pShader = sparky::ResourceManager::getInstance().getShader<DirectionalShader>("directional");
 ///
 /// // Bind the shader for use.
 /// pShader->bind();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

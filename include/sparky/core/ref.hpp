@@ -48,10 +48,10 @@ namespace sparky
 		///
 		///	This default constructor initialises the Ref and sets
 		/// the reference count to one. Upon construction the object
-		/// is added to the Memory Pool. At the end of the current frame
-		/// the pool is emptied and cleared and all objects within the
+		/// is added to the PoolManager. At the end of the current frame
+		/// the pool is emptied and cleared and all Ref objects within the
 		/// list have their references decremented. If the count is 
-		/// equal to 0, the object is deleted.
+		/// equal to 0, the Ref object is deleted.
 		/// 
 		////////////////////////////////////////////////////////////
 		explicit Ref(void);
@@ -60,7 +60,7 @@ namespace sparky
 		///	\brief Destructs a Ref object instance. 
 		///
 		///	The Ref only provides a default destructor as the objects
-		/// inheriting from this object will define their desctruction,
+		/// inheriting from this object will define their destruction,
 		/// Ref itself contains no dynamically allocated memory.
 		/// 
 		////////////////////////////////////////////////////////////
@@ -112,14 +112,14 @@ namespace sparky
 		void removeRef(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Error-checking and referencing decrementing of Objects.
+		/// \brief Error-checking and referencing decrementing of Ref objects.
 		///
 		/// A convenience method for checking whether the current reference 
-		/// is valid. if the Ref is value, the Ref references is decremented
+		/// is valid. if the Ref is value, the Ref reference count is decremented
 		/// and upon reaching 0 references, the Ref is automatically
 		/// de-allocated and set to null.
 		///
-		/// \param The ref Ref to decrement and de-allocate.
+		/// \param ref	The Ref to decrement and de-allocate.
 		///
 		////////////////////////////////////////////////////////////
 		template <typename T> 
@@ -161,6 +161,7 @@ namespace sparky
 /// if they so choose. Below is an example on how to use the
 /// functionality of the Ref class.
 ///
+/// Usage example:
 /// \code
 /// // Create an Ref and retain it.
 /// sparky::Ref* pObject = new sparky::Ref();
@@ -172,5 +173,6 @@ namespace sparky
 /// // Release upon end-of-use. The counter will be decremented and 
 /// // the object will be subsequently destroyed.
 /// Ref::release(pObject);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

@@ -38,7 +38,7 @@ Class Includes
 ====================
 */
 #include <sparky\core\ref.hpp>			// Chunk is a dynamically allocated object.
-#include <sparky\generation\voxel.hpp>	// Voxels make up the Chunk itself.
+#include <sparky\generation\Voxel.hpp>	// Voxels make up the Chunk itself.
 #include <sparky\math\transform.hpp>	// The position, scale and rotation of the Chunk object.
 
 namespace sparky
@@ -61,9 +61,9 @@ namespace sparky
 		*/
 		static const int		SIZE;			// The standard size of all Chunks.
 		Transform				m_transform;	// The transform of the Chunk.
-		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the chunk.
+		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the Chunk.
 		MeshData*				m_pMesh;	    // The mesh that renders the voxels.
-		bool					m_shouldLoad;	// Whether the current chunk object needs to generate.
+		bool					m_shouldLoad;	// Whether the current Chunk object needs to generate.
 
 	public:
 		/*
@@ -74,7 +74,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Default construction of the Chunk object.
 		///
-		/// When the chunk is instantiated, the Mesh is dynamically
+		/// When the Chunk is instantiated, the Mesh is dynamically
 		/// allocated and retained for use.
 		///
 		////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Destruction of the Chunk object.
 		///
-		/// When the object is destroyed, the Mesh is de-allocated and 
+		/// When the object is destroyed, the MeshData is de-allocated and 
 		/// and the memory is released for other use.
 		///
 		////////////////////////////////////////////////////////////
@@ -94,42 +94,48 @@ namespace sparky
 		Getters and Setters
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the uniform dimensions of the Chunk.
+		///
+		/// \retval int		The size of the Chunk object.
+		///
+		////////////////////////////////////////////////////////////
 		static int getSize(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the Transform of the Chunk object.
 		///
-		/// \retval Transform	The transform of the Chunk object.
+		/// \retval Transform	The Transform of the Chunk object.
 		///
 		////////////////////////////////////////////////////////////
 		Transform& getTransform(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves a reference to the voxel at the position.
+		/// \brief Retrieves a reference to the Voxel at the position specified.
 		/// 
-		/// \param pos		The position of the voxel.
+		/// \param pos		The position of the Voxel.
 		///
-		/// \retval Voxel	The voxel at the specified position.
+		/// \retval Voxel	The Voxel at the specified position.
 		///
 		////////////////////////////////////////////////////////////
 		Voxel& getVoxel(const Vector3i& pos);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves a reference to the voxel at the position.
+		/// \brief Retrieves a reference to the Voxel at the position specified.
 		/// 
-		/// \param x		The x position of the voxel.
-		/// \param y		The y position of the voxel.
-		/// \param z		The z position of the voxel.
+		/// \param x		The x position of the Voxel.
+		/// \param y		The y position of the Voxel.
+		/// \param z		The z position of the Voxel.
 		///
-		/// \retval Voxel	The voxel at the specified position.
+		/// \retval Voxel&	The Voxel at the specified position.
 		///
 		////////////////////////////////////////////////////////////
 		Voxel& getVoxel(const int x, const int y, const int z);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the underlying mesh data of the Chunk.
+		/// \brief Retrieves the underlying MeshData of the Chunk.
 		/// 
-		/// \retval MeshData	The mesh of the Chunk.
+		/// \retval MeshData	The MeshData of the Chunk.
 		///
 		////////////////////////////////////////////////////////////
 		MeshData* getMesh(void) const;
@@ -140,18 +146,18 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Reduces the amount of vertices that a chunk contains.
+		/// \brief Reduces the amount of vertices that a Chunk contains.
 		///
-		/// Greedy meshing checks each voxel and its adjacent neighbours,
-		/// if the chunk is active and the materials match, the faces will
+		/// Greedy meshing checks each Voxel and its adjacent neighbours,
+		/// if the Chunk is active and the materials match, the faces will
 		/// be merged. Greedy meshing helps to reduce the amount of 
-		/// memory that each chunk contains.
+		/// memory that each Chunk contains.
 		///
 		////////////////////////////////////////////////////////////
 		void greedy(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Clears the Chunk mesh of all vertices and indices.
+		/// \brief Clears the Chunk MeshData of all vertices and indices.
 		////////////////////////////////////////////////////////////
 		void reset(void);
 
@@ -174,20 +180,23 @@ namespace sparky
 /// voxels together significantly improves the frame-rate of 
 /// the application.
 ///
-/// The voxels of the chunk can be updated by directly accessing
-/// the individual elements of the chunk. Below is a code example.
+/// The voxels of the Chunk can be updated by directly accessing
+/// the individual elements of the Chunk. Below is a code example.
 ///
+/// Usage example:
 /// \code
-/// // Create a chunk object.
+/// // Create a Chunk object and retain it.
 /// sparky::Chunk* pChunk = new sparky::Chunk();
+/// pChunk->addRef();
 ///
-/// // Change a voxel within the chunk.
+/// // Change a Voxel within the Chunk.
 /// pChunk->getVoxel(0, 0, 0).setActive(false);
 ///
-/// // Add the chunk greedy meshing to a seperate thread.
+/// // Add the Chunk greedy meshing to a seperate thread.
 /// sparky::ThreadManager::getInstance().addTask(std::bind(&sparky::Chunk::greedy, pChunk));
 ///
-/// // Render the chunk.
-/// pChunk->render(sparky::ResourceManager::getInstance().getShader("basic"));
+/// // Render the Chunk.
+/// pChunk->render(sparky::ResourceManager::getInstance().getShader("deferred"));
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

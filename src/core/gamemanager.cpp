@@ -27,16 +27,17 @@
 Class Includes
 ====================
 */
-#include <sparky\core\gamemanager.hpp>			// Class definition.
-#include <sparky\core\scene.hpp>				// The scenes to render and update.
-#include <sparky\rendering\ambientshader.hpp>	// Global ambience.
-#include <sparky\rendering\finalshader.hpp>		// The final shader that renders the scene.
-#include <sparky\rendering\meshdata.hpp>		// The mesh that the scene rendering is rendered onto.
-#include <sparky\math\frustum.hpp>				// The frustum needs to be constructed before rendering.
-#include <sparky\core\window.hpp>				// Window needs to be cleared and swapped.
-#include <sparky\input\eventmanager.hpp>		// Events need to be polled and handled.
-#include <sparky\core\pool.hpp>					// Releases un-referenced dynamic objects.
-#include <sparky\utils\gldevice.hpp>			// Glew initialisation.
+#include <sparky\core\gamemanager.hpp>			  // Class definition.
+#include <sparky\core\scene.hpp>				  // The scenes to render and update.
+#include <sparky\rendering\ambientshader.hpp>	  // Global ambience.
+#include <sparky\rendering\directionalshader.hpp> // The directional shader that renders the directional lights.
+#include <sparky\rendering\pointshader.hpp>		  // The point shader that renders the point lights.
+#include <sparky\rendering\meshdata.hpp>		  // The mesh that the scene rendering is rendered onto.
+#include <sparky\math\frustum.hpp>				  // The frustum needs to be constructed before rendering.
+#include <sparky\core\window.hpp>				  // Window needs to be cleared and swapped.
+#include <sparky\input\eventmanager.hpp>		  // Events need to be polled and handled.
+#include <sparky\core\pool.hpp>					  // Releases un-referenced dynamic objects.
+#include <sparky\utils\gldevice.hpp>			  // Glew initialisation.
 #include <sparky\math\transform.hpp>
 
 namespace sparky
@@ -48,8 +49,8 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	GameManager::GameManager(void)
-		: Singleton<GameManager>(), m_scenes(), m_pAmbient(nullptr), m_pShader(nullptr), m_pQuad(nullptr), 
-			m_directionalLights(), m_pointLights(), m_pActiveDirectional(nullptr), m_pActivePoint(nullptr), m_buffer()
+		: Singleton<GameManager>(), m_scenes(), m_pAmbient(nullptr), m_pDirectional(nullptr), m_pPoint(nullptr), m_pQuad(nullptr),
+			m_directionalLights(), m_pointLights(), m_buffer()
 	{
 	}
 
@@ -58,29 +59,13 @@ namespace sparky
 	{
 		Ref::release(m_pQuad);
 		Ref::release(m_pAmbient);
-		Ref::release(m_pShader);
+		Ref::release(m_pDirectional);
+		Ref::release(m_pPoint);
 
 		for (auto& scene : m_scenes)
 		{
 			Ref::release(scene);
 		}
-	}
-
-	/*
-	====================
-	Getters and Setters
-	====================
-	*/
-	////////////////////////////////////////////////////////////
-	DirectionalLight* GameManager::getActiveDirectional(void) const
-	{
-		return m_pActiveDirectional;
-	}
-
-	////////////////////////////////////////////////////////////
-	PointLight* GameManager::getActivePoint(void) const
-	{
-		return m_pActivePoint;
 	}
 
 	/*
@@ -96,8 +81,11 @@ namespace sparky
 		m_pAmbient = new AmbientShader();
 		m_pAmbient->addRef();
 
-		m_pShader = new FinalShader();
-		m_pShader->addRef();
+		m_pDirectional = new DirectionalShader();
+		m_pDirectional->addRef();
+
+		m_pPoint = new PointShader();
+		m_pPoint->addRef();
 
 		m_pQuad = new MeshData();
 		m_pQuad->addRef();
@@ -111,6 +99,18 @@ namespace sparky
 
 		GLDevice::enable(GL_DEPTH_TEST);
 		GLDevice::enable(GL_DEPTH_CLAMP);
+	}
+
+	////////////////////////////////////////////////////////////
+	void GameManager::addLight(DirectionalLight* pLight)
+	{
+		m_directionalLights.push_back(pLight);
+	}
+
+	////////////////////////////////////////////////////////////
+	void GameManager::addLight(PointLight* pLight)
+	{
+		m_pointLights.push_back(pLight);
 	}
 
 	////////////////////////////////////////////////////////////
@@ -129,18 +129,6 @@ namespace sparky
 		}
 
 		m_scenes.pop_back();
-	}
-
-	////////////////////////////////////////////////////////////
-	void GameManager::addDirectionalLight(DirectionalLight* pLight)
-	{
-		m_directionalLights.push_back(pLight);
-	}
-
-	////////////////////////////////////////////////////////////
-	void GameManager::addPointLight(PointLight* pLight)
-	{
-		m_pointLights.push_back(pLight);
 	}
 
 	////////////////////////////////////////////////////////////
@@ -177,17 +165,29 @@ namespace sparky
 
 			m_pAmbient->unbind();
 
-			m_pShader->bind();
+			m_pDirectional->bind();
 
 			for (const auto& light : m_directionalLights)
 			{
-				m_pActiveDirectional = light;
-				m_pShader->update(Transform());
+				m_pDirectional->setActiveLight(light);
+				m_pDirectional->update(Transform());
 
 				m_pQuad->render();
 			}
 
-			m_pShader->unbind();
+			m_pDirectional->unbind();
+
+			m_pPoint->bind();
+
+			for (const auto& light : m_pointLights)
+			{
+				m_pPoint->setActiveLight(light);
+				m_pPoint->update(Transform());
+
+				m_pQuad->render();
+			}
+
+			m_pPoint->unbind();
 
 			m_buffer.unbindTextures();
 

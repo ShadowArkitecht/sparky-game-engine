@@ -61,18 +61,18 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Default construction of the Resource Holder object.
+		/// \brief Default construction of the ResourceHolder object.
 		///
-		/// The default construction of the Resource Holder only 
+		/// The default construction of the ResourceHolder only 
 		/// sets the member variables to default values.
 		///
 		////////////////////////////////////////////////////////////
 		explicit ResourceHolder(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Destruction of the Resource Holder object.
+		/// \brief Destruction of the ResourceHolder object.
 		///
-		/// The destruction of the Resource Holder will release the 
+		/// The destruction of the ResourceHolder will release the 
 		/// resources being retained by the Holder object.
 		///
 		////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves a resource (by name) from the Resource Holder.
+		/// \brief Retrieves a resource (by name) from the ResourceHolder.
 		///
 		/// The map is search by name from the current resources and
 		/// retrieves the value which matches the parameter name. If the
@@ -107,7 +107,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Adds a resource to the map with an associated String key.
 		///
-		/// When a resource is added to the Resource Holder object, it checks
+		/// When a resource is added to the ResourceHolder object, it checks
 		/// to make sure that no objects have the same key. If the key is not
 		/// found the resource parameter is retained and added as a pair to the
 		/// resource map.
@@ -119,7 +119,7 @@ namespace sparky
 		void add(const String& name, T* pResource);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Removes a resource from the Resource Holder object.
+		/// \brief Removes a resource from the ResourceHolder object.
 		///
 		/// When an object is removed, the map is searched to make sure
 		/// that this object is in the Holder. If it is the object is
@@ -148,15 +148,15 @@ namespace sparky
 /// used throughout the application, such as Shaders and Textures.
 ///
 /// The Resource Holder prevents duplication of objects, so 
-/// that the engine is as effecient as possible during runtime.
-/// The Resource Holder can store all assets used by the application
+/// that the engine is as efficient as possible during runtime.
+/// The ResourceHolder can store all assets used by the application
 /// before starting by adding them when the application is first
 /// started.
 ///
-/// Objects within the Resource Holder must inherit from sparky::Ref
-/// to comply with Sparky's memory management scheme.
-/// Below is pseudo-code example:
+/// Objects within the ResourceHolder must inherit from sparky::Ref
+/// to comply with Sparky's memory management scheme. Below is pseudo-code example.
 ///
+/// Usage example:
 /// \code
 /// // Create a sample user type. (Must inherit from Ref).
 /// struct Type : public Ref
@@ -172,5 +172,6 @@ namespace sparky
 ///
 /// // Retrieve a object from the holder and print it to the console.
 /// std::cout << holder.get("Type").x << std::endl;
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

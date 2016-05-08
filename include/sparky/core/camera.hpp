@@ -96,10 +96,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Sets the main Camera object.
 		///
-		/// The main Camera is the camera in which all objects within
+		/// The main Camera is the Camera in which all objects within
 		/// a scene use to render.
 		///
-		/// \param pCamera		The camera to set to the main Camera.
+		/// \param camera		The Camera to set to the main Camera.
 		///
 		////////////////////////////////////////////////////////////
 		static void setMain(Camera& camera);
@@ -107,10 +107,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Gets the transform of the Camera object.
 		///
-		/// The transform of the Camera controls its position and rotation
+		/// The Transform of the Camera controls its position and rotation
 		/// within 3D space.
 		///
-		/// \retval Transform&	The transform of the Camera object.
+		/// \retval Transform&	The Transform of the Camera object.
 		///
 		////////////////////////////////////////////////////////////
 		Transform& getTransform(void);
@@ -141,7 +141,7 @@ namespace sparky
 		/// \brief Gets the dimensions of the Camera object.
 		///
 		/// The dimensions of the Camera control the size of the 
-		/// rendering window. The dimensions are independent of the 
+		/// rendering Window. The dimensions are independent of the 
 		/// Window.
 		///
 		/// \retval Vector2f&	The dimensions of the Camera object.
@@ -153,7 +153,7 @@ namespace sparky
 		/// \brief Set the dimensions of the Camera object.
 		///
 		/// The dimensions of the Camera control the size of the 
-		/// rendering window. The dimensions are independent of the 
+		/// rendering Window. The dimensions are independent of the 
 		/// Window.
 		///
 		/// \param dimensions	The new dimensions of the Camera.
@@ -301,20 +301,22 @@ namespace sparky
 /// The camera can be adjusted around the scene, where the view-port will 
 /// update in real-time accordingly. Below is a code example.
 ///
+/// Usage example:
 /// \code
 /// // Create a config for the Window and Camera.
 /// sparky::ConfigFile config;
 /// config.open("data/config.scfg");
 ///
-/// // Create a Window
+/// // Create a Window.
 /// sparky::Window window;
 /// window.create(config);
 ///
-/// // Create a Camera
+/// // Create a Camera.
 /// sparky::Camera camera;
 /// camera.create(config);
 ///
 /// // (Inside a shader object) Multiply the transform by the Camera's view projection.
 /// Matrix4f mvp = transform.getTransformation() * Camera::getMain().getViewProjection();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////
