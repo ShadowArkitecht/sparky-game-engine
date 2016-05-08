@@ -119,6 +119,7 @@ namespace sparky
 			std::array<int, 3> q;
 			q.fill(0);
 
+			int index = 0;
 			// The mask of the current side of the voxel chunk to be working on.
 			int* mask = new int[dims[u] * dims[v]];
 
@@ -213,6 +214,7 @@ namespace sparky
 							Vertex_t v4(Vector3f(Vector3i(x[0] + dv[0],         x[1] + dv[1],         x[2] + dv[2])),		  Vector2f(0.0f, 1.0f));
 
 							m_pMesh->addFace(v1, v2, v3, v4, flip);
+							m_pMesh->calculateFaceNormals(index, flip);
 
 							for (int b = 0; b < width; ++b)
 							{
@@ -222,7 +224,9 @@ namespace sparky
 								}
 							}
 							// Increment counters
-							i += width; counter += width;
+							i += width; 
+							counter += width;
+							index += 6;
 						}
 						else
 						{
@@ -251,7 +255,7 @@ namespace sparky
 	{
 		if (m_shouldLoad)
 		{
-			m_pMesh->generate(true, true);
+			m_pMesh->generate(false);
 			m_shouldLoad = false;
 		}
 

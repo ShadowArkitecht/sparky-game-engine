@@ -9,13 +9,12 @@
 using namespace sparky;
 
 Game::Game(void)
-	: m_pWorld(nullptr), m_pTexture(nullptr), m_pInput(nullptr)
+	: m_pWorld(nullptr), m_pTexture(nullptr), m_pInput(nullptr), m_pLight(nullptr)
 {
 	m_pWorld = new World();
 	m_pWorld->addRef();
 
 	m_pWorld->addChunk(Vector3i(0, 0, 0));
-	m_pWorld->addChunk(Vector3i(0, 0, -16));
 
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));
@@ -30,10 +29,26 @@ Game::Game(void)
 
 	m_pInput = new Input();
 
-	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
+	SPARKY_DIRECTIONAL_LIGHT_DESC dl;
+	memset(&dl, 0, sizeof(SPARKY_DIRECTIONAL_LIGHT_DESC));
 
-	m_pModel = new Model("assets/chr_knight.obj");
-	m_pModel->addRef();
+	dl.base.name = String("u_light");
+	dl.base.position = Vector3f::one();
+	dl.base.colour = Vector3f(0.5f, 0.0f, 0.0f);
+	dl.base.intensity = 10.0f;
+
+	dl.direction = Vector3f(1.0f, 0.0f, 0.0f);
+
+	m_pLight = new DirectionalLight(dl);
+	m_pLight->addRef();
+
+	dl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
+	dl.direction = Vector3f(-1.0f, 0.0f, 0.0f);
+
+	m_pLight2 = new DirectionalLight(dl);
+	m_pLight2->addRef();
+
+	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
 }
 
 Game::~Game(void)
@@ -44,6 +59,9 @@ Game::~Game(void)
 
 void Game::update(void)
 {
+	m_pLight->addLight();
+	m_pLight2->addLight();
+
 	if (m_pInput->getKey(SDLK_w))
 	{
 		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 15.0f * 0.0016f);
@@ -77,10 +95,7 @@ void Game::update(void)
 		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), -300.0f * 0.0016f));
 	}
 
-	if (m_pInput->getKey(SDLK_q))
-	{
-		GLDevice::enableWireframe();
-	}
+	//m_pWorld->getChunk(0, 0, 0)->getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 20.0f * 0.0016f));
 }
 
 void Game::render(void)
@@ -89,8 +104,6 @@ void Game::render(void)
 	m_pTexture->bind();
 
 	m_pWorld->render(m_pShader);
-	//m_pShader->update(Transform());
-	//m_pModel->render();
 
 	m_pTexture->unbind();
 	m_pShader->unbind();

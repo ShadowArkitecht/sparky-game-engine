@@ -119,6 +119,16 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void setUniforms(Uniform& uniform);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds the light to the current pipeline if the conditions
+		///        are correct.
+		///
+		/// As directional light "technically" do not have a starting position,
+		/// they are always added to the engine at the beginning of the frame.
+		///
+		////////////////////////////////////////////////////////////
+		void addLight(void) override;
 	};
 
 }//namespace sparky

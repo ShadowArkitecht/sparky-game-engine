@@ -168,10 +168,21 @@ namespace sparky
 		/// method can be called manually or within the mesh generate
 		/// method.
 		///
-		/// \param invertNormals	Invert the normals if required.
+		////////////////////////////////////////////////////////////
+		void calculateNormals(void);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Calculate the normals for a specific face of the Mesh.
+		///
+		/// This can be used to generate the normals of a particular face
+		// of the mesh. This is used within the chunk generation algorithm
+		/// to create correct normals.
+		///
+		/// \param start	The starting index of the face.
+		/// \param invert	Invert the normals of not.
 		///
 		////////////////////////////////////////////////////////////
-		void calculateNormals(const bool invertNormals = false);
+		void calculateFaceNormals(const GLuint start, const bool invert);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Clears the vertices and indices of the Mesh object.
@@ -194,7 +205,7 @@ namespace sparky
 		///
 		///
 		////////////////////////////////////////////////////////////
-		void generate(const bool genNormals = false, const bool invertNormals = false);
+		void generate(const bool genNormals = false);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Abstract rendering method for rendering the Mesh.

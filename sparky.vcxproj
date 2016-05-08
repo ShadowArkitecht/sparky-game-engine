@@ -103,6 +103,7 @@
     <ClCompile Include="src\lighting\pointlight.cpp" />
     <ClCompile Include="src\math\frustum.cpp" />
     <ClCompile Include="src\math\transform.cpp" />
+    <ClCompile Include="src\rendering\ambientshader.cpp" />
     <ClCompile Include="src\rendering\deferredshader.cpp" />
     <ClCompile Include="src\rendering\finalshader.cpp" />
     <ClCompile Include="src\rendering\buffers.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="include\sparky\math\vector2.hpp" />
     <ClInclude Include="include\sparky\math\vector3.hpp" />
     <ClInclude Include="include\sparky\math\vector4.hpp" />
+    <ClInclude Include="include\sparky\rendering\ambientshader.hpp" />
     <ClInclude Include="include\sparky\rendering\deferredshader.hpp" />
     <ClInclude Include="include\sparky\rendering\finalshader.hpp" />
     <ClInclude Include="include\sparky\rendering\buffers.hpp" />

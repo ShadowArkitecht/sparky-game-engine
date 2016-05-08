@@ -47,8 +47,11 @@ namespace sparky
 	====================
 	*/
 	class Scene;
+	class AmbientShader;
 	class FinalShader;
 	class MeshData;
+	class DirectionalLight;
+	class PointLight;
 
 	class GameManager final : public Singleton<GameManager>
 	{
@@ -60,10 +63,17 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<Scene*> m_scenes;	// The scenes within the application.
-		FinalShader*	    m_pShader;	// The shader that actually renders the scene.
-		MeshData*			m_pQuad;	// The complete scene is render onto this quad.
-		GBuffer				m_buffer;	// The deferred rendering pipeline uses this GBuffer.
+		std::vector<Scene*>			   m_scenes;			// The scenes within the application.
+		AmbientShader*				   m_pAmbient;			// The global ambient colour of all geometry.
+		FinalShader*				   m_pShader;			// The shader that actually renders the scene.
+		MeshData*					   m_pQuad;				// The complete scene is render onto this quad.
+
+		std::vector<DirectionalLight*> m_directionalLights; // The directional lights within this frame.
+		std::vector<PointLight*>	   m_pointLights;		// The point lights within this frame.
+		DirectionalLight*			   m_pActiveDirectional;// The current directional light being used.
+		PointLight*					   m_pActivePoint;		// The current point light being used.
+
+		GBuffer						   m_buffer;			// The deferred rendering pipeline uses this GBuffer.
 
 	private:
 		/*
@@ -94,6 +104,33 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		~GameManager(void);
+
+		/*
+		====================
+		Getters and Setters
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the currently active directional light.
+		///
+		/// The active light refers to the light that the shaders are
+		/// next going to use to apply lighting to geometry.
+		///
+		/// \retval DirectionalLight	The currently active directional light.
+		///
+		////////////////////////////////////////////////////////////
+		DirectionalLight* getActiveDirectional(void) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves the currently active point light.
+		///
+		/// The active light refers to the light that the shaders are
+		/// next going to use to apply lighting to geometry.
+		///
+		/// \retval PointLight	The currently active point light.
+		///
+		////////////////////////////////////////////////////////////
+		PointLight* getActivePoint(void) const;
 
 		/*
 		====================
@@ -129,6 +166,28 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void popScene(const bool remove = false);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds a directional light to the engine.
+		///
+		/// Lights are added each frame so that multi-pass lighting can
+		/// be achieved to get a arbitrary number of lights.
+		///
+		/// \param pLight	The directional light to add to the application.
+		///
+		////////////////////////////////////////////////////////////
+		void addDirectionalLight(DirectionalLight* pLight);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds a point light to the engine.
+		///
+		/// Lights are added each frame so that multi-pass lighting can
+		/// be achieved to get a arbitrary number of lights.
+		///
+		/// \param pLight	The point light to add to the application.
+		///
+		////////////////////////////////////////////////////////////
+		void addPointLight(PointLight* pLight);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Renders and updates the scene at the top of the stack.

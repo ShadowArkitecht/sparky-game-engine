@@ -35,14 +35,9 @@ Class Includes
 namespace sparky
 {
 	class DirectionalLight;
-	class PointLight;
 
 	class FinalShader final : public IShaderComponent
 	{
-	private:
-		DirectionalLight* m_pLight;
-		PointLight*		  m_pPoint;
-
 	public:
 		/*
 		====================

@@ -156,6 +156,17 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void setUniforms(Uniform& uniform);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds the light to the current pipeline if the conditions
+		///        are correct.
+		///
+		/// For Point Lights their position and radius is checked using the
+		/// sphere check in the Frustum class. If they are currently within
+		/// view, they are added to the manager for rendering this frame.
+		///
+		////////////////////////////////////////////////////////////
+		void addLight(void) override;
 	};
 
 }//namespace sparky

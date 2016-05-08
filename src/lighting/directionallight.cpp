@@ -29,6 +29,7 @@ Class Includes
 */
 #include <sparky\lighting\directionallight.hpp>	// Class definition.
 #include <sparky\rendering\uniform.hpp>			// Sending variables to the shader.
+#include <sparky\core\gamemanager.hpp>		    // Add the current light to the game manager.
 
 namespace sparky
 {
@@ -71,6 +72,12 @@ namespace sparky
 		Light::setUniforms(uniform, ".base");
 
 		uniform.setParameter(String::concat(this->getName(), ".direction"), m_direction);
+	}
+
+	////////////////////////////////////////////////////////////
+	void DirectionalLight::addLight(void)
+	{
+		GameManager::getInstance().addDirectionalLight(this);
 	}
 
 }//namespace sparky

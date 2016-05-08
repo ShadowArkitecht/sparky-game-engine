@@ -131,7 +131,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void IMeshComponent::calculateNormals(const bool invertNormals /*= false*/)
+	void IMeshComponent::calculateNormals(void)
 	{
 		if (m_indices.size() % 3 != 0)
 		{
@@ -146,10 +146,10 @@ namespace sparky
 			Vertex_t& v1 = m_vertices[m_indices[i + 1]];
 			Vertex_t& v2 = m_vertices[m_indices[i + 2]];
 			// work out the delta of the three vertices
-			Vector3f u = Vector3f(v1.position.x - v0.position.x, v1.position.y - v0.position.y, v1.position.z - v0.position.z);
-			Vector3f v = Vector3f(v2.position.x - v1.position.x, v2.position.y - v1.position.y, v2.position.z - v1.position.z);
+			Vector3f vect1 = Vector3f(v0.position.x - v1.position.x, v0.position.y - v1.position.y, v0.position.z - v1.position.z);
+			Vector3f vect2 = Vector3f(v1.position.x - v2.position.x, v1.position.y - v2.position.y, v1.position.z - v2.position.z);
 			// generate the vector perpendicular to the two vectors, and normalise it
-			Vector3f cross = Vector3f::cross(u, v).normalised();
+			Vector3f cross = Vector3f::cross(vect2, vect1);
 			// add this value to the current normal value of the vertices
 			v0.normal += cross;
 			v1.normal += cross;
@@ -158,14 +158,42 @@ namespace sparky
 
 		for (auto& vertex : m_vertices)
 		{
-			if (invertNormals)
+			vertex.normal = vertex.normal.normalised();
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	void IMeshComponent::calculateFaceNormals(const GLuint start, const bool invert)
+	{
+		for (GLuint i = start; i < start + 6; i += 3)
+		{
+			// create a reference to the three vertices so the information can be altered
+			Vertex_t& v0 = m_vertices[m_indices[i + 0]];
+			Vertex_t& v1 = m_vertices[m_indices[i + 1]];
+			Vertex_t& v2 = m_vertices[m_indices[i + 2]];
+			// work out the delta of the three vertices
+			Vector3f vect1 = Vector3f(v0.position.x - v1.position.x, v0.position.y - v1.position.y, v0.position.z - v1.position.z);
+			Vector3f vect2 = Vector3f(v1.position.x - v2.position.x, v1.position.y - v2.position.y, v1.position.z - v2.position.z);
+			// generate the vector perpendicular to the two vectors, and normalise it
+			Vector3f cross;
+
+			if (invert)
 			{
-				vertex.normal = -vertex.normal.normalised();
+				cross = Vector3f::cross(vect1, vect2);
 			}
 			else
 			{
-				vertex.normal = vertex.normal.normalised();
+				cross = Vector3f::cross(vect2, vect1);
 			}
+
+			// add this value to the current normal value of the vertices
+			v0.normal += cross;
+			v1.normal += cross;
+			v2.normal += cross;
+
+			v0.normal = v0.normal.normalised();
+			v1.normal = v1.normal.normalised();
+			v2.normal = v2.normal.normalised();
 		}
 	}
 
@@ -184,7 +212,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void IMeshComponent::generate(const bool genNormals/*= false*/, const bool invertNormals/*=false*/)
+	void IMeshComponent::generate(const bool genNormals/*= false*/)
 	{
 		if (!m_generated)
 		{
@@ -192,7 +220,7 @@ namespace sparky
 			{
 				if (genNormals)
 				{
-					this->calculateNormals(invertNormals);
+					this->calculateNormals();
 				}
 
 				m_arrayBuffer.generate();

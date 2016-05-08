@@ -28,10 +28,10 @@ Class Includes
 ====================
 */
 #include <sparky\rendering\finalshader.hpp>	    // Class definition.
-#include <sparky\lighting\directionallight.hpp> // Directional Light Test.
-#include <sparky\lighting\pointlight.hpp>		// Point Light Test.
 #include <sparky\math\transform.hpp>		    // Setting uniform variables.
 #include <sparky\core\camera.hpp>			    // Needed for view and projection matrices.
+#include <sparky\core\gamemanager.hpp>			// Get the currently active lights.
+#include <sparky\lighting\directionallight.hpp> // Update the uniforms of the light.
 
 namespace sparky
 {
@@ -44,36 +44,6 @@ namespace sparky
 	FinalShader::FinalShader(void)
 		: IShaderComponent("shaders/basic_vertex.glsl", "shaders/basic_fragment.glsl")
 	{
-		SPARKY_DIRECTIONAL_LIGHT_DESC desc;
-		memset(&desc, 0, sizeof(SPARKY_DIRECTIONAL_LIGHT_DESC));
-
-		desc.base.name = String("u_light");
-		desc.base.position = Vector3f::one();
-		desc.base.colour = Vector3f::one();
-		desc.base.intensity = 0.5f;
-
-		desc.direction = Vector3f(1.0f, 0.0f, 0.0f);
-
-		m_pLight = new DirectionalLight(desc);
-		m_pLight->addRef();
-
-
-		SPARKY_POINT_LIGHT_DESC p;
-		memset(&p, 0, sizeof(SPARKY_POINT_LIGHT_DESC));
-
-		p.base.name = String("u_point_light");
-		p.base.position = Vector3f(1.0f, 1.0f, 0.0f);
-		p.base.colour = Vector3f(0.5f, 0.0f, 0.0f);
-		p.base.intensity = 8.0f;
-
-		p.attenuation.constant = 1.0f;
-		p.attenuation.linear = 0.7f;
-		p.attenuation.exponent = 1.8f;
-
-		p.range = 25.0f;
-
-		m_pPoint = new PointLight(p);
-		m_pPoint->addRef();
 	}
 
 	/*
@@ -89,8 +59,7 @@ namespace sparky
 		m_uniform.setParameter("u_normal",   1);
 		m_uniform.setParameter("u_diffuse",  2);
 
-		m_pLight->setUniforms(m_uniform);
-		m_pPoint->setUniforms(m_uniform);
+		GameManager::getInstance().getActiveDirectional()->setUniforms(m_uniform);
 	}
 
 }//namespace sparky

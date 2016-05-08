@@ -29,6 +29,8 @@ Class Includes
 */
 #include <sparky\lighting\pointlight.hpp>	// Class definition.
 #include <sparky\rendering\uniform.hpp>		// Set the variables within the shader.
+#include <sparky\math\frustum.hpp>			// Check if the point light is within the current frame.
+#include <sparky\core\gamemanager.hpp>		// Add the current light to the game manager.
 
 namespace sparky
 {
@@ -87,6 +89,15 @@ namespace sparky
 		uniform.setParameter(String::concat(this->getName(), ".attenuation.exponent"), m_attenuation.exponent);
 
 		uniform.setParameter(String::concat(this->getName(), ".range"), m_range);
+	}
+
+	////////////////////////////////////////////////////////////
+	void PointLight::addLight(void)
+	{
+		if (Frustum::checkSphere(getPosition(), m_range))
+		{
+			GameManager::getInstance().addPointLight(this);
+		}
 	}
 
 }//namespace sparky

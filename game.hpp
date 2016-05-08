@@ -11,16 +11,18 @@ Class Includes
 #include <sparky\rendering\texture.hpp>
 #include <sparky\input\input.hpp>
 #include <sparky\rendering\deferredshader.hpp>
-#include <sparky\rendering\model.hpp>
+#include <sparky\lighting\directionallight.hpp>
 
 class Game : public sparky::Scene
 {
 private:
-	sparky::Model*			m_pModel;
-	sparky::World*	        m_pWorld;
-	sparky::Texture*        m_pTexture;
-	sparky::Input*		    m_pInput;
-	sparky::DeferredShader* m_pShader;
+	sparky::World*	          m_pWorld;
+	sparky::Texture*          m_pTexture;
+	sparky::Input*		      m_pInput;
+	sparky::DirectionalLight* m_pLight;
+	sparky::DirectionalLight* m_pLight2;
+
+	sparky::DeferredShader*   m_pShader;
 
 public:
 	/*
