@@ -63,7 +63,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<IEventComponent*> m_events;		// The events being polled by the Manager.
+		std::vector<IEventComponent*> m_events;		///< The events being polled by the Manager.
 
 	private:
 		/*

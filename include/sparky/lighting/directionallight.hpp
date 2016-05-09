@@ -30,7 +30,7 @@
 Class Includes
 ====================
 */
-#include <sparky\lighting\light.hpp>	// Directional Light is a type of light class.
+#include <sparky\lighting\light.hpp>	// DirectionalLight is a type of light class.
 
 namespace sparky
 {
@@ -41,8 +41,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		SPARKY_BASE_LIGHT_DESC base;		// The base description of the Directional Light.
-		Vector3f			   direction;	// Direction of the light.
+		SPARKY_BASE_LIGHT_DESC base;		///< The base description of the DirectionalLight.
+		Vector3f			   direction;	///< Direction of the light.
 	};
 
 	class DirectionalLight final : public Light
@@ -53,7 +53,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Vector3f m_direction;	// Direction that the Directional light will shine.
+		Vector3f m_direction;	///< Direction that the Directional light will shine.
 
 	public:
 		/*
@@ -62,18 +62,18 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief The construction of the Directional Light with a description.
+		/// \brief The construction of the DirectionalLight with a description.
 		///
 		/// The description describes the parameters in which the directional
 		/// light is created. 
 		/// 
-		/// \param desc		The description of the directional light.
+		/// \param desc		The description of the DirectionalLight.
 		///
 		////////////////////////////////////////////////////////////
 		explicit DirectionalLight(const SPARKY_DIRECTIONAL_LIGHT_DESC& desc);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Default destruction of the Directional Light object.
+		/// \brief Default destruction of the DirectionalLight object.
 		////////////////////////////////////////////////////////////
 		DirectionalLight(void) = default;
 
@@ -83,23 +83,23 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the current direction of the Directional Light object.
+		/// \brief Retrieves the current direction of the DirectionalLight object.
 		///
-		/// The direction of the light controls which way that the light
+		/// The direction of the light controls which way that the DirectionalLight
 		/// will shine in.
 		///
-		/// \retval Vector3f	The direction of the light.
+		/// \retval Vector3f&	The direction of the DirectionalLight.
 		///
 		////////////////////////////////////////////////////////////	
 		const Vector3f& getDirection(void) const;
 
 		////////////////////////////////////////////////////////////	
-		/// \brief Sets a new direction for the Directional Light object.
+		/// \brief Sets a new direction for the DirectionalLight object.
 		///
-		/// The direction of the light controls which way that the light
+		/// The direction of the light controls which way that the DirectionalLight
 		/// will shine in.
 		/// 
-		/// \param direction	The new direction of the Directional Light.
+		/// \param direction	The new direction of the DirectionalLight.
 		///
 		////////////////////////////////////////////////////////////
 		void setDirection(const Vector3f& direction);
@@ -110,7 +110,7 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the uniform variables of the Directional Light.
+		/// \brief Sets the uniform variables of the DirectionalLight.
 		///
 		/// The directional lights are constructed within the shader as
 		/// a struct. These uniforms comply with the variables of the structs.
@@ -121,10 +121,10 @@ namespace sparky
 		void setUniforms(Uniform& uniform);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Adds the light to the current pipeline if the conditions
+		/// \brief Adds the DirectionalLight to the current pipeline if the conditions
 		///        are correct.
 		///
-		/// As directional light "technically" do not have a starting position,
+		/// As DirectionalLight "technically" do not have a starting position,
 		/// they are always added to the engine at the beginning of the frame.
 		///
 		////////////////////////////////////////////////////////////
@@ -147,8 +147,9 @@ namespace sparky
 /// sparky::DirectionalLight can be combined with any other light
 /// source provided within the shader. Below is a code example.
 ///
+/// Usage example:
 /// \code
-/// // Create a description for the directional light and "zero" it out.
+/// // Create a description for the DirectionalLight and "zero" it out.
 /// sparky::SPARKY_DIRECTIONAL_LIGHT_DESC desc;
 /// memset(&desc, 0, sizeof(sparky::SPARKY_DIRECTIONAL_LIGHT_DESC));
 ///
@@ -159,11 +160,12 @@ namespace sparky
 /// desc.base.intensity = 0.45f;					
 /// desc.direction      = sparky::Vector3f(1.0f, 0.0f, 0.0f);
 ///
-/// // Create a new directional light with the description and retain.
+/// // Create a new DirectionalLight with the description and retain.
 /// sparky::DirectionalLight* pLight = new sparky::DirectionalLight(desc);
 /// pLight->addRef();
 ///
 /// // Within a shader update the lights uniform variables.
 /// pLight->setUniforms(m_uniform);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

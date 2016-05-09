@@ -53,6 +53,21 @@ namespace sparky
 	class Comparer
 	{
 	public:
+		/*
+		====================
+		Methods
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Functor for getting the difference between two different
+		///	       Vector3 values.
+		///
+		/// \param u		The first Vector3 to compare.
+		/// \param v		The second Vector3 to compare.
+		///
+		/// \retval bool	True if the Vector3 objects match.
+		///
+		////////////////////////////////////////////////////////////
 		bool operator()(const Vector3i& u, const Vector3i& v) const
 		{
 			return u.x < v.x || (u.x == v.x && (u.y < v.y || (u.y == v.y && u.z < v.z)));
@@ -67,7 +82,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::map<Vector3i, Chunk*, Comparer> m_chunks;	// All the chunks within the World.
+		std::map<Vector3i, Chunk*, Comparer> m_chunks;	///< All the chunks within the World.
 
 	public:
 		/*

@@ -48,7 +48,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::map<std::pair<String, String>, String> m_values;	// The mapped values which are read and then stored from the configuration file.
+		std::map<std::pair<String, String>, String> m_values;	///< The mapped values which are read and then stored from the configuration file.
 
 	private:
 		/*
@@ -132,7 +132,7 @@ namespace sparky
 		///
 		/// \param variable		The name of the variable within the file.
 		///
-		/// \retval int			The value of the variable.
+		/// \retval bool		The value of the variable.
 		///
 		////////////////////////////////////////////////////////////
 		bool getBoolean(const String& variable) const;
@@ -147,7 +147,7 @@ namespace sparky
 		///
 		/// \param variable		The name of the variable within the file.
 		///
-		/// \retval int			The value of the variable.
+		/// \retval float		The value of the variable.
 		///
 		////////////////////////////////////////////////////////////
 		float getFloat(const String& variable) const;
@@ -162,7 +162,7 @@ namespace sparky
 		///
 		/// \param variable		The name of the variable within the file.
 		///
-		/// \retval int			The value of the variable.
+		/// \retval double		The value of the variable.
 		///
 		////////////////////////////////////////////////////////////
 		double getDouble(const String& variable) const;
@@ -177,7 +177,7 @@ namespace sparky
 		///
 		/// \param variable		The name of the variable within the file.
 		///
-		/// \retval int			The value of the variable.
+		/// \retval String		The value of the variable.
 		///
 		////////////////////////////////////////////////////////////
 		String getString(const String& variable) const;
@@ -209,7 +209,7 @@ namespace sparky
 #endif//__SPARKY_CONFIG_FILE_HPP__
 
 ////////////////////////////////////////////////////////////
-/// \class spark::ConfigFile
+/// \class sparky::ConfigFile
 /// \ingroup utils
 ///
 /// sparky::Configfile is a configuration file parsing class
@@ -220,6 +220,7 @@ namespace sparky
 /// The configuration files are useful for quickly changing 
 /// values without re-compilation. Below is a small code example:
 ///
+/// Usage example:
 /// \code
 /// // Create and load the configuration file.
 /// sparky::ConfigFile file;
@@ -229,5 +230,6 @@ namespace sparky
 /// std::cout << file.getInt("Window.position_x") << std::endl;
 /// std::cout << file.getBool(Window.full_screen") << std::endl;
 /// std::cout << file.getString("Window.title") << std::endl;
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

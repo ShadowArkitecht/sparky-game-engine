@@ -57,7 +57,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<Ref*> m_objects;		// Currently retained dynamic objects.
+		std::vector<Ref*> m_objects;		///< Currently retained dynamic objects.
 
 	private:
 		/*

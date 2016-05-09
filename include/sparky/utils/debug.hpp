@@ -170,7 +170,7 @@ namespace sparky
 		/// such as OpenGL failing to initialise. The message will
 		/// be printed and the application is aborted.
 		///
-		/// \param msg	The error message to be printed to the console.
+		/// \param error	The error message to be printed to the console.
 		///
 		////////////////////////////////////////////////////////////
 		template <typename T> static void error(const T& error);
@@ -183,11 +183,11 @@ namespace sparky
 		/// such as OpenGL failing to initialise. The message will
 		/// be printed and the application is aborted.
 		///
-		/// \param msg		The first error message to be printed to the console.
+		/// \param error	The first error message to be printed to the console.
 		/// \param ...args	The variadic errors to be printed to the console.
 		///
 		////////////////////////////////////////////////////////////
-		template <typename T, typename... Args> static void error(const T& msg, const Args&... args);
+		template <typename T, typename... Args> static void error(const T& error, const Args&... args);
 	};
 
 #include <sparky\utils\debug.inl>
@@ -209,6 +209,7 @@ namespace sparky
 /// is used throughout the application and be used by the user
 /// with the following code.
 ///
+/// Usage example:
 /// \code
 /// // Declare a integer
 /// int number = 5;
@@ -219,5 +220,6 @@ namespace sparky
 ///		// Print a warning message
 ///		sparky::DebugLog::warning("Number shouldn't equal 5");
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

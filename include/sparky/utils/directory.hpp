@@ -47,7 +47,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<String> files;	// The files contained within the directory.
+		std::vector<String> files;	///< The files contained within the directory.
 
 		/*
 		====================
@@ -106,12 +106,17 @@ namespace sparky
 /// to make sure that the directory exists and the files can be 
 /// loaded. Below is a code exmaple:
 ///
+/// Usage example:
 /// \code
 /// // Create a Directory object and opens a directory.
 /// sparky::Directory directory;
 /// directory.open("assets");
 ///
-/// // Store the images loaded into the ResourceManager
-/// ResourceManager::addTexture(directory.files);
+/// for (const auto& file : directory.files)
+/// {
+///		// Print the result.
+///		std::cout << file << std::endl;
+/// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

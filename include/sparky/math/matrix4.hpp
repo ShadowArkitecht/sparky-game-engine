@@ -46,7 +46,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		T m[4][4];	// Raw information of the matrix.
+		T m[4][4];	///< Raw information of the matrix.
 
 	public:
 		/*
@@ -82,7 +82,7 @@ namespace sparky
 		explicit Matrix4(const Vector4<T>& first, const Vector4<T>& second, const Vector4<T>& third, const Vector4<T>& fourth);
 
 		////////////////////////////////////////////////////////////
-		/// \breif Default destruction of the Matrix4 object.
+		/// \brief Default destruction of the Matrix4 object.
 		////////////////////////////////////////////////////////////
 		~Matrix4(void) = default;
 
@@ -95,7 +95,7 @@ namespace sparky
 		/// \brief Performs a member-wise multiplication of two matrices.
 		///
 		/// Multiplication is applied between two different matrices with
-		/// the result being assigned to a new Matrix object. It is important
+		/// the result being assigned to a new Matrix4 object. It is important
 		/// to remember that matrices are non-communative.
 		///
 		/// \param matrix		The matrix to be multiplied by.
@@ -124,7 +124,7 @@ namespace sparky
 		///
 		/// \param matrix	The matrix to set the object to.
 		///
-		/// \param Matrix4	A reference to this object.
+		/// \retval Matrix4	A reference to this object.
 		///
 		////////////////////////////////////////////////////////////
 		Matrix4& operator=(const Matrix4& matrix);
@@ -164,17 +164,17 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the row of the Matrix at the specified index.
+		/// \brief Retrieves the row of the Matrix4 at the specified index.
 		/// 
 		/// \param index	The row index.
 		///
-		/// \retval Vector3	A Vector4 containing the information of the Matrix row.
+		/// \retval Vector3	A Vector4 containing the information of the Matrix4 row.
 		///
 		////////////////////////////////////////////////////////////
 		Vector4<T> getRow(const unsigned int index) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the row of the Matrix at the specified index.
+		/// \brief Sets the row of the Matrix4 at the specified index.
 		/// 
 		/// \param index	The row index.
 		/// \param row		The Vector4 to set the row to.
@@ -183,20 +183,20 @@ namespace sparky
 		void setRow(const unsigned int index, const Vector4<T>& row);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the column of the Matrix at the specified index.
+		/// \brief Retrieves the column of the Matrix4 at the specified index.
 		/// 
 		/// \param index	The column index.
 		///
-		/// \retval Vector3	A Vector4 containing the information of the Matrix column.
+		/// \retval Vector3	A Vector4 containing the information of the Matrix4 column.
 		///
 		////////////////////////////////////////////////////////////
 		Vector4<T> getColumn(const unsigned int index) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the column of the Matrix at the specified index.
+		/// \brief Sets the column of the Matrix4 at the specified index.
 		/// 
 		/// \param index	The column index.
-		/// \param row		The Vector4 to set the row to.
+		/// \param column	The Vector4 to set the column to.
 		///
 		////////////////////////////////////////////////////////////
 		void setColumn(const unsigned int index, const Vector4<T>& column);
@@ -263,7 +263,7 @@ namespace sparky
 		static Matrix4 rollRotation(const T degrees);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs a translation Matrix.
+		/// \brief Constructs a translation Matrix4.
 		///
 		/// Constructs an identity matrix and then sets the translation column
 		/// to the position parameter. When a matrix is multiplied by the 
@@ -281,13 +281,13 @@ namespace sparky
 		static Matrix4 translation(const Vector3<T>& position);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the x, y, and z rotation of a Matrix.
+		/// \brief Sets the x, y, and z rotation of a Matrix4.
 		///
 		/// Convenience method for quickly setting the x, y and z rotation of a
-		/// Matrix. The corresponding components of the rotation Vector set the roll,
+		/// Matrix4. The corresponding components of the rotation Vector set the roll,
 		/// yaw and pitch rotational degrees respectively.
 		/// 
-		/// \param rotation		The rotation to apply to the Matrix.
+		/// \param rotation		The rotation to apply to the Matrix4.
 		///
 		/// \retval	Matrix4		The rotated matrix.
 		///
@@ -295,7 +295,7 @@ namespace sparky
 		static Matrix4 rotation(const Vector3<T>& rotation);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Construct a rotation Matrix with right, up and forward Vectors.
+		/// \brief Construct a rotation Matrix4 with right, up and forward Vectors.
 		///
 		/// Convenience method for setting the rows and elements of rotation within
 		/// the matrix. The rows of the matrix are set with the right, up and 
@@ -305,13 +305,13 @@ namespace sparky
 		/// \param up		The up rotation.
 		/// \param forward  The forward rotation.
 		///
-		/// \retval Matrix4 The rotated Matrix.
+		/// \retval Matrix4 The rotated Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 rotation(const Vector3<T>& right, const Vector3<T>& up, const Vector3<T>& forward);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs a scale Matrix.
+		/// \brief Constructs a scale Matrix4.
 		///
 		/// Creates a indentity matrix and then scales the matrix on 
 		/// the x, y and z axis by using the members from the corresponding
@@ -324,37 +324,37 @@ namespace sparky
 		/// 
 		/// \param scale		The vector to scale the matrix by.
 		///
-		/// \retval Matrix4		The scale Matrix.
+		/// \retval Matrix4		The scale Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 scale(const Vector3<T>& scale);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs a projection Matrix.
+		/// \brief Constructs a projection Matrix4.
 		///
-		/// Constructs a projection Matrix. A projection matrix is responsible
+		/// Constructs a projection Matrix4. A projection matrix is responsible
 		/// for projecting 3D points (such as vectors) that; when multiplied by camera 
 		/// space, are projected onto the screen buffer in the correct positions.
 		/// 
 		/// \param fov				The Field of View.
 		/// \param aspectRatio		The aspect ratio.
-		/// \param near				The near-clipping plane.
-		/// \param far				The far-clipping plane.
+		/// \param zNear			The near-clipping plane.
+		/// \param zFar				The far-clipping plane.
 		///
-		/// \retval Matrix4			The projection Matrix.
+		/// \retval Matrix4			The projection Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 projection(const T fov, const T aspectRatio, const T zNear, const T zFar);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Creates a perspective Matrix.
+		/// \brief Creates a perspective Matrix4.
 		///
-		/// Creates a perspective Matrix with the specified forward and up vector.
+		/// Creates a perspective Matrix4 with the specified forward and up Vector3.
 		/// 
 		/// \param forward		The forward vector.
 		/// \param up			The up vector.
 		///
-		/// \retval Matrix4		The perspective Matrix.
+		/// \retval Matrix4		The perspective Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 perspective(const Vector3<T>& forward, const Vector3<T>& up);
@@ -366,7 +366,7 @@ namespace sparky
 		/// with the rows. This new matrix is returned as the result to this 
 		/// function.
 		///
-		/// \retval Matrix4		The transposed Matrix.
+		/// \retval Matrix4		The transposed Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 transpose(const Matrix4& matrix);
@@ -377,7 +377,7 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs an Identity Matrix.
+		/// \brief Constructs an Identity Matrix4.
 		///
 		/// This is a matrix that effectively does nothing when multiplied. It has 1s 
 		/// in the main diagonal and 0s in all other elements.
@@ -400,7 +400,7 @@ namespace sparky
 		/// [ 0 0 0 0 ]
 		/// [ 0 0 0 0 ]
 		/// 
-		/// \retval Matrix4		A 'zeroed' Matrix.
+		/// \retval Matrix4		A 'zeroed' Matrix4.
 		///
 		////////////////////////////////////////////////////////////
 		static Matrix4 zero(void);
@@ -428,6 +428,7 @@ namespace sparky
 /// are converted into matrices before application. Below is a code 
 /// example of using the Matrices.
 ///
+/// Usage example:
 /// \code
 /// // Create a matrix object.
 /// sparky::Matrix4f matrix;
@@ -438,5 +439,6 @@ namespace sparky
 /// matrix *= Matrix4f::rotation(Vector3f(0.0f, 50.0f, 0.0f));
 ///
 /// matrix *= Matrix4f::translation(Vector3f(0.0f, 0.0f, 7.0f);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

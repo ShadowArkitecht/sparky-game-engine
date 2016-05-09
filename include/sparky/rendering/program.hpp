@@ -54,8 +54,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		GLuint					 m_ID;		// The ID of the program. This is used to bind and unbind shader behaviour.
-		std::vector<GLSLObject*> m_shaders; // The shaders attached to the Program.
+		GLuint					 m_ID;		///< The ID of the program. This is used to bind and unbind shader behaviour.
+		std::vector<GLSLObject*> m_shaders; ///< The shaders attached to the Program.
 
 	public:
 		/*
@@ -154,17 +154,19 @@ namespace sparky
 /// without the user having to change various states of the engine.
 /// Below is a code example of using the Program.
 ///
+/// Usage example:
 /// \code
 /// // Make a program and add shaders.
 /// sparky::Program program;
 ///
-/// program.attachShader(new GLSLObject("shaders/basic_vertex.glsl", eShaderType::VERTEX_SHADER));
-/// program.attachShader(new GLSLObject("shaders/basic_fragment.glsl", eShaderType::FRAGMENT_SHADER));
+/// program.attachShader(new sparky::GLSLObject("shaders/basic_vertex.glsl",   sparky::eShaderType::VERTEX_SHADER));
+/// program.attachShader(new sparky::GLSLObject("shaders/basic_fragment.glsl", sparky::eShaderType::FRAGMENT_SHADER));
 ///
 /// // Link and compile the shaders.
 /// program.link();
 ///
 /// // Bind the shader for use.
 /// program.bind();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

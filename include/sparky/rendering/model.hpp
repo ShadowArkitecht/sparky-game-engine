@@ -52,7 +52,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<MeshData*> m_meshes;	// All of the meshes that the model is constructed of.
+		std::vector<MeshData*> m_meshes;	///< All of the meshes that the model is constructed of.
 
 	private:
 		/*
@@ -144,11 +144,13 @@ namespace sparky
 /// is based on http://www.learnopengl.com/#!Model-Loading/Model. Below is 
 /// a code example.
 ///
+/// Usage example:
 /// \code
 /// // Create a model and load it in.
 /// sparky::Model* pModel = new sparky::Model("assets/model.obj");
 ///
 /// // Render the mesh in the render loop.
 /// pModel->render();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

@@ -42,9 +42,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Vector3f position;		// Position of the Vertex in 3D space.
-		Vector3f normal;		// The normal of the vertex.
-		Vector2f uv;			// The texture co-ordinate of the Vertex.
+		Vector3f position;		///< Position of the Vertex in 3D space.
+		Vector3f normal;		///< The normal of the vertex.
+		Vector2f uv;			///< The texture co-ordinate of the Vertex.
 
 		/*
 		====================
@@ -54,8 +54,8 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Default construction of a Vertex object.
 		///
-		/// Sets the position and uv values of the Vertex object to 
-		/// default values - [ 0, 0, 0 ], [ 0, 0 ].
+		/// Sets the position, uv and normals values of the Vertex object to 
+		/// default values - [ 0, 0, 0 ], [0, 0, 0], [ 0, 0 ].
 		///
 		////////////////////////////////////////////////////////////
 		explicit Vertex_t(void);
@@ -64,7 +64,8 @@ namespace sparky
 		/// \brief Constructs a Vertex object with a position and uv.
 		///
 		/// Implicity sets the attributes of the Vertex object by
-		/// constructing a Vertex from the parameter values.
+		/// constructing a Vertex from the parameter values. The normal
+		/// is set to [ 0, 0, 0 ].
 		///
 		/// \param position		The positon of the Vertex in 3D space.
 		/// \param uv			The texture co-ordinates of the Vertex.
@@ -108,6 +109,8 @@ namespace sparky
 /// defines their shapes and textures. Below is code example of adding
 /// a vertex to a mesh.
 ///
+/// Usage example:
+/// \code
 /// // Create a new mesh and increase its reference count.
 /// sparky::MeshData* pMesh = new MeshData();
 /// pMesh->addRef();
@@ -115,5 +118,6 @@ namespace sparky
 /// // Create a vertex and add it to the mesh.
 /// sparky::Vertex_t vertex(Vector3f::zero(), Vector2f::one());
 /// pMesh->addVertex(vertex);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

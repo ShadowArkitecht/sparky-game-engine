@@ -52,8 +52,8 @@ namespace sparky
 		Member Variables	
 		====================
 		*/
-		Program m_program;	// The Program contains the shader functionality.
-		Uniform m_uniform;  // Binds uniform variables within the shader.
+		Program m_program;	///< The Program contains the shader functionality.
+		Uniform m_uniform;  ///< Binds uniform variables within the shader.
 
 	public:
 		/*

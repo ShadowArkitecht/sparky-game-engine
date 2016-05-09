@@ -49,8 +49,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Vector2<T> position;	// The position of the Rectangle.
-		Vector2<T> size;		// The dimensions of the Rectangle.
+		Vector2<T> position;	///< The position of the Rect.
+		Vector2<T> size;		///< The dimensions of the Rect.
 
 	public:
 		/*
@@ -61,7 +61,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Default construction of a Rect object.
 		///
-		/// Creates a Rectangle shape that has no position or size. 
+		/// Creates a Rect shape that has no position or size. 
 		/// This constructor is the equivalent to creating an empty
 		/// rectangle [ 0, 0, 0, 0 ].
 		///
@@ -71,11 +71,11 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Creates a rectangle shape with a defined position and size.
 		///
-		/// Creates a Rectangle shape with a specified position and 
+		/// Creates a Rect shape with a specified position and 
 		/// size. This is equivalent to [ p.x, p.y, s.x, s.y ].
 		///
-		/// \param position		The position of the Rectangle.
-		/// \param size			The dimensions of the Rectangle.
+		/// \param position		The position of the Rect.
+		/// \param size			The dimensions of the Rect.
 		///
 		////////////////////////////////////////////////////////////
 		explicit Rect(const Vector2<T>& position, const Vector2<T>& size);
@@ -86,10 +86,10 @@ namespace sparky
 		/// This is equivalent to the previous constructor, except that
 		/// the values are set individually, instead of utilising vectors.
 		///
-		/// \param x		The x position of the Rectangle.
-		/// \param y		The y position of the Rectangle.
-		/// \param width	The width of the Rectangle.
-		/// \param height	The height of the Rectangle.
+		/// \param x		The x position of the Rect.
+		/// \param y		The y position of the Rect.
+		/// \param width	The width of the Rect.
+		/// \param height	The height of the Rect.
 		///
 		////////////////////////////////////////////////////////////
 		explicit Rect(const T x, const T y, const T width, const T height);
@@ -105,7 +105,7 @@ namespace sparky
 		explicit Rect(const Rect<U>& rect);
 
 		////////////////////////////////////////////////////////////
-		/// \brief	Destruction of the Rectangle object.
+		/// \brief	Destruction of the Rect object.
 		////////////////////////////////////////////////////////////
 		~Rect(void) = default;
 
@@ -115,18 +115,18 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Comparison operator between two Rectangle objects.
+		/// \brief Comparison operator between two Rect objects.
 		///
-		/// \retval bool	True if the Rectangles are at the same position
+		/// \retval bool	True if the Rects are at the same position
 		///					and dimensions.
 		///
 		////////////////////////////////////////////////////////////
 		bool operator==(const Rect<T>& rect);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Comparison operator between two Rectangle objects.
+		/// \brief Comparison operator between two Rect objects.
 		///
-		/// \retval bool	True if the Rectangles are not at the same position
+		/// \retval bool	True if the Rects are not at the same position
 		///					and dimensions.
 		///
 		////////////////////////////////////////////////////////////
@@ -138,31 +138,31 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Checks if a point is within the Rectangle.
+		/// \brief Checks if a point is within the Rect.
 		///
 		/// Simple 2D axis aligned box to point collision. It checks
 		/// to see if the point is contained within the current 
-		/// Rectangle object.
+		/// Rect object.
 		///
-		/// \param point	The point to check within the Rectangle.
+		/// \param point	The point to check within the Rect.
 		///
-		/// \retval bool	True if the point is within the Rectangle,
-		///					False if not.
+		/// \retval bool	True if the point is within the Rect,
+		///					false if not.
 		///
 		////////////////////////////////////////////////////////////
 		bool contains(const Vector2<T>& point) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Checks if a point is within the Rectangle.
+		/// \brief Checks if a point is within the Rect.
 		///
 		/// Simple 2D axis aligned box to point collision. It checks
 		/// to see if the point is contained within the current 
-		/// Rectangle object.
+		/// Rect object.
 		///
-		/// \param x		The x point to check within the Rectangle.
-		/// \param y		The y point to check within the Rectangle.
+		/// \param x		The x point to check within the Rect.
+		/// \param y		The y point to check within the Rect.
 		///
-		/// \retval bool	True if the point is within the Rectangle,
+		/// \retval bool	True if the point is within the Rect,
 		///					False if not.
 		///
 		////////////////////////////////////////////////////////////
@@ -172,9 +172,9 @@ namespace sparky
 		/// \brief Basic AABB Collision between two Rectangles.
 		///
 		/// This method checks for collision between two different
-		/// Rectangle objects.
+		/// Rect objects.
 		///
-		/// \param rect		The Rectangle to compare against.
+		/// \param rect		The Rect to compare against.
 		///
 		////////////////////////////////////////////////////////////
 		bool collides(const Rect<T>& rect) const;
@@ -207,17 +207,19 @@ namespace sparky
 /// to create HUD elements or 2D sprites. Below is a code example of using
 /// one of the type defined conveniences Rects.
 ///
+/// Usage example:
 /// \code
-/// // Create a Rectangle.
+/// // Create a Rect.
 /// sparky::Rectf rect(0.0f, 0.0f, 10.0f, 10.0f);
 ///
-/// // Create a point to test if it intersects with the Rectangle.
+/// // Create a point to test if it intersects with the Rect.
 /// Vector2f point(5.0f, 5.0f);
 ///
-/// // Test if point intersects with Rectangle (spoiler alert: it does).
+/// // Test if point intersects with Rect (spoiler alert: it does).
 /// if (rect.contains(point))
 /// {
-///		std::cout << "The point is inside the Rectangle!" << std::endl;
+///		std::cout << "The point is inside the Rect!" << std::endl;
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

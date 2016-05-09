@@ -34,8 +34,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		unsigned int majorVersion;	// The major version of OpenGL.
-		unsigned int minorVersion;	// The minor version of OpenGl. eg. 3.3.
+		unsigned int majorVersion;	///< The major version of OpenGL.
+		unsigned int minorVersion;	///< The minor version of OpenGl. eg. 3.3.
 
 		/*
 		====================
@@ -84,6 +84,7 @@ namespace sparky
 /// sparky::Window class for initialising the functionality of
 /// OpenGL to specific specifications. 
 ///
+/// Usage example:
 /// \code 
 /// // Create a context and change values
 /// ContextSettings context;
@@ -101,5 +102,6 @@ namespace sparky
 ///		// Rendering of objects should go here.
 ///		window.swap();
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

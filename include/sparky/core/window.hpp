@@ -57,14 +57,14 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static Window*  m_pMain;	// Static Reference to the Camera.
-		SDL_Window*	    m_pWindow;	// The SDL Window context.
-		SDL_GLContext   m_GLcontext;// The context between SDL and OpenGL.
-		String   	    m_title;	// The title of the Window.
-		Vector2i        m_position;	// The position of the Window on the screen.
-		Vector2i        m_size;		// The size/dimensions of the Window.
-		ContextSettings m_settings;	// OpenGL settings of the Window.
-		bool		    m_running;	// Whether the Window is currently running.
+		static Window*  m_pMain;	///< Static Reference to the Camera.
+		SDL_Window*	    m_pWindow;	///< The SDL Window context.
+		SDL_GLContext   m_GLcontext;///< The context between SDL and OpenGL.
+		String   	    m_title;	///< The title of the Window.
+		Vector2i        m_position;	///< The position of the Window on the screen.
+		Vector2i        m_size;		///< The size/dimensions of the Window.
+		ContextSettings m_settings;	///< OpenGL settings of the Window.
+		bool		    m_running;	///< Whether the Window is currently running.
 
 	public:
 		/*
@@ -336,6 +336,7 @@ namespace sparky
 /// a rendering loop (although some of this functionality may be
 /// handled internally).
 ///
+/// Usage example:
 /// \code 
 /// // Create a new Window.
 /// sparky::Window Window;

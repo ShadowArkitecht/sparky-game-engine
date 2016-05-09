@@ -49,7 +49,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		PointLight* m_pLight;	// The currently active point light.
+		PointLight* m_pLight;	///< The currently active point light.
 
 	public:
 		/*
@@ -114,6 +114,19 @@ namespace sparky
 ///
 /// sparky::PointShader never has to be used implicitly by the
 /// user, instead it is utilised to render the lights of the scene
-/// within the game manager singleton class.
+/// within the GameManager singleton class. Below is a code example.
+///
+/// Usage example:
+/// \code
+/// // Get a shader from the resource manager.
+/// sparky::PointShader pShader = sparky::ResourceManager::getInstance().getShader<sparky::PointShader>("point");
+///
+/// // Create a transform.
+/// sparky::Transform t;
+/// t.setPosition(0.0f, 0.0f, 5.0f);
+///
+/// // Pass the transform to the shader.
+/// pShader->update(t);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

@@ -44,8 +44,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		T x;
-		T y;
+		T x;	///< The x (right) value.
+		T y;	///< The y (up) value.
 
 	public:
 		/*
@@ -344,7 +344,7 @@ namespace sparky
 		/// [ x, y ]
 		///
 		/// \param os		The output stream to stream into.
-		/// \param matrix	The matrix to print to the console window.
+		/// \param vector	The vector to print to the console window.
 		///
 		/// \retval ostream	The stream of the object.
 		///
@@ -489,7 +489,7 @@ namespace sparky
 		/// \param target	The vector linearly interpolated towards.	
 		/// \param speed	The speed of the interpolation.
 		///
-		/// \terval Vector3	The interpolated Vector.
+		/// \retval Vector3	The interpolated Vector.
 		///
 		////////////////////////////////////////////////////////////
 		static Vector2 lerp(const Vector2& current, const Vector2& target, const T speed);
@@ -556,6 +556,7 @@ namespace sparky
 /// and algorithms associated with Vectors, such as the dot 
 /// product and normalisation. Below is a small code example.
 ///
+/// Usage example:
 /// \code
 /// // Create two vectors to calculate the cross product.
 /// sparky::Vector2f v1 = sparky::Vector3f::up();
@@ -566,5 +567,6 @@ namespace sparky
 ///
 /// // Normalise it.
 /// f = f.normalised();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

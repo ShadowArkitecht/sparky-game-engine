@@ -41,9 +41,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		float constant;
-		float linear;
-		float exponent;
+		float constant;	///< The constant
+		float linear;	///< The linearity.
+		float exponent;	///< The quadratic exponent.
 	};
 
 	struct SPARKY_POINT_LIGHT_DESC
@@ -53,9 +53,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		SPARKY_BASE_LIGHT_DESC base;		// The base parameters of the light.
-		Attenuation			   attenuation;	// "Fall-off" of the current light.
-		float				   range;		// Maximum range of effect.
+		SPARKY_BASE_LIGHT_DESC base;		///< The base parameters of the light.
+		Attenuation			   attenuation;	///< "Fall-off" of the current light.
+		float				   range;		///< Maximum range of effect.
 	};
 
 	class PointLight final : public Light
@@ -66,8 +66,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Attenuation m_attenuation; // "Fall-off" of the current light.
-		float		m_range;	   // Maximum range of effect.
+		Attenuation m_attenuation; ///< "Fall-off" of the current light.
+		float		m_range;	   ///< Maximum range of effect.
 
 	public:
 		/*
@@ -76,19 +76,19 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Constructs a Point Light object from a description.
+		/// \brief Constructs a PointLight object from a description.
 		///
-		/// The description will define the behaviour of this Point Light.
+		/// The description will define the behaviour of this PointLight.
 		/// The members of the class will be set to those within the 
 		/// description and applied within the shader.
 		///
-		/// \param desc		The description of the Point Light object.
+		/// \param desc		The description of the PointLight object.
 		///
 		////////////////////////////////////////////////////////////
 		explicit PointLight(const SPARKY_POINT_LIGHT_DESC& desc);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Default destructor of the Point Light object.
+		/// \brief Default destructor of the PointLight object.
 		////////////////////////////////////////////////////////////
 		~PointLight(void) = default;
 
@@ -98,45 +98,45 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the attenuation of this Point Light.
+		/// \brief Retrieves the attenuation of this PointLight.
 		///
 		/// The attenuation refers to the reduction or "fall-off" of 
 		/// the light over a distance. 
 		///
-		/// \retval Attenuation		The Attenuation of the Point Light.
+		/// \retval Attenuation		The Attenuation of the PointLight.
 		///
 		////////////////////////////////////////////////////////////
 		const Attenuation& getAttenuation(void) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the attenuation of the Point Light.
+		/// \brief Sets the attenuation of the PointLight.
 		///
 		/// The attenuation refers to the reduction or "fall-off" of 
 		/// the light over a distance. 
 		///
-		/// \param attenuation	The new attenuation of the Point Light.
+		/// \param attenuation	The new attenuation of the PointLight.
 		///
 		////////////////////////////////////////////////////////////
 		void setAttenuation(const Attenuation& attenuation);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the range of the Point Light.
+		/// \brief Retrieves the range of the PointLight.
 		///
 		/// The range refers to the maximum radius of effect that this
-		/// Point Light will have on any geometry within the scene.
+		/// PointLight will have on any geometry within the scene.
 		///
-		/// \retval float	The range of the Point Light.
+		/// \retval float	The range of the PointLight.
 		///
 		////////////////////////////////////////////////////////////
 		float getRange(void) const;
 
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the maximum radius of the Point Light.
+		/// \brief Sets the maximum radius of the PointLight.
 		///
 		/// The range refers to the maximum radius of effect that this
-		/// Point Light will have on any geometry within the scene.
+		/// PointLight will have on any geometry within the scene.
 		///
-		/// \param range	The new maximum range of the Point light.
+		/// \param range	The new maximum range of the PointLight.
 		///
 		////////////////////////////////////////////////////////////
 		void setRange(const float range);
@@ -147,10 +147,10 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Sets the uniform variables of a Point Light within a shader.
+		/// \brief Sets the uniform variables of a PointLight within a shader.
 		///
-		/// Whenever a Point Light is used within a shader, the variables
-		/// of the Point Light must be updated for correct shading behaviour.
+		/// Whenever a PointLight is used within a shader, the variables
+		/// of the PointLight must be updated for correct shading behaviour.
 		///
 		/// \param uniform	The Uniforms of the currently bound shader.
 		///
@@ -163,7 +163,7 @@ namespace sparky
 		///
 		/// For Point Lights their position and radius is checked using the
 		/// sphere check in the Frustum class. If they are currently within
-		/// view, they are added to the manager for rendering this frame.
+		/// view, they are added to the GameManager for rendering this frame.
 		///
 		////////////////////////////////////////////////////////////
 		void addLight(void) override;
@@ -178,13 +178,14 @@ namespace sparky
 /// \ingroup lighting
 ///
 /// sparky::PointLight is a light based component of the Sparky 
-/// Engine. A point light can be used to represent a light source
+/// Engine. A PointLight can be used to represent a Light source
 /// with a specific radius of effect, such as a lantern or torch on 
 /// a wall. 
 ///
 /// Similar to other lights within the application, it uses descriptions
 /// to define it's behaviour. Below is a code example.
 ///
+/// Usage example:
 /// \code
 /// // Create a description and "zero" it out.
 /// sparky::SPARKY_POINT_LIGHT_DESC desc;
@@ -208,5 +209,6 @@ namespace sparky
 ///
 /// // Update the uniforms within a shader object.
 /// pLight->setUniforms(m_uniform);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

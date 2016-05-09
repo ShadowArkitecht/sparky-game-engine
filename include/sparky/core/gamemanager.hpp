@@ -64,16 +64,16 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<Scene*>			   m_scenes;			// The scenes within the application.
-		AmbientShader*				   m_pAmbient;			// The global ambient colour of all geometry.
-		DirectionalShader*			   m_pDirectional;		// The shader that actually renders the directional lights.
-		PointShader*				   m_pPoint;			// The shader that renders the point lights.
-		MeshData*					   m_pQuad;				// The complete scene is render onto this quad.
-
-		std::vector<DirectionalLight*> m_directionalLights; // The directional lights within this frame.
-		std::vector<PointLight*>	   m_pointLights;		// The point lights within this frame.
-
-		GBuffer						   m_buffer;			// The deferred rendering pipeline uses this GBuffer.
+		std::vector<Scene*>			   m_scenes;			///< The scenes within the application.
+		AmbientShader*				   m_pAmbient;			///< The global ambient colour of all geometry.
+		DirectionalShader*			   m_pDirectional;		///< The shader that actually renders the directional lights.
+		PointShader*				   m_pPoint;			///< The shader that renders the point lights.
+		MeshData*					   m_pQuad;				///< The complete scene is render onto this quad.
+															  
+		std::vector<DirectionalLight*> m_directionalLights; ///< The directional lights within this frame.
+		std::vector<PointLight*>	   m_pointLights;		///< The point lights within this frame.
+															  
+		GBuffer						   m_buffer;			///< The deferred rendering pipeline uses this GBuffer.
 
 	private:
 		/*

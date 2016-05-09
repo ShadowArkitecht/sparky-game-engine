@@ -44,10 +44,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		T x; // x (right) component.
-		T y; // y (up) component.
-		T z; // z (forward) component 
-		T w; // w (rotation) component.
+		T x; ///< x (right) component.
+		T y; ///< y (up) component.
+		T z; ///< z (forward) component 
+		T w; ///< w (cosine) component.
 
 	public:
 		/*
@@ -64,7 +64,7 @@ namespace sparky
 		explicit Quaternion(void);
 
 		////////////////////////////////////////////////////////////
-		/// \breif Constructs a Quaternion object with x, y, z and w values.
+		/// \brief Constructs a Quaternion object with x, y, z and w values.
 		/// 
 		/// \param x	The x value.
 		/// \param y	The y value.
@@ -153,7 +153,7 @@ namespace sparky
 		/// wise division of all member variables. The result is returned
 		/// as a new Quaternion object.
 		///
-		/// \param quaternion	The Quaternion to be divided by.
+		/// \param value    	The value to be divided by.
 		///
 		/// \retval Quaternion	Member-wise division of a Quaternion by a value.
 		///
@@ -209,7 +209,7 @@ namespace sparky
 		/// wise division of all member variables. This method will return
 		/// a reference to this object.
 		///
-		/// \param quaternion	The Quaternion to be divided by.
+		/// \param value    	The Quaternion to be divided by.
 		///
 		/// \retval Quaternion	A reference to this object.
 		///
@@ -420,6 +420,7 @@ namespace sparky
 /// linear interpolation. They also prevent common rotational problems
 /// such as gimble lock. Below is a code example.
 ///
+/// Usage example:
 /// \code
 /// // Set some common variables for use.
 /// sparky::Vector3f up = sparky::Vector3f::up();
@@ -432,5 +433,6 @@ namespace sparky
 /// sparky::Transform transform;
 ///
 /// transform.setRotation(rotation);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

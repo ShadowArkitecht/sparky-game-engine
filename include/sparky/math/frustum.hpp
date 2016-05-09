@@ -30,8 +30,8 @@
 CPP Includes
 ====================
 */
-#include <array>					// Stores all of the planes in the frustum.
-#include <sparky\math\vector3.hpp>	// Used for checking points and position in the frustum.
+#include <array>					// Stores all of the planes in the Frustum.
+#include <sparky\math\vector3.hpp>	// Used for checking points and position in the Frustum.
 
 namespace sparky
 {
@@ -43,9 +43,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Vector3f position;	// The position of the Plane.
-		float    distance;	// The distance of the Plane from the origin.
-
+		Vector3f position;	///< The position of the Plane.
+		float    distance;	///< The distance of the Plane from the origin.
+							
 	public:
 		/*
 		====================
@@ -72,7 +72,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static std::array<FrustumPlane_t, 6> m_planes;	// The planes of the frustum.
+		static std::array<FrustumPlane_t, 6> m_planes;	/// The planes of the Frustum.
 
 	public:
 		/*
@@ -83,33 +83,33 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Constructs the view-port of the Frustum object.
 		///
-		/// This method is called every frame within the Game Manager 
-		/// singleton class and constructs the frustum of the current
+		/// This method is called every frame within the GameManager 
+		/// singleton class and constructs the Frustum of the current
 		/// viewport by reading the information provided by the Engine's 
-		/// current Main Camera. 
+		/// current main Camera. 
 		///
 		////////////////////////////////////////////////////////////
 		static void construct(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Checks to see whether the specified point in 3D space
-		///        is within the viewport of the frustum.
+		///        is within the viewport of the Frustum.
 		///
 		/// \param point	The point to check.
 		///
-		/// \retval bool	True if the point parameter is inside the frustum.
+		/// \retval bool	True if the point parameter is inside the Frustum.
 		///
 		////////////////////////////////////////////////////////////
 		static bool checkPoint(const Vector3f& point);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Checks to see whether the specified point and its radius
-		///        is within the viewport of the frustum.
+		///        is within the viewport of the Frustum.
 		///
 		/// \param position		The position to check.
 		/// \param radius		The radius of the sphere.
 		///
-		/// \retval bool		True if the point parameter is inside the frustum.
+		/// \retval bool		True if the point parameter is inside the Frustum.
 		///
 		////////////////////////////////////////////////////////////
 		static bool checkSphere(const Vector3f& position, const float radius);
@@ -151,27 +151,29 @@ namespace sparky
 ///
 /// sparky::Frustum is an mathematical optimisation technique
 /// used to check if objects of specific types (such as cubes or
-/// spheres) is within the camera's view-port. If these objects
+/// spheres) is within the Camera's view-port. If these objects
 /// are not within the view-port, there is no point spending the
 /// GPU time renderin objects that cannot be seen.
 ///
 /// The dimensions and direction of the Frustum are constructed
-/// each frame within the Game Manager singleton. Below is a code
-/// checking if a point is within the frustum.
+/// each frame within the GameManager singleton. Below is a code
+/// checking if a point is within the Frustum.
 ///
+/// Usage example:
 /// \code
 /// // Create a random point.
 /// Vector3f point(5.0f, 50.0f, 10.0f);
 ///
-/// // Test if it's in the frustum, the result will depend on the
+/// // Test if it's in the Frustum, the result will depend on the
 /// // direction and position of the current main camera.
 /// if (Frustum::checkPoint(point))
 /// {
-///		std::cout << "Point is in frustum!" << std::endl;
+///		std::cout << "Point is in Frustum!" << std::endl;
 /// }
 /// else
 /// {
-///		std::cout << "Point is outside frustum!" << std::endl;
+///		std::cout << "Point is outside Frustum!" << std::endl;
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

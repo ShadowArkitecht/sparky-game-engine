@@ -63,7 +63,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Program* m_pProgram;	// The program that the uniforms are added to.
+		Program* m_pProgram;	///< The program that the uniforms are added to.
 
 	private:
 		/*
@@ -247,7 +247,7 @@ namespace sparky
 		/// Uniform needs access to the Program and its shader so it
 		/// can successfully send uniforms to the shader for use.
 		///
-		/// \param program		The program containing the shaders.
+		/// \param pProgram		The program containing the shaders.
 		///
 		////////////////////////////////////////////////////////////
 		explicit Uniform(Program* pProgram);
@@ -286,19 +286,20 @@ namespace sparky
 
 ////////////////////////////////////////////////////////////
 /// \class sparky::Uniform
-/// \ingroup
+/// \ingroup rendering
 ///
 /// sparky::Uniform is convenience class for setting the values
 /// of uniform variables within a shader. sparky::Uniform provides
 /// overrides for all of the most of common GLSL types. Below
 /// is a code example:
 ///
+/// Usage example:
 /// \code
 /// // Make a program and add shaders.
 /// sparky::Program program;
 ///
-/// program.attachShader(new GLSLObject("shaders/basic_vertex.glsl", eShaderType::VERTEX_SHADER));
-/// program.attachShader(new GLSLObject("shaders/basic_fragment.glsl", eShaderType::FRAGMENT_SHADER));
+/// program.attachShader(new sparky::GLSLObject("shaders/basic_vertex.glsl",   sparky::eShaderType::VERTEX_SHADER));
+/// program.attachShader(new sparky::GLSLObject("shaders/basic_fragment.glsl", sparky::eShaderType::FRAGMENT_SHADER));
 ///
 /// // Link and compile the shaders.
 /// program.link();
@@ -310,5 +311,6 @@ namespace sparky
 /// sparky::Uniform uniform(&program);
 ///
 /// uniform.setParamater("matrix", identity);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

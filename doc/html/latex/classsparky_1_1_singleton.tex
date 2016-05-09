@@ -1,0 +1,94 @@
+\hypertarget{classsparky_1_1_singleton}{}\section{sparky\+:\+:Singleton$<$ T $>$ Class Template Reference}
+\label{classsparky_1_1_singleton}\index{sparky\+::\+Singleton$<$ T $>$@{sparky\+::\+Singleton$<$ T $>$}}
+Inheritance diagram for sparky\+:\+:Singleton$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsparky_1_1_singleton}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classsparky_1_1_singleton_aeefde4f7fc684d84734862f0e1d7ff5d}{$\sim$\+Singleton} (void)=default
+\begin{DoxyCompactList}\small\item\em Default destruction of the \hyperlink{classsparky_1_1_singleton}{Singleton} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \& \hyperlink{classsparky_1_1_singleton_a8e56848cf24e5f4cdcd493c64d576f10}{get\+Instance} (void)
+\begin{DoxyCompactList}\small\item\em Gets the instance of the \hyperlink{classsparky_1_1_singleton}{Singleton}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_singleton_a5ac95da4fe4b24114b1c019b1fc64893}{Singleton} (void)=default
+\begin{DoxyCompactList}\small\item\em Default construction of a \hyperlink{classsparky_1_1_singleton}{Singleton} instance. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_singleton_ad580e39c175a8eb299d67815523aed0d}{Singleton} (const \hyperlink{classsparky_1_1_singleton}{Singleton}$<$ T $>$ \&other)=delete
+\begin{DoxyCompactList}\small\item\em Deletes the copy constructor of a \hyperlink{classsparky_1_1_singleton}{Singleton}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Singleton@{sparky\+::\+Singleton}!Singleton@{Singleton}}
+\index{Singleton@{Singleton}!sparky\+::\+Singleton@{sparky\+::\+Singleton}}
+\subsubsection[{\texorpdfstring{Singleton(void)=default}{Singleton(void)=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Singleton}$<$ T $>$\+::{\bf Singleton} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}, {\ttfamily [default]}}\hypertarget{classsparky_1_1_singleton_a5ac95da4fe4b24114b1c019b1fc64893}{}\label{classsparky_1_1_singleton_a5ac95da4fe4b24114b1c019b1fc64893}
+
+
+Default construction of a \hyperlink{classsparky_1_1_singleton}{Singleton} instance. 
+
+A singleton is a common design pattern which utilises the construction of a single instance throughout the programs lifetime. They can be used to provide convenient access to objects and methods, regardless of scope. The constructor is protected so that it cannot be accessed outside the parent or child\textquotesingle{}s scope. \index{sparky\+::\+Singleton@{sparky\+::\+Singleton}!Singleton@{Singleton}}
+\index{Singleton@{Singleton}!sparky\+::\+Singleton@{sparky\+::\+Singleton}}
+\subsubsection[{\texorpdfstring{Singleton(const Singleton$<$ T $>$ \&other)=delete}{Singleton(const Singleton< T > &other)=delete}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Singleton}$<$ T $>$\+::{\bf Singleton} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Singleton}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}, {\ttfamily [delete]}}\hypertarget{classsparky_1_1_singleton_ad580e39c175a8eb299d67815523aed0d}{}\label{classsparky_1_1_singleton_ad580e39c175a8eb299d67815523aed0d}
+
+
+Deletes the copy constructor of a \hyperlink{classsparky_1_1_singleton}{Singleton}. 
+
+This will prevent the user from constructing any additional singleton\textquotesingle{}s from the information of another, which will provide undefined behaviour in the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \hyperlink{classsparky_1_1_singleton}{Singleton} object that will not be copied. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Singleton@{sparky\+::\+Singleton}!````~Singleton@{$\sim$\+Singleton}}
+\index{````~Singleton@{$\sim$\+Singleton}!sparky\+::\+Singleton@{sparky\+::\+Singleton}}
+\subsubsection[{\texorpdfstring{$\sim$\+Singleton(void)=default}{~Singleton(void)=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ virtual {\bf sparky\+::\+Singleton}$<$ T $>$\+::$\sim${\bf Singleton} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\hypertarget{classsparky_1_1_singleton_aeefde4f7fc684d84734862f0e1d7ff5d}{}\label{classsparky_1_1_singleton_aeefde4f7fc684d84734862f0e1d7ff5d}
+
+
+Default destruction of the \hyperlink{classsparky_1_1_singleton}{Singleton} instance. 
+
+The Parent class retains no information or dynamically allocated memory so does not need to destruct any objects. The destruction of objects will be overriden in it\textquotesingle{}s subsequent child classes. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Singleton@{sparky\+::\+Singleton}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!sparky\+::\+Singleton@{sparky\+::\+Singleton}}
+\subsubsection[{\texorpdfstring{get\+Instance(void)}{getInstance(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static T\& {\bf sparky\+::\+Singleton}$<$ T $>$\+::get\+Instance (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_singleton_a8e56848cf24e5f4cdcd493c64d576f10}{}\label{classsparky_1_1_singleton_a8e56848cf24e5f4cdcd493c64d576f10}
+
+
+Gets the instance of the \hyperlink{classsparky_1_1_singleton}{Singleton}. 
+
+This provides access to the functionality of the \hyperlink{classsparky_1_1_singleton}{Singleton} object. As the \hyperlink{classsparky_1_1_singleton}{Singleton} can only be constructed within its own scope, you cannot access its methods without utilising the static instance of the class.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em T\&} & The static instance of this \hyperlink{classsparky_1_1_singleton}{Singleton} object. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/utils/singleton.\+hpp\end{DoxyCompactItemize}

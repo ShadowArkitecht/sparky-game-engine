@@ -52,7 +52,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		ResourceHolder<IShaderComponent> m_shaders;		// The storage of all shaders.
+		ResourceHolder<IShaderComponent> m_shaders;		///< The storage of all shaders.
 
 	private:
 		/*

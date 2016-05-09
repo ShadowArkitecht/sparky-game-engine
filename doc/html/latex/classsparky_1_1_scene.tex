@@ -1,0 +1,71 @@
+\hypertarget{classsparky_1_1_scene}{}\section{sparky\+:\+:Scene Class Reference}
+\label{classsparky_1_1_scene}\index{sparky\+::\+Scene@{sparky\+::\+Scene}}
+
+
+{\ttfamily \#include $<$scene.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsparky_1_1_scene}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_scene_a39f382a2e4f39ef9585e282bcd7bd8fc}{Scene} (void)\hypertarget{classsparky_1_1_scene_a39f382a2e4f39ef9585e282bcd7bd8fc}{}\label{classsparky_1_1_scene_a39f382a2e4f39ef9585e282bcd7bd8fc}
+
+\begin{DoxyCompactList}\small\item\em Default constructor for the \hyperlink{classsparky_1_1_scene}{Scene} object class. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsparky_1_1_scene_afac76d9ed35f5a3abf24d48ac2c7c79c}{$\sim$\+Scene} (void)=default\hypertarget{classsparky_1_1_scene_afac76d9ed35f5a3abf24d48ac2c7c79c}{}\label{classsparky_1_1_scene_afac76d9ed35f5a3abf24d48ac2c7c79c}
+
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{classsparky_1_1_scene}{Scene} object class. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_scene_a108c7eab94934c57a7e92aa52d735117}{update} (void)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual update method for scenes. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_scene_ac1018bd5a77e5505e3a40a186e171aea}{render} (void)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual render method for scenes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_scene}{sparky\+::\+Scene} is an abstract class in which all scenes will inherit from in an application. A scene refers to a level in a game, the scenes can be pushed and popped from the Game Manager stack so that more functionality can easily be added or removed.
+
+Below is a code example where a child class for Game has theoretically been created.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a new Game object.}
+Game* pGame = \textcolor{keyword}{new} Game();
+
+\textcolor{comment}{// Add the game as the first level in the application.}
+\hyperlink{classsparky_1_1_singleton_a8e56848cf24e5f4cdcd493c64d576f10}{sparky::GameManager::getInstance}().pushScene(pGame);
+\end{DoxyCode}
+ 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Scene@{sparky\+::\+Scene}!render@{render}}
+\index{render@{render}!sparky\+::\+Scene@{sparky\+::\+Scene}}
+\subsubsection[{\texorpdfstring{render(void)=0}{render(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+Scene\+::render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_scene_ac1018bd5a77e5505e3a40a186e171aea}{}\label{classsparky_1_1_scene_ac1018bd5a77e5505e3a40a186e171aea}
+
+
+Pure virtual render method for scenes. 
+
+The render method will be overwritten by child classes. The rendering will be called every frame and should only contain the information to render specific objects. \index{sparky\+::\+Scene@{sparky\+::\+Scene}!update@{update}}
+\index{update@{update}!sparky\+::\+Scene@{sparky\+::\+Scene}}
+\subsubsection[{\texorpdfstring{update(void)=0}{update(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+Scene\+::update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_scene_a108c7eab94934c57a7e92aa52d735117}{}\label{classsparky_1_1_scene_a108c7eab94934c57a7e92aa52d735117}
+
+
+Pure virtual update method for scenes. 
+
+The update method will be overwritten by child classes. The update will be called every frame and should contain all the logic and processing of the current \hyperlink{classsparky_1_1_scene}{Scene}. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/core/scene.\+hpp\end{DoxyCompactItemize}

@@ -42,6 +42,18 @@ namespace sparky
 	{
 	}
 
+	////////////////////////////////////////////////////////////
+	Transform::Transform(const Vector3f& position, const Quaternionf& rotation)
+		: m_position(position), m_scale(Vector3f::one()), m_rotation(rotation)
+	{
+	}
+
+	////////////////////////////////////////////////////////////
+	Transform::Transform(const Vector3f& position, const Vector3f& scale, const Quaternionf& rotation)
+		: m_position(position), m_scale(scale), m_rotation(rotation)
+	{
+	}
+
 	/*
 	====================
 	Getters and Setters

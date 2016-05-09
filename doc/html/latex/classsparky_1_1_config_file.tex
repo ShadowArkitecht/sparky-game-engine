@@ -1,0 +1,239 @@
+\hypertarget{classsparky_1_1_config_file}{}\section{sparky\+:\+:Config\+File Class Reference}
+\label{classsparky_1_1_config_file}\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+
+
+{\ttfamily \#include $<$config.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_config_file_a559c62c667e2c5544ac66c40da56f11e}{Config\+File} (void)
+\begin{DoxyCompactList}\small\item\em Default construction of the Config file. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_config_file_a1fb2ad71ff82a4395e991e7ea5d699fd}{$\sim$\+Config\+File} (void)
+\begin{DoxyCompactList}\small\item\em Default desctruction of the Config file. \end{DoxyCompactList}\item 
+int \hyperlink{classsparky_1_1_config_file_aff50a568d37cedf16a6de8d99caa8073}{get\+Int} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves an int variable from the config file. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classsparky_1_1_config_file_a9422d86533a7f8d1c1e57c5414c2c854}{get\+U\+Int} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves an unsigned int variable from the config file. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_config_file_a41849efd418733b5ec0ea891987a82de}{get\+Boolean} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves an boolean variable from the config file. \end{DoxyCompactList}\item 
+float \hyperlink{classsparky_1_1_config_file_ad78fb1d454092583011889b07a71446a}{get\+Float} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves a float variable from the config file. \end{DoxyCompactList}\item 
+double \hyperlink{classsparky_1_1_config_file_a98547d5ed33002df4243a13394baf792}{get\+Double} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves an double variable from the config file. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_string}{String} \hyperlink{classsparky_1_1_config_file_af5692457ccbc86c5a27bc3e648dd007f}{get\+String} (const \hyperlink{classsparky_1_1_string}{String} \&variable) const 
+\begin{DoxyCompactList}\small\item\em Retrieves an string variable from the config file. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_config_file_a81085ec4e85214d68123aba52071b781}{open} (const \hyperlink{classsparky_1_1_string}{String} \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Opens and loads the configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+sparky\+::\+Configfile is a configuration file parsing class for loading and storing the variables of custom sparky configuration files (.S\+C\+FG). These configuration files can be used for the loading of \hyperlink{classsparky_1_1_window}{Window} and \hyperlink{classsparky_1_1_camera}{Camera} variables.
+
+The configuration files are useful for quickly changing values without re-\/compilation. Below is a small code example\+:
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create and load the configuration file.}
+\hyperlink{classsparky_1_1_config_file}{sparky::ConfigFile} file;
+file.\hyperlink{classsparky_1_1_config_file_a81085ec4e85214d68123aba52071b781}{open}(\textcolor{stringliteral}{"data/config.scfg"});
+
+\textcolor{comment}{// Print the values of the Window.}
+std::cout << file.\hyperlink{classsparky_1_1_config_file_aff50a568d37cedf16a6de8d99caa8073}{getInt}(\textcolor{stringliteral}{"Window.position\_x"}) << std::endl;
+std::cout << file.getBool(Window.full\_screen\textcolor{stringliteral}{") << std::endl;}
+\textcolor{stringliteral}{std::cout << file.getString("}Window.title\textcolor{stringliteral}{") << std::endl;}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!Config\+File@{Config\+File}}
+\index{Config\+File@{Config\+File}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{Config\+File(void)}{ConfigFile(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Config\+File\+::\+Config\+File (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_config_file_a559c62c667e2c5544ac66c40da56f11e}{}\label{classsparky_1_1_config_file_a559c62c667e2c5544ac66c40da56f11e}
+
+
+Default construction of the Config file. 
+
+The constructor for the config file only sets the member variables to default values. \index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!````~Config\+File@{$\sim$\+Config\+File}}
+\index{````~Config\+File@{$\sim$\+Config\+File}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{$\sim$\+Config\+File(void)}{~ConfigFile(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Config\+File\+::$\sim$\+Config\+File (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_config_file_a1fb2ad71ff82a4395e991e7ea5d699fd}{}\label{classsparky_1_1_config_file_a1fb2ad71ff82a4395e991e7ea5d699fd}
+
+
+Default desctruction of the Config file. 
+
+Destructs the config file and clears the map of stored values. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+Boolean@{get\+Boolean}}
+\index{get\+Boolean@{get\+Boolean}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+Boolean(const String \&variable) const }{getBoolean(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sparky\+::\+Config\+File\+::get\+Boolean (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_a41849efd418733b5ec0ea891987a82de}{}\label{classsparky_1_1_config_file_a41849efd418733b5ec0ea891987a82de}
+
+
+Retrieves an boolean variable from the config file. 
+
+Retrieves a boolean value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window and false is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+Double@{get\+Double}}
+\index{get\+Double@{get\+Double}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+Double(const String \&variable) const }{getDouble(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}double sparky\+::\+Config\+File\+::get\+Double (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_a98547d5ed33002df4243a13394baf792}{}\label{classsparky_1_1_config_file_a98547d5ed33002df4243a13394baf792}
+
+
+Retrieves an double variable from the config file. 
+
+Retrieves an double value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window and 0 is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em double} & The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+Float@{get\+Float}}
+\index{get\+Float@{get\+Float}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+Float(const String \&variable) const }{getFloat(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}float sparky\+::\+Config\+File\+::get\+Float (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_ad78fb1d454092583011889b07a71446a}{}\label{classsparky_1_1_config_file_ad78fb1d454092583011889b07a71446a}
+
+
+Retrieves a float variable from the config file. 
+
+Retrieves an float value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window and 0 is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em float} & The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+Int@{get\+Int}}
+\index{get\+Int@{get\+Int}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+Int(const String \&variable) const }{getInt(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}int sparky\+::\+Config\+File\+::get\+Int (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_aff50a568d37cedf16a6de8d99caa8073}{}\label{classsparky_1_1_config_file_aff50a568d37cedf16a6de8d99caa8073}
+
+
+Retrieves an int variable from the config file. 
+
+Retrieves an integer value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window and 0 is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+String@{get\+String}}
+\index{get\+String@{get\+String}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+String(const String \&variable) const }{getString(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf String} sparky\+::\+Config\+File\+::get\+String (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_af5692457ccbc86c5a27bc3e648dd007f}{}\label{classsparky_1_1_config_file_af5692457ccbc86c5a27bc3e648dd007f}
+
+
+Retrieves an string variable from the config file. 
+
+Retrieves a string value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window an empty string is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_string}{String}} & The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!get\+U\+Int@{get\+U\+Int}}
+\index{get\+U\+Int@{get\+U\+Int}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{get\+U\+Int(const String \&variable) const }{getUInt(const String &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int sparky\+::\+Config\+File\+::get\+U\+Int (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{variable}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_config_file_a9422d86533a7f8d1c1e57c5414c2c854}{}\label{classsparky_1_1_config_file_a9422d86533a7f8d1c1e57c5414c2c854}
+
+
+Retrieves an unsigned int variable from the config file. 
+
+Retrieves an unsigned integer value (by name) from the configuration file. If the value within the configuration is not found, a warning message is presented to the console window and 0 is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & The name of the variable within the file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em unsigned} & int The value of the variable. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Config\+File@{sparky\+::\+Config\+File}!open@{open}}
+\index{open@{open}!sparky\+::\+Config\+File@{sparky\+::\+Config\+File}}
+\subsubsection[{\texorpdfstring{open(const String \&file\+Name)}{open(const String &fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}bool sparky\+::\+Config\+File\+::open (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_config_file_a81085ec4e85214d68123aba52071b781}{}\label{classsparky_1_1_config_file_a81085ec4e85214d68123aba52071b781}
+
+
+Opens and loads the configuration file. 
+
+Opens and loads the selected configuration file and stores all the variables within the Config File object map. The variables and their values can be retrieved by utilising the getter methods. If the file contains an incorrectly formatted line, an error message is presented to the console with a message indicating the mistake.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The file location of the configuration file to load.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & Returns true if the file opened and parsed with no errors or syntax errors. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/utils/config.\+hpp\end{DoxyCompactItemize}

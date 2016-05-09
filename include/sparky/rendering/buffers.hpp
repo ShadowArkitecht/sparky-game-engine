@@ -66,8 +66,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		GLuint m_vbo;	// Vertex Buffer Object.
-		GLuint m_ibo;	// Index Buffer Object.
+		GLuint m_vbo;	///< Vertex Buffer Object.
+		GLuint m_ibo;	///< Index Buffer Object.
 
 	public:
 		/*

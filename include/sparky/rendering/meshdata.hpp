@@ -85,6 +85,7 @@ namespace sparky
 /// for use. Below is a code example to make a basic square 
 /// on-screen.
 ///
+/// Usage example:
 /// \code
 /// // Create a config file and load it from external source.
 /// sparky::ConfigFile config;
@@ -116,5 +117,6 @@ namespace sparky
 ///
 ///		window.swap();
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

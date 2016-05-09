@@ -1,0 +1,107 @@
+\hypertarget{classsparky_1_1_pool_manager}{}\section{sparky\+:\+:Pool\+Manager Class Reference}
+\label{classsparky_1_1_pool_manager}\index{sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}}
+
+
+{\ttfamily \#include $<$pool.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:Pool\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsparky_1_1_pool_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_pool_manager_a3bd0fc1b6f4fb33613bc987ac61114af}{$\sim$\+Pool\+Manager} (void)
+\begin{DoxyCompactList}\small\item\em Destructs the \hyperlink{classsparky_1_1_pool_manager}{Pool\+Manager} object instance. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_pool_manager_aba8de62aa0f13d14ad68d3d26cb9549a}{add\+Object} (\hyperlink{classsparky_1_1_ref}{Ref} $\ast$p\+Object)
+\begin{DoxyCompactList}\small\item\em Adds a dynamic object \hyperlink{classsparky_1_1_ref}{Ref} to the pool. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_pool_manager_a1c476a4c9d60514a86cb6c4a6e886217}{contains} (\hyperlink{classsparky_1_1_ref}{Ref} $\ast$p\+Object) const 
+\begin{DoxyCompactList}\small\item\em Checks to see if the passed in object is currently within the pool. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_pool_manager_a32fb836cefbcd22763895259779eea65}{flush} (void)
+\begin{DoxyCompactList}\small\item\em Flushes the pool of all currently retained \hyperlink{classsparky_1_1_ref}{Ref}\textquotesingle{}s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Singleton$<$ Pool\+Manager $>$}\hypertarget{classsparky_1_1_pool_manager_aaa4fa1401745a95c344d924e2e8cd456}{}\label{classsparky_1_1_pool_manager_aaa4fa1401745a95c344d924e2e8cd456}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_pool_manager}{sparky\+::\+Pool\+Manager} is a singleton class that is responsible for the basic garbage collection of Sparky. Dynamic \hyperlink{classsparky_1_1_ref}{Ref} objects are added to the list. At the end of the current frame, each objects reference count is decremented and if the count is 0, it is deleted. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}!````~Pool\+Manager@{$\sim$\+Pool\+Manager}}
+\index{````~Pool\+Manager@{$\sim$\+Pool\+Manager}!sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}}
+\subsubsection[{\texorpdfstring{$\sim$\+Pool\+Manager(void)}{~PoolManager(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Pool\+Manager\+::$\sim$\+Pool\+Manager (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_pool_manager_a3bd0fc1b6f4fb33613bc987ac61114af}{}\label{classsparky_1_1_pool_manager_a3bd0fc1b6f4fb33613bc987ac61114af}
+
+
+Destructs the \hyperlink{classsparky_1_1_pool_manager}{Pool\+Manager} object instance. 
+
+The flush method is called once more upon the objects destruction to make sure that it is not retaining any objects, therefore preventing memory leaks. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}!add\+Object@{add\+Object}}
+\index{add\+Object@{add\+Object}!sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Object(\+Ref $\ast$p\+Object)}{addObject(Ref *pObject)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Pool\+Manager\+::add\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Ref} $\ast$}]{p\+Object}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_pool_manager_aba8de62aa0f13d14ad68d3d26cb9549a}{}\label{classsparky_1_1_pool_manager_aba8de62aa0f13d14ad68d3d26cb9549a}
+
+
+Adds a dynamic object \hyperlink{classsparky_1_1_ref}{Ref} to the pool. 
+
+The object added is retained within the pool until the end of the current frame, where the objects reference count is decremented and cleared from the pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The \hyperlink{classsparky_1_1_ref}{Ref} to add to the pool. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}!contains@{contains}}
+\index{contains@{contains}!sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}}
+\subsubsection[{\texorpdfstring{contains(\+Ref $\ast$p\+Object) const }{contains(Ref *pObject) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sparky\+::\+Pool\+Manager\+::contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Ref} $\ast$}]{p\+Object}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_pool_manager_a1c476a4c9d60514a86cb6c4a6e886217}{}\label{classsparky_1_1_pool_manager_a1c476a4c9d60514a86cb6c4a6e886217}
+
+
+Checks to see if the passed in object is currently within the pool. 
+
+This method will search through all of the objects within the current pool and return true if the object parameter has been found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The \hyperlink{classsparky_1_1_ref}{Ref} to search the pool for.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the \hyperlink{classsparky_1_1_ref}{Ref} has been found, false if not. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}!flush@{flush}}
+\index{flush@{flush}!sparky\+::\+Pool\+Manager@{sparky\+::\+Pool\+Manager}}
+\subsubsection[{\texorpdfstring{flush(void)}{flush(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Pool\+Manager\+::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_pool_manager_a32fb836cefbcd22763895259779eea65}{}\label{classsparky_1_1_pool_manager_a32fb836cefbcd22763895259779eea65}
+
+
+Flushes the pool of all currently retained \hyperlink{classsparky_1_1_ref}{Ref}\textquotesingle{}s. 
+
+At the end of each frame, the pool is emptied of all retained \hyperlink{classsparky_1_1_ref}{Ref}\textquotesingle{}s, each \hyperlink{classsparky_1_1_ref}{Ref}\textquotesingle{}s reference counter is decremented before flushing. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/core/pool.\+hpp\end{DoxyCompactItemize}

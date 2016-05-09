@@ -36,10 +36,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		T x;
-		T y;
-		T z;
-		T w;
+		T x;	///< The x (right) value.
+		T y;	///< The y (up) value.
+		T z;	///< The z (forward) value.
+		T w;	///< The w value.
 
 	public:
 		/*
@@ -340,7 +340,7 @@ namespace sparky
 		/// [ x, y, z, w ]
 		///
 		/// \param os		The output stream to stream into.
-		/// \param matrix	The matrix to print to the console window.
+		/// \param vector	The vector to print to the console window.
 		///
 		/// \retval ostream	The stream of the object.
 		///
@@ -471,7 +471,7 @@ namespace sparky
 		/// \param target	The vector linearly interpolated towards.	
 		/// \param speed	The speed of the interpolation.
 		///
-		/// \terval Vector4	The interpolated Vector.
+		/// \retval Vector4	The interpolated Vector.
 		///
 		////////////////////////////////////////////////////////////
 		static Vector4 lerp(const Vector4& current, const Vector4& target, const T speed);

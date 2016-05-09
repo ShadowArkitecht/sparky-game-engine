@@ -1,0 +1,18 @@
+var searchData=
+[
+  ['rect',['Rect',['../classsparky_1_1_rect.html#aaeb2ea225e3384e91174f5bc62e23f1e',1,'sparky::Rect::Rect(void)'],['../classsparky_1_1_rect.html#a125e1372a46f52bfba5fb67e10f98d32',1,'sparky::Rect::Rect(const Vector2&lt; T &gt; &amp;position, const Vector2&lt; T &gt; &amp;size)'],['../classsparky_1_1_rect.html#a23cbea4c17a715d364ebce48f268abb6',1,'sparky::Rect::Rect(const T x, const T y, const T width, const T height)'],['../classsparky_1_1_rect.html#a233b31e4a38d7c3ae7ed707116a5c1d4',1,'sparky::Rect::Rect(const Rect&lt; U &gt; &amp;rect)']]],
+  ['ref',['Ref',['../classsparky_1_1_ref.html#a0947962689474dc06248f52e62022729',1,'sparky::Ref']]],
+  ['release',['release',['../classsparky_1_1_ref.html#a3234294a7cd7ca2c0da66c76234f4b59',1,'sparky::Ref']]],
+  ['remove',['remove',['../classsparky_1_1_resource_holder.html#a7b5efe2ea2ca622774bcb171d34199ad',1,'sparky::ResourceHolder::remove()'],['../classsparky_1_1_string.html#a1955425c361ec2977202de942672097e',1,'sparky::String::remove(const unsigned int index)'],['../classsparky_1_1_string.html#ae9e44677f9c08dcf4d1db10683e102d0',1,'sparky::String::remove(const String &amp;characters)']]],
+  ['removepoll',['removePoll',['../classsparky_1_1_event_manager.html#a637d2c2270e10a2ac097e5e41e4036cf',1,'sparky::EventManager']]],
+  ['removeref',['removeRef',['../classsparky_1_1_ref.html#acb1878708d20ec8051a8182a83c4a370',1,'sparky::Ref']]],
+  ['removeshader',['removeShader',['../classsparky_1_1_resource_manager.html#a7bb2b24c2f74a4ee23d00cf11f0fea95',1,'sparky::ResourceManager']]],
+  ['render',['render',['../classsparky_1_1_scene.html#ac1018bd5a77e5505e3a40a186e171aea',1,'sparky::Scene::render()'],['../classsparky_1_1_chunk.html#a24afefc8aa1fe69218a4e25ce9c06dc2',1,'sparky::Chunk::render()'],['../classsparky_1_1_world.html#a787081a16bd8e00747dc75d617990494',1,'sparky::World::render()'],['../classsparky_1_1_i_mesh_component.html#abd7ed95f1885252305a16f2c97b8ed48',1,'sparky::IMeshComponent::render()'],['../classsparky_1_1_mesh_data.html#a38c127564baa1fb1f3e690d5afe3246c',1,'sparky::MeshData::render()'],['../classsparky_1_1_model.html#a0c0610085b029e33351d3d61a76bc92b',1,'sparky::Model::render()']]],
+  ['reset',['reset',['../classsparky_1_1_chunk.html#a0d89521b4e322fb1f3b8a031b2f61355',1,'sparky::Chunk::reset()'],['../classsparky_1_1_i_mesh_component.html#a0c34fef87ab29389bdf477a2801a4740',1,'sparky::IMeshComponent::reset()']]],
+  ['resourceholder',['ResourceHolder',['../classsparky_1_1_resource_holder.html#ab6c7da674e75bb5fdddb9f093540d84c',1,'sparky::ResourceHolder']]],
+  ['right',['right',['../classsparky_1_1_quaternion.html#a0fe95a050029ea9cd63d688d75a2938b',1,'sparky::Quaternion::right()'],['../classsparky_1_1_transform.html#a50d2ed69775d32d034cf604cd48400a5',1,'sparky::Transform::right()'],['../classsparky_1_1_vector2.html#a27f5f4198db28574f00e9f63c9a27daf',1,'sparky::Vector2::right()'],['../classsparky_1_1_vector3.html#a5aa189b8cd595fdbe3fcbcfb03ad6f8e',1,'sparky::Vector3::right()']]],
+  ['rollrotation',['rollRotation',['../classsparky_1_1_matrix4.html#a91059662a474c2d14e1fa0e84e8f4680',1,'sparky::Matrix4']]],
+  ['rotate',['rotate',['../classsparky_1_1_transform.html#af3b667562451c1cd254bb7708d15a2ce',1,'sparky::Transform']]],
+  ['rotation',['rotation',['../classsparky_1_1_matrix4.html#a7eb1835e9c95d6aa63641309033717df',1,'sparky::Matrix4::rotation(const Vector3&lt; T &gt; &amp;rotation)'],['../classsparky_1_1_matrix4.html#a6d5719c80a7d112489ba85f3d226ac22',1,'sparky::Matrix4::rotation(const Vector3&lt; T &gt; &amp;right, const Vector3&lt; T &gt; &amp;up, const Vector3&lt; T &gt; &amp;forward)']]],
+  ['run',['run',['../classsparky_1_1_game_manager.html#ae206d220ec615b513f952ad2d438d2e6',1,'sparky::GameManager']]]
+];

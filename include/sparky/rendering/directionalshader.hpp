@@ -49,7 +49,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		DirectionalLight* m_pLight;	// The directional light of the shader.
+		DirectionalLight* m_pLight;	///< The directional light of the shader.
 
 	public:
 		/*
@@ -107,16 +107,13 @@ namespace sparky
 /// \class sparky::DirectionalShader
 /// \ingroup rendering
 ///
-/// sparky::DirectionalShader is a child class of the abstract 
-/// IShaderComponent class. The basic shader only performs
-/// basic shader functionality on an object, which is converting
-/// the model to view co-ordinates, binding a texture and performing
-/// some basic lighting.
+/// sparky::DirectionalShader is one of the lighting specific shaders
+/// used within the application. It is responsible for calculation the
+/// effect that a directional light will have on the geometry within a 
+/// scene. It is used in conjunction with the PointShader for multi-pass
+/// lighting.
 ///
-/// sparky::DirectionalShader does not utilise the deferred rendering
-/// pipeline and therefore is not optimised for use, and is used
-/// more for testing purposes. Below is an example of use.
-///
+/// Usage example:
 /// \code
 /// // Get a shader from the resource manager.
 /// sparky::DirectionalShader pShader = sparky::ResourceManager::getInstance().getShader<sparky::DirectionalShader>("direction");
@@ -127,5 +124,6 @@ namespace sparky
 ///
 /// // Pass the transform to the shader.
 /// pShader->update(t);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

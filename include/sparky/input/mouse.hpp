@@ -32,7 +32,7 @@ Class Includes
 ====================
 */
 #include <sparky\input\ievent.hpp>	// IEventComponent is an event driven class.
-#include <sparky\math\vector2.hpp>	// Stores position and delta of mouse.
+#include <sparky\math\vector2.hpp>	// Stores position and delta of Mouse.
 
 namespace sparky
 {
@@ -51,12 +51,12 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_currentButtons;	// Buttona currently pressed.
-		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_downButtons;	// Buttons being held down.
-		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_upButtons;		// Buttons that have been released.
+		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_currentButtons;	///< Buttons currently pressed.
+		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_downButtons;	///< Buttons being held down.
+		std::array<bool, static_cast<int>(eMouseButton::MAX)> m_upButtons;		///< Buttons that have been released.
 
-		Vector2i m_position;													// The mouse cursor position.
-		Vector2i m_delta;														// The delta movement of the cursor.
+		Vector2i m_position;													///< The Mouse cursor position.
+		Vector2i m_delta;														///< The delta movement of the cursor.
 
 	public:
 		/*
@@ -86,7 +86,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the current position of the Mouse object.
 		///
-		/// \retval Vector2i	The position of the Mouse.
+		/// \retval Vector2i&	The position of the Mouse.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector2i& getPosition(void) const;
@@ -94,10 +94,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the delta movement of the Mouse object.
 		///
-		/// The delta is the amount the mouse has moved between the current
+		/// The delta is the amount the Mouse has moved between the current
 		/// frame. and previous frame.
 		///
-		/// \retval Vector2i	The delta of the Mouse object.
+		/// \retval Vector2i&	The delta of the Mouse object.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector2i& getDelta(void) const;
@@ -108,7 +108,7 @@ namespace sparky
 		====================
 		*/
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the state of the mouse button.
+		/// \brief Retrieves the state of the Mouse button.
 		///
 		/// Get button will return true continuously whilst the button
 		/// is held down.
@@ -119,7 +119,7 @@ namespace sparky
 		bool getButton(const eMouseButton button);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the state of the mouse button.
+		/// \brief Retrieves the state of the Mouse button.
 		///
 		/// Get button down will return true once at the beginning pf the
 		/// frame when the button is pressed.
@@ -130,7 +130,7 @@ namespace sparky
 		bool getButtonDown(const eMouseButton button);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the state of the mouse button.
+		/// \brief Retrieves the state of the Mouse button.
 		///
 		/// Get button will return true only when the specified button
 		/// has been released.
@@ -158,8 +158,8 @@ namespace sparky
 /// \ingroup input
 ///
 /// sparky::Mouse is an event component class that is responsible
-/// for reading mouse buttons and mouse states from the mouse. sparky::Mouse
-/// has different methods for different interactions with the mouse,
+/// for reading Mouse buttons and Mouse states from the Mouse. sparky::Mouse
+/// has different methods for different interactions with the Mouse,
 /// such as checking when a button has first been pressed, held down, or
 /// released.
 ///
@@ -168,14 +168,16 @@ namespace sparky
 /// need to worry about polling the system themselves. Below is a code 
 /// example.
 ///
+/// Usage example:
 /// \code
-/// // Create a mouse object.
+/// // Create a Mouse object.
 /// sparky::Mouse* pMouse = new sparky::Mouse();
 ///
-/// // if the left mouse button has been released, print a message.
+/// // if the left Mouse button has been released, print a message.
 /// if (pMouse->getButtonUp(eMouseButton::LEFT))
 /// {
 ///		std::cout << "Left button released!" << std::endl;
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

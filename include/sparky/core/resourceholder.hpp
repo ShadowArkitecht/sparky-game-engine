@@ -52,7 +52,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::map<String, T*> m_resources;	// The resources of the holder are stored within a map.
+		std::map<String, T*> m_resources;	///< The resources of the holder are stored within a map.
 
 	public:
 		/*

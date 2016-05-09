@@ -1,0 +1,112 @@
+\hypertarget{structsparky_1_1_vertex__t}{}\section{sparky\+:\+:Vertex\+\_\+t Class Reference}
+\label{structsparky_1_1_vertex__t}\index{sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}}
+
+
+{\ttfamily \#include $<$vertex.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsparky_1_1_vertex__t_a4cc59f5fc588c4b6c3cf8c3498a1da35}{Vertex\+\_\+t} (void)
+\begin{DoxyCompactList}\small\item\em Default construction of a Vertex object. \end{DoxyCompactList}\item 
+\hyperlink{structsparky_1_1_vertex__t_a42777014ce4a20bb67f7debee7f78367}{Vertex\+\_\+t} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&\hyperlink{structsparky_1_1_vertex__t_a451b5dfe28e6142cded4d61732f1bab5}{position}, const \hyperlink{classsparky_1_1_vector2}{Vector2f} \&\hyperlink{structsparky_1_1_vertex__t_a7e97e56f9ec466f059da0887e87305c9}{uv})
+\begin{DoxyCompactList}\small\item\em Constructs a Vertex object with a position and uv. \end{DoxyCompactList}\item 
+\hyperlink{structsparky_1_1_vertex__t_ab50d1fd26b9141f36e7dc934a8c03845}{Vertex\+\_\+t} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&\hyperlink{structsparky_1_1_vertex__t_a451b5dfe28e6142cded4d61732f1bab5}{position}, const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&\hyperlink{structsparky_1_1_vertex__t_ac52963418ebdb1ce5f5b211375d90b19}{normal}, const \hyperlink{classsparky_1_1_vector2}{Vector2f} \&\hyperlink{structsparky_1_1_vertex__t_a7e97e56f9ec466f059da0887e87305c9}{uv})
+\begin{DoxyCompactList}\small\item\em Constructs a Vertex object with a position, normal and uv. \end{DoxyCompactList}\item 
+\hyperlink{structsparky_1_1_vertex__t_a34bf74fc8d8b59bb58c61c411e7e44c9}{$\sim$\+Vertex\+\_\+t} (void)=default\hypertarget{structsparky_1_1_vertex__t_a34bf74fc8d8b59bb58c61c411e7e44c9}{}\label{structsparky_1_1_vertex__t_a34bf74fc8d8b59bb58c61c411e7e44c9}
+
+\begin{DoxyCompactList}\small\item\em Default destruction of the Vertex object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_vector3}{Vector3f} \hyperlink{structsparky_1_1_vertex__t_a451b5dfe28e6142cded4d61732f1bab5}{position}\hypertarget{structsparky_1_1_vertex__t_a451b5dfe28e6142cded4d61732f1bab5}{}\label{structsparky_1_1_vertex__t_a451b5dfe28e6142cded4d61732f1bab5}
+
+\begin{DoxyCompactList}\small\item\em Position of the Vertex in 3D space. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector3}{Vector3f} \hyperlink{structsparky_1_1_vertex__t_ac52963418ebdb1ce5f5b211375d90b19}{normal}\hypertarget{structsparky_1_1_vertex__t_ac52963418ebdb1ce5f5b211375d90b19}{}\label{structsparky_1_1_vertex__t_ac52963418ebdb1ce5f5b211375d90b19}
+
+\begin{DoxyCompactList}\small\item\em The normal of the vertex. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector2}{Vector2f} \hyperlink{structsparky_1_1_vertex__t_a7e97e56f9ec466f059da0887e87305c9}{uv}\hypertarget{structsparky_1_1_vertex__t_a7e97e56f9ec466f059da0887e87305c9}{}\label{structsparky_1_1_vertex__t_a7e97e56f9ec466f059da0887e87305c9}
+
+\begin{DoxyCompactList}\small\item\em The texture co-\/ordinate of the Vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{structsparky_1_1_vertex__t}{sparky\+::\+Vertex\+\_\+t} is a structure that contains the information of a Vertex. A vertex is a single position in 3D space that contains information about it\textquotesingle{}s position, texture co-\/ordinates and normals.
+
+Models and meshes are constructed from several vertices which defines their shapes and textures. Below is code example of adding a vertex to a mesh.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a new mesh and increase its reference count.}
+\hyperlink{classsparky_1_1_mesh_data}{sparky::MeshData}* pMesh = \textcolor{keyword}{new} MeshData();
+pMesh->\hyperlink{classsparky_1_1_ref_aeeb606836c315aa3b8a2254e23eb0899}{addRef}();
+
+\textcolor{comment}{// Create a vertex and add it to the mesh.}
+\hyperlink{structsparky_1_1_vertex__t}{sparky::Vertex\_t} vertex(\hyperlink{classsparky_1_1_vector3_accf83dce35ce0cd7aeeb865fe3e9e7a9}{Vector3f::zero}(), 
+      \hyperlink{classsparky_1_1_vector2_acbe0ab8fb2dcb29fdd176a328334b5fc}{Vector2f::one}());
+pMesh->\hyperlink{classsparky_1_1_i_mesh_component_a16f381696867b3b32d8c929e8083d5a3}{addVertex}(vertex);
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}!Vertex\+\_\+t@{Vertex\+\_\+t}}
+\index{Vertex\+\_\+t@{Vertex\+\_\+t}!sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}}
+\subsubsection[{\texorpdfstring{Vertex\+\_\+t(void)}{Vertex_t(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Vertex\+\_\+t\+::\+Vertex\+\_\+t (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{structsparky_1_1_vertex__t_a4cc59f5fc588c4b6c3cf8c3498a1da35}{}\label{structsparky_1_1_vertex__t_a4cc59f5fc588c4b6c3cf8c3498a1da35}
+
+
+Default construction of a Vertex object. 
+
+Sets the position, uv and normals values of the Vertex object to default values -\/ \mbox{[} 0, 0, 0 \mbox{]}, \mbox{[}0, 0, 0\mbox{]}, \mbox{[} 0, 0 \mbox{]}. \index{sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}!Vertex\+\_\+t@{Vertex\+\_\+t}}
+\index{Vertex\+\_\+t@{Vertex\+\_\+t}!sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}}
+\subsubsection[{\texorpdfstring{Vertex\+\_\+t(const Vector3f \&position, const Vector2f \&uv)}{Vertex_t(const Vector3f &position, const Vector2f &uv)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Vertex\+\_\+t\+::\+Vertex\+\_\+t (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{position, }
+\item[{const {\bf Vector2f} \&}]{uv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{structsparky_1_1_vertex__t_a42777014ce4a20bb67f7debee7f78367}{}\label{structsparky_1_1_vertex__t_a42777014ce4a20bb67f7debee7f78367}
+
+
+Constructs a Vertex object with a position and uv. 
+
+Implicity sets the attributes of the Vertex object by constructing a Vertex from the parameter values. The normal is set to \mbox{[} 0, 0, 0 \mbox{]}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The positon of the Vertex in 3D space. \\
+\hline
+{\em uv} & The texture co-\/ordinates of the Vertex. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}!Vertex\+\_\+t@{Vertex\+\_\+t}}
+\index{Vertex\+\_\+t@{Vertex\+\_\+t}!sparky\+::\+Vertex\+\_\+t@{sparky\+::\+Vertex\+\_\+t}}
+\subsubsection[{\texorpdfstring{Vertex\+\_\+t(const Vector3f \&position, const Vector3f \&normal, const Vector2f \&uv)}{Vertex_t(const Vector3f &position, const Vector3f &normal, const Vector2f &uv)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Vertex\+\_\+t\+::\+Vertex\+\_\+t (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{position, }
+\item[{const {\bf Vector3f} \&}]{normal, }
+\item[{const {\bf Vector2f} \&}]{uv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{structsparky_1_1_vertex__t_ab50d1fd26b9141f36e7dc934a8c03845}{}\label{structsparky_1_1_vertex__t_ab50d1fd26b9141f36e7dc934a8c03845}
+
+
+Constructs a Vertex object with a position, normal and uv. 
+
+Implicity sets the attributes of the Vertex object by constructing a Vertex from the parameter values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The positon of the Vertex in 3D space. \\
+\hline
+{\em normal} & The normals of the Vertex. \\
+\hline
+{\em uv} & The texture co-\/ordinates of the Vertex. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/vertex.\+hpp\end{DoxyCompactItemize}

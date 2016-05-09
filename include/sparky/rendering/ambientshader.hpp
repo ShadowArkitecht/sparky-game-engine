@@ -82,6 +82,20 @@ namespace sparky
 /// sparky::AmbientShader is an extremely basic shader object
 /// that only binds and updates a single value within it's texture,
 /// the global ambience of every object within the scene. This shader
-/// is bound and used before all of the lighting calculations.
+/// is bound and used before all of the lighting calculations. Below is a code
+/// example
+///
+/// Usage example:
+/// \code
+/// // Get a shader from the resource manager.
+/// sparky::AmbientShader pShader = sparky::ResourceManager::getInstance().getShader<sparky::AmbientShader>("ambient");
+///
+/// // Create a transform.
+/// sparky::Transform t;
+/// t.setPosition(0.0f, 0.0f, 5.0f);
+///
+/// // Pass the transform to the shader.
+/// pShader->update(t);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

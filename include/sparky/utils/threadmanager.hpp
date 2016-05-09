@@ -40,7 +40,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		ThreadPool m_pool;
+		ThreadPool m_pool;	///< The underlying Thread Pool of the ThreadManager.
 
 	private:
 		/*
@@ -110,6 +110,7 @@ namespace sparky
 /// sparky::ThreadManager is a global wrapper class for the thread
 /// pool. Below is a code example of using the Thread Manager.
 ///
+/// Usage example:
 /// \code 
 /// // Create a void function which just prints a statement.
 /// void printSentence(void)
@@ -119,5 +120,6 @@ namespace sparky
 ///
 /// Adds the function to the thread manager.
 /// sparky::ThreadManager::getInstance().addTask(printSentence);
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

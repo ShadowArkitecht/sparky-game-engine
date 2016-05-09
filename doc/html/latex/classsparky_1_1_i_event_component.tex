@@ -1,0 +1,78 @@
+\hypertarget{classsparky_1_1_i_event_component}{}\section{sparky\+:\+:I\+Event\+Component Class Reference}
+\label{classsparky_1_1_i_event_component}\index{sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}}
+
+
+{\ttfamily \#include $<$ievent.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:I\+Event\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_i_event_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_i_event_component_a02494448a695dd6bfbc7863f36f63c59}{I\+Event\+Component} (void)
+\begin{DoxyCompactList}\small\item\em Default constructor for the \hyperlink{classsparky_1_1_i_event_component}{I\+Event\+Component} object. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsparky_1_1_i_event_component_a0e3f5546109e709c7a94e113a5b5a24d}{$\sim$\+I\+Event\+Component} (void)
+\begin{DoxyCompactList}\small\item\em Destructor of the Event component object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_i_event_component_a061c2e74b185caa2b02bc514c5a1544f}{update} (const S\+D\+L\+\_\+\+Event \&e)=0
+\begin{DoxyCompactList}\small\item\em Abstract update method that needs to be overwritten by children for additional behaviour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_i_event_component}{sparky\+::\+I\+Event\+Component} is an abstract class that all event handling and input classes inherit from. It contains abstract methods which will be called within the event manager singleton class. Additional use and code examples are provided in \hyperlink{classsparky_1_1_input}{sparky\+::\+Input} and \hyperlink{classsparky_1_1_mouse}{sparky\+::\+Mouse}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}!I\+Event\+Component@{I\+Event\+Component}}
+\index{I\+Event\+Component@{I\+Event\+Component}!sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}}
+\subsubsection[{\texorpdfstring{I\+Event\+Component(void)}{IEventComponent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+I\+Event\+Component\+::\+I\+Event\+Component (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_event_component_a02494448a695dd6bfbc7863f36f63c59}{}\label{classsparky_1_1_i_event_component_a02494448a695dd6bfbc7863f36f63c59}
+
+
+Default constructor for the \hyperlink{classsparky_1_1_i_event_component}{I\+Event\+Component} object. 
+
+The constructor of this object will call the parent \hyperlink{classsparky_1_1_ref}{Ref} constructor and add this object to the event manager for polling. \index{sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}!````~I\+Event\+Component@{$\sim$\+I\+Event\+Component}}
+\index{````~I\+Event\+Component@{$\sim$\+I\+Event\+Component}!sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}}
+\subsubsection[{\texorpdfstring{$\sim$\+I\+Event\+Component(void)}{~IEventComponent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual sparky\+::\+I\+Event\+Component\+::$\sim$\+I\+Event\+Component (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classsparky_1_1_i_event_component_a0e3f5546109e709c7a94e113a5b5a24d}{}\label{classsparky_1_1_i_event_component_a0e3f5546109e709c7a94e113a5b5a24d}
+
+
+Destructor of the Event component object. 
+
+The destructor will remove this event from event manager polling system. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}!update@{update}}
+\index{update@{update}!sparky\+::\+I\+Event\+Component@{sparky\+::\+I\+Event\+Component}}
+\subsubsection[{\texorpdfstring{update(const S\+D\+L\+\_\+\+Event \&e)=0}{update(const SDL_Event &e)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+I\+Event\+Component\+::update (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Event \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_i_event_component_a061c2e74b185caa2b02bc514c5a1544f}{}\label{classsparky_1_1_i_event_component_a061c2e74b185caa2b02bc514c5a1544f}
+
+
+Abstract update method that needs to be overwritten by children for additional behaviour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The S\+D\+L\+\_\+\+Event to polling events from. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classsparky_1_1_mouse_a92e5375b15d10af6ea4d3f29f9b373bd}{sparky\+::\+Mouse}, and \hyperlink{classsparky_1_1_input_abec7cd786dcc7b744b49ff7fcabec43f}{sparky\+::\+Input}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/input/ievent.\+hpp\end{DoxyCompactItemize}

@@ -53,7 +53,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Converts a degrees value into radians.
 		///
-		/// \param radians	The degrees value to convert.
+		/// \param degrees	The degrees value to convert.
 		///
 		/// \retval T		The degrees value in radians.
 		///

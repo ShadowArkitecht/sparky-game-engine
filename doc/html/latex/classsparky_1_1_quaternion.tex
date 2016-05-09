@@ -1,0 +1,654 @@
+\hypertarget{classsparky_1_1_quaternion}{}\section{sparky\+:\+:Quaternion$<$ T $>$ Class Template Reference}
+\label{classsparky_1_1_quaternion}\index{sparky\+::\+Quaternion$<$ T $>$@{sparky\+::\+Quaternion$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_quaternion_ae513e8510c499e40b799c99cb43d1bd0}{Quaternion} (void)
+\begin{DoxyCompactList}\small\item\em Default construction of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion_a64d595e7c1605110e2dedc979ac2214c}{Quaternion} (const T \hyperlink{classsparky_1_1_quaternion_a7da54206cf4aee17b8a4f8f37fb5e933}{x}, const T \hyperlink{classsparky_1_1_quaternion_afad75ff6f17af570e1dc5282fed93fd2}{y}, const T \hyperlink{classsparky_1_1_quaternion_adb942fb7394e572a57d4ddb4cb50131a}{z}, const T \hyperlink{classsparky_1_1_quaternion_a6de3864be1208046ce06ae5b8d130e28}{w})
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object with x, y, z and w values. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{classsparky_1_1_quaternion_a8bf8c41d87d565dbfb46cf03e36625c8}{Quaternion} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion}$<$ U $>$ \&quaternion)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object from the member of another. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion_ad73ea0b909b4cba03b097f6b6c0ab6cb}{Quaternion} (const \hyperlink{classsparky_1_1_matrix4}{Matrix4}$<$ T $>$ \&matrix)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object from a \hyperlink{classsparky_1_1_matrix4}{Matrix4}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion_a20e121fc0c18bd304de860a334cca2c3}{$\sim$\+Quaternion} (void)=default\hypertarget{classsparky_1_1_quaternion_a20e121fc0c18bd304de860a334cca2c3}{}\label{classsparky_1_1_quaternion_a20e121fc0c18bd304de860a334cca2c3}
+
+\begin{DoxyCompactList}\small\item\em Default destruction of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_aee719f7d783788a605805b095cb43212}{operator$\ast$} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a34e3820d2a1fddbc90cdf3e715a6c9c0}{operator$\ast$} (const \hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \&vector) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a Vector. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a2a438f46a1204d26bfa79adcdd3d5a85}{operator/} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion) const 
+\begin{DoxyCompactList}\small\item\em Division operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_af60c38e3048fc7df4737fd9496f5c464}{operator/} (const T value) const 
+\begin{DoxyCompactList}\small\item\em Division operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a value. \end{DoxyCompactList}\item 
+const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \& \hyperlink{classsparky_1_1_quaternion_a06be30b3b355d53e8af2a7911f6f5690}{operator$\ast$=} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion)
+\begin{DoxyCompactList}\small\item\em Multiplication operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \& \hyperlink{classsparky_1_1_quaternion_a88982ec49b38923914d36f8e57c1ac36}{operator$\ast$=} (const \hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \&vector)
+\begin{DoxyCompactList}\small\item\em Multiplication operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a Vector. \end{DoxyCompactList}\item 
+const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \& \hyperlink{classsparky_1_1_quaternion_a5cef5dcaf6bebcef9f794b1515117772}{operator/=} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion)
+\begin{DoxyCompactList}\small\item\em Division operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \& \hyperlink{classsparky_1_1_quaternion_af40bb1d352e83dde0ce86f4b4753e0bf}{operator/=} (const T value)
+\begin{DoxyCompactList}\small\item\em Division operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a value. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_quaternion_af484847df55adb445322d4b74bea87b9}{operator==} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion)
+\begin{DoxyCompactList}\small\item\em Equality operator between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_quaternion_a1d8bfb186bb2f6f07fde82a35ae4bc5e}{operator!=} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&quaternion)
+\begin{DoxyCompactList}\small\item\em Non-\/equality operator between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a9560d751d61d47377944f91f8a9089c5}{conjugate} (void) const 
+\begin{DoxyCompactList}\small\item\em Conjugate calculates the current inverse of the quaternion. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_matrix4}{Matrix4}$<$ T $>$ \hyperlink{classsparky_1_1_quaternion_a2bb19a194d09c72add87d79f4216431c}{to\+Matrix} (void) const 
+\begin{DoxyCompactList}\small\item\em Converts the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object to a \hyperlink{classsparky_1_1_matrix4}{Matrix4}. \end{DoxyCompactList}\item 
+T \hyperlink{classsparky_1_1_quaternion_afdeaacef8066f991ade5ddda36129077}{magnitude\+Sqr} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the squared magnitude/length of the quaternion. \end{DoxyCompactList}\item 
+T \hyperlink{classsparky_1_1_quaternion_a002f6b0e3706c0bb1d4a8c73e562b0c7}{magnitude} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude/length of the quaternion. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a1f1cf033ed4e6fb9391c7e02ae0183e4}{normalised} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the unit length of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \hyperlink{classsparky_1_1_quaternion_a0fe95a050029ea9cd63d688d75a2938b}{right} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the local right axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \hyperlink{classsparky_1_1_quaternion_a9fc8bf81b7411ee1a3c3a644296c5a6a}{up} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the local up axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \hyperlink{classsparky_1_1_quaternion_acb9c7a45346fb1c8055ae0b053afbaef}{forward} (void) const 
+\begin{DoxyCompactList}\small\item\em Calculates the local forward axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \hyperlink{classsparky_1_1_quaternion_aa8d99137f87577a3ecc0adca84e1cf5f}{dot} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&u, const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&v)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. \end{DoxyCompactList}\item 
+static T \hyperlink{classsparky_1_1_quaternion_a4b126de0d75143f88847b55e6d494d94}{angle} (const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&from, const \hyperlink{classsparky_1_1_quaternion}{Quaternion} \&to)
+\begin{DoxyCompactList}\small\item\em Calculates the angle between two Quaternions. \end{DoxyCompactList}\item 
+static \hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a66ae7960536a332a5d2e133bb14bc5c5}{angle\+Axis} (const \hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \&axis, const T \hyperlink{classsparky_1_1_quaternion_a4b126de0d75143f88847b55e6d494d94}{angle})
+\begin{DoxyCompactList}\small\item\em Applies angle axis rotation to \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \end{DoxyCompactList}\item 
+static \hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_afa753acf0bb39f61a54feea77f634b21}{look\+Rotation} (const \hyperlink{classsparky_1_1_vector3}{Vector3}$<$ T $>$ \&target)
+\item 
+static \hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a2fd5c76c0b803c4c07736fd425f288c5}{identity} (void)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} identity. \end{DoxyCompactList}\item 
+static \hyperlink{classsparky_1_1_quaternion}{Quaternion} \hyperlink{classsparky_1_1_quaternion_a9016d778ae47df9c4800cf940a6a9fa4}{zero} (void)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} with all elements set to 0. \mbox{[} 0 0 0 0 \mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \hyperlink{classsparky_1_1_quaternion_a7da54206cf4aee17b8a4f8f37fb5e933}{x}\hypertarget{classsparky_1_1_quaternion_a7da54206cf4aee17b8a4f8f37fb5e933}{}\label{classsparky_1_1_quaternion_a7da54206cf4aee17b8a4f8f37fb5e933}
+
+\begin{DoxyCompactList}\small\item\em x (right) component. \end{DoxyCompactList}\item 
+T \hyperlink{classsparky_1_1_quaternion_afad75ff6f17af570e1dc5282fed93fd2}{y}\hypertarget{classsparky_1_1_quaternion_afad75ff6f17af570e1dc5282fed93fd2}{}\label{classsparky_1_1_quaternion_afad75ff6f17af570e1dc5282fed93fd2}
+
+\begin{DoxyCompactList}\small\item\em y (up) component. \end{DoxyCompactList}\item 
+T \hyperlink{classsparky_1_1_quaternion_adb942fb7394e572a57d4ddb4cb50131a}{z}\hypertarget{classsparky_1_1_quaternion_adb942fb7394e572a57d4ddb4cb50131a}{}\label{classsparky_1_1_quaternion_adb942fb7394e572a57d4ddb4cb50131a}
+
+\begin{DoxyCompactList}\small\item\em z (forward) component \end{DoxyCompactList}\item 
+T \hyperlink{classsparky_1_1_quaternion_a6de3864be1208046ce06ae5b8d130e28}{w}\hypertarget{classsparky_1_1_quaternion_a6de3864be1208046ce06ae5b8d130e28}{}\label{classsparky_1_1_quaternion_a6de3864be1208046ce06ae5b8d130e28}
+
+\begin{DoxyCompactList}\small\item\em w (cosine) component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{Quaternion(void)}{Quaternion(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_quaternion_ae513e8510c499e40b799c99cb43d1bd0}{}\label{classsparky_1_1_quaternion_ae513e8510c499e40b799c99cb43d1bd0}
+
+
+Default construction of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. 
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object set to the identity \mbox{[} 0, 0, 0, 1 \mbox{]}. \index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{Quaternion(const T x, const T y, const T z, const T w)}{Quaternion(const T x, const T y, const T z, const T w)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{z, }
+\item[{const T}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_quaternion_a64d595e7c1605110e2dedc979ac2214c}{}\label{classsparky_1_1_quaternion_a64d595e7c1605110e2dedc979ac2214c}
+
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object with x, y, z and w values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x value. \\
+\hline
+{\em y} & The y value. \\
+\hline
+{\em z} & The z value. \\
+\hline
+{\em w} & The w value. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{Quaternion(const Quaternion$<$ U $>$ \&quaternion)}{Quaternion(const Quaternion< U > &quaternion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ U $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_quaternion_a8bf8c41d87d565dbfb46cf03e36625c8}{}\label{classsparky_1_1_quaternion_a8bf8c41d87d565dbfb46cf03e36625c8}
+
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object from the member of another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} object the parameters are read from. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{Quaternion(const Matrix4$<$ T $>$ \&matrix)}{Quaternion(const Matrix4< T > &matrix)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix4}$<$ T $>$ \&}]{matrix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_quaternion_ad73ea0b909b4cba03b097f6b6c0ab6cb}{}\label{classsparky_1_1_quaternion_ad73ea0b909b4cba03b097f6b6c0ab6cb}
+
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} object from a \hyperlink{classsparky_1_1_matrix4}{Matrix4}. 
+
+This rotations of the \hyperlink{classsparky_1_1_matrix4}{Matrix4} are used to construct the rotation of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix referenced for \hyperlink{classsparky_1_1_quaternion}{Quaternion} rotational construction. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!angle@{angle}}
+\index{angle@{angle}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{angle(const Quaternion \&from, const Quaternion \&to)}{angle(const Quaternion &from, const Quaternion &to)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static T {\bf sparky\+::\+Quaternion}$<$ T $>$\+::angle (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{from, }
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_a4b126de0d75143f88847b55e6d494d94}{}\label{classsparky_1_1_quaternion_a4b126de0d75143f88847b55e6d494d94}
+
+
+Calculates the angle between two Quaternions. 
+
+This will calculate the angle between two different quaternions. The angle will be returned in degrees.
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The quaternion where the angle measurement will begin. \\
+\hline
+{\em to} & The quaternion where the angle measurement will end.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em T} & The angle between the Quaternions in degrees. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!angle\+Axis@{angle\+Axis}}
+\index{angle\+Axis@{angle\+Axis}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{angle\+Axis(const Vector3$<$ T $>$ \&axis, const T angle)}{angleAxis(const Vector3< T > &axis, const T angle)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::angle\+Axis (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{axis, }
+\item[{const T}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_a66ae7960536a332a5d2e133bb14bc5c5}{}\label{classsparky_1_1_quaternion_a66ae7960536a332a5d2e133bb14bc5c5}
+
+
+Applies angle axis rotation to \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. 
+
+Rotates the quaternion around the given axis by the designated angle. The angle must be given in degrees.
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis of rotation. \\
+\hline
+{\em angle} & The angle to rotate the quaternion by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & The rotated \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!conjugate@{conjugate}}
+\index{conjugate@{conjugate}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{conjugate(void) const }{conjugate(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::conjugate (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a9560d751d61d47377944f91f8a9089c5}{}\label{classsparky_1_1_quaternion_a9560d751d61d47377944f91f8a9089c5}
+
+
+Conjugate calculates the current inverse of the quaternion. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & The quaternion conjugate. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!dot@{dot}}
+\index{dot@{dot}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{dot(const Quaternion \&u, const Quaternion \&v)}{dot(const Quaternion &u, const Quaternion &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static T {\bf sparky\+::\+Quaternion}$<$ T $>$\+::dot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{u, }
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_aa8d99137f87577a3ecc0adca84e1cf5f}{}\label{classsparky_1_1_quaternion_aa8d99137f87577a3ecc0adca84e1cf5f}
+
+
+Calculates the dot product between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+The dot product is the value equal to the magnitudes/length of the two quaternion multiplied together and then multiplied by the cosine of the angle between them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The first quaternion. \\
+\hline
+{\em v} & The second quaternion.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em T} & The cosine angle between two Quaternions. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!forward@{forward}}
+\index{forward@{forward}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{forward(void) const }{forward(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Vector3}$<$T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::forward (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_acb9c7a45346fb1c8055ae0b053afbaef}{}\label{classsparky_1_1_quaternion_acb9c7a45346fb1c8055ae0b053afbaef}
+
+
+Calculates the local forward axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_vector3}{Vector3}} & The local \hyperlink{classsparky_1_1_quaternion}{Quaternion} forward axis. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!identity@{identity}}
+\index{identity@{identity}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{identity(void)}{identity(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::identity (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_a2fd5c76c0b803c4c07736fd425f288c5}{}\label{classsparky_1_1_quaternion_a2fd5c76c0b803c4c07736fd425f288c5}
+
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} identity. 
+
+Constructs an identity \hyperlink{classsparky_1_1_quaternion}{Quaternion} and returns this identity object. This is a \hyperlink{classsparky_1_1_quaternion}{Quaternion} that effectively does nothing when multiplied. It has a 1 in the w component and 0s in all other elements. \mbox{[} 0 0 0 1 \mbox{]}
+
+
+\begin{DoxyRetVals}{Return values}
+{\em A} & \hyperlink{classsparky_1_1_quaternion}{Quaternion} identity. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!look\+Rotation@{look\+Rotation}}
+\index{look\+Rotation@{look\+Rotation}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{look\+Rotation(const Vector3$<$ T $>$ \&target)}{lookRotation(const Vector3< T > &target)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::look\+Rotation (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_afa753acf0bb39f61a54feea77f634b21}{}\label{classsparky_1_1_quaternion_afa753acf0bb39f61a54feea77f634b21}
+Rotates the quaternion to look towards the given target Vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The target to look at.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} rotated towards the target Vector. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!magnitude@{magnitude}}
+\index{magnitude@{magnitude}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{magnitude(void) const }{magnitude(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf sparky\+::\+Quaternion}$<$ T $>$\+::magnitude (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a002f6b0e3706c0bb1d4a8c73e562b0c7}{}\label{classsparky_1_1_quaternion_a002f6b0e3706c0bb1d4a8c73e562b0c7}
+
+
+Calculates the magnitude/length of the quaternion. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em T} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} magnitude. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!magnitude\+Sqr@{magnitude\+Sqr}}
+\index{magnitude\+Sqr@{magnitude\+Sqr}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{magnitude\+Sqr(void) const }{magnitudeSqr(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf sparky\+::\+Quaternion}$<$ T $>$\+::magnitude\+Sqr (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_afdeaacef8066f991ade5ddda36129077}{}\label{classsparky_1_1_quaternion_afdeaacef8066f991ade5ddda36129077}
+
+
+Calculates the squared magnitude/length of the quaternion. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em T} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} magnitude squared. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!normalised@{normalised}}
+\index{normalised@{normalised}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{normalised(void) const }{normalised(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::normalised (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a1f1cf033ed4e6fb9391c7e02ae0183e4}{}\label{classsparky_1_1_quaternion_a1f1cf033ed4e6fb9391c7e02ae0183e4}
+
+
+Calculates the unit length of the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & The normalised \hyperlink{classsparky_1_1_quaternion}{Quaternion} object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator"!=(const Quaternion \&quaternion)}{operator!=(const Quaternion &quaternion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_a1d8bfb186bb2f6f07fde82a35ae4bc5e}{}\label{classsparky_1_1_quaternion_a1d8bfb186bb2f6f07fde82a35ae4bc5e}
+
+
+Non-\/equality operator between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+If the members of each \hyperlink{classsparky_1_1_quaternion}{Quaternion} are not the same, then the Quaternions are not equal to one another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion to be compared.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the quaternions are not equal. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const Quaternion \&quaternion) const }{operator*(const Quaternion &quaternion) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_aee719f7d783788a605805b095cb43212}{}\label{classsparky_1_1_quaternion_aee719f7d783788a605805b095cb43212}
+
+
+Multiplication operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is multiplied by another, it applies the rotation of one onto the other. The method will return the result as a new \hyperlink{classsparky_1_1_quaternion}{Quaternion} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion to be multiplied by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & Member-\/wise multiplication of the two quaternions. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const Vector3$<$ T $>$ \&vector) const }{operator*(const Vector3< T > &vector) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a34e3820d2a1fddbc90cdf3e715a6c9c0}{}\label{classsparky_1_1_quaternion_a34e3820d2a1fddbc90cdf3e715a6c9c0}
+
+
+Multiplication operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a Vector. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is multiplied by a vector, it applies the position of the Vector to the quaternion. The method will return the result as a new \hyperlink{classsparky_1_1_quaternion}{Quaternion} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The Vector to be multiplied by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & Member-\/wise multiplication of a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and Vector. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator$\ast$=(const Quaternion \&quaternion)}{operator*=(const Quaternion &quaternion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const {\bf Quaternion}\& {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_a06be30b3b355d53e8af2a7911f6f5690}{}\label{classsparky_1_1_quaternion_a06be30b3b355d53e8af2a7911f6f5690}
+
+
+Multiplication operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is multiplied by another, it applies the rotation of one onto the other. The method will return the reference of this object after mulitplication
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion to be multiplied by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & A reference to this object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator$\ast$=(const Vector3$<$ T $>$ \&vector)}{operator*=(const Vector3< T > &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const {\bf Quaternion}\& {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_a88982ec49b38923914d36f8e57c1ac36}{}\label{classsparky_1_1_quaternion_a88982ec49b38923914d36f8e57c1ac36}
+
+
+Multiplication operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a Vector. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is multiplied by a vector, it applies the position of the Vector to the quaternion. The method will return a reference to this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The Vector to be multiplied by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & A reference to this object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator/@{operator/}}
+\index{operator/@{operator/}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator/(const Quaternion \&quaternion) const }{operator/(const Quaternion &quaternion) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a2a438f46a1204d26bfa79adcdd3d5a85}{}\label{classsparky_1_1_quaternion_a2a438f46a1204d26bfa79adcdd3d5a85}
+
+
+Division operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is divided by another, it applies a member wise division of all member variables. The result is returned as a new \hyperlink{classsparky_1_1_quaternion}{Quaternion} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} to be divided by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & Member-\/wise division of a \hyperlink{classsparky_1_1_quaternion}{Quaternion}. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator/@{operator/}}
+\index{operator/@{operator/}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator/(const T value) const }{operator/(const T value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{const T}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_af60c38e3048fc7df4737fd9496f5c464}{}\label{classsparky_1_1_quaternion_af60c38e3048fc7df4737fd9496f5c464}
+
+
+Division operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a value. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is divided by a value, it applies a member wise division of all member variables. The result is returned as a new \hyperlink{classsparky_1_1_quaternion}{Quaternion} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to be divided by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & Member-\/wise division of a \hyperlink{classsparky_1_1_quaternion}{Quaternion} by a value. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator/=(const Quaternion \&quaternion)}{operator/=(const Quaternion &quaternion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const {\bf Quaternion}\& {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_a5cef5dcaf6bebcef9f794b1515117772}{}\label{classsparky_1_1_quaternion_a5cef5dcaf6bebcef9f794b1515117772}
+
+
+Division operator for two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is divided by another, it applies a member wise division of all member variables. This method will return a reference to this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} to be divided by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & A reference to this object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator/=(const T value)}{operator/=(const T value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const {\bf Quaternion}\& {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{const T}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_af40bb1d352e83dde0ce86f4b4753e0bf}{}\label{classsparky_1_1_quaternion_af40bb1d352e83dde0ce86f4b4753e0bf}
+
+
+Division operator for a \hyperlink{classsparky_1_1_quaternion}{Quaternion} and a value. 
+
+When a \hyperlink{classsparky_1_1_quaternion}{Quaternion} is divided by a value, it applies a member wise division of all member variables. This method will return a reference to this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The \hyperlink{classsparky_1_1_quaternion}{Quaternion} to be divided by.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & A reference to this object. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!operator==@{operator==}}
+\index{operator==@{operator==}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{operator==(const Quaternion \&quaternion)}{operator==(const Quaternion &quaternion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Quaternion}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{quaternion}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_quaternion_af484847df55adb445322d4b74bea87b9}{}\label{classsparky_1_1_quaternion_af484847df55adb445322d4b74bea87b9}
+
+
+Equality operator between two \hyperlink{classsparky_1_1_quaternion}{Quaternion} objects. 
+
+If the members of each \hyperlink{classsparky_1_1_quaternion}{Quaternion} are the same, then the Quaternions are equal to one another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion to be compared.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the quaternions are equal. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!right@{right}}
+\index{right@{right}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{right(void) const }{right(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Vector3}$<$T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::right (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a0fe95a050029ea9cd63d688d75a2938b}{}\label{classsparky_1_1_quaternion_a0fe95a050029ea9cd63d688d75a2938b}
+
+
+Calculates the local right axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_vector3}{Vector3}} & The local \hyperlink{classsparky_1_1_quaternion}{Quaternion} right axis. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!to\+Matrix@{to\+Matrix}}
+\index{to\+Matrix@{to\+Matrix}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{to\+Matrix(void) const }{toMatrix(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Matrix4}$<$T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::to\+Matrix (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a2bb19a194d09c72add87d79f4216431c}{}\label{classsparky_1_1_quaternion_a2bb19a194d09c72add87d79f4216431c}
+
+
+Converts the \hyperlink{classsparky_1_1_quaternion}{Quaternion} object to a \hyperlink{classsparky_1_1_matrix4}{Matrix4}. 
+
+Converts the current \hyperlink{classsparky_1_1_quaternion}{Quaternion} object back into a \hyperlink{classsparky_1_1_matrix4}{Matrix4}. Used primarily for communication between quaternion rotations, and Open\+GL shaders.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_matrix4}{Matrix4}} & A converted \hyperlink{classsparky_1_1_quaternion}{Quaternion} matrix. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!up@{up}}
+\index{up@{up}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{up(void) const }{up(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Vector3}$<$T$>$ {\bf sparky\+::\+Quaternion}$<$ T $>$\+::up (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_quaternion_a9fc8bf81b7411ee1a3c3a644296c5a6a}{}\label{classsparky_1_1_quaternion_a9fc8bf81b7411ee1a3c3a644296c5a6a}
+
+
+Calculates the local up axis of the \hyperlink{classsparky_1_1_quaternion}{Quaternion}. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_vector3}{Vector3}} & The local \hyperlink{classsparky_1_1_quaternion}{Quaternion} up axis. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Quaternion@{sparky\+::\+Quaternion}!zero@{zero}}
+\index{zero@{zero}!sparky\+::\+Quaternion@{sparky\+::\+Quaternion}}
+\subsubsection[{\texorpdfstring{zero(void)}{zero(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ static {\bf Quaternion} {\bf sparky\+::\+Quaternion}$<$ T $>$\+::zero (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_quaternion_a9016d778ae47df9c4800cf940a6a9fa4}{}\label{classsparky_1_1_quaternion_a9016d778ae47df9c4800cf940a6a9fa4}
+
+
+Constructs a \hyperlink{classsparky_1_1_quaternion}{Quaternion} with all elements set to 0. \mbox{[} 0 0 0 0 \mbox{]}. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{classsparky_1_1_quaternion}{Quaternion}} & A \hyperlink{classsparky_1_1_quaternion}{Quaternion} object with all members equalling 0. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/math/quaternion.\+hpp\end{DoxyCompactItemize}

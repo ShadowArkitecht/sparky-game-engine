@@ -51,13 +51,13 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		Transform	   m_transform;	 // The transform ( position and rotation ) of the Camera.
-		float		   m_fov;		 // The field of view of the Camera.
-		Vector2f       m_dimensions; // The width and height of the Camera.
-		float		   m_nearPlane;	 // Near clipping plane.
-		float		   m_farPlane;   // Far clipping plane.
+		Transform	   m_transform;	 ///< The transform ( position and rotation ) of the Camera.
+		float		   m_fov;		 ///< The field of view of the Camera.
+		Vector2f       m_dimensions; ///< The width and height of the Camera.
+		float		   m_nearPlane;	 ///< Near clipping plane.
+		float		   m_farPlane;   ///< Far clipping plane.
 
-		static Camera* m_pMain;		 // Main camera of the application.
+		static Camera* m_pMain;		 ///< Main camera of the application.
 
 	public:
 		/*

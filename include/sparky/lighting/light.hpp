@@ -50,10 +50,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		String	 name;		// The name of the Light.
-		Vector3f position;  // The position of the Light within the scene.
-		Vector3f colour;	// RGB values of the light.
-		float    intensity;	// The light intensity.
+		String	 name;		///< The name of the Light.
+		Vector3f position;  ///< The position of the Light within the scene.
+		Vector3f colour;	///< RGB values of the light.
+		float    intensity;	///< The light intensity.
 	};
 
 	class Light : public Ref
@@ -64,10 +64,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		String   m_name;		// The name of the light (within the shader).
-		Vector3f m_position;	// Position of the light within the scene.
-		Vector3f m_colour;		// RGB values of the light.
-		float    m_intensity;	// The light intensity.
+		String   m_name;		///< The name of the light (within the shader).
+		Vector3f m_position;	///< Position of the light within the scene.
+		Vector3f m_colour;		///< RGB values of the light.
+		float    m_intensity;	///< The light intensity.
 
 	protected:
 		/*
@@ -81,7 +81,8 @@ namespace sparky
 		/// The uniforms are set so that the communication between this
 		/// Light and the currently bound shader can be achieved.
 		///
-		/// \param uniform	A reference to the current Uniform object of the shader.
+		/// \param uniform		A reference to the current Uniform object of the shader.
+		/// \param extension	The base externsion of the light within the shader.
 		///
 		////////////////////////////////////////////////////////////
 		void setUniforms(Uniform& uniform, const String& extension);
@@ -96,7 +97,7 @@ namespace sparky
 		/// \brief Constructor for the Light object with the parameters
 		///        set to a description.
 		///
-		/// This constructor will utilise the values from the light description
+		/// This constructor will utilise the values from the SPARKY_BASE_LIGHT_DESC
 		/// and set the member values accordingly. Descriptions are used as the
 		/// lights have several variables to be set within the class itself.
 		///
@@ -140,7 +141,7 @@ namespace sparky
 		/// The position refers to the co-ordinates of the light within
 		/// 3D space.
 		///
-		/// \retval Vector3f	The position of the Light object.
+		/// \retval Vector3f&	The position of the Light object.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector3f& getPosition(void) const;

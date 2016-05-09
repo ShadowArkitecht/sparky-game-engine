@@ -1,0 +1,90 @@
+\hypertarget{classsparky_1_1_uniform}{}\section{sparky\+:\+:Uniform Class Reference}
+\label{classsparky_1_1_uniform}\index{sparky\+::\+Uniform@{sparky\+::\+Uniform}}
+
+
+{\ttfamily \#include $<$uniform.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_uniform_affc278498dc526c133c2133106cfbf83}{Uniform} (\hyperlink{classsparky_1_1_program}{Program} $\ast$p\+Program)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classsparky_1_1_uniform}{Uniform} object constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_uniform_a612d7e16c60770dba6a93f4fa2f79983}{$\sim$\+Uniform} (void)=default\hypertarget{classsparky_1_1_uniform_a612d7e16c60770dba6a93f4fa2f79983}{}\label{classsparky_1_1_uniform_a612d7e16c60770dba6a93f4fa2f79983}
+
+\begin{DoxyCompactList}\small\item\em Default destructor for \hyperlink{classsparky_1_1_uniform}{Uniform} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classsparky_1_1_uniform_a7a81c72ed894749245b0f2b52fccd203}{set\+Parameter} (const \hyperlink{classsparky_1_1_string}{String} \&name, T \&\&value) const 
+\begin{DoxyCompactList}\small\item\em Sends a value ( by name ) to the programs shaders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_uniform}{sparky\+::\+Uniform} is convenience class for setting the values of uniform variables within a shader. \hyperlink{classsparky_1_1_uniform}{sparky\+::\+Uniform} provides overrides for all of the most of common G\+L\+SL types. Below is a code example\+:
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Make a program and add shaders.}
+\hyperlink{classsparky_1_1_program}{sparky::Program} program;
+
+program.\hyperlink{classsparky_1_1_program_ac60e7883dc4076f78c3bcc1d5519f7e7}{attachShader}(\textcolor{keyword}{new} \hyperlink{classsparky_1_1_g_l_s_l_object}{sparky::GLSLObject}(\textcolor{stringliteral}{"shaders/basic\_vertex.glsl"},   
+      sparky::eShaderType::VERTEX\_SHADER));
+program.\hyperlink{classsparky_1_1_program_ac60e7883dc4076f78c3bcc1d5519f7e7}{attachShader}(\textcolor{keyword}{new} \hyperlink{classsparky_1_1_g_l_s_l_object}{sparky::GLSLObject}(\textcolor{stringliteral}{"shaders/basic\_fragment.glsl"}, 
+      sparky::eShaderType::FRAGMENT\_SHADER));
+
+\textcolor{comment}{// Link and compile the shaders.}
+program.\hyperlink{classsparky_1_1_program_a7cbc014919fdcca3889edb283fbd4115}{link}();
+
+\textcolor{comment}{// Sets a matrix within the shader to a identity matrix.}
+\hyperlink{classsparky_1_1_matrix4}{sparky::Matrix4f} identity = \hyperlink{classsparky_1_1_matrix4_a0c11da6de697550bccdbf7de0976b08e}{sparky::Matrix4f::identity}();
+
+\textcolor{comment}{// Send the matrix to the shaders.}
+\hyperlink{classsparky_1_1_uniform}{sparky::Uniform} uniform(&program);
+
+uniform.setParamater(\textcolor{stringliteral}{"matrix"}, identity);
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Uniform@{sparky\+::\+Uniform}!Uniform@{Uniform}}
+\index{Uniform@{Uniform}!sparky\+::\+Uniform@{sparky\+::\+Uniform}}
+\subsubsection[{\texorpdfstring{Uniform(\+Program $\ast$p\+Program)}{Uniform(Program *pProgram)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Uniform\+::\+Uniform (
+\begin{DoxyParamCaption}
+\item[{{\bf Program} $\ast$}]{p\+Program}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_uniform_affc278498dc526c133c2133106cfbf83}{}\label{classsparky_1_1_uniform_affc278498dc526c133c2133106cfbf83}
+
+
+\hyperlink{classsparky_1_1_uniform}{Uniform} object constructor. 
+
+\hyperlink{classsparky_1_1_uniform}{Uniform} needs access to the \hyperlink{classsparky_1_1_program}{Program} and its shader so it can successfully send uniforms to the shader for use.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Program} & The program containing the shaders. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Uniform@{sparky\+::\+Uniform}!set\+Parameter@{set\+Parameter}}
+\index{set\+Parameter@{set\+Parameter}!sparky\+::\+Uniform@{sparky\+::\+Uniform}}
+\subsubsection[{\texorpdfstring{set\+Parameter(const String \&name, T \&\&value) const }{setParameter(const String &name, T &&value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void sparky\+::\+Uniform\+::set\+Parameter (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{name, }
+\item[{T \&\&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsparky_1_1_uniform_a7a81c72ed894749245b0f2b52fccd203}{}\label{classsparky_1_1_uniform_a7a81c72ed894749245b0f2b52fccd203}
+
+
+Sends a value ( by name ) to the programs shaders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the uniform in the shader. \\
+\hline
+{\em value} & The value to send to the shader. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/uniform.\+hpp\end{DoxyCompactItemize}

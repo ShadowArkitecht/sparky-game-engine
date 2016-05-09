@@ -46,8 +46,8 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		eVoxelType m_type;		// The Voxel type i.e Water, Dirt, Stone.
-		bool	   m_active;	// Whether the current Voxel is active.
+		eVoxelType m_type;		///< The Voxel type i.e Water, Dirt, Stone.
+		bool	   m_active;	///< Whether the current Voxel is active.
 
 	public:
 		/*
@@ -138,6 +138,7 @@ namespace sparky
 /// voxels can be accessed through the Chunk object. Below is a code
 /// example.
 ///
+/// Usage example:
 /// \code
 /// // Create a Chunk object and adds its meshing to the threading list.
 /// sparky::Chunk* pChunk = new sparky::Chunk();

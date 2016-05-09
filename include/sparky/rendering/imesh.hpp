@@ -44,12 +44,12 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<Vertex_t> m_vertices;		// Vertices of the mesh.
-		std::vector<GLuint>	  m_indices;		// Indices of the mesh.
-		Buffer				  m_buffer;			// The vertex and index buffer.
-		ArrayBuffer			  m_arrayBuffer;	// Array Buffer.
+		std::vector<Vertex_t> m_vertices;		///< Vertices of the mesh.
+		std::vector<GLuint>	  m_indices;		///< Indices of the mesh.
+		Buffer				  m_buffer;			///< The vertex and index buffer.
+		ArrayBuffer			  m_arrayBuffer;	///< Array Buffer.
 
-		bool				  m_generated;		// Whether the Mesh has been generated.
+		bool				  m_generated;		///< Whether the Mesh has been generated.
 
 	public:
 		/*

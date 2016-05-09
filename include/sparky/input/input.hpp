@@ -48,9 +48,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::array<bool, 512> m_currentKeys;	// The keys currently being held.
-		std::array<bool, 512> m_downKeys;		// The keys currently pressed.
-		std::array<bool, 512> m_upKeys;			// The keys that are about to be released.
+		std::array<bool, 512> m_currentKeys;	///< The keys currently being held.
+		std::array<bool, 512> m_downKeys;		///< The keys currently pressed.
+		std::array<bool, 512> m_upKeys;			///< The keys that are about to be released.
 
 	public:
 		/*
@@ -120,6 +120,9 @@ namespace sparky
 		*/
 		////////////////////////////////////////////////////////////
 		/// \brief Updates the states and events of the Keyboard input.
+		///
+		/// \param e	The currently polling event within the application.
+		///
 		////////////////////////////////////////////////////////////
 		void update(const SDL_Event& e) override;
 	};
@@ -143,6 +146,7 @@ namespace sparky
 /// need to worry about polling the system themselves. Below is a code 
 /// example.
 ///
+/// Usage example:
 /// \code
 /// // Create a new sparky::Input object for use.
 /// sparky::Input* pInput = new sparky::Input();
@@ -153,5 +157,6 @@ namespace sparky
 /// {
 ///		std::cout << "A was released!" << std::endl;
 /// }
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

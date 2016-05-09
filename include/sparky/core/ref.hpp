@@ -35,7 +35,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		unsigned int m_references;	// The number of references that this object has currently obtained. Starts at 1 by default.
+		unsigned int m_references;	///< The number of references that this object has currently obtained. Starts at 1 by default.
 
 	public:
 		/*

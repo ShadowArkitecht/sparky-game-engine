@@ -59,11 +59,11 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static const int		SIZE;			// The standard size of all Chunks.
-		Transform				m_transform;	// The transform of the Chunk.
-		std::array<Voxel, 4096> m_voxels;		// The individual voxels of the Chunk.
-		MeshData*				m_pMesh;	    // The mesh that renders the voxels.
-		bool					m_shouldLoad;	// Whether the current Chunk object needs to generate.
+		static const int		SIZE;			///< The standard size of all Chunks.
+		Transform				m_transform;	///< The transform of the Chunk.
+		std::array<Voxel, 4096> m_voxels;		///< The individual voxels of the Chunk.
+		MeshData*				m_pMesh;	    ///< The mesh that renders the voxels.
+		bool					m_shouldLoad;	///< Whether the current Chunk object needs to generate.
 
 	public:
 		/*

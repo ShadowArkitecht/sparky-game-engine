@@ -1,3 +1,27 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+// Sparky Engine
+// 2016 - Benjamin Carter (benjamin.mark.carter@hotmail.com)
+// 
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+// 
+// Permission is granted to anyone to use this software for any purpose,
+// including commercial applications, and to alter it and redistribute it freely,
+// subject to the following restrictions:
+// 
+// 1. The origin of this software must not be misrepresented;
+//    you must not claim that you wrote the original software.
+//    If you use this software in a product, an acknowledgement
+//    in the product documentation would be appreciated but is not required.
+// 
+// 2. Altered source versions must be plainly marked as such,
+//    and must not be misrepresented as being the original software.
+// 
+// 3. This notice may not be removed or altered from any source distribution.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef __SPARKY_GLSL_OBJECT_HPP__
 #define __SPARKY_GLSL_OBJECT_HPP__
 
@@ -42,12 +66,12 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		GLuint				m_ID;		// ID of the shader. The shader is compiled and bound into this variable.
-		String				m_filename;	// File location of the source.
-		String				m_source;	// Source ( text ) form of the shader.
-		GLuint				m_type;		// Type of shader, set to GL_VERTEX_SHADER or GL_FRAGMENT_SHADER.
-		bool		        m_compiled;	// Whether the shader has been compiled.
-		std::vector<String> m_includes;	// All includes in the file, checks and prevents the same includes.
+		GLuint				m_ID;		///< ID of the shader. The shader is compiled and bound into this variable.
+		String				m_filename;	///< File location of the source.
+		String				m_source;	///< Source ( text ) form of the shader.
+		GLuint				m_type;		///< Type of shader, set to GL_VERTEX_SHADER or GL_FRAGMENT_SHADER.
+		bool		        m_compiled;	///< Whether the shader has been compiled.
+		std::vector<String> m_includes;	///< All includes in the file, checks and prevents the same includes.
 
 	private:
 		/*

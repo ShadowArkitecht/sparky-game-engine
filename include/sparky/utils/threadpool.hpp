@@ -47,13 +47,13 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<std::thread>	      m_workers;	// The amount of threads that this Pool will utilise.
-		std::queue<std::function<void()>> m_tasks;		// The tasks to be processed by the individual threads.
+		std::vector<std::thread>	      m_workers;	///< The amount of threads that this Pool will utilise.
+		std::queue<std::function<void()>> m_tasks;		///< The tasks to be processed by the individual threads.
 
-		std::mutex						  m_mutex;		// Stops Data race and memory being changed at the same time.
-		std::condition_variable			  m_condition;	// Controls the flow of threads to be utilised by the Pool, depending on parameters.
+		std::mutex						  m_mutex;		///< Stops Data race and memory being changed at the same time.
+		std::condition_variable			  m_condition;	///< Controls the flow of threads to be utilised by the Pool, depending on parameters.
 
-		bool							  m_stopped;	// Stops after all the threads have joined and finished.
+		bool							  m_stopped;	///< Stops after all the threads have joined and finished.
 
 	private:
 		/*
@@ -148,21 +148,17 @@ namespace sparky
 /// the engine, such as the chunk generation for the Voxel World. Below is an
 /// example of using the Pool without the Thread Manager.
 ///
+/// Usage example:
 /// \code
 /// // Create a pool with the maximum amount of threads.
 /// sparky::ThreadPool pool;
 /// 
-/// // Add a task and store the future result with a lambda
+/// // Add a task using a lambda function.
 /// int number = 5;
-/// std::future<bool> fu = pool.addTask([&number](int num) { return num == 5; });
-///
-/// // OR add a function called foo and store the result.
-/// std::future<bool> fu = pool.addTask(&foo);
-///
-/// // Print the result of the task
-/// std::cout << fu.get() << std::endl;
+/// pool.addTask([&number](int num) { number = num; });
 ///
 /// // Join the pool to the main thread.
 /// pool.join();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

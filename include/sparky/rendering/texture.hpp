@@ -75,10 +75,10 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		GLenum           target;			// The target of the Texture (i.e GL_TEXTURE_2D).
-		GLint            internalFormat;	// The internal bit format.
-		eTextureFilter   filter;			// The rendering filter.
-		eTextureWrapMode mode;				// The mode the texture will apply to meshes.
+		GLenum           target;			///< The target of the Texture (i.e GL_TEXTURE_2D).
+		GLint            internalFormat;	///< The internal bit format.
+		eTextureFilter   filter;			///< The rendering filter.
+		eTextureWrapMode mode;				///< The mode the texture will apply to meshes.
 
 		/*
 		====================
@@ -92,7 +92,6 @@ namespace sparky
 		/// use values. The values can easily be changed by the user
 		/// for alternate behaviour.
 		/// 
-		///
 		////////////////////////////////////////////////////////////
 		explicit SPARKY_TEXTURE_DESC(void)
 			: target(GL_TEXTURE_2D), internalFormat(GL_RGBA), filter(eTextureFilter::LINEAR), mode(eTextureWrapMode::CLAMP)
@@ -108,9 +107,9 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		GLuint	 m_ID;			// The ID handle of the Texture.
-		Vector2u m_dimensions;	// The size (in pixels) of the Texture.
-		void*	 m_pTexels;		// The individual pixels of the Texture.
+		GLuint	 m_ID;			///< The ID handle of the Texture.
+		Vector2u m_dimensions;	///< The size (in pixels) of the Texture.
+		void*	 m_pTexels;		///< The individual pixels of the Texture.
 
 	public:
 		/*
@@ -158,7 +157,7 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the dimensions (in pixels) of the Texture.
 		///
-		/// \retval Vector2u	The pixel dimensions of the Texture.
+		/// \retval Vector2u&	The pixel dimensions of the Texture.
 		///
 		////////////////////////////////////////////////////////////
 		const Vector2u& getDimensions(void) const;
@@ -183,7 +182,7 @@ namespace sparky
 		/// will utilise the rendering of this specific Texture object.
 		/// This is achieved by binding the Texture's ID handle for use.
 		///
-		/// \param location		The location to bind the texture to.
+		/// \param location		The location to bind the texture to. Default is 0.
 		///
 		////////////////////////////////////////////////////////////
 		void bind(const GLuint location = 0) const;
@@ -212,6 +211,7 @@ namespace sparky
 /// a suitable description struct for catering to special circumstances.
 /// Below is a code example.
 ///
+/// Usage example:
 /// \code
 /// // Create a Texture description and "zero it out".
 /// sparky::TEXTURE_DESC desc;
@@ -228,5 +228,6 @@ namespace sparky
 ///
 /// // Bind the texture for use.
 /// pTexture->bind();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

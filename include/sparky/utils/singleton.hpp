@@ -51,6 +51,8 @@ namespace sparky
 		/// singleton's from the information of another, which will
 		/// provide undefined behaviour in the application.
 		///
+		/// \param other	The other Singleton object that will not be copied.
+		///
 		////////////////////////////////////////////////////////////
 		explicit Singleton(const Singleton<T>& other) = delete;
 
@@ -73,6 +75,8 @@ namespace sparky
 		/// object. As the Singleton can only be constructed within
 		/// its own scope, you cannot access its methods without 
 		/// utilising the static instance of the class. 
+		///
+		/// \retval T&	The static instance of this Singleton object.
 		///
 		////////////////////////////////////////////////////////////
 		static T& getInstance(void);
@@ -104,8 +108,10 @@ namespace sparky
 /// Although you would never use this base class as-is. Below
 /// is a basic example of it's uses.
 ///
+/// Usage example:
 /// \code
 /// // Store an int Singleton in a local variable.
 /// Singleton<int> s = Singleton<int>::getInstance();
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////

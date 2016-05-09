@@ -64,7 +64,7 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		std::vector<char> m_data;	// Raw data of each character within the string.
+		std::vector<char> m_data;	///< Raw data of each character within the string.
 
 	private:
 		////////////////////////////////////////////////////////////
@@ -487,6 +487,8 @@ namespace sparky
 		///
 		/// \param first	The first object to concatenated.
 		///
+		/// \retval String	The concatenated String object.
+		///
 		////////////////////////////////////////////////////////////
 		template <typename T>
 		static String concat(const T& first);
@@ -501,23 +503,13 @@ namespace sparky
 		/// \param first	The first object to concatenated.
 		/// \param args		The variadic objects to concatenate.
 		///
+		/// \retval String	The concatenated String object.
+		///
 		////////////////////////////////////////////////////////////
 		template <typename T, typename... Args>
 		static String concat(const T& first, const Args&... args);
 	};
 
-	////////////////////////////////////////////////////////////
-	/// \brief Operator for printing the contents of the String object to the console.
-	/// 
-	/// The user can prints the contents of the String to the 
-	/// console window using the standard io within C++.
-	/// 
-	/// \param os		The stream that the string is being streamed into.
-	/// \param string	The string to be streamed into the buffer.
-	/// 
-	/// \retval ostream A reference to the buffer stream.
-	///
-	////////////////////////////////////////////////////////////
 	inline std::ostream& operator<<(std::ostream& os, const String& string)
 	{
 		return os << string.getCString();
@@ -531,6 +523,8 @@ namespace sparky
 	/// amounts of string can be concatenated onto the returned object.
 	///
 	/// \param first	The first object to concatenated.
+	///
+	/// \retval String	The concatenated String object.
 	///
 	////////////////////////////////////////////////////////////
 	template <typename T>
@@ -548,6 +542,8 @@ namespace sparky
 	///
 	/// \param first	The first object to concatenated.
 	/// \param args		The variadic objects to concatenate.
+	///
+	/// \retval String	The concatenated String object.
 	///
 	////////////////////////////////////////////////////////////
 	template <typename T, typename... Args>
@@ -574,6 +570,7 @@ namespace sparky
 /// manipulation of characters; such as concatenation, easy
 /// deletion and per index alterations. Below is an example:
 ///
+/// Usage example:
 /// \code 
 /// // Declare a string
 /// sparky::String str = "Hello";
@@ -590,5 +587,6 @@ namespace sparky
 /// // Print the strings to the console
 /// std::cout << str << std::endl;
 /// std::cout << sub << std::endl;
+/// \endcode
 ///
 ////////////////////////////////////////////////////////////
