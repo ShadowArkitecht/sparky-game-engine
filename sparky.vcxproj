@@ -58,7 +58,8 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib;assimp\assimpd.lib</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib;assimp\assimpd.lib;libnoise\libnoise.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -78,7 +79,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>.\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib;assimp\assimpd.lib</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;GLEW\glew32.lib;SDL\SDL2.lib;SDL\SDL2main.lib;SDL\SDL2test.lib;SDL_image\SDL2_image.lib;assimp\assimpd.lib;libnoise\libnoise.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -90,7 +92,9 @@
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\resourcemanager.cpp" />
     <ClCompile Include="src\core\scene.cpp" />
+    <ClCompile Include="src\core\time.cpp" />
     <ClCompile Include="src\core\window.cpp" />
+    <ClCompile Include="src\ext\noiseutils.cpp" />
     <ClCompile Include="src\generation\chunk.cpp" />
     <ClCompile Include="src\generation\voxel.cpp" />
     <ClCompile Include="src\generation\world.cpp" />
@@ -134,8 +138,10 @@
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
     <ClInclude Include="include\sparky\core\resourcemanager.hpp" />
     <ClInclude Include="include\sparky\core\scene.hpp" />
+    <ClInclude Include="include\sparky\core\time.hpp" />
     <ClInclude Include="include\sparky\core\window.hpp" />
     <ClInclude Include="include\sparky\ext\dirent.h" />
+    <ClInclude Include="include\sparky\ext\noiseutils.h" />
     <ClInclude Include="include\sparky\generation\chunk.hpp" />
     <ClInclude Include="include\sparky\generation\voxel.hpp" />
     <ClInclude Include="include\sparky\generation\world.hpp" />

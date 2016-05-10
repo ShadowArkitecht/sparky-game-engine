@@ -33,6 +33,7 @@ Class Includes
 #include <sparky\rendering\ishader.hpp>		// The shader needs to be updated with the transform.
 #include <sparky\math\frustum.hpp>			// Will only render when inside the viewport.
 #include <sparky\utils\GLdevice.hpp>
+#include <sparky\generation\world.hpp>
 
 namespace sparky
 {
@@ -51,7 +52,7 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Chunk::Chunk(void)
-		: Ref(), m_transform(), m_voxels(), m_pMesh(nullptr), m_shouldLoad(false)
+		: Ref(), m_transform(), m_voxels(), m_pMesh(nullptr), m_shouldLoad(false), m_pWorld(nullptr)
 	{
 		m_pMesh = new MeshData();
 		m_pMesh->addRef();
@@ -81,21 +82,31 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	Voxel& Chunk::getVoxel(const Vector3i& pos)
+	Voxel* Chunk::getVoxel(const Vector3i& pos)
 	{
 		return this->getVoxel(pos.x, pos.y, pos.z);
 	}
 
 	////////////////////////////////////////////////////////////
-	Voxel& Chunk::getVoxel(const int x, const int y, const int z)
+	Voxel* Chunk::getVoxel(const int x, const int y, const int z)
 	{
-		return m_voxels.at(((x * SIZE * SIZE) + y * SIZE) + z);
+		if (x < SIZE && y < SIZE && z < SIZE)
+		{
+			return &m_voxels.at((x * SIZE * y) + (y * SIZE) + z);
+		}
+
+		return m_pWorld->getVoxel(Vector3i(m_transform.getPosition()) + Vector3i(x, y, z));
 	}
 
 	////////////////////////////////////////////////////////////
 	MeshData* Chunk::getMesh(void) const
 	{
 		return m_pMesh;
+	}
+	////////////////////////////////////////////////////////////
+	void Chunk::setWorld(World* pWorld)
+	{
+		m_pWorld = pWorld;
 	}
 
 	/*
@@ -133,11 +144,11 @@ namespace sparky
 				{
 					for (x[u] = 0; x[u] < dims[u]; ++x[u], ++counter)
 					{
-						bool a1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).isActive() : false;
-						bool a2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).isActive() : false;
+						bool a1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2])->isActive() : false;
+						bool a2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2])->isActive() : false;
 
-						eVoxelType v1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2]).getType() : eVoxelType::DIRT;
-						eVoxelType v2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2]).getType() : eVoxelType::DIRT;
+						eVoxelType v1 = 0 <= x[axis] ? getVoxel(x[0], x[1], x[2])->getType() : eVoxelType::DIRT;
+						eVoxelType v2 = x[axis] < dims[axis] - 1 ? getVoxel(x[0] + q[0], x[1] + q[1], x[2] + q[2])->getType() : eVoxelType::DIRT;
 
 						if (a1 == a2 && v1 == v2)
 						{

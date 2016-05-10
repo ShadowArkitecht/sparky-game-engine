@@ -50,6 +50,7 @@ namespace sparky
 	*/
 	class MeshData;
 	class IShaderComponent;
+	class World;
 
 	class Chunk : public Ref
 	{
@@ -63,6 +64,7 @@ namespace sparky
 		Transform				m_transform;	///< The transform of the Chunk.
 		std::array<Voxel, 4096> m_voxels;		///< The individual voxels of the Chunk.
 		MeshData*				m_pMesh;	    ///< The mesh that renders the voxels.
+		World*					m_pWorld;		///< World object that this chunk is attached to.
 		bool					m_shouldLoad;	///< Whether the current Chunk object needs to generate.
 
 	public:
@@ -118,7 +120,7 @@ namespace sparky
 		/// \retval Voxel	The Voxel at the specified position.
 		///
 		////////////////////////////////////////////////////////////
-		Voxel& getVoxel(const Vector3i& pos);
+		Voxel* getVoxel(const Vector3i& pos);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the Voxel at the position specified.
@@ -127,10 +129,10 @@ namespace sparky
 		/// \param y		The y position of the Voxel.
 		/// \param z		The z position of the Voxel.
 		///
-		/// \retval Voxel&	The Voxel at the specified position.
+		/// \retval Voxel*	The Voxel at the specified position.
 		///
 		////////////////////////////////////////////////////////////
-		Voxel& getVoxel(const int x, const int y, const int z);
+		Voxel* getVoxel(const int x, const int y, const int z);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves the underlying MeshData of the Chunk.
@@ -139,6 +141,18 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		MeshData* getMesh(void) const;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Sets the World object of the Chunk.
+		///
+		/// When a chunk is created, it is attached to a World object. 
+		/// If a voxel if achieved from the chunk and is out of scope,
+		/// it will search the world object.
+		///
+		/// \param pWorld	The World parent of the Chunk.
+		///
+		////////////////////////////////////////////////////////////
+		void setWorld(World* pWorld);
 
 		/*
 		====================

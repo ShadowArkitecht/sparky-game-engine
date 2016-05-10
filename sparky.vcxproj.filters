@@ -197,6 +197,10 @@
     <ClCompile Include="src\rendering\pointshader.cpp">
       <Filter>shaders\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\time.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ext\noiseutils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -357,6 +361,10 @@
     <ClInclude Include="include\sparky\rendering\pointshader.hpp">
       <Filter>shaders\headers</Filter>
     </ClInclude>
+    <ClInclude Include="include\sparky\core\time.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\ext\noiseutils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\sparky\math\vector2.inl">

@@ -38,7 +38,8 @@ Class Includes
 #include <sparky\input\eventmanager.hpp>		  // Events need to be polled and handled.
 #include <sparky\core\pool.hpp>					  // Releases un-referenced dynamic objects.
 #include <sparky\utils\gldevice.hpp>			  // Glew initialisation.
-#include <sparky\math\transform.hpp>
+#include <sparky\math\transform.hpp>			  // Making default Transform objects.
+#include <sparky\core\time.hpp>					  // Calculating delta time.
 
 namespace sparky
 {
@@ -134,6 +135,8 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void GameManager::run(void)
 	{
+		Time::start();
+
 		if (!m_scenes.empty())
 		{
 			Frustum::construct();
@@ -202,6 +205,8 @@ namespace sparky
 			m_directionalLights.clear();
 			m_pointLights.clear();
 		}
+
+		Time::stop();
 	}
 
 }//namespace sparky

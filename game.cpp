@@ -5,6 +5,10 @@
 #include <sparky\utils\gldevice.hpp>
 #include <sparky\generation\chunk.hpp>
 #include <sparky\utils\threadmanager.hpp>
+#include <sparky\core\time.hpp>
+
+#include <noise\noise.h>
+#include <sparky\ext\noiseutils.h>
 
 using namespace sparky;
 
@@ -13,8 +17,6 @@ Game::Game(void)
 {
 	m_pWorld = new World();
 	m_pWorld->addRef();
-
-	m_pWorld->addChunk(Vector3i(0, 0, 0));
 
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));
@@ -63,6 +65,20 @@ Game::Game(void)
 	m_pPoint->addRef();
 
 	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
+
+	module::Perlin module;
+	utils::NoiseMap heightMap;
+
+	utils::NoiseMapBuilderPlane builder;
+	builder.SetSourceModule(module);
+	builder.SetDestNoiseMap(heightMap);
+
+	builder.SetDestSize(256, 256);
+	builder.SetBounds(2.0, 6.0, 1.0, 5.0);
+
+	builder.Build();
+
+	m_pWorld->build();
 }
 
 Game::~Game(void)
@@ -78,35 +94,35 @@ void Game::update(void)
 
 	if (m_pInput->getKey(SDLK_w))
 	{
-		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 15.0f * 0.0016f);
+		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 15.0f * Time::getDeltaTime());
 	}
 	if (m_pInput->getKey(SDLK_s))
 	{
-		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().forward() * 15.0f * 0.0016f);
+		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().forward() * 15.0f * Time::getDeltaTime());
 	}
 	if (m_pInput->getKey(SDLK_d))
 	{
-		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().right() * 15.0f * 0.0016f);
+		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().right() * 15.0f * Time::getDeltaTime());
 	}
 	if (m_pInput->getKey(SDLK_a))
 	{
-		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().right() * 15.0f * 0.0016f);
+		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().right() * 15.0f * Time::getDeltaTime());
 	}
 	if (m_pInput->getKey(SDLK_i))
 	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), -300.0f * 0.0016f));
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), -300.0f * Time::getDeltaTime()));
 	}
 	if (m_pInput->getKey(SDLK_k))
 	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), 300.0f * 0.0016f));
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), 300.0f * Time::getDeltaTime()));
 	}
 	if (m_pInput->getKey(SDLK_l))
 	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 300.0f * 0.0016f));
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 300.0f * Time::getDeltaTime()));
 	}
 	if (m_pInput->getKey(SDLK_j))
 	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), -300.0f * 0.0016f));
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), -300.0f * Time::getDeltaTime()));
 	}
 
 	//m_pWorld->getChunk(0, 0, 0)->getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 20.0f * 0.0016f));

@@ -132,8 +132,35 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		Chunk* getChunk(const int x, const int y, const int z) const;
 
-		//Voxel& getVoxel(const Vector3i& pos);
-		//Voxel& getVoxel(const int x, const int y, const int z) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves a Voxel at the desired position.
+		///
+		/// The Voxel will be retrieved from the world at the correct 
+		/// Chunk instance. If the voxel does not exist, the method will
+		/// return a nulllptr.
+		///
+		/// \param pos	The 3D position of the Voxel.
+		///
+		/// \retval	Voxel*	A pointer to the Voxel at the specified position.
+		///
+		////////////////////////////////////////////////////////////
+		Voxel* getVoxel(const Vector3i& pos);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Retrieves a Voxel at the desired position.
+		///
+		/// The Voxel will be retrieved from the world at the correct 
+		/// Chunk instance. If the voxel does not exist, the method will
+		/// return a nulllptr.
+		///
+		/// \param x	The x position of the Voxel.
+		/// \param y	The y position of the Voxel.
+		/// \param z	The z position of the Voxel.
+		///
+		/// \retval	Voxel*	A pointer to the Voxel at the specified position.
+		///
+		////////////////////////////////////////////////////////////
+		Voxel* getVoxel(const int x, const int y, const int z);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Add a Chunk to the World at the specified position.
@@ -146,6 +173,16 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		void addChunk(const Vector3i& pos);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Builds all of the current Chunks contained within the World.
+		///
+		/// When a Chunk object is added to the World, unless specified the
+		/// Chunk has not been constructed. Therefore this method will utilised
+		/// multi-threading to build all of the different chunks.
+		///
+		////////////////////////////////////////////////////////////
+		void build(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Renders all of the Chunks within the World.

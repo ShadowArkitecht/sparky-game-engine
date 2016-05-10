@@ -75,13 +75,33 @@ namespace sparky
 
 		position.x = (x / size.x) * size.x;
 		position.y = (y / size.y) * size.y;
-		position.z = (x / size.z) * size.z;
+		position.z = (z / size.z) * size.z;
 
 		auto chunk = m_chunks.find(position);
 
 		if (chunk != m_chunks.end())
 		{
 			return chunk->second;
+		}
+
+		return nullptr;
+	}
+
+	////////////////////////////////////////////////////////////
+	Voxel* World::getVoxel(const Vector3i& pos)
+	{
+		return this->getVoxel(pos.x, pos.y, pos.z);
+	}
+
+	////////////////////////////////////////////////////////////
+	Voxel* World::getVoxel(const int x, const int y, const int z)
+	{
+		Chunk* pChunk = this->getChunk(x, y, z);
+
+		if (pChunk)
+		{
+			Vector3i diff(pChunk->getTransform().getPosition());
+			return pChunk->getVoxel(x - diff.x, y - diff.y, z - diff.z);
 		}
 
 		return nullptr;
@@ -102,11 +122,21 @@ namespace sparky
 			Chunk* pChunk = new Chunk();
 			pChunk->getTransform().setPosition(Vector3f(pos));
 
-			ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, pChunk));
+			//ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, pChunk));
+			pChunk->setWorld(this);
 
 			pChunk->addRef();
 
 			m_chunks.insert(std::make_pair(pos, pChunk));
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	void World::build(void)
+	{
+		for (auto& chunk : m_chunks)
+		{
+			ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, chunk.second));
 		}
 	}
 
