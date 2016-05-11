@@ -1,0 +1,199 @@
+\hypertarget{classsparky_1_1_point_light}{}\section{sparky\+:\+:Point\+Light Class Reference}
+\label{classsparky_1_1_point_light}\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+
+
+{\ttfamily \#include $<$pointlight.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:Point\+Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_point_light}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_point_light_ad0fb91a5dfee3959efefc703f364cb4c}{Point\+Light} (const \hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c}{S\+P\+A\+R\+K\+Y\+\_\+\+P\+O\+I\+N\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+SC} \&desc)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_point_light}{Point\+Light} object from a description. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_point_light_a048dc877951ef45dd84e725d956e844a}{$\sim$\+Point\+Light} (void)=default\hypertarget{classsparky_1_1_point_light_a048dc877951ef45dd84e725d956e844a}{}\label{classsparky_1_1_point_light_a048dc877951ef45dd84e725d956e844a}
+
+\begin{DoxyCompactList}\small\item\em Default destructor of the \hyperlink{classsparky_1_1_point_light}{Point\+Light} object. \end{DoxyCompactList}\item 
+const \hyperlink{structsparky_1_1_attenuation}{Attenuation} \& \hyperlink{classsparky_1_1_point_light_ad7c189e15b39edc5ebb4de54a156e435}{get\+Attenuation} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the attenuation of this \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_point_light_aa03adb581601b178ff0058ad18af1ec9}{set\+Attenuation} (const \hyperlink{structsparky_1_1_attenuation}{Attenuation} \&attenuation)
+\begin{DoxyCompactList}\small\item\em Sets the attenuation of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \end{DoxyCompactList}\item 
+float \hyperlink{classsparky_1_1_point_light_aaf453df6857c6dfc6e50c08adaf40184}{get\+Range} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the range of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_point_light_ab82fe8464f26b87ab595a2a9bfc14281}{set\+Range} (const float range)
+\begin{DoxyCompactList}\small\item\em Sets the maximum radius of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_point_light_a09d074c94750d1bf892eaf2e757d1aec}{set\+Uniforms} (\hyperlink{classsparky_1_1_uniform}{Uniform} \&uniform)
+\begin{DoxyCompactList}\small\item\em Sets the uniform variables of a \hyperlink{classsparky_1_1_point_light}{Point\+Light} within a shader. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_point_light_a12ff1a240f2ad0e91a12e57e1c6ed7e7}{add\+Light} (void) override
+\begin{DoxyCompactList}\small\item\em Adds the light to the current pipeline if the conditions are correct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_point_light}{sparky\+::\+Point\+Light} is a light based component of the Sparky Engine. A \hyperlink{classsparky_1_1_point_light}{Point\+Light} can be used to represent a \hyperlink{classsparky_1_1_light}{Light} source with a specific radius of effect, such as a lantern or torch on a wall.
+
+Similar to other lights within the application, it uses descriptions to define it\textquotesingle{}s behaviour. Below is a code example.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a description and "zero" it out.}
+\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c}{sparky::SPARKY\_POINT\_LIGHT\_DESC} desc;
+memset(&desc, 0, \textcolor{keyword}{sizeof}(\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c}{sparky::SPARKY\_POINT\_LIGHT\_DESC}));
+
+\textcolor{comment}{// Set the information of the description.}
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_ab07cf32717f09f5a977e5f760961fb4a}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a0b3e29108f714a6004fca8e4a1d6cf67}{name} = \textcolor{stringliteral}{"u\_light"};
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_ab07cf32717f09f5a977e5f760961fb4a}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_aed72b3ed8f00100cee86d32063909a48}{position} = \hyperlink{classsparky_1_1_vector3_accf83dce35ce0cd7aeeb865fe3e9e7a9}{sparky::Vector3f::zero}();
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_ab07cf32717f09f5a977e5f760961fb4a}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a87e733aa6c7f8cecf430e5d09f424035}{colour} = \hyperlink{classsparky_1_1_vector3}{sparky::Vector3f}(0.5f, 0.0f, 0.0f);
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_ab07cf32717f09f5a977e5f760961fb4a}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a3e2f83fe7f13727f235e957debb54634}{intensity} = 0.8f;
+
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_a61495a6dedb077e939aea5be9cd72619}{attenuation}.\hyperlink{structsparky_1_1_attenuation_a0bbefcc87e251c6bdbd34f889e2906ce}{constant} = 1.0f;
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_a61495a6dedb077e939aea5be9cd72619}{attenuation}.\hyperlink{structsparky_1_1_attenuation_a2cd5cc43f8b4495b399037a94c30ffea}{linear} = 0.7f;
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_a61495a6dedb077e939aea5be9cd72619}{attenuation}.\hyperlink{structsparky_1_1_attenuation_ad2b6be370c7b71c9755903db2506a49f}{exponent} = 1.8f;
+
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___p_o_i_n_t___l_i_g_h_t___d_e_s_c_a1aa05df10bea864c48c19df36c877281}{range} = 15.0f;
+
+\textcolor{comment}{// Create a light with the description and retain.}
+\hyperlink{classsparky_1_1_point_light}{sparky::PointLight}* pLight = \textcolor{keyword}{new} \hyperlink{classsparky_1_1_point_light}{sparky::PointLight}(desc);
+pLight->\hyperlink{classsparky_1_1_ref_aeeb606836c315aa3b8a2254e23eb0899}{addRef}();
+
+\textcolor{comment}{// Update the uniforms within a shader object.}
+pLight->\hyperlink{classsparky_1_1_point_light_a09d074c94750d1bf892eaf2e757d1aec}{setUniforms}(m\_uniform);
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!Point\+Light@{Point\+Light}}
+\index{Point\+Light@{Point\+Light}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{Point\+Light(const S\+P\+A\+R\+K\+Y\+\_\+\+P\+O\+I\+N\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+S\+C \&desc)}{PointLight(const SPARKY_POINT_LIGHT_DESC &desc)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Point\+Light\+::\+Point\+Light (
+\begin{DoxyParamCaption}
+\item[{const {\bf S\+P\+A\+R\+K\+Y\+\_\+\+P\+O\+I\+N\+T\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+SC} \&}]{desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_point_light_ad0fb91a5dfee3959efefc703f364cb4c}{}\label{classsparky_1_1_point_light_ad0fb91a5dfee3959efefc703f364cb4c}
+
+
+Constructs a \hyperlink{classsparky_1_1_point_light}{Point\+Light} object from a description. 
+
+The description will define the behaviour of this \hyperlink{classsparky_1_1_point_light}{Point\+Light}. The members of the class will be set to those within the description and applied within the shader.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & The description of the \hyperlink{classsparky_1_1_point_light}{Point\+Light} object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!add\+Light@{add\+Light}}
+\index{add\+Light@{add\+Light}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{add\+Light(void) override}{addLight(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Point\+Light\+::add\+Light (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classsparky_1_1_point_light_a12ff1a240f2ad0e91a12e57e1c6ed7e7}{}\label{classsparky_1_1_point_light_a12ff1a240f2ad0e91a12e57e1c6ed7e7}
+
+
+Adds the light to the current pipeline if the conditions are correct. 
+
+For Point Lights their position and radius is checked using the sphere check in the \hyperlink{classsparky_1_1_frustum}{Frustum} class. If they are currently within view, they are added to the \hyperlink{classsparky_1_1_game_manager}{Game\+Manager} for rendering this frame. 
+
+Implements \hyperlink{classsparky_1_1_light_a23e37022528ba94549b89b99d2848eb2}{sparky\+::\+Light}.
+
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!get\+Attenuation@{get\+Attenuation}}
+\index{get\+Attenuation@{get\+Attenuation}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{get\+Attenuation(void) const }{getAttenuation(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Attenuation}\& sparky\+::\+Point\+Light\+::get\+Attenuation (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_point_light_ad7c189e15b39edc5ebb4de54a156e435}{}\label{classsparky_1_1_point_light_ad7c189e15b39edc5ebb4de54a156e435}
+
+
+Retrieves the attenuation of this \hyperlink{classsparky_1_1_point_light}{Point\+Light}. 
+
+The attenuation refers to the reduction or \char`\"{}fall-\/off\char`\"{} of the light over a distance.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{structsparky_1_1_attenuation}{Attenuation}} & The \hyperlink{structsparky_1_1_attenuation}{Attenuation} of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!get\+Range@{get\+Range}}
+\index{get\+Range@{get\+Range}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{get\+Range(void) const }{getRange(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}float sparky\+::\+Point\+Light\+::get\+Range (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_point_light_aaf453df6857c6dfc6e50c08adaf40184}{}\label{classsparky_1_1_point_light_aaf453df6857c6dfc6e50c08adaf40184}
+
+
+Retrieves the range of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. 
+
+The range refers to the maximum radius of effect that this \hyperlink{classsparky_1_1_point_light}{Point\+Light} will have on any geometry within the scene.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em float} & The range of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!set\+Attenuation@{set\+Attenuation}}
+\index{set\+Attenuation@{set\+Attenuation}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{set\+Attenuation(const Attenuation \&attenuation)}{setAttenuation(const Attenuation &attenuation)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Point\+Light\+::set\+Attenuation (
+\begin{DoxyParamCaption}
+\item[{const {\bf Attenuation} \&}]{attenuation}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_point_light_aa03adb581601b178ff0058ad18af1ec9}{}\label{classsparky_1_1_point_light_aa03adb581601b178ff0058ad18af1ec9}
+
+
+Sets the attenuation of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. 
+
+The attenuation refers to the reduction or \char`\"{}fall-\/off\char`\"{} of the light over a distance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em attenuation} & The new attenuation of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{set\+Range(const float range)}{setRange(const float range)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Point\+Light\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{const float}]{range}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_point_light_ab82fe8464f26b87ab595a2a9bfc14281}{}\label{classsparky_1_1_point_light_ab82fe8464f26b87ab595a2a9bfc14281}
+
+
+Sets the maximum radius of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. 
+
+The range refers to the maximum radius of effect that this \hyperlink{classsparky_1_1_point_light}{Point\+Light} will have on any geometry within the scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & The new maximum range of the \hyperlink{classsparky_1_1_point_light}{Point\+Light}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}!set\+Uniforms@{set\+Uniforms}}
+\index{set\+Uniforms@{set\+Uniforms}!sparky\+::\+Point\+Light@{sparky\+::\+Point\+Light}}
+\subsubsection[{\texorpdfstring{set\+Uniforms(\+Uniform \&uniform)}{setUniforms(Uniform &uniform)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Point\+Light\+::set\+Uniforms (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniform} \&}]{uniform}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_point_light_a09d074c94750d1bf892eaf2e757d1aec}{}\label{classsparky_1_1_point_light_a09d074c94750d1bf892eaf2e757d1aec}
+
+
+Sets the uniform variables of a \hyperlink{classsparky_1_1_point_light}{Point\+Light} within a shader. 
+
+Whenever a \hyperlink{classsparky_1_1_point_light}{Point\+Light} is used within a shader, the variables of the \hyperlink{classsparky_1_1_point_light}{Point\+Light} must be updated for correct shading behaviour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniform} & The Uniforms of the currently bound shader. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/lighting/pointlight.\+hpp\end{DoxyCompactItemize}

@@ -1,63 +1,19 @@
-﻿Build started 11/05/2016 19:21:36.
-     1>Project "C:\Users\Ben\Desktop\sparky-master\sparky-master\sparky.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/05/2016 22:11:23.
+     1>Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp src\core\camera.cpp src\core\gamemanager.cpp src\core\ref.cpp src\core\pool.cpp src\core\resourcemanager.cpp src\core\scene.cpp src\core\time.cpp src\core\window.cpp src\ext\noiseutils.cpp src\generation\chunk.cpp src\generation\voxel.cpp src\generation\world.cpp src\input\eventmanager.cpp src\input\ievent.cpp src\input\input.cpp src\input\mouse.cpp src\lighting\directionallight.cpp src\lighting\light.cpp src\lighting\pointlight.cpp src\math\frustum.cpp src\math\transform.cpp src\rendering\ambientshader.cpp src\rendering\deferredshader.cpp src\rendering\directionalshader.cpp src\rendering\buffers.cpp src\rendering\gbuffer.cpp src\rendering\GLSLobject.cpp src\rendering\imesh.cpp src\rendering\ishader.cpp src\rendering\meshdata.cpp src\rendering\model.cpp src\rendering\pointshader.cpp src\rendering\program.cpp src\rendering\texture.cpp src\rendering\uniform.cpp src\rendering\vertex.cpp src\utils\config.cpp src\utils\directory.cpp src\utils\gldevice.cpp src\utils\string.cpp src\utils\threadmanager.cpp src\utils\threadpool.cpp
-         game.cpp
-     1>C:\Users\Ben\Desktop\sparky-master\sparky-master\include\sparky\ext\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
-         main.cpp
-         camera.cpp
-         gamemanager.cpp
-         ref.cpp
-         pool.cpp
-         resourcemanager.cpp
-         scene.cpp
-         time.cpp
-         window.cpp
-         noiseutils.cpp
-     1>C:\Users\Ben\Desktop\sparky-master\sparky-master\include\sparky\ext\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
-     1>src\ext\noiseutils.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>src\ext\noiseutils.cpp(62): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>src\ext\noiseutils.cpp(867): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         chunk.cpp
-         voxel.cpp
-         world.cpp
-         eventmanager.cpp
-         ievent.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\input\input.cpp
          input.cpp
-         mouse.cpp
-         directionallight.cpp
-         light.cpp
-         Compiling...
-         pointlight.cpp
-         frustum.cpp
-         transform.cpp
-         ambientshader.cpp
-         deferredshader.cpp
-         directionalshader.cpp
-         buffers.cpp
-         gbuffer.cpp
-         GLSLobject.cpp
-         imesh.cpp
-         ishader.cpp
-         meshdata.cpp
-         model.cpp
-         pointshader.cpp
-         program.cpp
-         texture.cpp
-         uniform.cpp
-         vertex.cpp
-         config.cpp
-         directory.cpp
-         Compiling...
-         gldevice.cpp
-         string.cpp
-         threadmanager.cpp
-         threadpool.cpp
+     1>src\input\input.cpp(56): warning C4018: '<' : signed/unsigned mismatch
+     1>src\input\input.cpp(67): warning C4018: '<' : signed/unsigned mismatch
+     1>src\input\input.cpp(78): warning C4018: '<' : signed/unsigned mismatch
+     1>src\input\input.cpp(100): warning C4018: '<' : signed/unsigned mismatch
+     1>src\input\input.cpp(109): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Desktop\sparky-master\sparky-master\Release\sparky.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib libnoise\libnoise.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Desktop\sparky-master\sparky-master\Release\sparky.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Desktop\sparky-master\sparky-master\Release\sparky.lib" /MACHINE:X86 /SAFESEH:NO Release\game.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\repos\sparky\Release\sparky.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib libnoise\libnoise.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ben\Documents\repos\sparky\Release\sparky.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\repos\sparky\Release\sparky.lib" /MACHINE:X86 /SAFESEH:NO Release\game.obj
          Release\main.obj
          Release\camera.obj
          Release\gamemanager.obj
+         Release\gameobject.obj
          Release\ref.obj
          Release\pool.obj
          Release\resourcemanager.obj
@@ -84,8 +40,10 @@
          Release\gbuffer.obj
          Release\GLSLobject.obj
          Release\imesh.obj
+         Release\irender.obj
          Release\ishader.obj
          Release\meshdata.obj
+         Release\meshrenderer.obj
          Release\model.obj
          Release\pointshader.obj
          Release\program.obj
@@ -100,9 +58,9 @@
          Release\threadpool.obj
          Generating code
          Finished generating code
-         sparky.vcxproj -> C:\Users\Ben\Desktop\sparky-master\sparky-master\Release\sparky.exe
-     1>Done Building Project "C:\Users\Ben\Desktop\sparky-master\sparky-master\sparky.vcxproj" (Build target(s)).
+         sparky.vcxproj -> C:\Users\Ben\Documents\repos\sparky\Release\sparky.exe
+     1>Done Building Project "C:\Users\Ben\Documents\repos\sparky\sparky.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:54.79
+Time Elapsed 00:00:06.98

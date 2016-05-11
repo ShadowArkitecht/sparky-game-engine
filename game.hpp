@@ -12,13 +12,14 @@ Class Includes
 #include <sparky\input\input.hpp>
 #include <sparky\rendering\deferredshader.hpp>
 #include <sparky\lighting\directionallight.hpp>
-#include <sparky\lighting\pointlight.hpp>
+#include <sparky\core\gameobject.hpp>
 
 class Game : public sparky::Scene
 {
 private:
 	sparky::World*	          m_pWorld;
 	sparky::Texture*          m_pTexture;
+	sparky::GameObject*		  m_pObject;
 	sparky::Input*		      m_pInput;
 	sparky::DirectionalLight* m_pLight;
 

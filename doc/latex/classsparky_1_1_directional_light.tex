@@ -1,0 +1,155 @@
+\hypertarget{classsparky_1_1_directional_light}{}\section{sparky\+:\+:Directional\+Light Class Reference}
+\label{classsparky_1_1_directional_light}\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+
+
+{\ttfamily \#include $<$directionallight.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:Directional\+Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_directional_light}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_directional_light_a48e40264ca934395bb59f7273133d5c6}{Directional\+Light} (const \hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c}{S\+P\+A\+R\+K\+Y\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+A\+L\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+SC} \&desc)
+\begin{DoxyCompactList}\small\item\em The construction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} with a description. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_directional_light_a3078c7277827fc0a2a794b3c9b12db0f}{Directional\+Light} (void)=default\hypertarget{classsparky_1_1_directional_light_a3078c7277827fc0a2a794b3c9b12db0f}{}\label{classsparky_1_1_directional_light_a3078c7277827fc0a2a794b3c9b12db0f}
+
+\begin{DoxyCompactList}\small\item\em Default destruction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} object. \end{DoxyCompactList}\item 
+const \hyperlink{classsparky_1_1_vector3}{Vector3f} \& \hyperlink{classsparky_1_1_directional_light_ac91ded5f841f3cb9e9c1a284c89edf69}{get\+Direction} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the current direction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_directional_light_a50ce7665c9f527de2b6a8cc0d6d98730}{set\+Direction} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&direction)
+\begin{DoxyCompactList}\small\item\em Sets a new direction for the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_directional_light_abe0681b7aa12ee22ff3630302bff9e91}{set\+Uniforms} (\hyperlink{classsparky_1_1_uniform}{Uniform} \&uniform)
+\begin{DoxyCompactList}\small\item\em Sets the uniform variables of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_directional_light_ad6aa0a66026daab22b0d389100783c8d}{add\+Light} (void) override
+\begin{DoxyCompactList}\small\item\em Adds the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} to the current pipeline if the conditions are correct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_directional_light}{sparky\+::\+Directional\+Light} is one of the main lighting classes within the application. It is used to represent light sources that shine infinitely in one direction, such as the sun or a a star.
+
+\hyperlink{classsparky_1_1_directional_light}{sparky\+::\+Directional\+Light} can be combined with any other light source provided within the shader. Below is a code example.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a description for the DirectionalLight and "zero" it out.}
+\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c}{sparky::SPARKY\_DIRECTIONAL\_LIGHT\_DESC} desc;
+memset(&desc, 0, \textcolor{keyword}{sizeof}(\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c}{sparky::SPARKY\_DIRECTIONAL\_LIGHT\_DESC}));
+
+\textcolor{comment}{// Fill the description with information about the light.}
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c_aebc9eb0e44711825e19e79dac4e441f5}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a0b3e29108f714a6004fca8e4a1d6cf67}{name}      = \textcolor{stringliteral}{"u\_light"};                        
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c_aebc9eb0e44711825e19e79dac4e441f5}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_aed72b3ed8f00100cee86d32063909a48}{position}  = \hyperlink{classsparky_1_1_vector3_accf83dce35ce0cd7aeeb865fe3e9e7a9}{sparky::Vector3f::zero}();         
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c_aebc9eb0e44711825e19e79dac4e441f5}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a87e733aa6c7f8cecf430e5d09f424035}{colour}    = \hyperlink{classsparky_1_1_vector3}{sparky::Vector3f}(0.5f, 0.0f, 0.0f);   
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c_aebc9eb0e44711825e19e79dac4e441f5}{base}.\hyperlink{structsparky_1_1_s_p_a_r_k_y___b_a_s_e___l_i_g_h_t___d_e_s_c_a3e2f83fe7f13727f235e957debb54634}{intensity} = 0.45f;                    
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___d_i_r_e_c_t_i_o_n_a_l___l_i_g_h_t___d_e_s_c_a56dbeae925c825847b305d04ab7fb8e2}{direction}      = \hyperlink{classsparky_1_1_vector3}{sparky::Vector3f}(1.0f, 0.0f, 0.0f);
+
+\textcolor{comment}{// Create a new DirectionalLight with the description and retain.}
+\hyperlink{classsparky_1_1_directional_light}{sparky::DirectionalLight}* pLight = \textcolor{keyword}{new} 
+      \hyperlink{classsparky_1_1_directional_light}{sparky::DirectionalLight}(desc);
+pLight->\hyperlink{classsparky_1_1_ref_aeeb606836c315aa3b8a2254e23eb0899}{addRef}();
+
+\textcolor{comment}{// Within a shader update the lights uniform variables.}
+pLight->\hyperlink{classsparky_1_1_directional_light_abe0681b7aa12ee22ff3630302bff9e91}{setUniforms}(m\_uniform);
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}!Directional\+Light@{Directional\+Light}}
+\index{Directional\+Light@{Directional\+Light}!sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+\subsubsection[{\texorpdfstring{Directional\+Light(const S\+P\+A\+R\+K\+Y\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+A\+L\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+S\+C \&desc)}{DirectionalLight(const SPARKY_DIRECTIONAL_LIGHT_DESC &desc)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Directional\+Light\+::\+Directional\+Light (
+\begin{DoxyParamCaption}
+\item[{const {\bf S\+P\+A\+R\+K\+Y\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+A\+L\+\_\+\+L\+I\+G\+H\+T\+\_\+\+D\+E\+SC} \&}]{desc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_directional_light_a48e40264ca934395bb59f7273133d5c6}{}\label{classsparky_1_1_directional_light_a48e40264ca934395bb59f7273133d5c6}
+
+
+The construction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} with a description. 
+
+The description describes the parameters in which the directional light is created.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & The description of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}!add\+Light@{add\+Light}}
+\index{add\+Light@{add\+Light}!sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+\subsubsection[{\texorpdfstring{add\+Light(void) override}{addLight(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Directional\+Light\+::add\+Light (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classsparky_1_1_directional_light_ad6aa0a66026daab22b0d389100783c8d}{}\label{classsparky_1_1_directional_light_ad6aa0a66026daab22b0d389100783c8d}
+
+
+Adds the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} to the current pipeline if the conditions are correct. 
+
+As \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} \char`\"{}technically\char`\"{} do not have a starting position, they are always added to the engine at the beginning of the frame. 
+
+Implements \hyperlink{classsparky_1_1_light_a23e37022528ba94549b89b99d2848eb2}{sparky\+::\+Light}.
+
+\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+\subsubsection[{\texorpdfstring{get\+Direction(void) const }{getDirection(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vector3f}\& sparky\+::\+Directional\+Light\+::get\+Direction (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_directional_light_ac91ded5f841f3cb9e9c1a284c89edf69}{}\label{classsparky_1_1_directional_light_ac91ded5f841f3cb9e9c1a284c89edf69}
+
+
+Retrieves the current direction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} object. 
+
+The direction of the light controls which way that the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} will shine in.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Vector3f\&} & The direction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light}. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}!set\+Direction@{set\+Direction}}
+\index{set\+Direction@{set\+Direction}!sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+\subsubsection[{\texorpdfstring{set\+Direction(const Vector3f \&direction)}{setDirection(const Vector3f &direction)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Directional\+Light\+::set\+Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{direction}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_directional_light_a50ce7665c9f527de2b6a8cc0d6d98730}{}\label{classsparky_1_1_directional_light_a50ce7665c9f527de2b6a8cc0d6d98730}
+
+
+Sets a new direction for the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} object. 
+
+The direction of the light controls which way that the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light} will shine in.
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The new direction of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}!set\+Uniforms@{set\+Uniforms}}
+\index{set\+Uniforms@{set\+Uniforms}!sparky\+::\+Directional\+Light@{sparky\+::\+Directional\+Light}}
+\subsubsection[{\texorpdfstring{set\+Uniforms(\+Uniform \&uniform)}{setUniforms(Uniform &uniform)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Directional\+Light\+::set\+Uniforms (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniform} \&}]{uniform}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_directional_light_abe0681b7aa12ee22ff3630302bff9e91}{}\label{classsparky_1_1_directional_light_abe0681b7aa12ee22ff3630302bff9e91}
+
+
+Sets the uniform variables of the \hyperlink{classsparky_1_1_directional_light}{Directional\+Light}. 
+
+The directional lights are constructed within the shader as a struct. These uniforms comply with the variables of the structs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniform} & The uniform class of the currently bound shader. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/lighting/directionallight.\+hpp\end{DoxyCompactItemize}

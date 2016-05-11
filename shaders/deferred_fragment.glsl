@@ -38,5 +38,6 @@ void main()
 {
 	g_position = fs_in.world_position;
 	g_normal   = normalize(fs_in.world_normal);
+	
 	g_diffuse  = texture(u_texture, fs_in.uv).rgb;
 }

@@ -1,0 +1,75 @@
+\hypertarget{classsparky_1_1_i_shader_component}{}\section{sparky\+:\+:I\+Shader\+Component Class Reference}
+\label{classsparky_1_1_i_shader_component}\index{sparky\+::\+I\+Shader\+Component@{sparky\+::\+I\+Shader\+Component}}
+
+
+{\ttfamily \#include $<$ishader.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:I\+Shader\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.456140cm]{classsparky_1_1_i_shader_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_i_shader_component_a958bfdf2920d0403b739b9c586d0f70d}{I\+Shader\+Component} (void)\hypertarget{classsparky_1_1_i_shader_component_a958bfdf2920d0403b739b9c586d0f70d}{}\label{classsparky_1_1_i_shader_component_a958bfdf2920d0403b739b9c586d0f70d}
+
+\begin{DoxyCompactList}\small\item\em Default construction of the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_i_shader_component_a46f53c0ea618331b9a1bf4b6b6698324}{I\+Shader\+Component} (const \hyperlink{classsparky_1_1_string}{String} \&vertex\+Shader, const \hyperlink{classsparky_1_1_string}{String} \&fragment\+Shader)\hypertarget{classsparky_1_1_i_shader_component_a46f53c0ea618331b9a1bf4b6b6698324}{}\label{classsparky_1_1_i_shader_component_a46f53c0ea618331b9a1bf4b6b6698324}
+
+\begin{DoxyCompactList}\small\item\em Convenience constructor for child objects that only. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsparky_1_1_i_shader_component_a58ac43cdb4ca241cc5e083a83ee44970}{$\sim$\+I\+Shader\+Component} (void)=default\hypertarget{classsparky_1_1_i_shader_component_a58ac43cdb4ca241cc5e083a83ee44970}{}\label{classsparky_1_1_i_shader_component_a58ac43cdb4ca241cc5e083a83ee44970}
+
+\begin{DoxyCompactList}\small\item\em Default destruction of the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_shader_component_a6ed7ff5dbe96d0fb5bc8f3e53e110e1a}{bind} (void) const \hypertarget{classsparky_1_1_i_shader_component_a6ed7ff5dbe96d0fb5bc8f3e53e110e1a}{}\label{classsparky_1_1_i_shader_component_a6ed7ff5dbe96d0fb5bc8f3e53e110e1a}
+
+\begin{DoxyCompactList}\small\item\em brief Binds the \hyperlink{classsparky_1_1_program}{Program} attached to the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_shader_component_a2628a07c8ea475ae5836a135e637c38f}{unbind} (void) const \hypertarget{classsparky_1_1_i_shader_component_a2628a07c8ea475ae5836a135e637c38f}{}\label{classsparky_1_1_i_shader_component_a2628a07c8ea475ae5836a135e637c38f}
+
+\begin{DoxyCompactList}\small\item\em Unbinds the \hyperlink{classsparky_1_1_program}{Program} attached to the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_i_shader_component_a0bf4ef38fcf1ac17fd1852668baeef88}{update} (const \hyperlink{classsparky_1_1_transform}{Transform} \&transform)=0
+\begin{DoxyCompactList}\small\item\em Abstract method for updating the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_program}{Program} \hyperlink{classsparky_1_1_i_shader_component_a6c49e26d6219ad9a1d41fb234332a076}{m\+\_\+program}\hypertarget{classsparky_1_1_i_shader_component_a6c49e26d6219ad9a1d41fb234332a076}{}\label{classsparky_1_1_i_shader_component_a6c49e26d6219ad9a1d41fb234332a076}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classsparky_1_1_program}{Program} contains the shader functionality. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_uniform}{Uniform} \hyperlink{classsparky_1_1_i_shader_component_aabcb035e34d2470b075803ac0b8300fa}{m\+\_\+uniform}\hypertarget{classsparky_1_1_i_shader_component_aabcb035e34d2470b075803ac0b8300fa}{}\label{classsparky_1_1_i_shader_component_aabcb035e34d2470b075803ac0b8300fa}
+
+\begin{DoxyCompactList}\small\item\em Binds uniform variables within the shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_i_shader_component}{sparky\+::\+I\+Shader\+Component} is the abstract base class object for all shaders used within the Sparky Engine. It provides basic functionality for binding and unbinding shaders and an abstract method for updating the uniforms of a shader. For a code example refer to any child object of this shader. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+I\+Shader\+Component@{sparky\+::\+I\+Shader\+Component}!update@{update}}
+\index{update@{update}!sparky\+::\+I\+Shader\+Component@{sparky\+::\+I\+Shader\+Component}}
+\subsubsection[{\texorpdfstring{update(const Transform \&transform)=0}{update(const Transform &transform)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+I\+Shader\+Component\+::update (
+\begin{DoxyParamCaption}
+\item[{const {\bf Transform} \&}]{transform}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_i_shader_component_a0bf4ef38fcf1ac17fd1852668baeef88}{}\label{classsparky_1_1_i_shader_component_a0bf4ef38fcf1ac17fd1852668baeef88}
+
+
+Abstract method for updating the \hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} object. 
+
+This method is overwritten by each subsequent shader of the sparky engine. Update updates the uniforms contained within the \hyperlink{classsparky_1_1_program}{Program}\textquotesingle{}s shaders.
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & The transform of the object being rendered. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classsparky_1_1_point_shader_a96b31364d736885500c7af9615ed11bd}{sparky\+::\+Point\+Shader}, \hyperlink{classsparky_1_1_directional_shader_ab2776568ee2f03af47daa97ae138d7a0}{sparky\+::\+Directional\+Shader}, \hyperlink{classsparky_1_1_deferred_shader_a664f2316993fab2147c0a34513a5039a}{sparky\+::\+Deferred\+Shader}, and \hyperlink{classsparky_1_1_ambient_shader_a9874223230a47d9f9bd82195e4ed270f}{sparky\+::\+Ambient\+Shader}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/ishader.\+hpp\end{DoxyCompactItemize}

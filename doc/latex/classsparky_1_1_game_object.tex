@@ -1,0 +1,204 @@
+\hypertarget{classsparky_1_1_game_object}{}\section{sparky\+:\+:Game\+Object Class Reference}
+\label{classsparky_1_1_game_object}\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+
+
+{\ttfamily \#include $<$gameobject.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsparky_1_1_game_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_game_object_a6741a688df44e18af24ac38445c2e009}{Game\+Object} (void)
+\begin{DoxyCompactList}\small\item\em Default constructor for the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_game_object_a8bb617ee3bafb00cc463d652307e2bfe}{Game\+Object} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&position)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_game_object_a23b68bce39d6644622a62343d79aa014}{Game\+Object} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&position, const \hyperlink{classsparky_1_1_quaternion}{Quaternionf} \&rotation)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position and rotation. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_game_object_a563d3ad3403dc40f0bf7c0450b6d76e1}{Game\+Object} (const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&position, const \hyperlink{classsparky_1_1_quaternion}{Quaternionf} \&rotation, const \hyperlink{classsparky_1_1_vector3}{Vector3f} \&scale)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position, rotation and scale. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_game_object_ad1ce9f28fd2a1165a58432db1f505ca1}{$\sim$\+Game\+Object} (void)\hypertarget{classsparky_1_1_game_object_ad1ce9f28fd2a1165a58432db1f505ca1}{}\label{classsparky_1_1_game_object_ad1ce9f28fd2a1165a58432db1f505ca1}
+
+\begin{DoxyCompactList}\small\item\em Destruction of the \hyperlink{classsparky_1_1_game_object}{Game\+Object} class, releases all of the \hyperlink{classsparky_1_1_i_render_component}{I\+Render\+Component}\textquotesingle{}s being retained. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_transform}{Transform} \& \hyperlink{classsparky_1_1_game_object_a2d1cea0a6b1161f7ae9e433b5eef7655}{get\+Transform} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the current \hyperlink{classsparky_1_1_transform}{Transform} of this \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_game_object_ac84af9cef43bab887437b7257c6237db}{add\+Component} (\hyperlink{classsparky_1_1_i_render_component}{I\+Render\+Component} $\ast$p\+Renderable)
+\begin{DoxyCompactList}\small\item\em Attached a renderable component to the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_game_object_aeb6a8aa0eb3fdcd7e0611ca1fef8dd24}{render} (\hyperlink{classsparky_1_1_i_shader_component}{I\+Shader\+Component} $\ast$p\+Shader)
+\begin{DoxyCompactList}\small\item\em Renders the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_game_object}{sparky\+::\+Game\+Object} is the \char`\"{}\+Entity\char`\"{} class within the Entity Component System design paradigm that the engine utilises. Components can be added to the \hyperlink{classsparky_1_1_game_object}{Game\+Object} quickly and the object will implicitly know the behaviour of each component.
+
+Currently the \hyperlink{classsparky_1_1_game_object}{Game\+Object} is only used for rendering models or meshes within the application. Below is a code example.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a new GameObject and retain it!}
+\hyperlink{classsparky_1_1_game_object}{sparky::GameObject}* pObject = \textcolor{keyword}{new} \hyperlink{classsparky_1_1_game_object}{sparky::GameObject}();
+pObject->\hyperlink{classsparky_1_1_ref_aeeb606836c315aa3b8a2254e23eb0899}{addRef}();
+
+\textcolor{comment}{// Make a new model.}
+\hyperlink{classsparky_1_1_model}{sparky::Model}* pModel = \textcolor{keyword}{new} \hyperlink{classsparky_1_1_model}{sparky::Model}(\textcolor{stringliteral}{"assets/model.obj"});
+
+\textcolor{comment}{// Create a texture description and create a texture!}
+\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c}{sparky::SPARKY\_TEXTURE\_DESC} desc;
+memset(&desc, 0, \textcolor{keyword}{sizeof}(\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c}{sparky::SPARKY\_TEXTURE\_DESC}));
+
+\textcolor{comment}{// Set the variables of this texture.}
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c_aa16d4a1609584eecae520984f0c844fa}{target}         = GL\_TEXTURE\_2D;
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c_a41118481a1e1ebbae3ff6909d583112a}{internalFormat} = GL\_RGB;
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c_a578a5137068a9f9bb9a672931928ae04}{filter}         = eTextureFilter::NEAREST;
+desc.\hyperlink{structsparky_1_1_s_p_a_r_k_y___t_e_x_t_u_r_e___d_e_s_c_a9b527f02b0469a529c146bcf14574dcb}{mode}           = eTextureWrapMode::REPEAT;
+
+\hyperlink{namespacesparky}{sparky}* pTexture = \textcolor{keyword}{new} Texture(\textcolor{stringliteral}{"assets/image.tga"}, desc);
+
+\textcolor{comment}{// Make a mesh renderer and add it to the GameObject!}
+\hyperlink{classsparky_1_1_mesh_renderer}{sparky::MeshRenderer}* pRenderer = \textcolor{keyword}{new} \hyperlink{classsparky_1_1_mesh_renderer}{sparky::MeshRenderer}(pModel, 
+      pTexture);
+
+pObject->\hyperlink{classsparky_1_1_game_object_ac84af9cef43bab887437b7257c6237db}{addComponent}(pRenderer);
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{Game\+Object(void)}{GameObject(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Game\+Object\+::\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_game_object_a6741a688df44e18af24ac38445c2e009}{}\label{classsparky_1_1_game_object_a6741a688df44e18af24ac38445c2e009}
+
+
+Default constructor for the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. 
+
+When a \hyperlink{classsparky_1_1_game_object}{Game\+Object} is constructed with this constructor, its transform within 3D space is set to the \hyperlink{classsparky_1_1_transform}{Transform}\textquotesingle{}s default constructor. \index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{Game\+Object(const Vector3f \&position)}{GameObject(const Vector3f &position)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Game\+Object\+::\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_game_object_a8bb617ee3bafb00cc463d652307e2bfe}{}\label{classsparky_1_1_game_object_a8bb617ee3bafb00cc463d652307e2bfe}
+
+
+Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position. 
+
+The \hyperlink{classsparky_1_1_game_object}{Game\+Object} is constructed with a defined position within the world. The rotation and scale of the object remain the \hyperlink{classsparky_1_1_transform}{Transform} classes default values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{Game\+Object(const Vector3f \&position, const Quaternionf \&rotation)}{GameObject(const Vector3f &position, const Quaternionf &rotation)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Game\+Object\+::\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{position, }
+\item[{const {\bf Quaternionf} \&}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_game_object_a23b68bce39d6644622a62343d79aa014}{}\label{classsparky_1_1_game_object_a23b68bce39d6644622a62343d79aa014}
+
+
+Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position and rotation. 
+
+The \hyperlink{classsparky_1_1_game_object}{Game\+Object} is constructed with a defined position and rotation within the world. The scale value remains the \hyperlink{classsparky_1_1_transform}{Transform}\textquotesingle{}s default value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+{\em rotation} & The rotation of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{Game\+Object(const Vector3f \&position, const Quaternionf \&rotation, const Vector3f \&scale)}{GameObject(const Vector3f &position, const Quaternionf &rotation, const Vector3f &scale)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Game\+Object\+::\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3f} \&}]{position, }
+\item[{const {\bf Quaternionf} \&}]{rotation, }
+\item[{const {\bf Vector3f} \&}]{scale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_game_object_a563d3ad3403dc40f0bf7c0450b6d76e1}{}\label{classsparky_1_1_game_object_a563d3ad3403dc40f0bf7c0450b6d76e1}
+
+
+Constructs a \hyperlink{classsparky_1_1_game_object}{Game\+Object} with an explicit position, rotation and scale. 
+
+The \hyperlink{classsparky_1_1_game_object}{Game\+Object} is constructed with a defined position, rotation and scale within the \hyperlink{classsparky_1_1_world}{World}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+{\em rotation} & The rotation of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+{\em scale} & The scale of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!add\+Component@{add\+Component}}
+\index{add\+Component@{add\+Component}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{add\+Component(\+I\+Render\+Component $\ast$p\+Renderable)}{addComponent(IRenderComponent *pRenderable)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Game\+Object\+::add\+Component (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Render\+Component} $\ast$}]{p\+Renderable}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_game_object_ac84af9cef43bab887437b7257c6237db}{}\label{classsparky_1_1_game_object_ac84af9cef43bab887437b7257c6237db}
+
+
+Attached a renderable component to the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Renderable} & The renderable component to add. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!get\+Transform@{get\+Transform}}
+\index{get\+Transform@{get\+Transform}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{get\+Transform(void)}{getTransform(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Transform}\& sparky\+::\+Game\+Object\+::get\+Transform (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_game_object_a2d1cea0a6b1161f7ae9e433b5eef7655}{}\label{classsparky_1_1_game_object_a2d1cea0a6b1161f7ae9e433b5eef7655}
+
+
+Retrieves the current \hyperlink{classsparky_1_1_transform}{Transform} of this \hyperlink{classsparky_1_1_game_object}{Game\+Object}. 
+
+As the \hyperlink{classsparky_1_1_transform}{Transform} is returned as a reference object, the \hyperlink{classsparky_1_1_game_object}{Game\+Object}\textquotesingle{}s \hyperlink{classsparky_1_1_transform}{Transform} can be edited outside the scope of this class.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Transform\&} & The \hyperlink{classsparky_1_1_transform}{Transform} of the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}!render@{render}}
+\index{render@{render}!sparky\+::\+Game\+Object@{sparky\+::\+Game\+Object}}
+\subsubsection[{\texorpdfstring{render(\+I\+Shader\+Component $\ast$p\+Shader)}{render(IShaderComponent *pShader)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Game\+Object\+::render (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Shader\+Component} $\ast$}]{p\+Shader}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_game_object_aeb6a8aa0eb3fdcd7e0611ca1fef8dd24}{}\label{classsparky_1_1_game_object_aeb6a8aa0eb3fdcd7e0611ca1fef8dd24}
+
+
+Renders the \hyperlink{classsparky_1_1_game_object}{Game\+Object}. 
+
+When the \hyperlink{classsparky_1_1_game_object}{Game\+Object} is rendered, the shader is updated with this objects \hyperlink{classsparky_1_1_transform}{Transform}, and all of the \hyperlink{classsparky_1_1_i_render_component}{I\+Render\+Component}\textquotesingle{}s attached to the \hyperlink{classsparky_1_1_game_object}{Game\+Object} are rendered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Shader} & The shader to be updated. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/core/gameobject.\+hpp\end{DoxyCompactItemize}

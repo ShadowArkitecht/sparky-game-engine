@@ -51,7 +51,7 @@ namespace sparky
 		: IMeshComponent(), m_meshes()
 	{
 		Assimp::Importer importer;
-		const aiScene* pScene = importer.ReadFile(filename.getCString(), aiProcess_Triangulate);
+		const aiScene* pScene = importer.ReadFile(filename.getCString(), aiProcess_Triangulate | aiProcess_FlipUVs);
 
 		if (!pScene || pScene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !pScene->mRootNode)
 		{
@@ -107,12 +107,12 @@ namespace sparky
 			vertex.position.y = pMesh->mVertices[i].y;
 			vertex.position.z = pMesh->mVertices[i].z;
 
-			if (pMesh->HasNormals())
-			{
-				vertex.normal.x = pMesh->mNormals[i].x;
-				vertex.normal.y = pMesh->mNormals[i].y;
-				vertex.normal.z = pMesh->mNormals[i].z;
-			}
+			//if (pMesh->HasNormals())
+			//{
+			//	vertex.normal.x = pMesh->mNormals[i].x;
+			//	vertex.normal.y = pMesh->mNormals[i].y;
+			//	vertex.normal.z = pMesh->mNormals[i].z;
+			//}
 
 			if (pMesh->mTextureCoords[0])
 			{
@@ -139,10 +139,10 @@ namespace sparky
 
 		pSparkyMesh->addRef();
 
-		if (!pMesh->HasNormals())
-		{
-			pSparkyMesh->generate(true);
-		}
+		//if (!pMesh->HasNormals())
+		//{
+		//	pSparkyMesh->generate(true);
+		//}
 
 		pSparkyMesh->generate(true);
 		return pSparkyMesh;

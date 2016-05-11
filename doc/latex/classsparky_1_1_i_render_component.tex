@@ -1,0 +1,50 @@
+\hypertarget{classsparky_1_1_i_render_component}{}\section{sparky\+:\+:I\+Render\+Component Class Reference}
+\label{classsparky_1_1_i_render_component}\index{sparky\+::\+I\+Render\+Component@{sparky\+::\+I\+Render\+Component}}
+
+
+{\ttfamily \#include $<$irender.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:I\+Render\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_i_render_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_i_render_component_ab0f41c5fff4cf560544edc0aedf5fdf3}{I\+Render\+Component} (void)\hypertarget{classsparky_1_1_i_render_component_ab0f41c5fff4cf560544edc0aedf5fdf3}{}\label{classsparky_1_1_i_render_component_ab0f41c5fff4cf560544edc0aedf5fdf3}
+
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{classsparky_1_1_i_render_component}{I\+Render\+Component} object. Calls the the \hyperlink{classsparky_1_1_ref}{Ref} object parent constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsparky_1_1_i_render_component_aafee7ed8a4c86d5f6e3a07da0863ab12}{$\sim$\+I\+Render\+Component} (void)=default\hypertarget{classsparky_1_1_i_render_component_aafee7ed8a4c86d5f6e3a07da0863ab12}{}\label{classsparky_1_1_i_render_component_aafee7ed8a4c86d5f6e3a07da0863ab12}
+
+\begin{DoxyCompactList}\small\item\em Default destruction of the \hyperlink{classsparky_1_1_i_render_component}{I\+Render\+Component} object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_i_render_component_adb6a10d473124fcc807d5d61b6e5ebf1}{render} (void)=0
+\begin{DoxyCompactList}\small\item\em Abstract method for rendering the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_i_render_component}{sparky\+::\+I\+Render\+Component} is the base class for all renderable components that can be added to \hyperlink{classsparky_1_1_game_object}{Game\+Object} instances. It allows for modular rendering behaviour as each child will override the pure virtual render method. For a code example please refer to \hyperlink{classsparky_1_1_mesh_renderer}{sparky\+::\+Mesh\+Renderer}. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+I\+Render\+Component@{sparky\+::\+I\+Render\+Component}!render@{render}}
+\index{render@{render}!sparky\+::\+I\+Render\+Component@{sparky\+::\+I\+Render\+Component}}
+\subsubsection[{\texorpdfstring{render(void)=0}{render(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+I\+Render\+Component\+::render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_i_render_component_adb6a10d473124fcc807d5d61b6e5ebf1}{}\label{classsparky_1_1_i_render_component_adb6a10d473124fcc807d5d61b6e5ebf1}
+
+
+Abstract method for rendering the component. 
+
+Components can be added to the \hyperlink{classsparky_1_1_game_object}{Game\+Object} class that will need different type of behaviour, depending on the needed rendering. 
+
+Implemented in \hyperlink{classsparky_1_1_mesh_renderer_a1a853da3e75510c27645f39aabe37edf}{sparky\+::\+Mesh\+Renderer}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/irender.\+hpp\end{DoxyCompactItemize}

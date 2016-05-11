@@ -1,0 +1,132 @@
+\hypertarget{classsparky_1_1_g_buffer}{}\section{sparky\+:\+:G\+Buffer Class Reference}
+\label{classsparky_1_1_g_buffer}\index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+
+
+{\ttfamily \#include $<$gbuffer.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_g_buffer_abb6414c6008f4cf73218caa17d40f9bb}{G\+Buffer} (void)
+\begin{DoxyCompactList}\small\item\em Default constructor for the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_g_buffer_a83b6c8d215e8f9eb1bbcda36bd02a322}{$\sim$\+G\+Buffer} (void)
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_buffer_a71c5f2a4dc35f05a3e978fa20ba4564f}{generate} (void)
+\begin{DoxyCompactList}\small\item\em Generates the frame buffer object and the textures of of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer}. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_buffer_a832f461bb679e535dbd4a23f583192bf}{bind} (void) const 
+\begin{DoxyCompactList}\small\item\em Binds the Frame \hyperlink{classsparky_1_1_buffer}{Buffer} of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_buffer_a5bac7c40c04e0a558387509b1dda46fa}{unbind} (void) const 
+\begin{DoxyCompactList}\small\item\em Unbinds the Frame \hyperlink{classsparky_1_1_buffer}{Buffer} of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_buffer_a93c184529fb8fb27a24b39762e948322}{bind\+Textures} (void) const 
+\begin{DoxyCompactList}\small\item\em Binds all of the textures bound by the Gbuffer object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_buffer_a00610bd1aedcefc174d70f016eedf107}{unbind\+Textures} (void) const 
+\begin{DoxyCompactList}\small\item\em Unbinds all of the textures bound by the Gbuffer object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_g_buffer}{sparky\+::\+G\+Buffer} is the most important class for the deferred rendering aspect of the application. The information of the objects within the scenes is generated and bound into textures, that can be used and referenced within shaders.
+
+\hyperlink{classsparky_1_1_g_buffer}{sparky\+::\+G\+Buffer} supplies the user a way to use a massive amount of lights within a single scene and still maintain a manageable frame-\/rate. Without Deferred rendering, this would bring the application to a stand-\/still. Below is a code example.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a GBuffer object and generate.}
+\hyperlink{classsparky_1_1_g_buffer}{sparky::GBuffer} buffer;
+buffer.\hyperlink{classsparky_1_1_g_buffer_a71c5f2a4dc35f05a3e978fa20ba4564f}{generate}();
+
+\textcolor{comment}{// Bind the GBuffer for use and render objects into the buffer.}
+buffer.\hyperlink{classsparky_1_1_g_buffer_a832f461bb679e535dbd4a23f583192bf}{bind}();
+\textcolor{comment}{// Render objects here.}
+buffer.\hyperlink{classsparky_1_1_g_buffer_a5bac7c40c04e0a558387509b1dda46fa}{unbind}();
+
+\textcolor{comment}{// Bind the textures for use within a shader.}
+buffer.\hyperlink{classsparky_1_1_g_buffer_a93c184529fb8fb27a24b39762e948322}{bindTextures}();
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!G\+Buffer@{G\+Buffer}}
+\index{G\+Buffer@{G\+Buffer}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{G\+Buffer(void)}{GBuffer(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+G\+Buffer\+::\+G\+Buffer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_g_buffer_abb6414c6008f4cf73218caa17d40f9bb}{}\label{classsparky_1_1_g_buffer_abb6414c6008f4cf73218caa17d40f9bb}
+
+
+Default constructor for the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. 
+
+The constructor will set all of the texture handles and frame buffer to default values. \index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!````~G\+Buffer@{$\sim$\+G\+Buffer}}
+\index{````~G\+Buffer@{$\sim$\+G\+Buffer}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{$\sim$\+G\+Buffer(void)}{~GBuffer(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+G\+Buffer\+::$\sim$\+G\+Buffer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_g_buffer_a83b6c8d215e8f9eb1bbcda36bd02a322}{}\label{classsparky_1_1_g_buffer_a83b6c8d215e8f9eb1bbcda36bd02a322}
+
+
+Destructor for the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. 
+
+The destructor for the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} will de-\/allocate the handles of the texture objects and delete the frame buffer object. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!bind@{bind}}
+\index{bind@{bind}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{bind(void) const }{bind(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+Buffer\+::bind (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_buffer_a832f461bb679e535dbd4a23f583192bf}{}\label{classsparky_1_1_g_buffer_a832f461bb679e535dbd4a23f583192bf}
+
+
+Binds the Frame \hyperlink{classsparky_1_1_buffer}{Buffer} of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. 
+
+When the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} is bound, objects can be rendered into the frame buffer for use with deferred rendering. \index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!bind\+Textures@{bind\+Textures}}
+\index{bind\+Textures@{bind\+Textures}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{bind\+Textures(void) const }{bindTextures(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+Buffer\+::bind\+Textures (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_buffer_a93c184529fb8fb27a24b39762e948322}{}\label{classsparky_1_1_g_buffer_a93c184529fb8fb27a24b39762e948322}
+
+
+Binds all of the textures bound by the Gbuffer object. 
+
+Before the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} can be used within shaders, the textures generated by the frame buffer must be bound for use. \index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!generate@{generate}}
+\index{generate@{generate}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{generate(void)}{generate(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+Buffer\+::generate (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_g_buffer_a71c5f2a4dc35f05a3e978fa20ba4564f}{}\label{classsparky_1_1_g_buffer_a71c5f2a4dc35f05a3e978fa20ba4564f}
+
+
+Generates the frame buffer object and the textures of of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer}. 
+
+The frame buffer of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} is generated from combining the textures of each aspect of an object, such as the position, diffuse and normals. The depth is bound as a seperate buffer for correct depth testing. \index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!unbind@{unbind}}
+\index{unbind@{unbind}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{unbind(void) const }{unbind(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+Buffer\+::unbind (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_buffer_a5bac7c40c04e0a558387509b1dda46fa}{}\label{classsparky_1_1_g_buffer_a5bac7c40c04e0a558387509b1dda46fa}
+
+
+Unbinds the Frame \hyperlink{classsparky_1_1_buffer}{Buffer} of the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} object. 
+
+When the Gbuffer no longer needs to be used, the \hyperlink{classsparky_1_1_g_buffer}{G\+Buffer} has to be unbound to switch the state of Open\+GL. \index{sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}!unbind\+Textures@{unbind\+Textures}}
+\index{unbind\+Textures@{unbind\+Textures}!sparky\+::\+G\+Buffer@{sparky\+::\+G\+Buffer}}
+\subsubsection[{\texorpdfstring{unbind\+Textures(void) const }{unbindTextures(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+Buffer\+::unbind\+Textures (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_buffer_a00610bd1aedcefc174d70f016eedf107}{}\label{classsparky_1_1_g_buffer_a00610bd1aedcefc174d70f016eedf107}
+
+
+Unbinds all of the textures bound by the Gbuffer object. 
+
+When the textures do not need to be used within any shaders, the textures can be unbound and the state can be switched. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/gbuffer.\+hpp\end{DoxyCompactItemize}

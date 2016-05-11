@@ -67,21 +67,19 @@ namespace sparky
 
 		while (true)
 		{
-			// Scope-based locking.
+			std::unique_lock<std::mutex> guard(m_mutex);
+
+			m_condition.wait(guard, [this]{ return !m_tasks.empty(); });
+
+			if (m_tasks.empty())
 			{
-				std::unique_lock<std::mutex> guard(m_mutex);
-
-				m_condition.wait(guard, [this]{ return !m_tasks.empty(); });
-
-				if (m_tasks.empty())
-				{
-					return;
-				}
-
-				task = std::move(m_tasks.front());
-
-				m_tasks.pop();
+				return;
 			}
+
+			task = std::move(m_tasks.front());
+
+			m_tasks.pop();
+			guard.unlock();
 
 			task();
 		}
@@ -95,11 +93,10 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void ThreadPool::addTask(const std::function<void()>& function)
 	{
-		// Scope-based locking.
-		{
-			std::unique_lock<std::mutex> guard(m_mutex);
-			m_tasks.push(std::move(function));
-		}
+		std::unique_lock<std::mutex> guard(m_mutex);
+		m_tasks.push(std::move(function));
+
+		guard.unlock();
 
 		m_condition.notify_one();
 	}

@@ -1,0 +1,66 @@
+\hypertarget{classsparky_1_1_time}{}\section{sparky\+:\+:Time Class Reference}
+\label{classsparky_1_1_time}\index{sparky\+::\+Time@{sparky\+::\+Time}}
+
+
+{\ttfamily \#include $<$time.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{classsparky_1_1_time_af216f91f65a7631ee3e1974a244f697b}{get\+Delta\+Time} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the delta-\/time of the current frame. \end{DoxyCompactList}\item 
+static void \hyperlink{classsparky_1_1_time_a9b56a371f5e1dda4fd9ee32c71d5855a}{start} (void)\hypertarget{classsparky_1_1_time_a9b56a371f5e1dda4fd9ee32c71d5855a}{}\label{classsparky_1_1_time_a9b56a371f5e1dda4fd9ee32c71d5855a}
+
+\begin{DoxyCompactList}\small\item\em Starts the timer to calculate the beginning time of the current frame. \end{DoxyCompactList}\item 
+static void \hyperlink{classsparky_1_1_time_acc429e19f42da5dee935a1d54d40ef8f}{stop} (void)\hypertarget{classsparky_1_1_time_acc429e19f42da5dee935a1d54d40ef8f}{}\label{classsparky_1_1_time_acc429e19f42da5dee935a1d54d40ef8f}
+
+\begin{DoxyCompactList}\small\item\em Stops the timer and calculates the time that it took to render and update this frame, this value is stored in delta-\/time for use by other objects and instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_time}{sparky\+::\+Time} is responsible for tracking the delta-\/time of each frame. At the beginning of each frame, the timer is start and at the end of the frame, the timer is stopped and delta-\/time is calculated accordingly. Below is a code example.
+
+Usage Example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Start the timer.}
+\hyperlink{classsparky_1_1_time_a9b56a371f5e1dda4fd9ee32c71d5855a}{Time::start}();
+
+\textcolor{comment}{// Create a Transform object.}
+\hyperlink{classsparky_1_1_transform}{sparky::Transform} transform;
+
+\textcolor{comment}{// Apply a rotation to the transform by utilising delta-time for smooth rotation.}
+\hyperlink{classsparky_1_1_quaternion}{sparky::Quaternionf} rotation = \hyperlink{classsparky_1_1_quaternion_a66ae7960536a332a5d2e133bb14bc5c5}{sparky::Quaternionf::angleAxis}
+      (\hyperlink{classsparky_1_1_vector3_af54c2e1458f00c76b06c61641c856c95}{sparky::Vector3f::up}(), 5.0f * \hyperlink{classsparky_1_1_time_af216f91f65a7631ee3e1974a244f697b}{sparky::Time::getDeltaTime}());
+
+\textcolor{comment}{// Apply the rotation to the transform object.}
+transform.\hyperlink{classsparky_1_1_transform_af3b667562451c1cd254bb7708d15a2ce}{rotate}(rotation);
+
+\textcolor{comment}{// Stop the timer.}
+\hyperlink{classsparky_1_1_time_acc429e19f42da5dee935a1d54d40ef8f}{Time::stop}();
+\end{DoxyCode}
+ 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Time@{sparky\+::\+Time}!get\+Delta\+Time@{get\+Delta\+Time}}
+\index{get\+Delta\+Time@{get\+Delta\+Time}!sparky\+::\+Time@{sparky\+::\+Time}}
+\subsubsection[{\texorpdfstring{get\+Delta\+Time(void)}{getDeltaTime(void)}}]{\setlength{\rightskip}{0pt plus 5cm}static float sparky\+::\+Time\+::get\+Delta\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsparky_1_1_time_af216f91f65a7631ee3e1974a244f697b}{}\label{classsparky_1_1_time_af216f91f65a7631ee3e1974a244f697b}
+
+
+Retrieves the delta-\/time of the current frame. 
+
+The delta-\/time is calculated at the end of the current frame. It is the time that the frame took to render, update and process the input of the current frame.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em float} & The current delta-\/time of the frame. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/core/time.\+hpp\end{DoxyCompactItemize}

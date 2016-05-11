@@ -88,6 +88,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\core\camera.cpp" />
     <ClCompile Include="src\core\gamemanager.cpp" />
+    <ClCompile Include="src\core\gameobject.cpp" />
     <ClCompile Include="src\core\ref.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\resourcemanager.cpp" />
@@ -114,8 +115,10 @@
     <ClCompile Include="src\rendering\gbuffer.cpp" />
     <ClCompile Include="src\rendering\GLSLobject.cpp" />
     <ClCompile Include="src\rendering\imesh.cpp" />
+    <ClCompile Include="src\rendering\irender.cpp" />
     <ClCompile Include="src\rendering\ishader.cpp" />
     <ClCompile Include="src\rendering\meshdata.cpp" />
+    <ClCompile Include="src\rendering\meshrenderer.cpp" />
     <ClCompile Include="src\rendering\model.cpp" />
     <ClCompile Include="src\rendering\pointshader.cpp" />
     <ClCompile Include="src\rendering\program.cpp" />
@@ -133,6 +136,7 @@
     <ClInclude Include="game.hpp" />
     <ClInclude Include="include\sparky\core\camera.hpp" />
     <ClInclude Include="include\sparky\core\gamemanager.hpp" />
+    <ClInclude Include="include\sparky\core\gameobject.hpp" />
     <ClInclude Include="include\sparky\core\ref.hpp" />
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />
@@ -168,8 +172,10 @@
     <ClInclude Include="include\sparky\rendering\gbuffer.hpp" />
     <ClInclude Include="include\sparky\rendering\GLSLobject.hpp" />
     <ClInclude Include="include\sparky\rendering\imesh.hpp" />
+    <ClInclude Include="include\sparky\rendering\irender.hpp" />
     <ClInclude Include="include\sparky\rendering\ishader.hpp" />
     <ClInclude Include="include\sparky\rendering\meshdata.hpp" />
+    <ClInclude Include="include\sparky\rendering\meshrenderer.hpp" />
     <ClInclude Include="include\sparky\rendering\model.hpp" />
     <ClInclude Include="include\sparky\rendering\pointshader.hpp" />
     <ClInclude Include="include\sparky\rendering\program.hpp" />

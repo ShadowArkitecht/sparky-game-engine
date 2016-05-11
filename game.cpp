@@ -6,6 +6,9 @@
 #include <sparky\generation\chunk.hpp>
 #include <sparky\utils\threadmanager.hpp>
 #include <sparky\core\time.hpp>
+#include <sparky\rendering\meshrenderer.hpp>
+#include <sparky\rendering\model.hpp>
+#include <sparky\core\window.hpp>
 
 #include <noise\noise.h>
 #include <sparky\ext\noiseutils.h>
@@ -28,6 +31,11 @@ Game::Game(void)
 
 	m_pTexture = new Texture("assets/tilesheet.png", desc);
 	m_pTexture->addRef();
+
+	m_pObject = new GameObject();
+	m_pObject->addRef();
+
+	m_pObject->addComponent(new MeshRenderer(new Model("assets/chr_knight.obj"), new Texture("assets/chr_knight.png", desc)));
 
 	m_pInput = new Input();
 
@@ -152,6 +160,11 @@ void Game::update(void)
 	{
 		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 50.0f * Time::getDeltaTime()));
 	}
+
+	if (m_pInput->getKey(SDLK_ESCAPE))
+	{
+		Window::getMain().close();
+	}
 }
 
 void Game::render(void)
@@ -162,5 +175,8 @@ void Game::render(void)
 	m_pWorld->render(m_pShader);
 
 	m_pTexture->unbind();
+
+	m_pObject->render(m_pShader);
+
 	m_pShader->unbind();
 }

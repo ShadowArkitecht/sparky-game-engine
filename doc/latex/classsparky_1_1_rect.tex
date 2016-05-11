@@ -1,0 +1,220 @@
+\hypertarget{classsparky_1_1_rect}{}\section{sparky\+:\+:Rect$<$ T $>$ Class Template Reference}
+\label{classsparky_1_1_rect}\index{sparky\+::\+Rect$<$ T $>$@{sparky\+::\+Rect$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_rect_aaeb2ea225e3384e91174f5bc62e23f1e}{Rect} (void)
+\begin{DoxyCompactList}\small\item\em Default construction of a \hyperlink{classsparky_1_1_rect}{Rect} object. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_rect_a125e1372a46f52bfba5fb67e10f98d32}{Rect} (const \hyperlink{classsparky_1_1_vector2}{Vector2}$<$ T $>$ \&\hyperlink{classsparky_1_1_rect_ab7d75c2c9b62522781d2b00cbbfe4472}{position}, const \hyperlink{classsparky_1_1_vector2}{Vector2}$<$ T $>$ \&\hyperlink{classsparky_1_1_rect_af70e69b176201d24d1883e1f5094c89a}{size})
+\begin{DoxyCompactList}\small\item\em Creates a rectangle shape with a defined position and size. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_rect_a23cbea4c17a715d364ebce48f268abb6}{Rect} (const T x, const T y, const T width, const T height)
+\begin{DoxyCompactList}\small\item\em Creates a rectangle with individual position and size. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{classsparky_1_1_rect_a233b31e4a38d7c3ae7ed707116a5c1d4}{Rect} (const \hyperlink{classsparky_1_1_rect}{Rect}$<$ U $>$ \&rect)
+\begin{DoxyCompactList}\small\item\em Creates a rectangle from the parameters of a different rectangle. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_rect_adcbc933d37a23224bb6bb6e2c8793ead}{$\sim$\+Rect} (void)=default\hypertarget{classsparky_1_1_rect_adcbc933d37a23224bb6bb6e2c8793ead}{}\label{classsparky_1_1_rect_adcbc933d37a23224bb6bb6e2c8793ead}
+
+\begin{DoxyCompactList}\small\item\em Destruction of the \hyperlink{classsparky_1_1_rect}{Rect} object. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_rect_a52dc153037e34347bd84af37120fb0bd}{operator==} (const \hyperlink{classsparky_1_1_rect}{Rect}$<$ T $>$ \&rect)
+\begin{DoxyCompactList}\small\item\em Comparison operator between two \hyperlink{classsparky_1_1_rect}{Rect} objects. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_rect_a9fa27247c974c34a16ca17e1f8c45ad3}{operator!=} (const \hyperlink{classsparky_1_1_rect}{Rect}$<$ T $>$ \&rect)
+\begin{DoxyCompactList}\small\item\em Comparison operator between two \hyperlink{classsparky_1_1_rect}{Rect} objects. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_rect_a12aeecda22999bd23c0bc6de948ff3ea}{contains} (const \hyperlink{classsparky_1_1_vector2}{Vector2}$<$ T $>$ \&point) const 
+\begin{DoxyCompactList}\small\item\em Checks if a point is within the \hyperlink{classsparky_1_1_rect}{Rect}. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_rect_a98c5ef1b53c2b82c4d58fb558b3a030e}{contains} (const T x, const T y) const 
+\begin{DoxyCompactList}\small\item\em Checks if a point is within the \hyperlink{classsparky_1_1_rect}{Rect}. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_rect_a7aa5dc601ebf9f612e36d70af90adda2}{collides} (const \hyperlink{classsparky_1_1_rect}{Rect}$<$ T $>$ \&rect) const 
+\begin{DoxyCompactList}\small\item\em Basic A\+A\+BB Collision between two Rectangles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_vector2}{Vector2}$<$ T $>$ \hyperlink{classsparky_1_1_rect_ab7d75c2c9b62522781d2b00cbbfe4472}{position}\hypertarget{classsparky_1_1_rect_ab7d75c2c9b62522781d2b00cbbfe4472}{}\label{classsparky_1_1_rect_ab7d75c2c9b62522781d2b00cbbfe4472}
+
+\begin{DoxyCompactList}\small\item\em The position of the \hyperlink{classsparky_1_1_rect}{Rect}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_vector2}{Vector2}$<$ T $>$ \hyperlink{classsparky_1_1_rect_af70e69b176201d24d1883e1f5094c89a}{size}\hypertarget{classsparky_1_1_rect_af70e69b176201d24d1883e1f5094c89a}{}\label{classsparky_1_1_rect_af70e69b176201d24d1883e1f5094c89a}
+
+\begin{DoxyCompactList}\small\item\em The dimensions of the \hyperlink{classsparky_1_1_rect}{Rect}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!Rect@{Rect}}
+\index{Rect@{Rect}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{Rect(void)}{Rect(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Rect}$<$ T $>$\+::{\bf Rect} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_rect_aaeb2ea225e3384e91174f5bc62e23f1e}{}\label{classsparky_1_1_rect_aaeb2ea225e3384e91174f5bc62e23f1e}
+
+
+Default construction of a \hyperlink{classsparky_1_1_rect}{Rect} object. 
+
+Creates a \hyperlink{classsparky_1_1_rect}{Rect} shape that has no position or size. This constructor is the equivalent to creating an empty rectangle \mbox{[} 0, 0, 0, 0 \mbox{]}. \index{sparky\+::\+Rect@{sparky\+::\+Rect}!Rect@{Rect}}
+\index{Rect@{Rect}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{Rect(const Vector2$<$ T $>$ \&position, const Vector2$<$ T $>$ \&size)}{Rect(const Vector2< T > &position, const Vector2< T > &size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Rect}$<$ T $>$\+::{\bf Rect} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{position, }
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_rect_a125e1372a46f52bfba5fb67e10f98d32}{}\label{classsparky_1_1_rect_a125e1372a46f52bfba5fb67e10f98d32}
+
+
+Creates a rectangle shape with a defined position and size. 
+
+Creates a \hyperlink{classsparky_1_1_rect}{Rect} shape with a specified position and size. This is equivalent to \mbox{[} p.\+x, p.\+y, s.\+x, s.\+y \mbox{]}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+{\em size} & The dimensions of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!Rect@{Rect}}
+\index{Rect@{Rect}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{Rect(const T x, const T y, const T width, const T height)}{Rect(const T x, const T y, const T width, const T height)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf sparky\+::\+Rect}$<$ T $>$\+::{\bf Rect} (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{width, }
+\item[{const T}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_rect_a23cbea4c17a715d364ebce48f268abb6}{}\label{classsparky_1_1_rect_a23cbea4c17a715d364ebce48f268abb6}
+
+
+Creates a rectangle with individual position and size. 
+
+This is equivalent to the previous constructor, except that the values are set individually, instead of utilising vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+{\em y} & The y position of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+{\em width} & The width of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+{\em height} & The height of the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!Rect@{Rect}}
+\index{Rect@{Rect}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{Rect(const Rect$<$ U $>$ \&rect)}{Rect(const Rect< U > &rect)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ template$<$typename U $>$ {\bf sparky\+::\+Rect}$<$ T $>$\+::{\bf Rect} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rect}$<$ U $>$ \&}]{rect}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_rect_a233b31e4a38d7c3ae7ed707116a5c1d4}{}\label{classsparky_1_1_rect_a233b31e4a38d7c3ae7ed707116a5c1d4}
+
+
+Creates a rectangle from the parameters of a different rectangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & The different rect to get the values from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!collides@{collides}}
+\index{collides@{collides}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{collides(const Rect$<$ T $>$ \&rect) const }{collides(const Rect< T > &rect) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Rect}$<$ T $>$\+::collides (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rect}$<$ T $>$ \&}]{rect}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_rect_a7aa5dc601ebf9f612e36d70af90adda2}{}\label{classsparky_1_1_rect_a7aa5dc601ebf9f612e36d70af90adda2}
+
+
+Basic A\+A\+BB Collision between two Rectangles. 
+
+This method checks for collision between two different \hyperlink{classsparky_1_1_rect}{Rect} objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & The \hyperlink{classsparky_1_1_rect}{Rect} to compare against. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!contains@{contains}}
+\index{contains@{contains}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{contains(const Vector2$<$ T $>$ \&point) const }{contains(const Vector2< T > &point) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Rect}$<$ T $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{point}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_rect_a12aeecda22999bd23c0bc6de948ff3ea}{}\label{classsparky_1_1_rect_a12aeecda22999bd23c0bc6de948ff3ea}
+
+
+Checks if a point is within the \hyperlink{classsparky_1_1_rect}{Rect}. 
+
+Simple 2D axis aligned box to point collision. It checks to see if the point is contained within the current \hyperlink{classsparky_1_1_rect}{Rect} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to check within the \hyperlink{classsparky_1_1_rect}{Rect}.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the point is within the \hyperlink{classsparky_1_1_rect}{Rect}, false if not. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!contains@{contains}}
+\index{contains@{contains}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{contains(const T x, const T y) const }{contains(const T x, const T y) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Rect}$<$ T $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_rect_a98c5ef1b53c2b82c4d58fb558b3a030e}{}\label{classsparky_1_1_rect_a98c5ef1b53c2b82c4d58fb558b3a030e}
+
+
+Checks if a point is within the \hyperlink{classsparky_1_1_rect}{Rect}. 
+
+Simple 2D axis aligned box to point collision. It checks to see if the point is contained within the current \hyperlink{classsparky_1_1_rect}{Rect} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x point to check within the \hyperlink{classsparky_1_1_rect}{Rect}. \\
+\hline
+{\em y} & The y point to check within the \hyperlink{classsparky_1_1_rect}{Rect}.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the point is within the \hyperlink{classsparky_1_1_rect}{Rect}, False if not. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{operator"!=(const Rect$<$ T $>$ \&rect)}{operator!=(const Rect< T > &rect)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Rect}$<$ T $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rect}$<$ T $>$ \&}]{rect}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_rect_a9fa27247c974c34a16ca17e1f8c45ad3}{}\label{classsparky_1_1_rect_a9fa27247c974c34a16ca17e1f8c45ad3}
+
+
+Comparison operator between two \hyperlink{classsparky_1_1_rect}{Rect} objects. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the Rects are not at the same position and dimensions. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+Rect@{sparky\+::\+Rect}!operator==@{operator==}}
+\index{operator==@{operator==}!sparky\+::\+Rect@{sparky\+::\+Rect}}
+\subsubsection[{\texorpdfstring{operator==(const Rect$<$ T $>$ \&rect)}{operator==(const Rect< T > &rect)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf sparky\+::\+Rect}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rect}$<$ T $>$ \&}]{rect}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_rect_a52dc153037e34347bd84af37120fb0bd}{}\label{classsparky_1_1_rect_a52dc153037e34347bd84af37120fb0bd}
+
+
+Comparison operator between two \hyperlink{classsparky_1_1_rect}{Rect} objects. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the Rects are at the same position and dimensions. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/math/rect.\+hpp\end{DoxyCompactItemize}

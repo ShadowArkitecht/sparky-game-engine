@@ -214,8 +214,8 @@ namespace sparky
 /// Usage example:
 /// \code
 /// // Create a Texture description and "zero it out".
-/// sparky::TEXTURE_DESC desc;
-/// memset(&desc, 0, sizeof(sparky::TEXTURE_DESC));
+/// sparky::SPARKY_TEXTURE_DESC desc;
+/// memset(&desc, 0, sizeof(sparky::SPARKY_TEXTURE_DESC));
 ///
 /// // Set the variables of this texture.
 ///	desc.target			= GL_TEXTURE_2D;

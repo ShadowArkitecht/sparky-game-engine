@@ -1,0 +1,86 @@
+\hypertarget{structsparky_1_1_context_settings}{}\section{sparky\+:\+:Context\+Settings Struct Reference}
+\label{structsparky_1_1_context_settings}\index{sparky\+::\+Context\+Settings@{sparky\+::\+Context\+Settings}}
+
+
+{\ttfamily \#include $<$context.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsparky_1_1_context_settings_af177c704b49dee968972514d4da4998a}{Context\+Settings} (void)
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object. \end{DoxyCompactList}\item 
+\hyperlink{structsparky_1_1_context_settings_a91b058a76f4db0ec2da381f61a9f5987}{Context\+Settings} (unsigned int \hyperlink{structsparky_1_1_context_settings_a50930130c715417f92b072fb6fb41c80}{major\+Version}, const unsigned int \hyperlink{structsparky_1_1_context_settings_a4881a797d7349fb27df94de114ef9e8e}{minor\+Version})
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{structsparky_1_1_context_settings_a50930130c715417f92b072fb6fb41c80}{major\+Version}\hypertarget{structsparky_1_1_context_settings_a50930130c715417f92b072fb6fb41c80}{}\label{structsparky_1_1_context_settings_a50930130c715417f92b072fb6fb41c80}
+
+\begin{DoxyCompactList}\small\item\em The major version of Open\+GL. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{structsparky_1_1_context_settings_a4881a797d7349fb27df94de114ef9e8e}{minor\+Version}\hypertarget{structsparky_1_1_context_settings_a4881a797d7349fb27df94de114ef9e8e}{}\label{structsparky_1_1_context_settings_a4881a797d7349fb27df94de114ef9e8e}
+
+\begin{DoxyCompactList}\small\item\em The minor version of Open\+Gl. eg. 3.\+3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{structsparky_1_1_context_settings}{sparky\+::\+Context\+Settings} is used in conjunction with the \hyperlink{classsparky_1_1_window}{sparky\+::\+Window} class for initialising the functionality of Open\+GL to specific specifications.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create a context and change values}
+\hyperlink{structsparky_1_1_context_settings_af177c704b49dee968972514d4da4998a}{ContextSettings} context;
+context.majorVersion = 4;
+context.minorVersion = 0;
+
+\textcolor{comment}{// Create a new Window.}
+\hyperlink{classsparky_1_1_window}{sparky::Window} window;
+window.\hyperlink{classsparky_1_1_window_a146a77df577c6ca3e441a3c7f9bc2cbd}{create}(\textcolor{stringliteral}{"Sparky!"}, Vector2i(), Vector2i(640, 480), context);
+
+\textcolor{comment}{// Basic Main window loop.}
+\textcolor{keywordflow}{while} (window.\hyperlink{classsparky_1_1_window_a3ed4cf733081b4bbc147b5d5808adaac}{isRunning}())
+\{
+    window.\hyperlink{classsparky_1_1_window_a92cf43e19d310fea158098d8eb01c590}{clear}()
+    \textcolor{comment}{// Rendering of objects should go here.}
+    window.\hyperlink{classsparky_1_1_window_a155728f06dbc5742250649e3ec8fc779}{swap}();
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Context\+Settings@{sparky\+::\+Context\+Settings}!Context\+Settings@{Context\+Settings}}
+\index{Context\+Settings@{Context\+Settings}!sparky\+::\+Context\+Settings@{sparky\+::\+Context\+Settings}}
+\subsubsection[{\texorpdfstring{Context\+Settings(void)}{ContextSettings(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Context\+Settings\+::\+Context\+Settings (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{structsparky_1_1_context_settings_af177c704b49dee968972514d4da4998a}{}\label{structsparky_1_1_context_settings_af177c704b49dee968972514d4da4998a}
+
+
+Default constructor for \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object. 
+
+The \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object controls the settings of a a created window instance. It\textquotesingle{}s use is for declaring when Open\+GL functionality the application will utilise. \index{sparky\+::\+Context\+Settings@{sparky\+::\+Context\+Settings}!Context\+Settings@{Context\+Settings}}
+\index{Context\+Settings@{Context\+Settings}!sparky\+::\+Context\+Settings@{sparky\+::\+Context\+Settings}}
+\subsubsection[{\texorpdfstring{Context\+Settings(unsigned int major\+Version, const unsigned int minor\+Version)}{ContextSettings(unsigned int majorVersion, const unsigned int minorVersion)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Context\+Settings\+::\+Context\+Settings (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{major\+Version, }
+\item[{const unsigned int}]{minor\+Version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{structsparky_1_1_context_settings_a91b058a76f4db0ec2da381f61a9f5987}{}\label{structsparky_1_1_context_settings_a91b058a76f4db0ec2da381f61a9f5987}
+
+
+Default constructor for \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object. 
+
+The \hyperlink{structsparky_1_1_context_settings}{Context\+Settings} object controls the settings of a a created window instance. It\textquotesingle{}s use is for declaring when Open\+GL functionality the application will utilise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em major\+Version} & The major version of Open\+GL the application will use. \\
+\hline
+{\em minor\+Version} & The minor version of Open\+GL the application will use. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/utils/context.\+hpp\end{DoxyCompactItemize}

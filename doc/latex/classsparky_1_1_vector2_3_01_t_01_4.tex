@@ -1,0 +1,30 @@
+\hypertarget{classsparky_1_1_vector2_3_01_t_01_4}{}\section{sparky\+:\+:Vector2$<$ T $>$ Class Reference}
+\label{classsparky_1_1_vector2_3_01_t_01_4}\index{sparky\+::\+Vector2$<$ T $>$@{sparky\+::\+Vector2$<$ T $>$}}
+
+
+{\ttfamily \#include $<$vector2.\+hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_vector2_3_01_t_01_4}{sparky\+::\+Vector2$<$\+T$>$} is a templated class responsible for all Vector based mathematics in 2 dimensions. It is commonly used throughout the engine for a variety of different tasks, such as placement of H\+UD elements within a scene and accessing multi-\/dimensional arrays.
+
+sparky\+::\+Vecto2$<$\+T$>$ also contains the most common mathematics and algorithms associated with Vectors, such as the dot product and normalisation. Below is a small code example.
+
+Usage example\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Create two vectors to calculate the cross product.}
+\hyperlink{classsparky_1_1_vector2}{sparky::Vector2f} v1 = \hyperlink{classsparky_1_1_vector3_af54c2e1458f00c76b06c61641c856c95}{sparky::Vector3f::up}();
+\hyperlink{classsparky_1_1_vector2}{sparky::Vector2f} v2 = \hyperlink{classsparky_1_1_vector3_a5aa189b8cd595fdbe3fcbcfb03ad6f8e}{sparky::Vector3f::right}();
+
+\textcolor{comment}{// Calculate the dot product.}
+\textcolor{keywordtype}{float} dot = \hyperlink{classsparky_1_1_vector2_aaf94222514e04f14673540c1b5619ba1}{sparky::Vector2f::dot}(up, right);
+
+\textcolor{comment}{// Normalise it.}
+f = f.normalised();
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/math/vector2.\+hpp\end{DoxyCompactItemize}

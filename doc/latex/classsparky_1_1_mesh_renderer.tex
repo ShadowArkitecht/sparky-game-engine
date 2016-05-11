@@ -1,0 +1,76 @@
+\hypertarget{classsparky_1_1_mesh_renderer}{}\section{sparky\+:\+:Mesh\+Renderer Class Reference}
+\label{classsparky_1_1_mesh_renderer}\index{sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}}
+Inheritance diagram for sparky\+:\+:Mesh\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_mesh_renderer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_mesh_renderer_ada0660bb1d7a7d59ece4e0d071d9cbe4}{Mesh\+Renderer} (\hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} $\ast$p\+Mesh, \hyperlink{classsparky_1_1_texture}{Texture} $\ast$p\+Texture)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer} object with a Mesh and \hyperlink{classsparky_1_1_texture}{Texture}. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_mesh_renderer_a3077441957a3afa838f554dee6f312bc}{$\sim$\+Mesh\+Renderer} (void)
+\begin{DoxyCompactList}\small\item\em Default destructor of the \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer} object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_mesh_renderer_a1a853da3e75510c27645f39aabe37edf}{render} (void) override
+\begin{DoxyCompactList}\small\item\em Overriden render method for the \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}!Mesh\+Renderer@{Mesh\+Renderer}}
+\index{Mesh\+Renderer@{Mesh\+Renderer}!sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}}
+\subsubsection[{\texorpdfstring{Mesh\+Renderer(\+I\+Mesh\+Component $\ast$p\+Mesh, Texture $\ast$p\+Texture)}{MeshRenderer(IMeshComponent *pMesh, Texture *pTexture)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Mesh\+Renderer\+::\+Mesh\+Renderer (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Mesh\+Component} $\ast$}]{p\+Mesh, }
+\item[{{\bf Texture} $\ast$}]{p\+Texture}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_mesh_renderer_ada0660bb1d7a7d59ece4e0d071d9cbe4}{}\label{classsparky_1_1_mesh_renderer_ada0660bb1d7a7d59ece4e0d071d9cbe4}
+
+
+Constructs a \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer} object with a Mesh and \hyperlink{classsparky_1_1_texture}{Texture}. 
+
+The \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer} is a convenience class for rendering a Mesh and applying a texture to it. It is a renderable component so it can be attached to the \hyperlink{classsparky_1_1_game_object}{Game\+Object} for rendering.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Mesh} & The Mesh of the renderer. \\
+\hline
+{\em p\+Texture} & The \hyperlink{classsparky_1_1_texture}{Texture} to be applied to the Mesh. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}!````~Mesh\+Renderer@{$\sim$\+Mesh\+Renderer}}
+\index{````~Mesh\+Renderer@{$\sim$\+Mesh\+Renderer}!sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Mesh\+Renderer(void)}{~MeshRenderer(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+Mesh\+Renderer\+::$\sim$\+Mesh\+Renderer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_mesh_renderer_a3077441957a3afa838f554dee6f312bc}{}\label{classsparky_1_1_mesh_renderer_a3077441957a3afa838f554dee6f312bc}
+
+
+Default destructor of the \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer} object. 
+
+The destructor will release the resources being retained by the class. The Mesh and \hyperlink{classsparky_1_1_texture}{Texture} of the object will be dereferenced. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}!render@{render}}
+\index{render@{render}!sparky\+::\+Mesh\+Renderer@{sparky\+::\+Mesh\+Renderer}}
+\subsubsection[{\texorpdfstring{render(void) override}{render(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+Mesh\+Renderer\+::render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classsparky_1_1_mesh_renderer_a1a853da3e75510c27645f39aabe37edf}{}\label{classsparky_1_1_mesh_renderer_a1a853da3e75510c27645f39aabe37edf}
+
+
+Overriden render method for the \hyperlink{classsparky_1_1_mesh_renderer}{Mesh\+Renderer}. 
+
+The render method will bind the texture passed in, in the constructor and render the mesh. 
+
+Implements \hyperlink{classsparky_1_1_i_render_component_adb6a10d473124fcc807d5d61b6e5ebf1}{sparky\+::\+I\+Render\+Component}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/meshrenderer.\+hpp\end{DoxyCompactItemize}

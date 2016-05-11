@@ -1,0 +1,119 @@
+\hypertarget{classsparky_1_1_g_l_s_l_object}{}\section{sparky\+:\+:G\+L\+S\+L\+Object Class Reference}
+\label{classsparky_1_1_g_l_s_l_object}\index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+
+
+{\ttfamily \#include $<$G\+L\+S\+Lobject.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:G\+L\+S\+L\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsparky_1_1_g_l_s_l_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_g_l_s_l_object_a85a8c97e161d81fd961324fda2372751}{G\+L\+S\+L\+Object} (const \hyperlink{classsparky_1_1_string}{String} \&filename, const e\+Shader\+Type type)
+\begin{DoxyCompactList}\small\item\em Constructs a Shader object with a filename and type. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_g_l_s_l_object_a777c86a4cf5913159cfc494d37a336ea}{$\sim$\+G\+L\+S\+L\+Object} (void)
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{classsparky_1_1_g_l_s_l_object}{G\+L\+S\+L\+Object} object. \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{classsparky_1_1_g_l_s_l_object_a0a7d1f61fb10079b3404ed862607796e}{get\+ID} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the ID of the Shader object. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_g_l_s_l_object_aab666d4c1277d07fea3045b10ba3d777}{is\+Compiled} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the compilation state of the Shader object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_g_l_s_l_object_a85334b1ae8d24d3aaee8cd39397c944b}{compile} (void)
+\begin{DoxyCompactList}\small\item\em Compiles the Shader object for use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_g_l_s_l_object}{sparky\+::\+G\+L\+S\+L\+Object} is a Open\+GL Shader wrapper class for easily loading, parsing and compiling G\+L\+SL shaders. It provides additional error checking and helper methods for making compilation as simple as possible.
+
+\hyperlink{classsparky_1_1_g_l_s_l_object}{sparky\+::\+G\+L\+S\+L\+Object} is often used in conjunction with \hyperlink{classsparky_1_1_program}{sparky\+::\+Program}, which provides additional functionality for Shader objects.
+
+Due to the generic nature of the class, it can be used for compilation of any shader that the user provides it with. For a code example please refer to \hyperlink{classsparky_1_1_program}{sparky\+::\+Program}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}!G\+L\+S\+L\+Object@{G\+L\+S\+L\+Object}}
+\index{G\+L\+S\+L\+Object@{G\+L\+S\+L\+Object}!sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+\subsubsection[{\texorpdfstring{G\+L\+S\+L\+Object(const String \&filename, const e\+Shader\+Type type)}{GLSLObject(const String &filename, const eShaderType type)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+G\+L\+S\+L\+Object\+::\+G\+L\+S\+L\+Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf String} \&}]{filename, }
+\item[{const e\+Shader\+Type}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_g_l_s_l_object_a85a8c97e161d81fd961324fda2372751}{}\label{classsparky_1_1_g_l_s_l_object_a85a8c97e161d81fd961324fda2372751}
+
+
+Constructs a Shader object with a filename and type. 
+
+Constructs a new Shader object by loading the shader from the specified filename and setting its type. Construction will fail if the filename is not a valid shader or does not end in the extension .glsl.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The file directory of the shader. \\
+\hline
+{\em type} & The type of shader being parsed. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}!````~G\+L\+S\+L\+Object@{$\sim$\+G\+L\+S\+L\+Object}}
+\index{````~G\+L\+S\+L\+Object@{$\sim$\+G\+L\+S\+L\+Object}!sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+\subsubsection[{\texorpdfstring{$\sim$\+G\+L\+S\+L\+Object(void)}{~GLSLObject(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+G\+L\+S\+L\+Object\+::$\sim$\+G\+L\+S\+L\+Object (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_g_l_s_l_object_a777c86a4cf5913159cfc494d37a336ea}{}\label{classsparky_1_1_g_l_s_l_object_a777c86a4cf5913159cfc494d37a336ea}
+
+
+Destructor for the \hyperlink{classsparky_1_1_g_l_s_l_object}{G\+L\+S\+L\+Object} object. 
+
+When the destructor is called, the shader text is cleared and the Shaders ID is deleted. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}!compile@{compile}}
+\index{compile@{compile}!sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+\subsubsection[{\texorpdfstring{compile(void)}{compile(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+G\+L\+S\+L\+Object\+::compile (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_g_l_s_l_object_a85334b1ae8d24d3aaee8cd39397c944b}{}\label{classsparky_1_1_g_l_s_l_object_a85334b1ae8d24d3aaee8cd39397c944b}
+
+
+Compiles the Shader object for use. 
+
+When the Shader is compiled, it checks to see if it has been compiled already. If it has not, the Shader will compile and provide error checking. If there were no errors the Shader is successfully compiled for use. \index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+\subsubsection[{\texorpdfstring{get\+I\+D(void) const }{getID(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint sparky\+::\+G\+L\+S\+L\+Object\+::get\+ID (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_l_s_l_object_a0a7d1f61fb10079b3404ed862607796e}{}\label{classsparky_1_1_g_l_s_l_object_a0a7d1f61fb10079b3404ed862607796e}
+
+
+Retrieves the ID of the Shader object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em G\+Luint} & The Shader ID. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}!is\+Compiled@{is\+Compiled}}
+\index{is\+Compiled@{is\+Compiled}!sparky\+::\+G\+L\+S\+L\+Object@{sparky\+::\+G\+L\+S\+L\+Object}}
+\subsubsection[{\texorpdfstring{is\+Compiled(void) const }{isCompiled(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sparky\+::\+G\+L\+S\+L\+Object\+::is\+Compiled (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_g_l_s_l_object_aab666d4c1277d07fea3045b10ba3d777}{}\label{classsparky_1_1_g_l_s_l_object_aab666d4c1277d07fea3045b10ba3d777}
+
+
+Retrieves the compilation state of the Shader object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the Shader has been compiled. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/G\+L\+S\+Lobject.\+hpp\end{DoxyCompactItemize}

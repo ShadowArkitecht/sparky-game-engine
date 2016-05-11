@@ -1,0 +1,295 @@
+\hypertarget{classsparky_1_1_i_mesh_component}{}\section{sparky\+:\+:I\+Mesh\+Component Class Reference}
+\label{classsparky_1_1_i_mesh_component}\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+
+
+{\ttfamily \#include $<$imesh.\+hpp$>$}
+
+Inheritance diagram for sparky\+:\+:I\+Mesh\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsparky_1_1_i_mesh_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsparky_1_1_i_mesh_component_a6f8e0ecbc4aead0d64bd38de85490ba2}{I\+Mesh\+Component} (void)
+\begin{DoxyCompactList}\small\item\em Default construction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} object. \end{DoxyCompactList}\item 
+virtual \hyperlink{classsparky_1_1_i_mesh_component_a29e7e8958dcb700c6091b96776c173e0}{$\sim$\+I\+Mesh\+Component} (void)
+\begin{DoxyCompactList}\small\item\em Destruction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} object. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_i_mesh_component_a84075b30418ccf0db945ae6e3d13f7f9}{is\+Generated} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the generated state of the Mesh. \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{classsparky_1_1_i_mesh_component_af3ef1c56955fd299211632c56bf56fb5}{get\+Vertex\+Count} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of vertices attached to this Mesh. \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{classsparky_1_1_i_mesh_component_a493b111e383f4c87068206b275e90442}{get\+Index\+Count} (void) const 
+\begin{DoxyCompactList}\small\item\em Retrieves the amount of indices attached to this Mesh. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a16f381696867b3b32d8c929e8083d5a3}{add\+Vertex} (const \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} \&vertex)
+\begin{DoxyCompactList}\small\item\em Adds a vertex to the Mesh object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a2227cf2d530a083d2f7eee530022bf18}{add\+Index} (const G\+Luint index)
+\begin{DoxyCompactList}\small\item\em Adds an index to the Mesh object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a3b35df5332c7474b730036acfa71ab9e}{add\+Face} (const \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} \&v1, const \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} \&v2, const \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} \&v3, const \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} \&v4, const bool order)
+\begin{DoxyCompactList}\small\item\em Adds a face to the Mesh object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_ae2d52735c4fbc11d7079a829a060ef33}{add\+Face} (const \hyperlink{classsparky_1_1_rect}{Rectf} \&face, const bool order)
+\begin{DoxyCompactList}\small\item\em Adds a face to the Mesh object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a7f2f75000f1535b31a0fd574ae2cd69d}{calculate\+Normals} (void)
+\begin{DoxyCompactList}\small\item\em Calculate the normals for each Vertex of the Mesh. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_ae1f65926ef4ed3c14507c47cdf57c8c8}{calculate\+Face\+Normals} (const G\+Luint start, const bool invert)
+\begin{DoxyCompactList}\small\item\em Calculate the normals for a specific face of the Mesh. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a05c60457d7db9cc1b113423902143cfd}{clear} (void)\hypertarget{classsparky_1_1_i_mesh_component_a05c60457d7db9cc1b113423902143cfd}{}\label{classsparky_1_1_i_mesh_component_a05c60457d7db9cc1b113423902143cfd}
+
+\begin{DoxyCompactList}\small\item\em Clears the vertices and indices of the Mesh object. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_a0c34fef87ab29389bdf477a2801a4740}{reset} (void)\hypertarget{classsparky_1_1_i_mesh_component_a0c34fef87ab29389bdf477a2801a4740}{}\label{classsparky_1_1_i_mesh_component_a0c34fef87ab29389bdf477a2801a4740}
+
+\begin{DoxyCompactList}\small\item\em Clears the vertices and indices of the Mesh object and sets the generated state to false. \end{DoxyCompactList}\item 
+void \hyperlink{classsparky_1_1_i_mesh_component_abad2c646e2303e5f69d1fc5efcb7f2c7}{generate} (const bool gen\+Normals=false)
+\begin{DoxyCompactList}\small\item\em Generates the buffers of the Mesh. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsparky_1_1_i_mesh_component_abd7ed95f1885252305a16f2c97b8ed48}{render} (void)=0
+\begin{DoxyCompactList}\small\item\em Abstract rendering method for rendering the Mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structsparky_1_1_vertex__t}{Vertex\+\_\+t} $>$ \hyperlink{classsparky_1_1_i_mesh_component_af867c6c6b9b96ea6bbff5fd4fbc77d12}{m\+\_\+vertices}\hypertarget{classsparky_1_1_i_mesh_component_af867c6c6b9b96ea6bbff5fd4fbc77d12}{}\label{classsparky_1_1_i_mesh_component_af867c6c6b9b96ea6bbff5fd4fbc77d12}
+
+\begin{DoxyCompactList}\small\item\em Vertices of the mesh. \end{DoxyCompactList}\item 
+std\+::vector$<$ G\+Luint $>$ \hyperlink{classsparky_1_1_i_mesh_component_a1d761ea9e61f2e6b32acc1e74196af9c}{m\+\_\+indices}\hypertarget{classsparky_1_1_i_mesh_component_a1d761ea9e61f2e6b32acc1e74196af9c}{}\label{classsparky_1_1_i_mesh_component_a1d761ea9e61f2e6b32acc1e74196af9c}
+
+\begin{DoxyCompactList}\small\item\em Indices of the mesh. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_buffer}{Buffer} \hyperlink{classsparky_1_1_i_mesh_component_ac6c0a43e1f4e89e21295a828d7992544}{m\+\_\+buffer}\hypertarget{classsparky_1_1_i_mesh_component_ac6c0a43e1f4e89e21295a828d7992544}{}\label{classsparky_1_1_i_mesh_component_ac6c0a43e1f4e89e21295a828d7992544}
+
+\begin{DoxyCompactList}\small\item\em The vertex and index buffer. \end{DoxyCompactList}\item 
+\hyperlink{classsparky_1_1_array_buffer}{Array\+Buffer} \hyperlink{classsparky_1_1_i_mesh_component_a156f9b2ef4a4950477a638e856ffa7e5}{m\+\_\+array\+Buffer}\hypertarget{classsparky_1_1_i_mesh_component_a156f9b2ef4a4950477a638e856ffa7e5}{}\label{classsparky_1_1_i_mesh_component_a156f9b2ef4a4950477a638e856ffa7e5}
+
+\begin{DoxyCompactList}\small\item\em Array \hyperlink{classsparky_1_1_buffer}{Buffer}. \end{DoxyCompactList}\item 
+bool \hyperlink{classsparky_1_1_i_mesh_component_a98a416367058f60965641ea1c37decae}{m\+\_\+generated}\hypertarget{classsparky_1_1_i_mesh_component_a98a416367058f60965641ea1c37decae}{}\label{classsparky_1_1_i_mesh_component_a98a416367058f60965641ea1c37decae}
+
+\begin{DoxyCompactList}\small\item\em Whether the Mesh has been generated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classsparky_1_1_i_mesh_component}{sparky\+::\+I\+Mesh\+Component} is the base abstract class for every mesh used within the Sparky Engine. It provides the basic functionality of a Mesh such as manually adding vertices and indices.
+
+For examples on use refer to the \hyperlink{classsparky_1_1_mesh_data}{Mesh\+Data} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!I\+Mesh\+Component@{I\+Mesh\+Component}}
+\index{I\+Mesh\+Component@{I\+Mesh\+Component}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{I\+Mesh\+Component(void)}{IMeshComponent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}sparky\+::\+I\+Mesh\+Component\+::\+I\+Mesh\+Component (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsparky_1_1_i_mesh_component_a6f8e0ecbc4aead0d64bd38de85490ba2}{}\label{classsparky_1_1_i_mesh_component_a6f8e0ecbc4aead0d64bd38de85490ba2}
+
+
+Default construction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} object. 
+
+The default construction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} object sets all of the member variables to default values and inherits \hyperlink{classsparky_1_1_ref}{Ref} object behaviour. \index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!````~I\+Mesh\+Component@{$\sim$\+I\+Mesh\+Component}}
+\index{````~I\+Mesh\+Component@{$\sim$\+I\+Mesh\+Component}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{$\sim$\+I\+Mesh\+Component(void)}{~IMeshComponent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual sparky\+::\+I\+Mesh\+Component\+::$\sim$\+I\+Mesh\+Component (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classsparky_1_1_i_mesh_component_a29e7e8958dcb700c6091b96776c173e0}{}\label{classsparky_1_1_i_mesh_component_a29e7e8958dcb700c6091b96776c173e0}
+
+
+Destruction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} object. 
+
+The destruction of the \hyperlink{classsparky_1_1_i_mesh_component}{I\+Mesh\+Component} will clear the vertices and indices stored by the Mesh. 
+
+\subsection{Member Function Documentation}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!add\+Face@{add\+Face}}
+\index{add\+Face@{add\+Face}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{add\+Face(const Vertex\+\_\+t \&v1, const Vertex\+\_\+t \&v2, const Vertex\+\_\+t \&v3, const Vertex\+\_\+t \&v4, const bool order)}{addFace(const Vertex_t &v1, const Vertex_t &v2, const Vertex_t &v3, const Vertex_t &v4, const bool order)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::add\+Face (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex\+\_\+t} \&}]{v1, }
+\item[{const {\bf Vertex\+\_\+t} \&}]{v2, }
+\item[{const {\bf Vertex\+\_\+t} \&}]{v3, }
+\item[{const {\bf Vertex\+\_\+t} \&}]{v4, }
+\item[{const bool}]{order}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_a3b35df5332c7474b730036acfa71ab9e}{}\label{classsparky_1_1_i_mesh_component_a3b35df5332c7474b730036acfa71ab9e}
+
+
+Adds a face to the Mesh object. 
+
+Convenience method for adding a face to the object. This method will take in four vertices and calculate the correct indices accordingly. The order refers to whether the face is forward-\/facing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first vertex of the face. \\
+\hline
+{\em v2} & The second vertex of the face. \\
+\hline
+{\em v3} & The third vertex of the face. \\
+\hline
+{\em v4} & The fourth vertex of the face. \\
+\hline
+{\em order} & The rendering order of the face. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!add\+Face@{add\+Face}}
+\index{add\+Face@{add\+Face}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{add\+Face(const Rectf \&face, const bool order)}{addFace(const Rectf &face, const bool order)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::add\+Face (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rectf} \&}]{face, }
+\item[{const bool}]{order}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_ae2d52735c4fbc11d7079a829a060ef33}{}\label{classsparky_1_1_i_mesh_component_ae2d52735c4fbc11d7079a829a060ef33}
+
+
+Adds a face to the Mesh object. 
+
+Convenience method for adding a face to the object. This method will take in one 2D rectangle and calculate the correct indices accordingly. The order refers to whether the face is forward-\/facing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em face} & The 2D face to add. \\
+\hline
+{\em order} & The rendering order of the face. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!add\+Index@{add\+Index}}
+\index{add\+Index@{add\+Index}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{add\+Index(const G\+Luint index)}{addIndex(const GLuint index)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::add\+Index (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_a2227cf2d530a083d2f7eee530022bf18}{}\label{classsparky_1_1_i_mesh_component_a2227cf2d530a083d2f7eee530022bf18}
+
+
+Adds an index to the Mesh object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to add to the Mesh. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!add\+Vertex@{add\+Vertex}}
+\index{add\+Vertex@{add\+Vertex}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{add\+Vertex(const Vertex\+\_\+t \&vertex)}{addVertex(const Vertex_t &vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::add\+Vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex\+\_\+t} \&}]{vertex}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_a16f381696867b3b32d8c929e8083d5a3}{}\label{classsparky_1_1_i_mesh_component_a16f381696867b3b32d8c929e8083d5a3}
+
+
+Adds a vertex to the Mesh object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & The vertex to add to the Mesh. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!calculate\+Face\+Normals@{calculate\+Face\+Normals}}
+\index{calculate\+Face\+Normals@{calculate\+Face\+Normals}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{calculate\+Face\+Normals(const G\+Luint start, const bool invert)}{calculateFaceNormals(const GLuint start, const bool invert)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::calculate\+Face\+Normals (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{start, }
+\item[{const bool}]{invert}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_ae1f65926ef4ed3c14507c47cdf57c8c8}{}\label{classsparky_1_1_i_mesh_component_ae1f65926ef4ed3c14507c47cdf57c8c8}
+
+
+Calculate the normals for a specific face of the Mesh. 
+
+This can be used to generate the normals of a particular face to create correct normals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The starting index of the face. \\
+\hline
+{\em invert} & Invert the normals of not. \\
+\hline
+\end{DoxyParams}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!calculate\+Normals@{calculate\+Normals}}
+\index{calculate\+Normals@{calculate\+Normals}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{calculate\+Normals(void)}{calculateNormals(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::calculate\+Normals (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_a7f2f75000f1535b31a0fd574ae2cd69d}{}\label{classsparky_1_1_i_mesh_component_a7f2f75000f1535b31a0fd574ae2cd69d}
+
+
+Calculate the normals for each Vertex of the Mesh. 
+
+If the object does not have, this method can be used to generate normals for each Vertex attached to the mesh. This method can be called manually or within the mesh generate method. \index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!generate@{generate}}
+\index{generate@{generate}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{generate(const bool gen\+Normals=false)}{generate(const bool genNormals=false)}}]{\setlength{\rightskip}{0pt plus 5cm}void sparky\+::\+I\+Mesh\+Component\+::generate (
+\begin{DoxyParamCaption}
+\item[{const bool}]{gen\+Normals = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classsparky_1_1_i_mesh_component_abad2c646e2303e5f69d1fc5efcb7f2c7}{}\label{classsparky_1_1_i_mesh_component_abad2c646e2303e5f69d1fc5efcb7f2c7}
+
+
+Generates the buffers of the Mesh. 
+
+Before the Mesh can be rendered onto the screen, the Open\+GL buffers must be generated and bound from the vertex and index information. This allows for communication between the Mesh and Open\+GL. \index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!get\+Index\+Count@{get\+Index\+Count}}
+\index{get\+Index\+Count@{get\+Index\+Count}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{get\+Index\+Count(void) const }{getIndexCount(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint sparky\+::\+I\+Mesh\+Component\+::get\+Index\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_i_mesh_component_a493b111e383f4c87068206b275e90442}{}\label{classsparky_1_1_i_mesh_component_a493b111e383f4c87068206b275e90442}
+
+
+Retrieves the amount of indices attached to this Mesh. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em G\+Luint} & The amount of vertices. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!get\+Vertex\+Count@{get\+Vertex\+Count}}
+\index{get\+Vertex\+Count@{get\+Vertex\+Count}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{get\+Vertex\+Count(void) const }{getVertexCount(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint sparky\+::\+I\+Mesh\+Component\+::get\+Vertex\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_i_mesh_component_af3ef1c56955fd299211632c56bf56fb5}{}\label{classsparky_1_1_i_mesh_component_af3ef1c56955fd299211632c56bf56fb5}
+
+
+Retrieves the amount of vertices attached to this Mesh. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em G\+Luint} & The amount of vertices. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!is\+Generated@{is\+Generated}}
+\index{is\+Generated@{is\+Generated}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{is\+Generated(void) const }{isGenerated(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sparky\+::\+I\+Mesh\+Component\+::is\+Generated (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsparky_1_1_i_mesh_component_a84075b30418ccf0db945ae6e3d13f7f9}{}\label{classsparky_1_1_i_mesh_component_a84075b30418ccf0db945ae6e3d13f7f9}
+
+
+Retrieves the generated state of the Mesh. 
+
+If the objects generate method has not yet been called, the generated state of the Mesh will be set to false.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & True if the object has been generated. \\
+\hline
+\end{DoxyRetVals}
+\index{sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}!render@{render}}
+\index{render@{render}!sparky\+::\+I\+Mesh\+Component@{sparky\+::\+I\+Mesh\+Component}}
+\subsubsection[{\texorpdfstring{render(void)=0}{render(void)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void sparky\+::\+I\+Mesh\+Component\+::render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classsparky_1_1_i_mesh_component_abd7ed95f1885252305a16f2c97b8ed48}{}\label{classsparky_1_1_i_mesh_component_abd7ed95f1885252305a16f2c97b8ed48}
+
+
+Abstract rendering method for rendering the Mesh. 
+
+Abstract method that will be overriden by child classes for rendering the Mesh. Each Mesh class will have different rendering methodologies. 
+
+Implemented in \hyperlink{classsparky_1_1_model_a0c0610085b029e33351d3d61a76bc92b}{sparky\+::\+Model}, and \hyperlink{classsparky_1_1_mesh_data_a38c127564baa1fb1f3e690d5afe3246c}{sparky\+::\+Mesh\+Data}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ben/\+Documents/repos/sparky/include/sparky/rendering/imesh.\+hpp\end{DoxyCompactItemize}
