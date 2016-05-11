@@ -43,6 +43,17 @@ namespace sparky
 {
 	/*
 	====================
+	Enumerations
+	====================
+	*/
+	enum class eMeshingType
+	{
+		CULLED,
+		GREEDY
+	};
+
+	/*
+	====================
 	Sparky Forward Declarations
 	====================
 	*/
@@ -181,8 +192,10 @@ namespace sparky
 		/// Chunk has not been constructed. Therefore this method will utilised
 		/// multi-threading to build all of the different chunks.
 		///
+		/// \param type		The type of meshing algorithm to use.
+		///
 		////////////////////////////////////////////////////////////
-		void build(void);
+		void build(eMeshingType type);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Renders all of the Chunks within the World.

@@ -36,8 +36,8 @@ Game::Game(void)
 
 	dl.base.name = String("u_light");
 	dl.base.position = Vector3f::one();
-	dl.base.colour = Vector3f(0.5f, 0.0f, 0.0f);
-	dl.base.intensity = 10.0f;
+	dl.base.colour = Vector3f(1.0f, 1.0f, 1.0f);
+	dl.base.intensity = 0.8f;
 
 	dl.direction = Vector3f(1.0f, 0.0f, 0.0f);
 
@@ -46,23 +46,6 @@ Game::Game(void)
 
 	dl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
 	dl.direction = Vector3f(-1.0f, 0.0f, 0.0f);
-
-	SPARKY_POINT_LIGHT_DESC pl;
-	memset(&pl, 0, sizeof(SPARKY_POINT_LIGHT_DESC));
-
-	pl.base.name = String("u_light");
-	pl.base.position = Vector3f(1.0f, 1.0f, 0.0f);
-	pl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
-	pl.base.intensity = 20.0f;
-
-	pl.attenuation.constant = 1.0f;
-	pl.attenuation.linear = 0.7f;
-	pl.attenuation.exponent = 1.8f;
-
-	pl.range = 25.0f;
-
-	m_pPoint = new PointLight(pl);
-	m_pPoint->addRef();
 
 	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
 
@@ -73,16 +56,53 @@ Game::Game(void)
 	builder.SetSourceModule(module);
 	builder.SetDestNoiseMap(heightMap);
 
-	builder.SetDestSize(256, 256);
+	builder.SetDestSize(1024, 1024);
 	builder.SetBounds(2.0, 6.0, 1.0, 5.0);
 
 	builder.Build();
 
-	m_pWorld->build();
+	for (int x = 0; x < 16; x++)
+	{
+		for (int y = 0; y < 16; y++)
+		{
+			for (int z = 0; z < 16; z++)
+			{
+				m_pWorld->addChunk(Vector3i(x * 16, y * 16, z * 16));
+			}
+		}
+	}
+
+	//for (int x = 0; x < 256; x++)
+	//{
+	//	for (int y = 0; y < 256; y++)
+	//	{
+	//		for (int z = 0; z < 256; z++)
+	//		{
+	//			m_pWorld->getVoxel(x, y, z)->setActive(false);
+	//		}
+	//	}
+	//}
+
+	for (int x = 0; x < 256; x++)
+	{
+		for (int z = 0; z < 256; z++)
+		{
+			float height = (heightMap.GetValue(x, z) * (200.0f) * 1.0f) * 1.0f;
+			int h = static_cast<int>(height);
+
+			for (int y = 0; y < h; y++)
+			{
+				m_pWorld->getVoxel(x, y, z)->setActive(true);
+			}
+		}
+	}
+
+	m_pWorld->build(eMeshingType::GREEDY);
 }
 
 Game::~Game(void)
 {
+	Ref::release(m_pLight);
 	Ref::release(m_pTexture);
 	Ref::release(m_pWorld);
 }
@@ -90,42 +110,48 @@ Game::~Game(void)
 void Game::update(void)
 {
 	m_pLight->addLight();
-	m_pPoint->addLight();
+
 
 	if (m_pInput->getKey(SDLK_w))
 	{
-		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 15.0f * Time::getDeltaTime());
-	}
-	if (m_pInput->getKey(SDLK_s))
-	{
-		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().forward() * 15.0f * Time::getDeltaTime());
-	}
-	if (m_pInput->getKey(SDLK_d))
-	{
-		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().right() * 15.0f * Time::getDeltaTime());
-	}
-	if (m_pInput->getKey(SDLK_a))
-	{
-		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().right() * 15.0f * Time::getDeltaTime());
-	}
-	if (m_pInput->getKey(SDLK_i))
-	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), -300.0f * Time::getDeltaTime()));
-	}
-	if (m_pInput->getKey(SDLK_k))
-	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), 300.0f * Time::getDeltaTime()));
-	}
-	if (m_pInput->getKey(SDLK_l))
-	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 300.0f * Time::getDeltaTime()));
-	}
-	if (m_pInput->getKey(SDLK_j))
-	{
-		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), -300.0f * Time::getDeltaTime()));
+		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 50.0f * Time::getDeltaTime());
 	}
 
-	//m_pWorld->getChunk(0, 0, 0)->getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 20.0f * 0.0016f));
+	if (m_pInput->getKey(SDLK_s))
+	{
+		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().forward() * 50.0f  * Time::getDeltaTime());
+	}
+
+	if (m_pInput->getKey(SDLK_d))
+	{
+		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().right() * 50.0f  * Time::getDeltaTime());
+	}
+
+	if (m_pInput->getKey(SDLK_a))
+	{
+		Camera::getMain().getTransform().translate(-Camera::getMain().getTransform().right() * 50.0f  * Time::getDeltaTime());
+	}
+
+
+	if (m_pInput->getKey(SDLK_i))
+	{
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), -50.0f * Time::getDeltaTime()));
+	}
+
+	if (m_pInput->getKey(SDLK_k))
+	{
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::right(), 50.0f * Time::getDeltaTime()));
+	}
+
+	if (m_pInput->getKey(SDLK_j))
+	{
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(-Vector3f::up(), 50.0f * Time::getDeltaTime()));
+	}
+
+	if (m_pInput->getKey(SDLK_l))
+	{
+		Camera::getMain().getTransform().rotate(Quaternionf::angleAxis(Vector3f::up(), 50.0f * Time::getDeltaTime()));
+	}
 }
 
 void Game::render(void)

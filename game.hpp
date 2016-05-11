@@ -21,7 +21,6 @@ private:
 	sparky::Texture*          m_pTexture;
 	sparky::Input*		      m_pInput;
 	sparky::DirectionalLight* m_pLight;
-	sparky::PointLight*		  m_pPoint;
 
 	sparky::DeferredShader*   m_pShader;
 

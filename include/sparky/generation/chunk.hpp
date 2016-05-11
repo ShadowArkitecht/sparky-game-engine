@@ -52,6 +52,17 @@ namespace sparky
 	class IShaderComponent;
 	class World;
 
+	enum eFaceDirection
+	{
+		FACE_WEST,
+		FACE_EAST,
+		FACE_SOUTH,
+		FACE_NORTH,
+		FACE_FORWARD,
+		FACE_BACKWARD,
+		MAX_FACES
+	};
+
 	class Chunk : public Ref
 	{
 	private:
@@ -65,7 +76,37 @@ namespace sparky
 		std::array<Voxel, 4096> m_voxels;		///< The individual voxels of the Chunk.
 		MeshData*				m_pMesh;	    ///< The mesh that renders the voxels.
 		World*					m_pWorld;		///< World object that this chunk is attached to.
+		bool					m_isActive;		///< If the Chunk has any voxels its needs to render.
+
+		std::array<bool, 6>		m_checks;		///< The adjacent checks of the voxel.
 		bool					m_shouldLoad;	///< Whether the current Chunk object needs to generate.
+
+	private:
+		/*
+		====================
+		Private Methods
+		====================
+		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Checks the adjacent neighbours of the Voxel.
+		///
+		/// The neighbours of the current Voxel are checked for their current
+		/// activity, if the chunks are active on all sides, there is no reason
+		/// for this voxel to render.
+		///
+		/// \param pos	The position of the Voxel to check.
+		///
+		////////////////////////////////////////////////////////////
+		void checkNeighbours(const Vector3i& pos);
+
+		////////////////////////////////////////////////////////////
+		/// \brief Adds geometry at the desired position whilst checking the
+		///        activity of neighbours.
+		///
+		/// \param pos	The position to add the geometry to.
+		///
+		////////////////////////////////////////////////////////////
+		void addToMesh(const Vector3i& pos);
 
 	public:
 		/*
@@ -159,6 +200,15 @@ namespace sparky
 		Methods
 		====================
 		*/
+		////////////////////////////////////////////////////////////
+		/// \brief Performs culling on the current Chunk object.
+		///
+		/// When the current Chunk is culled, it only created vertices and
+		/// geometry for the voxels that can be directly seen.
+		///
+		////////////////////////////////////////////////////////////
+		void culled(void);
+
 		////////////////////////////////////////////////////////////
 		/// \brief Reduces the amount of vertices that a Chunk contains.
 		///

@@ -132,11 +132,20 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void World::build(void)
+	void World::build(eMeshingType type)
 	{
 		for (auto& chunk : m_chunks)
 		{
-			ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, chunk.second));
+			switch (type)
+			{
+			case eMeshingType::CULLED:
+				ThreadManager::getInstance().addTask(std::bind(&Chunk::culled, chunk.second));
+				break;
+
+			case eMeshingType::GREEDY:
+				ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, chunk.second));
+				break;
+			}
 		}
 	}
 

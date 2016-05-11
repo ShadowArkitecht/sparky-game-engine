@@ -1,11 +1,16 @@
-﻿Build started 10/05/2016 20:12:12.
-     1>Project "C:\Users\0cartb21\Desktop\sparky\sparky.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/05/2016 13:07:51.
+     1>Project "E:\sparky-master\sparky-master\sparky.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\dependencies\include /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp src\generation\chunk.cpp
+         chunk.cpp
          game.cpp
-     1>c:\users\0cartb21\desktop\sparky\include\sparky\ext\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\sparky-master\sparky-master\include\sparky\ext\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+         Generating Code...
+         Compiling...
+         main.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\0cartb21\Desktop\sparky\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib libnoise\libnoise.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\0cartb21\Desktop\sparky\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\0cartb21\Desktop\sparky\Debug\sparky.lib" /MACHINE:X86 /SAFESEH:NO Debug\game.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\sparky-master\sparky-master\Debug\sparky.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\dependencies\lib opengl32.lib GLEW\glew32.lib SDL\SDL2.lib SDL\SDL2main.lib SDL\SDL2test.lib SDL_image\SDL2_image.lib assimp\assimpd.lib libnoise\libnoise.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\sparky-master\sparky-master\Debug\sparky.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\sparky-master\sparky-master\Debug\sparky.lib" /MACHINE:X86 /SAFESEH:NO Debug\game.obj
          Debug\main.obj
          Debug\camera.obj
          Debug\gamemanager.obj
@@ -49,9 +54,9 @@
          Debug\string.obj
          Debug\threadmanager.obj
          Debug\threadpool.obj
-         sparky.vcxproj -> C:\Users\0cartb21\Desktop\sparky\Debug\sparky.exe
-     1>Done Building Project "C:\Users\0cartb21\Desktop\sparky\sparky.vcxproj" (Build target(s)).
+         sparky.vcxproj -> E:\sparky-master\sparky-master\Debug\sparky.exe
+     1>Done Building Project "E:\sparky-master\sparky-master\sparky.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.49
+Time Elapsed 00:00:03.41
