@@ -104,14 +104,13 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void ThreadPool::join(void)
 	{
+		m_stopped = true;
 		m_condition.notify_all();
 
 		for (auto& worker : m_workers)
 		{
 			worker.join();
 		}
-
-		m_stopped = true;
 	}
 
 }//namespace sparky

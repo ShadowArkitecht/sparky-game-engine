@@ -53,7 +53,8 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Input::getKey(const SDL_Keycode& key) const
 	{
-		if (key < m_currentKeys.size())
+		Uint32 k = key;
+		if (k < m_currentKeys.size())
 		{
 			return m_currentKeys.at(key);
 		}
@@ -64,7 +65,8 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Input::getKeyDown(const SDL_Keycode& key) const
 	{
-		if (key < m_downKeys.size())
+		Uint32 k = key;
+		if (k < m_downKeys.size())
 		{
 			return m_downKeys.at(key);
 		}
@@ -75,10 +77,13 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	bool Input::getKeyUp(const SDL_Keycode& key) const
 	{
-		if (key < m_upKeys.size())
+		Uint32 k = key;
+		if (k < m_upKeys.size())
 		{
 			return m_upKeys.at(key);
 		}
+
+		return 0;
 	}
 
 	/*
@@ -93,11 +98,12 @@ namespace sparky
 		m_upKeys.fill(false);
 
 		SDL_Keycode key = e.key.keysym.sym;
+		Uint32 k = key;
 
 		switch (e.type)
 		{
 		case SDL_KEYDOWN:
-			if (key < m_currentKeys.size())
+			if (k < m_currentKeys.size())
 			{
 				m_currentKeys.at(key) = true;
 				m_downKeys.at(key) = true;
@@ -106,7 +112,7 @@ namespace sparky
 			break;
 
 		case SDL_KEYUP:
-			if (key < m_currentKeys.size())
+			if (k < m_currentKeys.size())
 			{
 				m_upKeys.at(key) = true;
 				m_currentKeys.at(key) = false;

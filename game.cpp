@@ -16,7 +16,7 @@
 using namespace sparky;
 
 Game::Game(void)
-	: m_pWorld(nullptr), m_pTexture(nullptr), m_pInput(nullptr), m_pLight(nullptr)
+	: m_pWorld(nullptr), m_pWorldTexture(nullptr), m_pInput(nullptr), m_pLight(nullptr)
 {
 	m_pWorld = new World();
 	m_pWorld->addRef();
@@ -24,18 +24,18 @@ Game::Game(void)
 	SPARKY_TEXTURE_DESC desc;
 	memset(&desc, 0, sizeof(SPARKY_TEXTURE_DESC));
 
-	desc.target			= GL_TEXTURE_2D;
-	desc.internalFormat = GL_RGB;
-	desc.filter			= eTextureFilter::NEAREST;
-	desc.mode			= eTextureWrapMode::REPEAT;
+	desc.target = GL_TEXTURE_2D;
+	desc.internalFormat = GL_RGBA;
+	desc.filter = eTextureFilter::NEAREST;
+	desc.mode = eTextureWrapMode::REPEAT;
 
-	m_pTexture = new Texture("assets/tilesheet.png", desc);
-	m_pTexture->addRef();
+	m_pWorldTexture = new Texture("assets/grass.png", desc);
+	m_pWorldTexture->addRef();
 
-	m_pObject = new GameObject();
+	m_pObject = new GameObject(Vector3f(-1.0f, 0.0f, 0.0f));
 	m_pObject->addRef();
 
-	m_pObject->addComponent(new MeshRenderer(new Model("assets/chr_knight.obj"), new Texture("assets/chr_knight.png", desc)));
+	m_pObject->addComponent(new MeshRenderer(new Model("assets/model.obj"), new Texture("assets/tex_model.png", desc)));
 
 	m_pInput = new Input();
 
@@ -52,8 +52,30 @@ Game::Game(void)
 	m_pLight = new DirectionalLight(dl);
 	m_pLight->addRef();
 
-	dl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
-	dl.direction = Vector3f(-1.0f, 0.0f, 0.0f);
+
+	SPARKY_POINT_LIGHT_DESC pl;
+	memset(&pl, 0, sizeof(SPARKY_POINT_LIGHT_DESC));
+
+	pl.base.name = String("u_light");
+	pl.base.position = Vector3f(7.5f, 3.0f, 0.0f);
+	pl.base.colour = Vector3f(0.0f, 0.0f, 1.0f);
+	pl.base.intensity = 50.0f;
+
+	pl.attenuation.constant = 1.0f;
+	pl.attenuation.linear = 0.7f;
+	pl.attenuation.exponent = 1.8f;
+
+	pl.range = 50.0f;
+
+	m_pBluePoint = new PointLight(pl);
+	m_pBluePoint->addRef();
+
+
+	pl.base.position = Vector3f(7.5f, 6.0f, 0.0f);
+	pl.base.colour   = Vector3f(1.0f, 0.0f, 0.0f);
+
+	m_pRedPoint = new PointLight(pl);
+	m_pRedPoint->addRef();
 
 	m_pShader = ResourceManager::getInstance().getShader<DeferredShader>("deferred");
 
@@ -79,18 +101,6 @@ Game::Game(void)
 			}
 		}
 	}
-
-	//for (int x = 0; x < 256; x++)
-	//{
-	//	for (int y = 0; y < 256; y++)
-	//	{
-	//		for (int z = 0; z < 256; z++)
-	//		{
-	//			m_pWorld->getVoxel(x, y, z)->setActive(false);
-	//		}
-	//	}
-	//}
-
 	for (int x = 0; x < 256; x++)
 	{
 		for (int z = 0; z < 256; z++)
@@ -110,15 +120,19 @@ Game::Game(void)
 
 Game::~Game(void)
 {
+	Ref::release(m_pBluePoint);
+	Ref::release(m_pRedPoint);
+
 	Ref::release(m_pLight);
-	Ref::release(m_pTexture);
+	Ref::release(m_pWorldTexture);
 	Ref::release(m_pWorld);
 }
 
 void Game::update(void)
 {
 	m_pLight->addLight();
-
+	m_pBluePoint->addLight();
+	m_pRedPoint->addLight();
 
 	if (m_pInput->getKey(SDLK_w))
 	{
@@ -170,11 +184,11 @@ void Game::update(void)
 void Game::render(void)
 {
 	m_pShader->bind();
-	m_pTexture->bind();
+	m_pWorldTexture->bind();
 
 	m_pWorld->render(m_pShader);
 
-	m_pTexture->unbind();
+	m_pWorldTexture->unbind();
 
 	m_pObject->render(m_pShader);
 
