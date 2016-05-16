@@ -36,7 +36,7 @@ CPP Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>	// Generating and binding a frame buffer.
+#include <GL\glew.h>	// Generating and binding a frame buffer.
 
 namespace sparky
 {

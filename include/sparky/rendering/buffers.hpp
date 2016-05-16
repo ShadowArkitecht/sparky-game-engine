@@ -42,7 +42,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>					// OpenGL functionality.
+#include <GL\glew.h>					// OpenGL functionality.
 
 namespace sparky
 {

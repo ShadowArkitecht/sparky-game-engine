@@ -43,7 +43,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>				// Shader loading and compilation.
+#include <GL\glew.h>				// Shader loading and compilation.
 
 namespace sparky
 {

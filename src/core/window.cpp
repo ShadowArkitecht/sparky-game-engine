@@ -41,7 +41,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>				// Access to the OpenGL GLEW library.
+#include <GL\glew.h>				// Access to the OpenGL GLEW library.
 
 namespace sparky
 {

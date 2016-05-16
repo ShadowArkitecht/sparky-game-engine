@@ -34,7 +34,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>							// Setting uniform values.
+#include <GL\glew.h>							// Setting uniform values.
 
 namespace sparky
 {

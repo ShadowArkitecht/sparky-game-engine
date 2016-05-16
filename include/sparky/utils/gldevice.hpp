@@ -30,7 +30,7 @@
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>	// GLDevice needs access to OpenGL functionality.
+#include <GL\glew.h>	// GLDevice needs access to OpenGL functionality.
 
 namespace sparky
 {

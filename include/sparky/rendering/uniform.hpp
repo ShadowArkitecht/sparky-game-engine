@@ -44,7 +44,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>				// Binding uniform variables to shaders.
+#include <GL\glew.h>				// Binding uniform variables to shaders.
 
 namespace sparky
 {

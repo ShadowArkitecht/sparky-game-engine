@@ -37,7 +37,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>				// Binding and generating textures.
+#include <GL\glew.h>				// Binding and generating textures.
 
 namespace sparky
 {

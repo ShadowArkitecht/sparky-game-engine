@@ -42,7 +42,7 @@ Class Includes
 Additional Includes
 ====================
 */
-#include <GLEW\glew.h>						// For the linking of shaders to the Program ID.
+#include <GL\glew.h>						// For the linking of shaders to the Program ID.
 
 namespace sparky
 {
