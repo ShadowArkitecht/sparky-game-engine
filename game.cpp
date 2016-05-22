@@ -130,6 +130,8 @@ Game::~Game(void)
 
 void Game::update(void)
 {
+	m_pWorld->update();
+
 	m_pLight->addLight();
 	m_pBluePoint->addLight();
 	m_pRedPoint->addLight();

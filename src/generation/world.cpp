@@ -41,7 +41,7 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	World::World(void)
-		: m_chunks()
+		: IObject(), m_chunks()
 	{
 	}
 
@@ -146,6 +146,15 @@ namespace sparky
 				ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, chunk.second));
 				break;
 			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	void World::update(void)
+	{
+		for (const auto& chunk : m_chunks)
+		{
+			chunk.second->update();
 		}
 	}
 

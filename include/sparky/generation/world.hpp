@@ -36,7 +36,7 @@ CPP Includes
 Class Includes
 ====================
 */
-#include <sparky\core\ref.hpp>		// World is a dynamically allocated object.
+#include <sparky\core\iobject.hpp>	// World is a type of object within the Scene.
 #include <sparky\math\vector3.hpp>	// The position of the chunk in world position.
 
 namespace sparky
@@ -85,7 +85,7 @@ namespace sparky
 		}
 	};
 
-	class World final : public Ref
+	class World final : public IObject
 	{
 	private:
 		/*
@@ -198,12 +198,17 @@ namespace sparky
 		void build(eMeshingType type);
 
 		////////////////////////////////////////////////////////////
+		/// \brief Updates the Chunks within the World.
+		////////////////////////////////////////////////////////////
+		void update(void) override;
+
+		////////////////////////////////////////////////////////////
 		/// \brief Renders all of the Chunks within the World.
 		///
 		/// \param pShader	The shader to render the World with.
 		///
 		////////////////////////////////////////////////////////////
-		void render(IShaderComponent* pShader);
+		void render(IShaderComponent* pShader) override;
 	};
 
 }//namespace sparky

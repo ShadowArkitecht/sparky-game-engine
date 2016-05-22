@@ -52,12 +52,14 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Chunk::Chunk(void)
-		: Ref(), m_transform(), m_voxels(), m_pMesh(nullptr), m_pWorld(nullptr), m_isActive(false), m_checks(), m_shouldLoad(false)
+		: IObject(), m_voxels(), m_pMesh(nullptr), m_pWorld(nullptr), m_isActive(false), m_checks(), m_shouldLoad(false)
 	{
-		for (auto& voxel : m_voxels)
-		{
-			voxel.setActive(false);
-		}
+		Voxel voxel;
+
+		voxel.setType(eVoxelType::DIRT);
+		voxel.setActive(false);
+
+		m_voxels.fill(voxel);
 
 		m_pMesh = new MeshData();
 		m_pMesh->addRef();
@@ -83,12 +85,6 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	Transform& Chunk::getTransform(void)
-	{
-		return m_transform;
-	}
-
-	////////////////////////////////////////////////////////////
 	Voxel* Chunk::getVoxel(const Vector3i& pos)
 	{
 		return this->getVoxel(pos.x, pos.y, pos.z);
@@ -102,7 +98,7 @@ namespace sparky
 			return &m_voxels.at((x * SIZE * SIZE) + (y * SIZE) + z);
 		}
 
-		return m_pWorld->getVoxel(Vector3i(m_transform.getPosition()) + Vector3i(x, y, z));
+		return m_pWorld->getVoxel(Vector3i(this->getTransform().getPosition()) + Vector3i(x, y, z));
 	}
 
 	////////////////////////////////////////////////////////////
@@ -441,7 +437,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void Chunk::render(IShaderComponent* pShader)
+	void Chunk::update(void)
 	{
 		if (m_isActive)
 		{
@@ -450,10 +446,17 @@ namespace sparky
 				m_pMesh->generate(false);
 				m_shouldLoad = false;
 			}
+		}
+	}
 
-			if (Frustum::checkCube(m_transform.getPosition(), static_cast<float>(Chunk::SIZE)))
+	////////////////////////////////////////////////////////////
+	void Chunk::render(IShaderComponent* pShader)
+	{
+		if (m_isActive)
+		{
+			if (Frustum::checkCube(this->getTransform().getPosition(), static_cast<float>(Chunk::SIZE)))
 			{
-				pShader->update(m_transform);
+				pShader->update(this->getTransform());
 				m_pMesh->render();
 			}
 		}

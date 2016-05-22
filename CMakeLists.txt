@@ -49,7 +49,7 @@ message(STATUS "${SDL2_LIBRARY}")
 # Include the SDL2Main lib if need be.
 if (NOT SDL2_BUILDING_LIBRARY)
 
-	find_library(SDL2MAIN_LIBRARY NAMES SDL2main PATHS ${DEP_INCLUDE}/SDL2)
+	find_library(SDL2MAIN_LIBRARY NAMES SDL2main PATHS ${DEP_LIBS}/SDL2)
 
 	message(STATUS "${SDL2MAIN_LIBRARY}")
 
@@ -72,7 +72,7 @@ endif()
 # SDL_image
 ###################
 # Find the SDL2_image library.
-find_library(SDL_IMAGE_LIBRARY NAMES SDL2_image PATHS ${DEP_INCLUDE}/SDL_image)
+find_library(SDL_IMAGE_LIBRARY NAMES SDL2_image PATHS ${DEP_LIBS}/SDL_image)
 # Print the result of the SDL2_image library.
 message(STATUS "${SDL_IMAGE_LIBRARY}")
 
@@ -116,7 +116,7 @@ find_library(GLEW_LIBRARY NAMES ${GLEW_LIB_NAME} PATHS ${DEP_LIBS}/GLEW)
 # State the status of the GLEW searching.
 message(STATUS ${GLEW_LIBRARY})
 
-if (GLEW_LIBRARIES)
+if (GLEW_LIBRARY)
 
 	message(STATUS "GLEW is linking to project.")
 	# Link GLEW.
@@ -161,7 +161,16 @@ endif()
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /SAFESEH:NO")
 set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /SAFESEH:NO")
 
-set(HEADERS ${CMAKE_SOURCE_DIR}/game.hpp)
+file(GLOB HEADERS "include/sparky/core/*.hpp"       "include/sparky/core/*.inl"
+				  "include/sparky/ext/*.h"          "include/sparky/ext/*.inl"
+				  "include/sparky/generation/*.hpp" "include/sparky/generation/*.inl"
+				  "include/sparky/input/*.hpp"      "include/sparky/input/*.inl"
+				  "include/sparky/lighting/*.hpp"   "include/sparky/lighting/*.inl"
+				  "include/sparky/math/*.hpp"       "include/sparky/math/*.inl"
+				  "include/sparky/rendering/*.hpp"  "include/sparky/rendering/*.inl"
+				  "include/sparky/utils/*.hpp"      "include/sparky/utils/*.inl"
+				  ${CMAKE_SOURCE_DIR}/game.hpp)
+
 file(GLOB SRC "src/core/*.cpp"
 							"src/ext/*.cpp"
 							"src/generation/*.cpp"
@@ -173,8 +182,7 @@ file(GLOB SRC "src/core/*.cpp"
 							${CMAKE_SOURCE_DIR}/game.cpp
 							${CMAKE_SOURCE_DIR}/main.cpp)
 
-add_executable(app ${SRC})
-
+add_executable(app ${HEADERS} ${SRC})
 
 ###################
 # Post-Build

@@ -37,9 +37,8 @@ CPP Includes
 Class Includes
 ====================
 */
-#include <sparky\core\ref.hpp>			// Chunk is a dynamically allocated object.
+#include <sparky\core\iobject.hpp>		// Chunk is a type of object within the scene.
 #include <sparky\generation\Voxel.hpp>	// Voxels make up the Chunk itself.
-#include <sparky\math\transform.hpp>	// The position, scale and rotation of the Chunk object.
 
 namespace sparky
 {
@@ -49,7 +48,6 @@ namespace sparky
 	====================
 	*/
 	class MeshData;
-	class IShaderComponent;
 	class World;
 
 	enum eFaceDirection
@@ -63,7 +61,7 @@ namespace sparky
 		MAX_FACES
 	};
 
-	class Chunk : public Ref
+	class Chunk : public IObject
 	{
 	private:
 		/*
@@ -72,7 +70,6 @@ namespace sparky
 		====================
 		*/
 		static const int		SIZE;			///< The standard size of all Chunks.
-		Transform				m_transform;	///< The transform of the Chunk.
 		std::array<Voxel, 4096> m_voxels;		///< The individual voxels of the Chunk.
 		MeshData*				m_pMesh;	    ///< The mesh that renders the voxels.
 		World*					m_pWorld;		///< World object that this chunk is attached to.
@@ -144,14 +141,6 @@ namespace sparky
 		///
 		////////////////////////////////////////////////////////////
 		static int getSize(void);
-
-		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the Transform of the Chunk object.
-		///
-		/// \retval Transform	The Transform of the Chunk object.
-		///
-		////////////////////////////////////////////////////////////
-		Transform& getTransform(void);
 
 		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the Voxel at the position specified.
@@ -226,9 +215,14 @@ namespace sparky
 		void reset(void);
 
 		////////////////////////////////////////////////////////////
+		/// \brief Update the Chunk object. Such as generating the Chunk.
+		////////////////////////////////////////////////////////////
+		void update(void) override;
+
+		////////////////////////////////////////////////////////////
 		/// \brief Renders the Chunk object to the buffer.
 		////////////////////////////////////////////////////////////
-		void render(IShaderComponent* pShader);
+		void render(IShaderComponent* pShader) override;
 	};
 
 }//namespace sparky
