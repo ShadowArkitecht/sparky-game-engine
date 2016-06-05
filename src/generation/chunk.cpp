@@ -43,7 +43,7 @@ namespace sparky
 	====================
 	*/
 	////////////////////////////////////////////////////////////
-	const int Chunk::SIZE = 16;
+	const int Chunk::m_sSize = 16;
 
 	/*
 	====================
@@ -52,15 +52,19 @@ namespace sparky
 	*/
 	////////////////////////////////////////////////////////////
 	Chunk::Chunk(void)
-		: Ref(), m_transform(), m_voxels(), m_pMesh(nullptr), m_pWorld(nullptr), m_isActive(false), m_checks(), m_shouldLoad(false)
+		: IObject(), m_voxels(), m_pMesh(nullptr), m_pWorld(nullptr), m_isActive(false), m_neighbours(), m_checks(),
+			m_shouldLoad(false)
 	{
-		for (auto& voxel : m_voxels)
-		{
-			voxel.setActive(false);
-		}
+		Voxel vox;
+		vox.setType(eVoxelType::DIRT);
+		vox.setActive(false);
+
+		m_voxels.fill(vox);
 
 		m_pMesh = new MeshData();
 		m_pMesh->addRef();
+
+		m_neighbours.fill(nullptr);
 
 		m_checks.fill(false);
 	}
@@ -79,13 +83,7 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	int Chunk::getSize(void)
 	{
-		return SIZE;
-	}
-
-	////////////////////////////////////////////////////////////
-	Transform& Chunk::getTransform(void)
-	{
-		return m_transform;
+		return m_sSize;
 	}
 
 	////////////////////////////////////////////////////////////
@@ -97,12 +95,12 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	Voxel* Chunk::getVoxel(const int x, const int y, const int z)
 	{
-		if (x < SIZE && y < SIZE && z < SIZE)
+		if (x < m_sSize && y < m_sSize && z < m_sSize)
 		{
-			return &m_voxels.at((x * SIZE * SIZE) + (y * SIZE) + z);
+			return &m_voxels.at((x * m_sSize * m_sSize) + (y * m_sSize) + z);
 		}
 
-		return m_pWorld->getVoxel(Vector3i(m_transform.getPosition()) + Vector3i(x, y, z));
+		return m_pWorld->getVoxel(Vector3i(getTransform().getPosition()) + Vector3i(x, y, z));
 	}
 
 	////////////////////////////////////////////////////////////
@@ -110,10 +108,23 @@ namespace sparky
 	{
 		return m_pMesh;
 	}
+
 	////////////////////////////////////////////////////////////
 	void Chunk::setWorld(World* pWorld)
 	{
 		m_pWorld = pWorld;
+	}
+	
+	////////////////////////////////////////////////////////////
+	Chunk* Chunk::getNeighbour(eFaceDirection direction) const
+	{
+		return m_neighbours.at(direction);
+	}
+
+	////////////////////////////////////////////////////////////
+	void Chunk::setNeighbour(eFaceDirection direction, Chunk* pChunk)
+	{
+		m_neighbours.at(direction) = pChunk;
 	}
 
 	/*
@@ -133,7 +144,7 @@ namespace sparky
 			m_checks[FACE_WEST] = true;
 		}
 
-		if (pos.x < SIZE - 1)
+		if (pos.x < m_sSize - 1)
 		{
 			m_checks[FACE_EAST] = getVoxel(pos.x + 1, pos.y, pos.z)->isActive() ? false : true;
 		}
@@ -151,7 +162,7 @@ namespace sparky
 			m_checks[FACE_SOUTH] = true;
 		}
 
-		if (pos.y < SIZE - 1)
+		if (pos.y < m_sSize - 1)
 		{
 			m_checks[FACE_NORTH] = getVoxel(pos.x, pos.y + 1, pos.z)->isActive() ? false : true;
 		}
@@ -169,7 +180,7 @@ namespace sparky
 			m_checks[FACE_FORWARD] = true;
 		}
 
-		if (pos.z < SIZE - 1)
+		if (pos.z < m_sSize - 1)
 		{
 			m_checks[FACE_BACKWARD] = getVoxel(pos.x, pos.y, pos.z + 1)->isActive() ? false : true;
 		}
@@ -264,11 +275,11 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void Chunk::culled(void)
 	{
-		for (int z = 0; z < SIZE; z++)
+		for (int z = 0; z < m_sSize; z++)
 		{
-			for (int y = 0; y < SIZE; y++)
+			for (int y = 0; y < m_sSize; y++)
 			{
-				for (int x = 0; x < SIZE; x++)
+				for (int x = 0; x < m_sSize; x++)
 				{
 					Vector3i pos(x, y, z);
 
@@ -290,7 +301,9 @@ namespace sparky
 	////////////////////////////////////////////////////////////
 	void Chunk::greedy(void)
 	{
-		const std::array<int, 3> dimensions = { SIZE, SIZE, SIZE };
+		std::array<int, 3> dimensions;
+		dimensions.fill(m_sSize);
+
 		int index = 0;
 
 		for (int axis = 0; axis < 3; ++axis)
@@ -441,7 +454,7 @@ namespace sparky
 	}
 
 	////////////////////////////////////////////////////////////
-	void Chunk::render(IShaderComponent* pShader)
+	void Chunk::update(void)
 	{
 		if (m_isActive)
 		{
@@ -450,10 +463,17 @@ namespace sparky
 				m_pMesh->generate(false);
 				m_shouldLoad = false;
 			}
+		}
+	}
 
-			if (Frustum::checkCube(m_transform.getPosition(), static_cast<float>(Chunk::SIZE)))
+	////////////////////////////////////////////////////////////
+	void Chunk::render(IShaderComponent* pShader)
+	{
+		if (m_isActive)
+		{
+			if (Frustum::checkCube(getTransform().getPosition(), static_cast<float>(m_sSize)))
 			{
-				pShader->update(m_transform);
+				pShader->update(getTransform());
 				m_pMesh->render();
 			}
 		}

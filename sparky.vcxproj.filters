@@ -210,6 +210,9 @@
     <ClCompile Include="src\rendering\meshrenderer.cpp">
       <Filter>rendering\source</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\iobject.cpp">
+      <Filter>core\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\sparky\core\window.hpp">
@@ -382,6 +385,9 @@
     </ClInclude>
     <ClInclude Include="include\sparky\rendering\meshrenderer.hpp">
       <Filter>rendering\header</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sparky\core\iobject.hpp">
+      <Filter>core\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

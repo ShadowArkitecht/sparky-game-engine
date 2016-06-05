@@ -121,8 +121,7 @@ namespace sparky
 		{
 			Chunk* pChunk = new Chunk();
 			pChunk->getTransform().setPosition(Vector3f(pos));
-
-			//ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, pChunk));
+			
 			pChunk->setWorld(this);
 
 			pChunk->addRef();
@@ -146,6 +145,15 @@ namespace sparky
 				ThreadManager::getInstance().addTask(std::bind(&Chunk::greedy, chunk.second));
 				break;
 			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////
+	void World::update(void)
+	{
+		for (const auto& chunk : m_chunks)
+		{
+			chunk.second->update();
 		}
 	}
 

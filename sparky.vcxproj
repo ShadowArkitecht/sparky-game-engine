@@ -89,6 +89,7 @@
     <ClCompile Include="src\core\camera.cpp" />
     <ClCompile Include="src\core\gamemanager.cpp" />
     <ClCompile Include="src\core\gameobject.cpp" />
+    <ClCompile Include="src\core\iobject.cpp" />
     <ClCompile Include="src\core\ref.cpp" />
     <ClCompile Include="src\core\pool.cpp" />
     <ClCompile Include="src\core\resourcemanager.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="include\sparky\core\camera.hpp" />
     <ClInclude Include="include\sparky\core\gamemanager.hpp" />
     <ClInclude Include="include\sparky\core\gameobject.hpp" />
+    <ClInclude Include="include\sparky\core\iobject.hpp" />
     <ClInclude Include="include\sparky\core\ref.hpp" />
     <ClInclude Include="include\sparky\core\pool.hpp" />
     <ClInclude Include="include\sparky\core\resourceholder.hpp" />

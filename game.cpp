@@ -134,6 +134,8 @@ void Game::update(void)
 	m_pBluePoint->addLight();
 	m_pRedPoint->addLight();
 
+	m_pWorld->update();
+
 	if (m_pInput->getKey(SDLK_w))
 	{
 		Camera::getMain().getTransform().translate(Camera::getMain().getTransform().forward() * 50.0f * Time::getDeltaTime());

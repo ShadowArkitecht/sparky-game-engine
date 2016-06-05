@@ -37,7 +37,7 @@ CPP Includes
 Class Includes
 ====================
 */
-#include <sparky\core\ref.hpp>			// Chunk is a dynamically allocated object.
+#include <sparky\core\iobject.hpp>		// Chunk is a type of Object within the engine.
 #include <sparky\generation\Voxel.hpp>	// Voxels make up the Chunk itself.
 #include <sparky\math\transform.hpp>	// The position, scale and rotation of the Chunk object.
 
@@ -49,7 +49,6 @@ namespace sparky
 	====================
 	*/
 	class MeshData;
-	class IShaderComponent;
 	class World;
 
 	enum eFaceDirection
@@ -63,7 +62,7 @@ namespace sparky
 		MAX_FACES
 	};
 
-	class Chunk : public Ref
+	class Chunk : public IObject
 	{
 	private:
 		/*
@@ -71,12 +70,12 @@ namespace sparky
 		Member Variables
 		====================
 		*/
-		static const int		SIZE;			///< The standard size of all Chunks.
-		Transform				m_transform;	///< The transform of the Chunk.
+		static const int		m_sSize;		///< The standard size of all Chunks.
 		std::array<Voxel, 4096> m_voxels;		///< The individual voxels of the Chunk.
 		MeshData*				m_pMesh;	    ///< The mesh that renders the voxels.
 		World*					m_pWorld;		///< World object that this chunk is attached to.
 		bool					m_isActive;		///< If the Chunk has any voxels its needs to render.
+		std::array<Chunk*, 6>   m_neighbours;	///< The neighbouring chunks of the Chunk.
 
 		std::array<bool, 6>		m_checks;		///< The adjacent checks of the voxel.
 		bool					m_shouldLoad;	///< Whether the current Chunk object needs to generate.
@@ -146,14 +145,6 @@ namespace sparky
 		static int getSize(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Retrieves the Transform of the Chunk object.
-		///
-		/// \retval Transform	The Transform of the Chunk object.
-		///
-		////////////////////////////////////////////////////////////
-		Transform& getTransform(void);
-
-		////////////////////////////////////////////////////////////
 		/// \brief Retrieves a reference to the Voxel at the position specified.
 		/// 
 		/// \param pos		The position of the Voxel.
@@ -195,6 +186,10 @@ namespace sparky
 		////////////////////////////////////////////////////////////
 		void setWorld(World* pWorld);
 
+		Chunk* getNeighbour(eFaceDirection direction) const;
+
+		void setNeighbour(eFaceDirection direction, Chunk* pChunk);
+
 		/*
 		====================
 		Methods
@@ -226,9 +221,24 @@ namespace sparky
 		void reset(void);
 
 		////////////////////////////////////////////////////////////
-		/// \brief Renders the Chunk object to the buffer.
+		/// \brief Updates the current Chunk object.
+		///
+		/// When the chunk is updated, it will check if it needs to
+		/// become active or needs to be generated.
+		///
 		////////////////////////////////////////////////////////////
-		void render(IShaderComponent* pShader);
+		void update(void) override;
+
+		////////////////////////////////////////////////////////////
+		/// \brief Renders the current Chunk object.
+		///
+		/// The Chunk will only render if it is currently active within
+		/// the application and within the camera's frustum.
+		///
+		/// \param pShader	The shader to render the Chunk with.
+		///
+		////////////////////////////////////////////////////////////
+		void render(IShaderComponent* pShader) override;
 	};
 
 }//namespace sparky

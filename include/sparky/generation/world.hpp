@@ -198,6 +198,11 @@ namespace sparky
 		void build(eMeshingType type);
 
 		////////////////////////////////////////////////////////////
+		/// \brief Updates all of the Chunks within the World.
+		////////////////////////////////////////////////////////////
+		void update(void);
+
+		////////////////////////////////////////////////////////////
 		/// \brief Renders all of the Chunks within the World.
 		///
 		/// \param pShader	The shader to render the World with.
